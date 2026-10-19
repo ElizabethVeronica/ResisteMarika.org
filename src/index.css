@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-surface-950 text-surface-50 font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+  /* Scrollbar personalizada */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-surface-900;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-700 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-500;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Gradiente de texto — identidad Resiste Marika */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-400 via-accent-400 to-primary-300 bg-clip-text text-transparent;
+  }
+
+  .bg-gradient-brand {
+    @apply bg-gradient-to-br from-primary-700 via-primary-800 to-surface-900;
+  }
+}
