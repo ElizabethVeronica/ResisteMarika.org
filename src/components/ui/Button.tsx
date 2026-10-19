@@ -2,7 +2,7 @@ import { cn } from '@/utils/cn'
 import { type ReactNode, type ButtonHTMLAttributes } from 'react'
 import { Link } from 'react-router-dom'
 
-type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost'
+type ButtonVariant = 'primary' | 'secondary' | 'accent' | 'outline' | 'ghost'
 type ButtonSize    = 'sm' | 'md' | 'lg'
 
 interface ButtonBaseProps {
@@ -13,14 +13,12 @@ interface ButtonBaseProps {
   iconPosition?: 'left' | 'right'
 }
 
-// Cuando se usa como <button>
 type ButtonAsButton = ButtonBaseProps &
   ButtonHTMLAttributes<HTMLButtonElement> & {
     href?: never
     children?: ReactNode
   }
 
-// Cuando se usa como <Link>
 type ButtonAsLink = ButtonBaseProps & {
   href: string
   children?: ReactNode
@@ -32,22 +30,19 @@ type ButtonAsLink = ButtonBaseProps & {
 type ButtonProps = ButtonAsButton | ButtonAsLink
 
 const variants: Record<ButtonVariant, string> = {
-  primary:   'bg-primary-600 text-white hover:bg-primary-500 shadow-lg shadow-primary-900/40',
-  secondary: 'bg-accent-600 text-white hover:bg-accent-500 shadow-lg shadow-accent-900/40',
-  outline:   'border border-primary-500 text-primary-300 hover:bg-primary-500/10',
-  ghost:     'text-surface-200 hover:text-white hover:bg-surface-800',
+  primary:   'bg-brand-purple text-white hover:bg-brand-purple/90 shadow-md shadow-brand-purple/20',
+  secondary: 'bg-brand-magenta text-white hover:bg-brand-magenta/90 shadow-md shadow-brand-magenta/25',
+  accent:    'bg-brand-cyan text-brand-dark hover:bg-brand-cyan/90 font-bold shadow-md shadow-brand-cyan/25',
+  outline:   'border-2 border-brand-purple text-brand-purple hover:bg-brand-purple hover:text-white',
+  ghost:     'text-brand-dark hover:text-brand-purple hover:bg-brand-purple/10',
 }
 
 const sizes: Record<ButtonSize, string> = {
-  sm: 'h-9 px-4 text-sm gap-1.5',
-  md: 'h-11 px-6 text-sm gap-2',
-  lg: 'h-13 px-8 text-base gap-2.5',
+  sm: 'h-9 px-4 text-xs font-semibold uppercase tracking-wider gap-1.5',
+  md: 'h-11 px-6 text-sm font-semibold gap-2',
+  lg: 'h-13 px-8 text-base font-bold gap-2.5',
 }
 
-/**
- * Botón polimórfico: renderiza <button> o <Link> según si recibe `href`.
- * Uso: <Button variant="primary" href="/contacto">Contáctanos</Button>
- */
 export default function Button({
   variant = 'primary',
   size = 'md',
@@ -58,10 +53,10 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseClass = cn(
-    'inline-flex items-center justify-center rounded-lg font-semibold',
+    'inline-flex items-center justify-center rounded-xl font-sans',
     'transition-all duration-200 ease-out focus-visible:outline-none',
-    'focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2',
-    'focus-visible:ring-offset-surface-950 disabled:opacity-50 disabled:cursor-not-allowed',
+    'focus-visible:ring-2 focus-visible:ring-brand-purple focus-visible:ring-offset-2',
+    'disabled:opacity-50 disabled:cursor-not-allowed',
     variants[variant],
     sizes[size],
     className,

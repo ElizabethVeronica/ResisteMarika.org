@@ -1,29 +1,21 @@
 import { useState, useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
+import { FaInstagram, FaFacebook, FaTwitter, FaWhatsapp } from 'react-icons/fa'
 import { motion, AnimatePresence } from 'framer-motion'
 import Container from '@/components/ui/Container'
+import Button from '@/components/ui/Button'
 import { NAV_LINKS } from '@/config/navigation'
 import { cn } from '@/utils/cn'
 
 export default function Navbar() {
-  const [scrolled,     setScrolled]     = useState(false)
-  const [mobileOpen,   setMobileOpen]   = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
 
-  // Detectar scroll para cambiar estilo del navbar
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  // Cerrar menú móvil con Escape
-  useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setMobileOpen(false)
-    }
-    document.addEventListener('keydown', handleKey)
-    return () => document.removeEventListener('keydown', handleKey)
   }, [])
 
   return (
@@ -32,32 +24,42 @@ export default function Navbar() {
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
           scrolled
-            ? 'bg-surface-950/90 backdrop-blur-md border-b border-surface-800/60 shadow-xl shadow-surface-950/50'
-            : 'bg-transparent',
+            ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 py-3'
+            : 'bg-white py-4 sm:py-5 border-b border-gray-100/60'
         )}
       >
-        <Container className="flex h-16 items-center justify-between sm:h-18">
+        <Container className="flex items-center justify-between">
           {/* Logo */}
           <Link
             to="/"
-            className="flex items-center gap-2 font-display font-bold text-xl tracking-tight"
+            className="flex items-center gap-2 group"
             onClick={() => setMobileOpen(false)}
           >
-            <span className="text-gradient">Resiste Marika</span>
+            <div className="h-10 w-10 rounded-xl bg-gradient-to-tr from-brand-purple to-brand-magenta flex items-center justify-center text-white font-impact text-xl shadow-md shadow-brand-purple/20 transition-transform group-hover:scale-105">
+              RM
+            </div>
+            <div className="flex flex-col">
+              <span className="font-display font-extrabold text-xl tracking-tight text-brand-dark leading-none">
+                Resiste <span className="text-brand-magenta">Marika</span>
+              </span>
+              <span className="text-[10px] font-semibold text-brand-purple tracking-widest uppercase mt-0.5">
+                Asociación Civil
+              </span>
+            </div>
           </Link>
 
           {/* Navegación Desktop */}
-          <nav className="hidden lg:flex items-center gap-1" aria-label="Navegación principal">
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2" aria-label="Navegación principal">
             {NAV_LINKS.map((link) => (
               <NavLink
                 key={link.href}
                 to={link.href}
                 className={({ isActive }) =>
                   cn(
-                    'px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200',
+                    'px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200',
                     isActive
-                      ? 'text-primary-300 bg-primary-500/10'
-                      : 'text-surface-200/80 hover:text-white hover:bg-surface-800/60',
+                      ? 'text-brand-magenta bg-brand-magenta/10 font-bold'
+                      : 'text-brand-dark/80 hover:text-brand-purple hover:bg-brand-purple/5'
                   )
                 }
               >
@@ -66,14 +68,50 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Botón menú móvil */}
+          {/* Redes Sociales + Botón Desktop */}
+          <div className="hidden lg:flex items-center gap-4">
+            <div className="flex items-center gap-2 text-brand-dark/70 pr-3 border-r border-gray-200">
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+                className="hover:text-brand-magenta transition-colors p-1"
+              >
+                <FaInstagram size={17} />
+              </a>
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Facebook"
+                className="hover:text-brand-purple transition-colors p-1"
+              >
+                <FaFacebook size={16} />
+              </a>
+              <a
+                href="https://wa.me/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="WhatsApp"
+                className="hover:text-emerald-500 transition-colors p-1"
+              >
+                <FaWhatsapp size={18} />
+              </a>
+            </div>
+
+            <Button href="/contacto" variant="secondary" size="sm">
+              Escríbenos
+            </Button>
+          </div>
+
+          {/* Botón Menú Móvil */}
           <button
-            className="lg:hidden inline-flex items-center justify-center rounded-lg p-2 text-surface-200 hover:bg-surface-800 transition-colors"
+            className="lg:hidden p-2 rounded-xl text-brand-dark hover:bg-gray-100 transition-colors"
             onClick={() => setMobileOpen((v) => !v)}
             aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
-            aria-expanded={mobileOpen}
           >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </Container>
       </header>
@@ -82,28 +120,21 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <>
-            {/* Overlay */}
             <motion.div
-              key="overlay"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-40 bg-surface-950/70 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 z-40 bg-brand-dark/50 backdrop-blur-sm lg:hidden"
               onClick={() => setMobileOpen(false)}
-              aria-hidden="true"
             />
-
-            {/* Panel */}
             <motion.nav
-              key="mobile-nav"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-72 bg-surface-900 border-l border-surface-800 flex flex-col pt-20 pb-8 px-6 lg:hidden"
-              aria-label="Menú de navegación móvil"
+              className="fixed top-0 right-0 bottom-0 z-50 w-72 bg-white flex flex-col pt-20 pb-8 px-6 shadow-2xl lg:hidden"
             >
-              <div className="flex flex-col gap-1">
+              <div className="flex flex-col gap-2">
                 {NAV_LINKS.map((link) => (
                   <NavLink
                     key={link.href}
@@ -111,10 +142,10 @@ export default function Navbar() {
                     onClick={() => setMobileOpen(false)}
                     className={({ isActive }) =>
                       cn(
-                        'px-4 py-3 rounded-lg text-base font-medium transition-colors duration-200',
+                        'px-4 py-3 rounded-xl text-base font-semibold transition-colors',
                         isActive
-                          ? 'text-primary-300 bg-primary-500/15 font-semibold'
-                          : 'text-surface-200 hover:text-white hover:bg-surface-800',
+                          ? 'text-brand-magenta bg-brand-magenta/10'
+                          : 'text-brand-dark hover:text-brand-purple hover:bg-gray-50'
                       )
                     }
                   >
@@ -123,10 +154,25 @@ export default function Navbar() {
                 ))}
               </div>
 
-              <div className="mt-auto pt-6 border-t border-surface-800">
-                <p className="text-xs text-surface-400 text-center">
-                  Resiste Marika · Asociación Civil
-                </p>
+              <div className="mt-8 pt-6 border-t border-gray-100 flex flex-col gap-4">
+                <Button href="/contacto" variant="secondary" size="md" className="w-full">
+                  Escríbenos
+                </Button>
+
+                <div className="flex justify-center gap-4 text-brand-dark/70 pt-2">
+                  <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-brand-magenta p-2">
+                    <FaInstagram size={18} />
+                  </a>
+                  <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:text-brand-purple p-2">
+                    <FaFacebook size={18} />
+                  </a>
+                  <a href="https://x.com" target="_blank" rel="noreferrer" className="hover:text-brand-dark p-2">
+                    <FaTwitter size={18} />
+                  </a>
+                  <a href="https://wa.me/" target="_blank" rel="noreferrer" className="hover:text-emerald-500 p-2">
+                    <FaWhatsapp size={20} />
+                  </a>
+                </div>
               </div>
             </motion.nav>
           </>

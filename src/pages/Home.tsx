@@ -1,57 +1,49 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Heart, Users, Sparkles, Calendar, Clock } from 'lucide-react'
+import { ArrowRight, Heart, Shield, BookOpen, Users, Megaphone, Download, Calendar, Clock } from 'lucide-react'
 import Container from '@/components/ui/Container'
 import Button from '@/components/ui/Button'
 import Reveal from '@/components/ui/Reveal'
 import SectionHeader from '@/components/ui/SectionHeader'
 import { PROGRAMAS } from '@/config/programas'
-import { IMPACTO_STATS } from '@/config/impacto'
 import { NOTICIAS } from '@/config/noticias'
+import { IMPACTO_STATS } from '@/config/impacto'
 import { useCounter } from '@/hooks/useCounter'
 
-// ── Contador animado ──────────────────────────────────────
 function StatCounter({ valor, sufijo = '', etiqueta }: { valor: number; sufijo?: string; etiqueta: string }) {
   const { count, ref } = useCounter({ end: valor, duration: 2000 })
   return (
-    <div ref={ref as React.RefObject<HTMLDivElement>} className="flex flex-col items-center gap-1 text-center">
-      <span className="text-3xl font-bold font-display text-gradient sm:text-5xl">
+    <div ref={ref as React.RefObject<HTMLDivElement>} className="flex flex-col items-center text-center p-4">
+      <span className="font-impact text-4xl sm:text-5xl text-brand-purple tracking-tight">
         {count}{sufijo}
       </span>
-      <span className="text-xs sm:text-sm text-surface-300/80 font-medium">{etiqueta}</span>
+      <span className="text-xs sm:text-sm font-semibold text-brand-dark/80 mt-1">{etiqueta}</span>
     </div>
   )
 }
 
 export default function Home() {
   const noticiasPreview = NOTICIAS.slice(0, 3)
+  const proyectosPreview = PROGRAMAS.slice(0, 3)
 
   return (
     <>
-      {/* ── HERO ─────────────────────────────────────────── */}
-      <section className="relative flex min-h-[calc(100vh-4rem)] items-center overflow-hidden bg-surface-950 py-16 lg:py-24">
-        {/* Glows de fondo */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 flex items-center justify-center"
-        >
-          <div className="h-[550px] w-[550px] rounded-full bg-primary-700/20 blur-[130px]" />
-        </div>
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute top-1/4 right-0 h-[400px] w-[400px] rounded-full bg-accent-600/15 blur-[110px]"
-        />
+      {/* ── HERO SECTION ─────────────────────────────────── */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-brand-light via-white to-brand-light py-16 sm:py-24">
+        {/* Círculos decorativos suaves de fondo */}
+        <div aria-hidden="true" className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-brand-cyan/15 blur-3xl pointer-events-none" />
+        <div aria-hidden="true" className="absolute top-1/2 -left-24 h-80 w-80 rounded-full bg-brand-magenta/10 blur-3xl pointer-events-none" />
 
         <Container className="relative z-10">
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-12 items-center">
-            {/* Texto y CTAs */}
+            {/* Texto Principal */}
             <div className="lg:col-span-7 flex flex-col items-start">
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary-500/40 bg-primary-500/10 px-4 py-1.5 text-xs sm:text-sm font-medium text-primary-300"
+                className="mb-5 inline-flex items-center gap-2 rounded-full bg-brand-purple/10 border border-brand-purple/20 px-4 py-1.5 text-xs font-bold text-brand-purple uppercase tracking-wider"
               >
-                <Heart size={14} fill="currentColor" className="text-accent-400" />
+                <Heart size={13} fill="currentColor" className="text-brand-magenta" />
                 Asociación Civil Sin Fines de Lucro
               </motion.div>
 
@@ -59,19 +51,19 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="mb-6 text-4xl font-bold font-display leading-[1.15] text-balance sm:text-5xl lg:text-6xl text-surface-50"
+                className="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-display text-brand-dark leading-[1.15] text-balance mb-6"
               >
-                Resistir con dignidad,{' '}
-                <span className="text-gradient">construir en comunidad</span>
+                Defendemos los derechos,{' '}
+                <span className="text-gradient">construimos en comunidad</span>
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="mb-8 max-w-xl text-base text-surface-300/80 leading-relaxed sm:text-lg"
+                className="text-base sm:text-lg text-surface-muted leading-relaxed max-w-xl mb-8"
               >
-                Organización dedicada a la defensa de los derechos humanos, el acompañamiento psicosocial, la formación política y la contención integral de la diversidad LGBTIQ+.
+                Somos una organización civil comprometida con la dignidad, el acompañamiento psicosocial, la defensa jurídica y el bienestar integral de la comunidad LGBTIQ+.
               </motion.p>
 
               <motion.div
@@ -80,36 +72,52 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="flex flex-wrap gap-4"
               >
-                <Button href="/programas" size="lg" icon={<ArrowRight size={18} />}>
-                  Explorar programas
+                <Button href="/quienes-somos" size="lg" variant="primary" icon={<ArrowRight size={18} />}>
+                  Conocer más sobre Resiste Marika
                 </Button>
-                <Button href="/colabora" size="lg" variant="outline" icon={<Users size={18} />}>
-                  Sumarme al voluntariado
+                <Button href="/proyectos" size="lg" variant="outline">
+                  Ver proyectos
                 </Button>
               </motion.div>
             </div>
 
-            {/* Fotografía de portada (Stock Unsplash) */}
+            {/* Fotografía / Composición Visual */}
             <div className="lg:col-span-5">
               <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.7, delay: 0.2 }}
                 className="relative"
               >
-                <div className="aspect-[4/3] sm:aspect-[1/1] rounded-2xl overflow-hidden border border-surface-800 shadow-2xl relative group">
+                <div className="aspect-[4/3] sm:aspect-[1/1] rounded-3xl overflow-hidden shadow-2xl border-4 border-white relative group">
                   <img
                     src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=80"
                     alt="Comunidad Resiste Marika"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-surface-950/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-5 left-5 right-5 text-surface-100">
-                    <p className="text-xs uppercase font-semibold text-primary-300 tracking-wider mb-1 flex items-center gap-1.5">
-                      <Sparkles size={13} />
-                      Espacio Seguro & Afirmativo
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent" />
+                  <div className="absolute bottom-6 left-6 right-6 text-white">
+                    <span className="badge-tag bg-brand-cyan text-brand-dark mb-2">
+                      Espacio Libre de Discriminación
+                    </span>
+                    <p className="font-display font-bold text-lg leading-tight">
+                      Acompañamiento, formación y acción colectiva
                     </p>
-                    <p className="text-sm font-medium">Acompañamiento legal, psicológico y comunitario libre de barreras.</p>
+                  </div>
+                </div>
+
+                {/* Badge Flotante */}
+                <div className="absolute -bottom-4 -left-4 sm:-left-6 rounded-2xl bg-white border border-gray-100 p-4 shadow-xl flex items-center gap-3">
+                  <div className="h-10 w-10 rounded-xl bg-brand-magenta/10 text-brand-magenta flex items-center justify-center font-bold text-lg">
+                    ✊
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-brand-dark uppercase tracking-wider">
+                      Resistencia & Cuidados
+                    </p>
+                    <p className="text-[11px] text-surface-muted">
+                      Comunidad activa y articulada
+                    </p>
                   </div>
                 </div>
               </motion.div>
@@ -118,10 +126,95 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* ── CONTADORES DE IMPACTO ─────────────────────────── */}
-      <section className="border-y border-surface-800/60 bg-surface-900/60 py-12 sm:py-16">
+      {/* ── LÍNEAS DE ACCIÓN (COLOR-BLOCKING AL ESTILO SER VALIENTE EN RED) ── */}
+      <section className="py-16 sm:py-24 bg-white border-y border-gray-100">
         <Container>
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
+          <Reveal>
+            <SectionHeader
+              pill="Áreas de Trabajo"
+              title={
+                <>
+                  Nuestras <span className="text-gradient">líneas de acción</span>
+                </>
+              }
+              subtitle="Intervenimos desde la formación, la investigación, la salud colectiva y la incidencia política con enfoque de derechos humanos."
+              className="mb-14 text-center max-w-2xl mx-auto"
+            />
+          </Reveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                icon: Shield,
+                title: 'Defensa de Derechos & Legal',
+                desc: 'Asesoría y acompañamiento ante vulneraciones de derechos y discriminación.',
+                badgeColor: 'bg-brand-purple/10 text-brand-purple',
+                borderHover: 'hover:border-brand-purple',
+              },
+              {
+                icon: BookOpen,
+                title: 'Educación & Formación',
+                desc: 'Talleres, escuelas de liderazgo y herramientas pedagógicas comunitarias.',
+                badgeColor: 'bg-brand-magenta/10 text-brand-magenta',
+                borderHover: 'hover:border-brand-magenta',
+              },
+              {
+                icon: Users,
+                title: 'Comunidad & Salud Mental',
+                desc: 'Círculos de escucha, terapias afirmativas y espacios seguros de encuentro.',
+                badgeColor: 'bg-brand-cyan/20 text-brand-dark',
+                borderHover: 'hover:border-brand-cyan',
+              },
+              {
+                icon: Megaphone,
+                title: 'Incidencia Política & Datos',
+                desc: 'Monitoreo de políticas públicas, informes temáticos y diálogo institucional.',
+                badgeColor: 'bg-brand-peach/30 text-brand-dark',
+                borderHover: 'hover:border-brand-peach',
+              },
+            ].map((linea, idx) => {
+              const Icon = linea.icon
+              return (
+                <Reveal key={linea.title} delay={idx * 0.1}>
+                  <div
+                    className={`h-full flex flex-col p-6 rounded-2xl bg-brand-light border-2 border-transparent transition-all duration-300 shadow-sm hover:shadow-md ${linea.borderHover}`}
+                  >
+                    <div className={`h-12 w-12 rounded-xl flex items-center justify-center mb-5 ${linea.badgeColor}`}>
+                      <Icon size={24} />
+                    </div>
+                    <h3 className="font-display font-bold text-lg text-brand-dark mb-2">
+                      {linea.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-surface-muted leading-relaxed flex-1">
+                      {linea.desc}
+                    </p>
+                  </div>
+                </Reveal>
+              )
+            })}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── CIFRAS DE IMPACTO Y CONTEXTO (ESTILO SER VALIENTE EN RED) ── */}
+      <section className="py-16 sm:py-24 bg-brand-dark text-white relative overflow-hidden">
+        <Container className="relative z-10">
+          <Reveal>
+            <div className="max-w-3xl mx-auto text-center mb-16">
+              <span className="badge-tag bg-brand-cyan text-brand-dark mb-3">
+                Cifras de Impacto & Realidad
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-display leading-tight mb-4">
+                Por qué es urgente seguir resistiendo
+              </h2>
+              <p className="text-sm sm:text-base text-white/80 leading-relaxed">
+                El trabajo de Resiste Marika responde a una realidad documentada de brechas de derechos, violencia por prejuicio y necesidad de protección comunitaria.
+              </p>
+            </div>
+          </Reveal>
+
+          {/* Grid de Contadores */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 bg-white/5 rounded-3xl p-6 sm:p-10 border border-white/10 backdrop-blur-sm">
             {IMPACTO_STATS.map((stat) => (
               <StatCounter key={stat.etiqueta} {...stat} />
             ))}
@@ -129,124 +222,113 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* ── PROPÓSITO & RESUMEN DE MISIÓN ─────────────────── */}
-      <section className="py-20 sm:py-28">
-        <Container>
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16 items-center">
-            <div className="lg:col-span-6">
-              <Reveal direction="left">
-                <SectionHeader
-                  pill="Quiénes somos"
-                  title={
-                    <>
-                      La resistencia es <span className="text-gradient">colectiva y situada</span>
-                    </>
-                  }
-                  subtitle="Trabajamos para que cada persona de la diversidad sexual y de género cuente con respaldo institucional, acceso a derechos plenos y redes afectivas de protección."
-                  align="left"
-                />
-                <p className="mt-6 text-sm sm:text-base text-surface-300/80 leading-relaxed">
-                  Desde nuestros inicios apostamos por la defensa jurídica interseccional y la salud comunitaria, facilitando espacios de escucha, capacitación en escuelas y monitoreo de políticas públicas.
-                </p>
-                <div className="mt-8 flex gap-4">
-                  <Button href="/nosotros" variant="primary">
-                    Conoce más sobre nuestra historia
-                  </Button>
-                </div>
-              </Reveal>
-            </div>
-
-            <div className="lg:col-span-6">
-              <Reveal direction="right" delay={0.2}>
-                <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-surface-800 shadow-xl">
-                  <img
-                    src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80"
-                    alt="Acción colectiva"
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  />
-                </div>
-              </Reveal>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* ── PROGRAMAS Y ACCIONES (PREVIEW) ────────────────── */}
-      <section className="py-20 sm:py-28 bg-surface-900/40 border-y border-surface-800/60">
+      {/* ── PROYECTOS DESTACADOS ─────────────────────────── */}
+      <section className="py-16 sm:py-24 bg-white">
         <Container>
           <Reveal>
-            <SectionHeader
-              pill="Líneas de Trabajo"
-              title={
-                <>
-                  Nuestros <span className="text-gradient">programas activos</span>
-                </>
-              }
-              subtitle="Desarrollamos proyectos integrales organizados en cuatro ejes estratégicos de intervención social."
-              className="mb-14 text-center max-w-2xl mx-auto"
-            />
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
+              <div>
+                <span className="badge-tag bg-brand-magenta/10 text-brand-magenta mb-2 block w-fit">
+                  Nuestra Incidencia
+                </span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold font-display text-brand-dark">
+                  Proyectos en marcha
+                </h2>
+              </div>
+              <Button href="/proyectos" variant="outline" size="sm" icon={<ArrowRight size={15} />}>
+                Ver todos los proyectos
+              </Button>
+            </div>
           </Reveal>
 
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {PROGRAMAS.map((prog, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {proyectosPreview.map((prog, i) => (
               <Reveal key={prog.id} delay={i * 0.1}>
-                <div className="group flex flex-col h-full rounded-xl border border-surface-800 bg-surface-900 overflow-hidden hover:border-primary-500/40 transition-colors">
-                  <div className="aspect-[16/10] overflow-hidden bg-surface-800 relative">
+                <div className="group h-full flex flex-col rounded-2xl bg-white border border-gray-200/80 overflow-hidden shadow-sm hover:shadow-xl hover:border-brand-purple/40 transition-all duration-300">
+                  <div className="aspect-[16/10] overflow-hidden relative">
                     <img
                       src={prog.imagen}
                       alt={prog.titulo}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <span className="absolute top-2.5 left-2.5 rounded-full bg-surface-950/80 backdrop-blur-md border border-surface-700 px-2 py-0.5 text-[10px] font-medium text-primary-300">
+                    <span className="absolute top-3 left-3 badge-tag bg-brand-dark text-white text-[10px]">
                       {prog.categoria}
                     </span>
                   </div>
 
-                  <div className="p-5 flex flex-col flex-1">
-                    <h3 className="font-display font-semibold text-surface-50 text-base mb-2 group-hover:text-primary-300 transition-colors">
+                  <div className="p-6 flex flex-col flex-1">
+                    <h3 className="font-display font-bold text-lg text-brand-dark group-hover:text-brand-magenta transition-colors mb-2">
                       {prog.titulo}
                     </h3>
-                    <p className="text-xs text-surface-300/70 leading-relaxed flex-1 line-clamp-3">
+                    <p className="text-xs sm:text-sm text-surface-muted leading-relaxed flex-1 line-clamp-3 mb-4">
                       {prog.descripcion}
                     </p>
+                    <div className="pt-3 border-t border-gray-100">
+                      <Button href="/proyectos" variant="ghost" size="sm" className="p-0 hover:bg-transparent text-brand-purple font-bold">
+                        Conocer proyecto →
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </Reveal>
             ))}
           </div>
-
-          <Reveal delay={0.4} className="mt-12 flex justify-center">
-            <Button href="/programas" variant="outline" icon={<ArrowRight size={16} />}>
-              Ver detalles de todos los programas
-            </Button>
-          </Reveal>
         </Container>
       </section>
 
-      {/* ── ÚLTIMAS NOTICIAS Y COMUNICADOS ─────────────────── */}
-      <section className="py-20 sm:py-28">
+      {/* ── GUÍA / RECURSO DESCARGABLE DESTACADO (AL ESTILO SER VALIENTE EN RED) ── */}
+      <section className="py-16 bg-gradient-to-r from-brand-purple via-brand-deep to-brand-dark text-white">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-8">
+              <span className="badge-tag bg-brand-cyan text-brand-dark mb-3">
+                Publicación Abierta
+              </span>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display leading-tight mb-3">
+                Guía de Derechos, Acompañamiento y Espacios Seguros
+              </h2>
+              <p className="text-sm sm:text-base text-white/80 leading-relaxed max-w-2xl">
+                Un documento de consulta gratuita con protocolos de actuación frente a la discriminación, recomendaciones para la salud mental comunitaria y directorio de aliados.
+              </p>
+            </div>
+            <div className="lg:col-span-4 flex lg:justify-end">
+              <Button
+                href="/contacto"
+                variant="accent"
+                size="lg"
+                icon={<Download size={18} />}
+              >
+                DESCARGAR GUÍA (PDF)
+              </Button>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* ── ÚLTIMAS NOTICIAS ─────────────────────────────── */}
+      <section className="py-16 sm:py-24 bg-brand-light">
         <Container>
           <Reveal>
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14">
               <div>
-                <span className="text-xs font-semibold uppercase tracking-wider text-primary-400 mb-2 block">
-                  Prensa & Publicaciones
+                <span className="badge-tag bg-brand-purple/10 text-brand-purple mb-2 block w-fit">
+                  Prensa & Artículos
                 </span>
-                <h2 className="text-3xl font-bold font-display text-surface-50">
-                  Últimos comunicados y novedades
+                <h2 className="text-3xl sm:text-4xl font-extrabold font-display text-brand-dark">
+                  Últimas publicaciones
                 </h2>
               </div>
-              <Button href="/noticias" variant="ghost" size="sm" icon={<ArrowRight size={15} />}>
-                Ver todo el archivo
+              <Button href="/noticias" variant="outline" size="sm" icon={<ArrowRight size={15} />}>
+                Ver todas las noticias
               </Button>
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {noticiasPreview.map((n, i) => (
               <Reveal key={n.id} delay={i * 0.1}>
-                <article className="group h-full flex flex-col rounded-xl border border-surface-800 bg-surface-900 overflow-hidden hover:border-primary-500/40 transition-colors">
-                  <div className="aspect-[16/10] overflow-hidden bg-surface-800">
+                <article className="group h-full flex flex-col rounded-2xl bg-white border border-gray-200/80 overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
+                  <div className="aspect-[16/10] overflow-hidden">
                     <img
                       src={n.imagen}
                       alt={n.titulo}
@@ -254,8 +336,8 @@ export default function Home() {
                     />
                   </div>
                   <div className="p-6 flex flex-col flex-1 gap-2.5">
-                    <div className="flex items-center gap-3 text-xs text-surface-400">
-                      <span className="flex items-center gap-1">
+                    <div className="flex items-center gap-3 text-xs text-surface-muted">
+                      <span className="flex items-center gap-1 font-semibold text-brand-purple">
                         <Calendar size={12} />
                         {n.fecha}
                       </span>
@@ -266,11 +348,11 @@ export default function Home() {
                       </span>
                     </div>
 
-                    <h3 className="font-display font-bold text-base text-surface-50 group-hover:text-primary-300 transition-colors line-clamp-2">
+                    <h3 className="font-display font-bold text-base text-brand-dark group-hover:text-brand-magenta transition-colors line-clamp-2">
                       {n.titulo}
                     </h3>
 
-                    <p className="text-xs text-surface-300/70 leading-relaxed flex-1 line-clamp-2">
+                    <p className="text-xs text-surface-muted leading-relaxed flex-1 line-clamp-2">
                       {n.resumen}
                     </p>
                   </div>
@@ -281,33 +363,27 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* ── BANNER CTA: COLABORA ──────────────────────────── */}
-      <section className="pb-20 sm:pb-28">
+      {/* ── BANNER FINAL CONTACTO / SÚMATE ───────────────── */}
+      <section className="py-16 sm:py-24 bg-white">
         <Container>
           <Reveal>
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary-900 via-primary-950 to-surface-950 border border-primary-500/40 p-10 sm:p-16 text-center">
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 flex items-center justify-center"
-              >
-                <div className="h-[280px] w-[280px] rounded-full bg-accent-600/20 blur-[90px]" />
-              </div>
-              <div className="relative z-10">
-                <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-wider text-primary-300">
-                  Participación Activa
+            <div className="rounded-3xl bg-brand-dark text-white p-10 sm:p-16 text-center relative overflow-hidden border-4 border-brand-peach">
+              <div className="relative z-10 max-w-2xl mx-auto">
+                <span className="badge-tag bg-brand-cyan text-brand-dark mb-3">
+                  Articulación Comunitaria
                 </span>
-                <h2 className="mb-4 text-3xl font-bold font-display text-white sm:text-4xl text-balance">
-                  ¿Quieres formar parte del cambio?
+                <h2 className="text-3xl sm:text-4xl font-extrabold font-display leading-tight mb-4">
+                  Construyamos redes de apoyo y resistencia
                 </h2>
-                <p className="mb-8 max-w-xl mx-auto text-surface-200/80 text-sm sm:text-base leading-relaxed">
-                  Súmate a nuestro equipo de voluntariado, apoya mediante una donación o articulemos alianzas institucionales para amplificar el impacto.
+                <p className="text-sm sm:text-base text-white/80 leading-relaxed mb-8">
+                  Ya sea que requieras acompañamiento, desees participar como voluntarie o tu organización busque articular proyectos conjuntos, estamos para escucharte.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
-                  <Button href="/colabora" size="lg" variant="secondary">
-                    Quiero colaborar
+                  <Button href="/contacto" size="lg" variant="secondary">
+                    Contáctanos directamente
                   </Button>
-                  <Button href="/contacto" size="lg" variant="outline">
-                    Contactar al equipo
+                  <Button href="/proyectos" size="lg" variant="accent">
+                    Explorar proyectos
                   </Button>
                 </div>
               </div>

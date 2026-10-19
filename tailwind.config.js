@@ -4,57 +4,30 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Paleta principal — Resiste Marika (propuesta inicial, ajustable)
-        primary: {
-          50:  '#fdf4ff',
-          100: '#fae8ff',
-          200: '#f5d0fe',
-          300: '#f0abfc',
-          400: '#e879f9',
-          500: '#d946ef',
-          600: '#c026d3',
-          700: '#a21caf',
-          800: '#86198f',
-          900: '#701a75',
-          950: '#4a044e',
+        // Paleta inspirada en la línea gráfica activista (Ser Valiente en Red / Resiste Marika)
+        brand: {
+          dark:    '#102259', // Azul noche profundo para textos y secciones de contraste
+          purple:  '#8C4C89', // Violeta principal
+          deep:    '#524889', // Violeta medio / índigo
+          magenta: '#CF39B2', // Fucsia / magenta brillante
+          cyan:    '#07CAD1', // Turquesa / cian vibrante
+          peach:   '#FFBC7D', // Durazno cálido
+          yellow:  '#EDDC83', // Amarillo luz
+          light:   '#FFF9FD', // Fondo blanco con toque lila muy suave
         },
-        accent: {
-          50:  '#fff1f2',
-          100: '#ffe4e6',
-          300: '#fda4af',
-          400: '#fb7185',
-          500: '#f43f5e',
-          600: '#e11d48',
-          700: '#be123c',
-          900: '#881337',
-        },
-        // Superficie / fondos oscuros
         surface: {
-          50:  '#fafafa',
-          100: '#f4f4f5',
-          200: '#e4e4e7',
-          800: '#1a1a1f',
-          900: '#0f0f13',
-          950: '#07070a',
+          white: '#FFFFFF',
+          soft:  '#F8F9FC',
+          card:  '#FFFFFF',
+          border:'#E5E7EB',
+          text:  '#102259',
+          muted: '#5B6790',
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Sora', 'Inter', 'sans-serif'],
-      },
-      animation: {
-        'fade-in': 'fadeIn 0.6s ease-out forwards',
-        'slide-up': 'slideUp 0.6s ease-out forwards',
-      },
-      keyframes: {
-        fadeIn: {
-          from: { opacity: '0' },
-          to:   { opacity: '1' },
-        },
-        slideUp: {
-          from: { opacity: '0', transform: 'translateY(24px)' },
-          to:   { opacity: '1', transform: 'translateY(0)' },
-        },
+        sans: ['Poppins', 'system-ui', 'sans-serif'],
+        display: ['Montserrat', 'Poppins', 'sans-serif'],
+        impact: ['Bebas Neue', 'Montserrat', 'sans-serif'],
       },
     },
   },

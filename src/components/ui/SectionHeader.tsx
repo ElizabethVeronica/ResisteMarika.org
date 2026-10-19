@@ -7,13 +7,17 @@ interface SectionHeaderProps {
   subtitle?: string
   align?: 'left' | 'center' | 'right'
   className?: string
+  light?: boolean
 }
 
-/**
- * Encabezado de sección con pill opcional, título y subtítulo.
- * Uso: <SectionHeader pill="Nosotros" title="Quiénes somos" subtitle="..." />
- */
-export default function SectionHeader({ pill, title, subtitle, align = 'center', className }: SectionHeaderProps) {
+export default function SectionHeader({
+  pill,
+  title,
+  subtitle,
+  align = 'center',
+  className,
+  light = false,
+}: SectionHeaderProps) {
   const alignClass = {
     left:   'items-start text-left',
     center: 'items-center text-center',
@@ -21,17 +25,34 @@ export default function SectionHeader({ pill, title, subtitle, align = 'center',
   }[align]
 
   return (
-    <div className={cn('flex flex-col gap-4', alignClass, className)}>
+    <div className={cn('flex flex-col gap-3.5', alignClass, className)}>
       {pill && (
-        <span className="inline-flex items-center gap-2 rounded-full border border-primary-500/40 bg-primary-500/10 px-4 py-1.5 text-sm font-medium text-primary-300 uppercase tracking-wide w-fit">
+        <span
+          className={cn(
+            'inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider',
+            light
+              ? 'bg-white/15 text-white border border-white/20'
+              : 'bg-brand-purple/10 text-brand-purple border border-brand-purple/20'
+          )}
+        >
           {pill}
         </span>
       )}
-      <h2 className="text-3xl font-bold text-surface-50 sm:text-4xl lg:text-5xl text-balance">
+      <h2
+        className={cn(
+          'text-3xl font-bold font-display sm:text-4xl lg:text-5xl text-balance leading-tight',
+          light ? 'text-white' : 'text-brand-dark'
+        )}
+      >
         {title}
       </h2>
       {subtitle && (
-        <p className="max-w-2xl text-base text-surface-200/70 sm:text-lg">
+        <p
+          className={cn(
+            'max-w-2xl text-sm sm:text-base leading-relaxed',
+            light ? 'text-white/80' : 'text-surface-muted'
+          )}
+        >
           {subtitle}
         </p>
       )}

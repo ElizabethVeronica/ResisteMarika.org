@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,29 +6,26 @@
 
 @layer base {
   html {
-    @apply scroll-smooth;
+    @apply scroll-smooth antialiased;
   }
 
   body {
-    @apply bg-surface-950 text-surface-50 font-sans antialiased;
+    @apply bg-brand-light text-brand-dark font-sans selection:bg-brand-magenta selection:text-white;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display;
+    @apply font-display text-brand-dark tracking-tight;
   }
 
-  /* Scrollbar personalizada */
+  /* Scrollbar estilizada */
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 8px;
   }
   ::-webkit-scrollbar-track {
-    @apply bg-surface-900;
+    @apply bg-surface-soft;
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-primary-700 rounded-full;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary-500;
+    @apply bg-brand-purple/40 rounded-full hover:bg-brand-purple/70;
   }
 }
 
@@ -36,13 +33,20 @@
   .text-balance {
     text-wrap: balance;
   }
-  
-  /* Gradiente de texto — identidad Resiste Marika */
-  .text-gradient {
-    @apply bg-gradient-to-r from-primary-400 via-accent-400 to-primary-300 bg-clip-text text-transparent;
+
+  .gradient-brand {
+    @apply bg-gradient-to-r from-brand-purple via-brand-magenta to-brand-cyan;
   }
 
-  .bg-gradient-brand {
-    @apply bg-gradient-to-br from-primary-700 via-primary-800 to-surface-900;
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand-purple to-brand-magenta bg-clip-text text-transparent;
+  }
+
+  .text-gradient-cyan {
+    @apply bg-gradient-to-r from-brand-cyan to-brand-deep bg-clip-text text-transparent;
+  }
+
+  .badge-tag {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider;
   }
 }

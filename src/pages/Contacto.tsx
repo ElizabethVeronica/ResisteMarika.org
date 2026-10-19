@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { Send, CheckCircle, Mail, MapPin, Phone, ShieldAlert, MessageCircle } from 'lucide-react'
+import { FaInstagram, FaFacebook, FaTwitter, FaLinkedin } from 'react-icons/fa'
 import Container from '@/components/ui/Container'
 import SectionHeader from '@/components/ui/SectionHeader'
 import Reveal from '@/components/ui/Reveal'
@@ -7,7 +8,6 @@ import Button from '@/components/ui/Button'
 
 type FormState = 'idle' | 'loading' | 'success' | 'error'
 
-// Email temporal de recepción vía FormSubmit
 const FORMSUBMIT_EMAIL = 'contacto@resistemarika.org'
 
 export default function Contacto() {
@@ -38,7 +38,7 @@ export default function Contacto() {
   }
 
   return (
-    <div className="py-12 sm:py-20">
+    <div className="py-12 sm:py-20 bg-brand-light">
       {/* ── ENCABEZADO ───────────────────────────────────── */}
       <section className="mb-14 sm:mb-20">
         <Container>
@@ -50,33 +50,35 @@ export default function Contacto() {
                   Ponte en contacto con <span className="text-gradient">nosotres</span>
                 </>
               }
-              subtitle="Escríbenos para consultas sobre asesoría, alianzas institucionales, sumarte al voluntariado o dudas sobre nuestras actividades."
+              subtitle="Escríbenos para consultas sobre asesoría, alianzas institucionales, sumarte a nuestros proyectos o información sobre actividades."
               className="max-w-3xl mx-auto text-center"
             />
           </Reveal>
         </Container>
       </section>
 
-      {/* ── FORMULARIO & DATOS DE CONTACTO ────────────────── */}
+      {/* ── FORMULARIO Y CANALES ─────────────────────────── */}
       <section className="mb-20">
         <Container>
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
-            {/* Columna Izquierda: Formulario */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+            {/* Formulario */}
             <div className="lg:col-span-7">
               <Reveal direction="left">
-                <div className="rounded-2xl border border-surface-800 bg-surface-900 p-6 sm:p-10 shadow-xl">
+                <div className="bg-white rounded-3xl p-6 sm:p-10 border border-gray-200/80 shadow-md">
                   {state === 'success' ? (
                     <div className="flex flex-col items-center justify-center gap-4 py-12 text-center">
-                      <CheckCircle size={52} className="text-primary-400" />
-                      <h3 className="font-display font-bold text-2xl text-surface-50">
-                        ¡Mensaje enviado con éxito!
+                      <div className="h-16 w-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center">
+                        <CheckCircle size={40} />
+                      </div>
+                      <h3 className="font-display font-extrabold text-2xl text-brand-dark">
+                        ¡Mensaje recibido con éxito!
                       </h3>
-                      <p className="text-surface-300/80 max-w-md text-sm sm:text-base leading-relaxed">
-                        Muchas gracias por escribirnos. Nuestro equipo de coordinación revisará tu mensaje y te responderá lo más pronto posible.
+                      <p className="text-surface-muted max-w-md text-sm sm:text-base leading-relaxed">
+                        Muchas gracias por escribirnos. Nuestro equipo revisará tu mensaje y responderá a la brevedad posible.
                       </p>
                       <button
                         onClick={() => setState('idle')}
-                        className="mt-4 text-xs font-semibold uppercase tracking-wider text-primary-300 underline hover:text-primary-200"
+                        className="mt-4 text-xs font-bold uppercase tracking-wider text-brand-purple underline hover:text-brand-magenta"
                       >
                         Enviar otro mensaje
                       </button>
@@ -90,7 +92,7 @@ export default function Contacto() {
                         <div>
                           <label
                             htmlFor="nombre"
-                            className="block mb-2 text-xs font-semibold uppercase tracking-wider text-surface-300"
+                            className="block mb-2 text-xs font-bold uppercase tracking-wider text-brand-dark"
                           >
                             Nombre o Pronombre *
                           </label>
@@ -100,14 +102,14 @@ export default function Contacto() {
                             type="text"
                             required
                             placeholder="¿Cómo te gustaría que te llamemos?"
-                            className="w-full rounded-lg border border-surface-700 bg-surface-800/90 px-4 py-3 text-sm text-surface-50 placeholder:text-surface-500 focus:border-primary-500 focus:outline-none transition-colors"
+                            className="w-full rounded-xl border border-gray-200 bg-brand-light/50 px-4 py-3 text-sm text-brand-dark placeholder:text-gray-400 focus:border-brand-purple focus:outline-none transition-colors"
                           />
                         </div>
 
                         <div>
                           <label
                             htmlFor="email"
-                            className="block mb-2 text-xs font-semibold uppercase tracking-wider text-surface-300"
+                            className="block mb-2 text-xs font-bold uppercase tracking-wider text-brand-dark"
                           >
                             Correo Electrónico *
                           </label>
@@ -117,7 +119,7 @@ export default function Contacto() {
                             type="email"
                             required
                             placeholder="tu@correo.com"
-                            className="w-full rounded-lg border border-surface-700 bg-surface-800/90 px-4 py-3 text-sm text-surface-50 placeholder:text-surface-500 focus:border-primary-500 focus:outline-none transition-colors"
+                            className="w-full rounded-xl border border-gray-200 bg-brand-light/50 px-4 py-3 text-sm text-brand-dark placeholder:text-gray-400 focus:border-brand-purple focus:outline-none transition-colors"
                           />
                         </div>
                       </div>
@@ -125,28 +127,28 @@ export default function Contacto() {
                       <div>
                         <label
                           htmlFor="motivo"
-                          className="block mb-2 text-xs font-semibold uppercase tracking-wider text-surface-300"
+                          className="block mb-2 text-xs font-bold uppercase tracking-wider text-brand-dark"
                         >
-                          Motivo de tu consulta *
+                          Motivo del Contacto *
                         </label>
                         <select
                           id="motivo"
                           name="motivo"
                           required
-                          className="w-full rounded-lg border border-surface-700 bg-surface-800/90 px-4 py-3 text-sm text-surface-50 focus:border-primary-500 focus:outline-none transition-colors"
+                          className="w-full rounded-xl border border-gray-200 bg-brand-light/50 px-4 py-3 text-sm text-brand-dark focus:border-brand-purple focus:outline-none transition-colors"
                         >
-                          <option value="Acompañamiento o Asesoría">Acompañamiento legal / psicosocial</option>
-                          <option value="Voluntariado">Sumarme al voluntariado</option>
-                          <option value="Alianza / Cooperación">Alianzas o propuestas de cooperación</option>
-                          <option value="Prensa">Prensa y medios de comunicación</option>
-                          <option value="Otro">Otra consulta general</option>
+                          <option value="Acompañamiento o Asesoría">Acompañamiento legal o psicosocial</option>
+                          <option value="Proyectos / Voluntariado">Sumarme a proyectos o voluntariado</option>
+                          <option value="Alianzas / Donaciones">Alianzas institucionales o donación</option>
+                          <option value="Prensa">Prensa y comunicación</option>
+                          <option value="Otro">Consulta general</option>
                         </select>
                       </div>
 
                       <div>
                         <label
                           htmlFor="mensaje"
-                          className="block mb-2 text-xs font-semibold uppercase tracking-wider text-surface-300"
+                          className="block mb-2 text-xs font-bold uppercase tracking-wider text-brand-dark"
                         >
                           Mensaje *
                         </label>
@@ -155,14 +157,14 @@ export default function Contacto() {
                           name="mensaje"
                           required
                           rows={5}
-                          placeholder="Cuéntanos en qué podemos apoyarte o qué iniciativa te gustaría articular..."
-                          className="w-full rounded-lg border border-surface-700 bg-surface-800/90 px-4 py-3 text-sm text-surface-50 placeholder:text-surface-500 focus:border-primary-500 focus:outline-none transition-colors resize-none"
+                          placeholder="Escribe aquí tu consulta o propuesta..."
+                          className="w-full rounded-xl border border-gray-200 bg-brand-light/50 px-4 py-3 text-sm text-brand-dark placeholder:text-gray-400 focus:border-brand-purple focus:outline-none transition-colors resize-none"
                         />
                       </div>
 
                       {state === 'error' && (
-                        <p className="text-xs text-accent-400 bg-accent-950/40 p-3 rounded-lg border border-accent-800">
-                          Ocurrió un inconveniente al enviar tu formulario. Por favor inténtalo de nuevo o contáctanos por nuestras redes.
+                        <p className="text-xs text-rose-600 bg-rose-50 p-3 rounded-xl border border-rose-200">
+                          Ocurrió un error al enviar tu consulta. Por favor inténtalo de nuevo o contáctanos por WhatsApp.
                         </p>
                       )}
 
@@ -181,84 +183,99 @@ export default function Contacto() {
               </Reveal>
             </div>
 
-            {/* Columna Derecha: Canales e Info */}
+            {/* Canales Directos & Info */}
             <div className="lg:col-span-5 flex flex-col gap-6 justify-between">
               <Reveal direction="right" delay={0.1}>
-                <div className="rounded-2xl border border-surface-800 bg-surface-900/60 p-6 sm:p-8 flex flex-col gap-6">
+                <div className="bg-white rounded-3xl p-6 sm:p-8 border border-gray-200/80 shadow-md flex flex-col gap-6">
                   <div>
-                    <h3 className="font-display font-bold text-xl text-surface-50 mb-2">
-                      Canales Institucionales
+                    <h3 className="font-display font-extrabold text-xl text-brand-dark mb-1">
+                      Canales de Atención
                     </h3>
-                    <p className="text-xs sm:text-sm text-surface-300/70">
-                      Horarios de atención de lunes a viernes de 10:00 a 18:00 hrs.
+                    <p className="text-xs text-surface-muted">
+                      Horarios de respuesta: Lunes a Viernes de 10:00 a 18:00 hrs.
                     </p>
                   </div>
 
                   <div className="flex flex-col gap-4 text-sm">
                     <div className="flex items-start gap-3">
-                      <div className="h-9 w-9 rounded-lg bg-primary-500/15 text-primary-400 flex items-center justify-center shrink-0">
-                        <Mail size={16} />
+                      <div className="h-10 w-10 rounded-xl bg-brand-purple/10 text-brand-purple flex items-center justify-center shrink-0">
+                        <Mail size={18} />
                       </div>
                       <div>
-                        <p className="text-xs font-semibold text-surface-400 uppercase tracking-wider">
-                          Correo General
+                        <p className="text-xs font-bold text-surface-muted uppercase tracking-wider">
+                          Correo Oficial
                         </p>
-                        <p className="text-surface-100 font-medium">contacto@resistemarika.org</p>
+                        <p className="text-brand-dark font-semibold">contacto@resistemarika.org</p>
                       </div>
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <div className="h-9 w-9 rounded-lg bg-primary-500/15 text-primary-400 flex items-center justify-center shrink-0">
-                        <Phone size={16} />
+                      <div className="h-10 w-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+                        <Phone size={18} />
                       </div>
                       <div>
-                        <p className="text-xs font-semibold text-surface-400 uppercase tracking-wider">
-                          WhatsApp Comunitario
+                        <p className="text-xs font-bold text-surface-muted uppercase tracking-wider">
+                          WhatsApp Institucional
                         </p>
-                        <p className="text-surface-100 font-medium">+51 900 000 000 (Consultas)</p>
+                        <p className="text-brand-dark font-semibold">+51 900 000 000</p>
                       </div>
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <div className="h-9 w-9 rounded-lg bg-primary-500/15 text-primary-400 flex items-center justify-center shrink-0">
-                        <MapPin size={16} />
+                      <div className="h-10 w-10 rounded-xl bg-brand-magenta/10 text-brand-magenta flex items-center justify-center shrink-0">
+                        <MapPin size={18} />
                       </div>
                       <div>
-                        <p className="text-xs font-semibold text-surface-400 uppercase tracking-wider">
-                          Sede / Punto de Encuentro
+                        <p className="text-xs font-bold text-surface-muted uppercase tracking-wider">
+                          Punto de Articulación
                         </p>
-                        <p className="text-surface-100 font-medium">Lima, Perú (Atención previa cita)</p>
+                        <p className="text-brand-dark font-semibold">Lima, Perú (Atención coordinada)</p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-surface-800">
+                  <div className="pt-4 border-t border-gray-100 flex flex-col gap-3">
                     <a
                       href="https://wa.me/"
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 text-xs font-semibold text-emerald-400 hover:text-emerald-300 transition-colors"
+                      className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider hover:bg-emerald-600 transition-colors shadow-sm"
                     >
-                      <MessageCircle size={15} />
-                      Chatear por WhatsApp directamente
+                      <MessageCircle size={16} />
+                      Escribir por WhatsApp
                     </a>
+
+                    <div className="flex justify-center gap-3 pt-2 text-brand-dark/70">
+                      <a href="https://instagram.com" target="_blank" rel="noreferrer" className="p-2 hover:text-brand-magenta">
+                        <FaInstagram size={17} />
+                      </a>
+                      <a href="https://facebook.com" target="_blank" rel="noreferrer" className="p-2 hover:text-brand-purple">
+                        <FaFacebook size={17} />
+                      </a>
+                      <a href="https://x.com" target="_blank" rel="noreferrer" className="p-2 hover:text-brand-dark">
+                        <FaTwitter size={17} />
+                      </a>
+                      <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="p-2 hover:text-brand-deep">
+                        <FaLinkedin size={17} />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </Reveal>
 
-              {/* Caja de Emergencias / Contención */}
+              {/* Caja de Emergencias */}
               <Reveal direction="right" delay={0.2}>
-                <div className="rounded-2xl border border-accent-600/30 bg-accent-950/20 p-6 flex items-start gap-4">
-                  <ShieldAlert size={24} className="text-accent-400 shrink-0 mt-0.5" />
+                <div className="rounded-3xl border-2 border-brand-peach bg-brand-peach/20 p-6 flex items-start gap-4">
+                  <ShieldAlert size={26} className="text-brand-dark shrink-0 mt-0.5" />
                   <div>
-                    <h4 className="font-display font-semibold text-sm text-surface-100 mb-1">
-                      ¿Estás atravesando una emergencia?
+                    <h4 className="font-display font-bold text-sm text-brand-dark mb-1">
+                      ¿Necesitas auxilio inmediato?
                     </h4>
-                    <p className="text-xs text-surface-300/80 leading-relaxed mb-2">
-                      Si requieres contención psicológica en crisis inmediata o asistencia legal de urgencia las 24 horas, acude a los servicios de auxilio de tu localidad o contáctanos con el asunto "URGENTE".
+                    <p className="text-xs text-brand-dark/80 leading-relaxed mb-2">
+                      Si te encuentras en una situación de riesgo inminente, recurre a las líneas de emergencia oficiales de tu localidad o escríbenos con el asunto <strong>"URGENTE"</strong>.
                     </p>
-                    <span className="text-[11px] font-medium text-accent-300">
-                      Línea 100 (Perú) / Central de Emergencia
+                    <span className="text-[11px] font-bold text-brand-purple">
+                      Línea 100 (Perú) / Central Nacional de Emergencias
                     </span>
                   </div>
                 </div>
