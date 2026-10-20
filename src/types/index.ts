@@ -1,7 +1,14 @@
 // ── Navegación ─────────────────────────────────────────────
+export interface SubNavLink {
+  label: string
+  href: string
+  descripcion?: string
+}
+
 export interface NavLink {
   label: string
   href: string
+  children?: SubNavLink[]
 }
 
 // ── Programa / Área de trabajo ──────────────────────────────

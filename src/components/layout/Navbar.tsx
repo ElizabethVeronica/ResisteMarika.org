@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
-import { Link, NavLink } from 'react-router-dom'
-import { Menu, X, Heart } from 'lucide-react'
+import { useState, useEffect, useRef } from 'react'
+import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Menu, X, ChevronDown } from 'lucide-react'
 import { FaInstagram } from 'react-icons/fa'
 import { FaTiktok } from 'react-icons/fa6'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -12,6 +12,10 @@ import { cn } from '@/utils/cn'
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [desktopDropdownOpen, setDesktopDropdownOpen] = useState(false)
+  const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState(true)
+  const location = useLocation()
+  const dropdownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
@@ -19,27 +23,43 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Cerrar menús al cambiar de ruta
+  useEffect(() => {
+    setDesktopDropdownOpen(false)
+    setMobileOpen(false)
+  }, [location.pathname, location.hash])
+
+  // Cerrar dropdown si se hace clic fuera
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setDesktopDropdownOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
   return (
     <>
       <header
         className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+          'fixed top-0 left-0 right-0 z-50 transition-all duration-200',
           scrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-surface-border py-3'
-            : 'bg-white/80 backdrop-blur-sm py-5 sm:py-6 border-b border-surface-border/50'
+            ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200/80 py-3'
+            : 'bg-white/90 backdrop-blur-sm py-4 sm:py-5 border-b border-gray-100'
         )}
       >
         <Container className="flex items-center justify-between">
-          {/* Logo con bandera Trans + NB sutil */}
+          {/* Logo Institucional: Resiste Marika Cusco */}
           <Link
             to="/"
             className="flex items-center gap-3 group"
             onClick={() => setMobileOpen(false)}
           >
-            {/* Isotipo con barras de banderas Trans y No Binaria */}
-            <div className="relative h-11 w-11 rounded-2xl overflow-hidden shadow-sm border border-brand-purpleSoft/30 flex flex-col justify-between p-1 bg-white group-hover:scale-105 transition-transform">
-              {/* Barra superior Trans: celeste, blanco, rosa */}
-              <div className="h-1.5 rounded-full flex gap-0.5 overflow-hidden">
+            {/* Isotipo con barras de colores Trans y No Binaria */}
+            <div className="relative h-11 w-11 rounded-xl overflow-hidden shadow-sm border border-gray-200 flex flex-col justify-between p-1 bg-white group-hover:border-brand-purple/50 transition-colors">
+              <div className="h-1.5 rounded-sm flex gap-0.5 overflow-hidden">
                 <span className="flex-1 bg-brand-sky" />
                 <span className="flex-1 bg-brand-pink" />
                 <span className="flex-1 bg-white border border-gray-100" />
@@ -47,12 +67,11 @@ export default function Navbar() {
                 <span className="flex-1 bg-brand-sky" />
               </div>
               
-              <div className="text-center font-display font-extrabold text-sm text-brand-purple tracking-tight">
+              <div className="text-center font-display font-extrabold text-sm text-brand-dark tracking-tight">
                 RM
               </div>
 
-              {/* Barra inferior NB: amarillo, blanco, morado, negro */}
-              <div className="h-1.5 rounded-full flex gap-0.5 overflow-hidden">
+              <div className="h-1.5 rounded-sm flex gap-0.5 overflow-hidden">
                 <span className="flex-1 bg-brand-yellowWarm" />
                 <span className="flex-1 bg-white border border-gray-100" />
                 <span className="flex-1 bg-brand-purple" />
@@ -61,45 +80,136 @@ export default function Navbar() {
             </div>
 
             <div className="flex flex-col">
-              <span className="font-display font-black text-lg sm:text-xl tracking-tight text-brand-dark leading-none">
+              <span className="font-display font-extrabold text-lg sm:text-xl tracking-tight text-brand-dark leading-none">
                 Resiste <span className="text-brand-purple">Marika</span> <span className="text-brand-pink font-bold">Cusco</span>
               </span>
-              <span className="text-[10px] font-bold text-surface-muted tracking-wider uppercase mt-0.5 flex items-center gap-1">
-                <Heart size={10} className="text-brand-pink fill-brand-pink" />
-                Red de Apoyo Mutuo & Autogestión
+              <span className="text-[11px] font-semibold text-gray-500 tracking-wider uppercase mt-1">
+                Autogestión · Arte · Apoyo Mutuo
               </span>
             </div>
           </Link>
 
           {/* Navegación Desktop */}
           <nav className="hidden lg:flex items-center gap-1 xl:gap-2" aria-label="Navegación principal">
-            {NAV_LINKS.map((link) => (
-              <NavLink
-                key={link.href}
-                to={link.href}
-                className={({ isActive }) =>
-                  cn(
-                    'px-4 py-2 rounded-2xl text-sm font-bold transition-all duration-200',
-                    isActive
-                      ? 'text-brand-purple bg-brand-purpleLight font-extrabold shadow-sm'
-                      : 'text-brand-dark/75 hover:text-brand-purple hover:bg-brand-purpleLight/40'
-                  )
-                }
-              >
-                {link.label}
-              </NavLink>
-            ))}
+            {NAV_LINKS.map((link) => {
+              if (link.children && link.children.length > 0) {
+                const isChildActive =
+                  location.pathname === link.href ||
+                  link.children.some((c) => location.pathname + location.hash === c.href)
+
+                return (
+                  <div
+                    key={link.label}
+                    ref={dropdownRef}
+                    className="relative"
+                    onMouseEnter={() => setDesktopDropdownOpen(true)}
+                    onMouseLeave={() => setDesktopDropdownOpen(false)}
+                  >
+                    <div className="flex items-center">
+                      <NavLink
+                        to={link.href}
+                        className={cn(
+                          'pl-4 pr-1.5 py-2 rounded-l-xl text-sm font-bold transition-colors flex items-center',
+                          isChildActive
+                            ? 'text-brand-purple bg-brand-purpleLight/60'
+                            : 'text-gray-700 hover:text-brand-purple hover:bg-gray-50'
+                        )}
+                      >
+                        {link.label}
+                      </NavLink>
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault()
+                          e.stopPropagation()
+                          setDesktopDropdownOpen((v) => !v)
+                        }}
+                        aria-expanded={desktopDropdownOpen}
+                        aria-label="Desplegar menú de Quiénes Somos"
+                        className={cn(
+                          'pr-3 pl-1 py-2 rounded-r-xl text-sm font-bold transition-colors text-gray-700 hover:text-brand-purple',
+                          isChildActive && 'bg-brand-purpleLight/60 text-brand-purple'
+                        )}
+                      >
+                        <ChevronDown
+                          size={15}
+                          className={cn(
+                            'transition-transform duration-200',
+                            desktopDropdownOpen && 'rotate-180 text-brand-purple'
+                          )}
+                        />
+                      </button>
+                    </div>
+
+                    {/* Dropdown flotante */}
+                    <AnimatePresence>
+                      {desktopDropdownOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 8, scale: 0.98 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 4, scale: 0.98 }}
+                          transition={{ duration: 0.15 }}
+                          className="absolute top-full left-0 mt-1 w-72 rounded-2xl bg-white shadow-xl border border-gray-200/90 py-2 z-50 overflow-hidden"
+                        >
+                          <div className="px-4 py-2 border-b border-gray-100 bg-gray-50/70">
+                            <p className="text-[11px] font-bold uppercase tracking-wider text-gray-500 font-display">
+                              Conoce la organización
+                            </p>
+                          </div>
+                          <div className="p-1.5 flex flex-col gap-0.5">
+                            {link.children.map((sublink) => (
+                              <Link
+                                key={sublink.href}
+                                to={sublink.href}
+                                onClick={() => setDesktopDropdownOpen(false)}
+                                className="group/item flex flex-col px-3 py-2.5 rounded-xl hover:bg-brand-purpleLight/40 transition-colors"
+                              >
+                                <span className="text-xs font-bold text-gray-900 group-hover/item:text-brand-purple transition-colors">
+                                  {sublink.label}
+                                </span>
+                                {sublink.descripcion && (
+                                  <span className="text-[11px] text-gray-500 mt-0.5 font-normal">
+                                    {sublink.descripcion}
+                                  </span>
+                                )}
+                              </Link>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                )
+              }
+
+              return (
+                <NavLink
+                  key={link.href}
+                  to={link.href}
+                  className={({ isActive }) =>
+                    cn(
+                      'px-4 py-2 rounded-xl text-sm font-bold transition-colors',
+                      isActive
+                        ? 'text-brand-purple bg-brand-purpleLight/60'
+                        : 'text-gray-700 hover:text-brand-purple hover:bg-gray-50'
+                    )
+                  }
+                >
+                  {link.label}
+                </NavLink>
+              )
+            })}
           </nav>
 
-          {/* Redes Sociales + Botón Desktop */}
+          {/* Redes Sociales Oficiales + Botón Contacto */}
           <div className="hidden lg:flex items-center gap-3">
-            <div className="flex items-center gap-1.5 text-brand-dark/60 pr-3 border-r border-gray-200">
+            <div className="flex items-center gap-2 pr-3 border-r border-gray-200 text-gray-600">
               <a
                 href="https://www.instagram.com/resiste.marika.cusco"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Instagram"
-                className="hover:text-brand-pink transition-colors p-1.5 rounded-xl hover:bg-brand-pinkLight"
+                aria-label="Instagram de Resiste Marika Cusco"
+                className="hover:text-brand-pink transition-colors p-2 rounded-xl hover:bg-gray-50"
               >
                 <FaInstagram size={17} />
               </a>
@@ -107,8 +217,8 @@ export default function Navbar() {
                 href="https://www.tiktok.com/@resistemarik"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="TikTok"
-                className="hover:text-brand-dark transition-colors p-1.5 rounded-xl hover:bg-gray-100"
+                aria-label="TikTok de Resiste Marika"
+                className="hover:text-gray-900 transition-colors p-2 rounded-xl hover:bg-gray-50"
               >
                 <FaTiktok size={15} />
               </a>
@@ -121,7 +231,8 @@ export default function Navbar() {
 
           {/* Botón Menú Móvil */}
           <button
-            className="lg:hidden p-2 rounded-2xl text-brand-dark hover:bg-brand-purpleLight/50 transition-colors"
+            type="button"
+            className="lg:hidden p-2 rounded-xl text-gray-800 hover:bg-gray-100 transition-colors"
             onClick={() => setMobileOpen((v) => !v)}
             aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
           >
@@ -130,7 +241,7 @@ export default function Navbar() {
         </Container>
       </header>
 
-      {/* Menú Móvil */}
+      {/* Menú Lateral Móvil */}
       <AnimatePresence>
         {mobileOpen && (
           <>
@@ -138,51 +249,124 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-40 bg-brand-dark/40 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 z-40 bg-gray-950/40 backdrop-blur-sm lg:hidden"
               onClick={() => setMobileOpen(false)}
             />
             <motion.nav
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-72 bg-white flex flex-col pt-20 pb-8 px-6 shadow-2xl lg:hidden border-l border-surface-border"
+              transition={{ type: 'spring', stiffness: 320, damping: 32 }}
+              className="fixed top-0 right-0 bottom-0 z-50 w-80 max-w-[85vw] bg-white flex flex-col pt-16 pb-8 px-5 shadow-2xl lg:hidden border-l border-gray-200 overflow-y-auto"
             >
-              <div className="flex flex-col gap-2">
-                {NAV_LINKS.map((link) => (
-                  <NavLink
-                    key={link.href}
-                    to={link.href}
-                    onClick={() => setMobileOpen(false)}
-                    className={({ isActive }) =>
-                      cn(
-                        'px-4 py-3 rounded-2xl text-base font-bold transition-colors',
-                        isActive
-                          ? 'text-brand-purple bg-brand-purpleLight'
-                          : 'text-brand-dark hover:text-brand-purple hover:bg-brand-purpleLight/40'
-                      )
-                    }
-                  >
-                    {link.label}
-                  </NavLink>
-                ))}
+              <div className="flex items-center justify-between pb-4 mb-4 border-b border-gray-100">
+                <span className="font-display font-extrabold text-base text-gray-900">
+                  Menú de Navegación
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setMobileOpen(false)}
+                  className="p-1.5 rounded-lg text-gray-500 hover:bg-gray-100"
+                  aria-label="Cerrar"
+                >
+                  <X size={20} />
+                </button>
               </div>
 
-              <div className="mt-auto pt-6 border-t border-surface-border flex flex-col gap-4">
+              <div className="flex flex-col gap-1">
+                {NAV_LINKS.map((link) => {
+                  if (link.children && link.children.length > 0) {
+                    return (
+                      <div key={link.label} className="flex flex-col rounded-xl bg-gray-50/70 p-1">
+                        <div className="flex items-center justify-between">
+                          <NavLink
+                            to={link.href}
+                            onClick={() => setMobileOpen(false)}
+                            className="flex-1 px-3 py-2 text-sm font-bold text-gray-900 hover:text-brand-purple"
+                          >
+                            {link.label}
+                          </NavLink>
+                          <button
+                            type="button"
+                            onClick={() => setMobileSubmenuOpen((v) => !v)}
+                            className="p-2 text-gray-500 hover:text-brand-purple"
+                            aria-label="Expandir submenú"
+                          >
+                            <ChevronDown
+                              size={16}
+                              className={cn(
+                                'transition-transform duration-200',
+                                mobileSubmenuOpen && 'rotate-180 text-brand-purple'
+                              )}
+                            />
+                          </button>
+                        </div>
+
+                        {mobileSubmenuOpen && (
+                          <div className="flex flex-col gap-1 pl-3 pr-1 py-1 border-t border-gray-200/60 mt-1">
+                            {link.children.map((sublink) => (
+                              <Link
+                                key={sublink.href}
+                                to={sublink.href}
+                                onClick={() => setMobileOpen(false)}
+                                className="px-3 py-2 rounded-lg text-xs font-semibold text-gray-600 hover:text-brand-purple hover:bg-white transition-colors"
+                              >
+                                {sublink.label}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    )
+                  }
+
+                  return (
+                    <NavLink
+                      key={link.href}
+                      to={link.href}
+                      onClick={() => setMobileOpen(false)}
+                      className={({ isActive }) =>
+                        cn(
+                          'px-4 py-2.5 rounded-xl text-sm font-bold transition-colors',
+                          isActive
+                            ? 'text-brand-purple bg-brand-purpleLight/60'
+                            : 'text-gray-800 hover:text-brand-purple hover:bg-gray-50'
+                        )
+                      }
+                    >
+                      {link.label}
+                    </NavLink>
+                  )
+                })}
+              </div>
+
+              <div className="mt-auto pt-6 border-t border-gray-200 flex flex-col gap-3">
                 <Button href="/contacto" variant="primary" size="md" className="w-full">
                   Escríbenos
                 </Button>
 
-                <div className="flex justify-center gap-4 text-brand-dark/70 pt-1">
-                  <a href="https://www.instagram.com/resiste.marika.cusco" target="_blank" rel="noreferrer" aria-label="Instagram" className="p-2 hover:text-brand-pink">
+                <div className="flex justify-center gap-4 text-gray-600 pt-2">
+                  <a
+                    href="https://www.instagram.com/resiste.marika.cusco"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Instagram"
+                    className="p-2 hover:text-brand-pink"
+                  >
                     <FaInstagram size={18} />
                   </a>
-                  <a href="https://www.tiktok.com/@resistemarik" target="_blank" rel="noreferrer" aria-label="TikTok" className="p-2 hover:text-brand-dark">
+                  <a
+                    href="https://www.tiktok.com/@resistemarik"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="TikTok"
+                    className="p-2 hover:text-gray-900"
+                  >
                     <FaTiktok size={18} />
                   </a>
                 </div>
-                <p className="text-[11px] text-surface-muted text-center font-medium">
-                  Cusco · Desde el 7 de agosto del 2023
+                <p className="text-[11px] text-gray-400 text-center font-medium">
+                  Cusco · Fundada el 7 de agosto del 2023
                 </p>
               </div>
             </motion.nav>
