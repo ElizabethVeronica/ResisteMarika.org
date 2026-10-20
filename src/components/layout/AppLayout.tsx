@@ -8,7 +8,7 @@ export default function AppLayout() {
     <div className="min-h-screen bg-surface-light flex flex-col font-sans">
       <ScrollToTop />
       <Navbar />
-      <main className="flex-1 pt-18 sm:pt-20">
+      <main className="flex-1 pt-24 sm:pt-28">
         <Outlet />
       </main>
       <Footer />

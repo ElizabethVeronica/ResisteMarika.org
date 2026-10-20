@@ -9,9 +9,6 @@ export const NAV_LINKS: NavLink[] = [
 ]
 
 export const REDES_SOCIALES = [
-  { label: 'Instagram', href: 'https://instagram.com', icon: 'FaInstagram' },
-  { label: 'Facebook',  href: 'https://facebook.com',  icon: 'FaFacebook' },
-  { label: 'X (Twitter)', href: 'https://x.com',       icon: 'FaTwitter' },
-  { label: 'LinkedIn',  href: 'https://linkedin.com',  icon: 'FaLinkedin' },
-  { label: 'WhatsApp',  href: 'https://wa.me/',        icon: 'FaWhatsapp' },
+  { label: 'Instagram', href: 'https://www.instagram.com/resiste.marika.cusco', icon: 'FaInstagram' },
+  { label: 'TikTok',    href: 'https://www.tiktok.com/@resistemarik',         icon: 'FaTiktok' },
 ]

@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { Menu, X, Heart } from 'lucide-react'
-import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa'
+import { FaInstagram } from 'react-icons/fa'
+import { FaTiktok } from 'react-icons/fa6'
 import { motion, AnimatePresence } from 'framer-motion'
 import Container from '@/components/ui/Container'
 import Button from '@/components/ui/Button'
@@ -24,8 +25,8 @@ export default function Navbar() {
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
           scrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-surface-border py-2.5'
-            : 'bg-white/80 backdrop-blur-sm py-3.5 sm:py-4 border-b border-surface-border/50'
+            ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-surface-border py-3'
+            : 'bg-white/80 backdrop-blur-sm py-5 sm:py-6 border-b border-surface-border/50'
         )}
       >
         <Container className="flex items-center justify-between">
@@ -94,31 +95,22 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-3">
             <div className="flex items-center gap-1.5 text-brand-dark/60 pr-3 border-r border-gray-200">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/resiste.marika.cusco"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
                 className="hover:text-brand-pink transition-colors p-1.5 rounded-xl hover:bg-brand-pinkLight"
               >
-                <FaInstagram size={16} />
+                <FaInstagram size={17} />
               </a>
               <a
-                href="https://facebook.com"
+                href="https://www.tiktok.com/@resistemarik"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Facebook"
-                className="hover:text-brand-purple transition-colors p-1.5 rounded-xl hover:bg-brand-purpleLight"
+                aria-label="TikTok"
+                className="hover:text-brand-dark transition-colors p-1.5 rounded-xl hover:bg-gray-100"
               >
-                <FaFacebook size={15} />
-              </a>
-              <a
-                href="https://wa.me/"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="WhatsApp"
-                className="hover:text-emerald-500 transition-colors p-1.5 rounded-xl hover:bg-emerald-50"
-              >
-                <FaWhatsapp size={17} />
+                <FaTiktok size={15} />
               </a>
             </div>
 
@@ -182,14 +174,11 @@ export default function Navbar() {
                 </Button>
 
                 <div className="flex justify-center gap-4 text-brand-dark/70 pt-1">
-                  <a href="https://instagram.com" target="_blank" rel="noreferrer" className="p-2 hover:text-brand-pink">
+                  <a href="https://www.instagram.com/resiste.marika.cusco" target="_blank" rel="noreferrer" aria-label="Instagram" className="p-2 hover:text-brand-pink">
                     <FaInstagram size={18} />
                   </a>
-                  <a href="https://facebook.com" target="_blank" rel="noreferrer" className="p-2 hover:text-brand-purple">
-                    <FaFacebook size={18} />
-                  </a>
-                  <a href="https://wa.me/" target="_blank" rel="noreferrer" className="hover:text-emerald-500 p-2">
-                    <FaWhatsapp size={19} />
+                  <a href="https://www.tiktok.com/@resistemarik" target="_blank" rel="noreferrer" aria-label="TikTok" className="p-2 hover:text-brand-dark">
+                    <FaTiktok size={18} />
                   </a>
                 </div>
                 <p className="text-[11px] text-surface-muted text-center font-medium">

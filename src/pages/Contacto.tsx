@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react'
-import { Send, CheckCircle, Mail, MapPin, MessageCircle, Heart, Sparkles } from 'lucide-react'
-import { FaInstagram, FaFacebook, FaTwitter } from 'react-icons/fa'
+import { Send, CheckCircle, Mail, MapPin, Heart, Sparkles } from 'lucide-react'
+import { FaInstagram } from 'react-icons/fa'
+import { FaTiktok } from 'react-icons/fa6'
 import Container from '@/components/ui/Container'
 import SectionHeader from '@/components/ui/SectionHeader'
 import Reveal from '@/components/ui/Reveal'
@@ -8,7 +9,7 @@ import Button from '@/components/ui/Button'
 
 type FormState = 'idle' | 'loading' | 'success' | 'error'
 
-const FORMSUBMIT_EMAIL = 'contacto@resistemarika.org'
+const FORMSUBMIT_EMAIL = 'resistemarik@gmail.com'
 
 export default function Contacto() {
   const [state, setState] = useState<FormState>('idle')
@@ -164,7 +165,7 @@ export default function Contacto() {
 
                       {state === 'error' && (
                         <p className="text-xs text-rose-600 bg-rose-50 p-3 rounded-2xl border border-rose-200 font-sans">
-                          Ocurrió un error al enviar el formulario. Por favor inténtalo de nuevo o escríbenos directamente a nuestro WhatsApp o Instagram.
+                          Ocurrió un error al enviar el formulario. Por favor inténtalo de nuevo o escríbenos directamente a nuestro Instagram o TikTok.
                         </p>
                       )}
 
@@ -205,7 +206,11 @@ export default function Contacto() {
                         <p className="text-xs font-bold text-surface-muted uppercase tracking-wider font-display">
                           Correo de la Red
                         </p>
-                        <p className="text-brand-dark font-semibold">contacto@resistemarika.org</p>
+                        <p className="text-brand-dark font-semibold">
+                          <a href="mailto:resistemarik@gmail.com" className="hover:text-brand-purple transition-colors">
+                            resistemarik@gmail.com
+                          </a>
+                        </p>
                       </div>
                     </div>
 
@@ -236,24 +241,31 @@ export default function Contacto() {
 
                   <div className="pt-4 border-t border-gray-100 flex flex-col gap-3">
                     <a
-                      href="https://wa.me/"
+                      href="https://www.instagram.com/resiste.marika.cusco"
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider hover:bg-emerald-600 transition-colors shadow-sm font-sans"
+                      className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-gradient-to-r from-brand-pink to-brand-purple text-white font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-opacity shadow-sm font-sans"
                     >
-                      <MessageCircle size={16} />
-                      Escribir por WhatsApp
+                      <FaInstagram size={16} />
+                      Seguirnos en Instagram
+                    </a>
+
+                    <a
+                      href="https://www.tiktok.com/@resistemarik"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-brand-dark text-white font-bold text-xs uppercase tracking-wider hover:bg-brand-dark/80 transition-colors shadow-sm font-sans"
+                    >
+                      <FaTiktok size={15} />
+                      Seguirnos en TikTok
                     </a>
 
                     <div className="flex justify-center gap-3 pt-2 text-brand-dark/70">
-                      <a href="https://instagram.com" target="_blank" rel="noreferrer" className="p-2 hover:text-brand-pink transition-colors">
+                      <a href="https://www.instagram.com/resiste.marika.cusco" target="_blank" rel="noreferrer" aria-label="Instagram" className="p-2 hover:text-brand-pink transition-colors">
                         <FaInstagram size={17} />
                       </a>
-                      <a href="https://facebook.com" target="_blank" rel="noreferrer" className="p-2 hover:text-brand-purple transition-colors">
-                        <FaFacebook size={17} />
-                      </a>
-                      <a href="https://x.com" target="_blank" rel="noreferrer" className="p-2 hover:text-brand-dark transition-colors">
-                        <FaTwitter size={17} />
+                      <a href="https://www.tiktok.com/@resistemarik" target="_blank" rel="noreferrer" aria-label="TikTok" className="p-2 hover:text-brand-dark transition-colors">
+                        <FaTiktok size={17} />
                       </a>
                     </div>
                   </div>
