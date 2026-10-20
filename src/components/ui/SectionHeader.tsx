@@ -25,14 +25,14 @@ export default function SectionHeader({
   }[align]
 
   return (
-    <div className={cn('flex flex-col gap-3.5', alignClass, className)}>
+    <div className={cn('flex flex-col gap-3', alignClass, className)}>
       {pill && (
         <span
           className={cn(
-            'inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider',
+            'inline-flex items-center gap-2 rounded-full px-4 py-1 text-xs font-bold tracking-wide',
             light
-              ? 'bg-white/15 text-white border border-white/20'
-              : 'bg-brand-purple/10 text-brand-purple border border-brand-purple/20'
+              ? 'bg-white/20 text-white border border-white/30'
+              : 'bg-brand-purpleLight text-brand-purple border border-brand-purpleSoft/30'
           )}
         >
           {pill}
@@ -40,7 +40,7 @@ export default function SectionHeader({
       )}
       <h2
         className={cn(
-          'text-3xl font-bold font-display sm:text-4xl lg:text-5xl text-balance leading-tight',
+          'text-3xl font-extrabold font-display sm:text-4xl lg:text-5xl text-balance leading-tight',
           light ? 'text-white' : 'text-brand-dark'
         )}
       >
@@ -49,8 +49,8 @@ export default function SectionHeader({
       {subtitle && (
         <p
           className={cn(
-            'max-w-2xl text-sm sm:text-base leading-relaxed',
-            light ? 'text-white/80' : 'text-surface-muted'
+            'max-w-2xl text-sm sm:text-base leading-relaxed font-sans',
+            light ? 'text-white/85' : 'text-surface-muted'
           )}
         >
           {subtitle}

@@ -1,12 +1,8 @@
 import type { ImpactoStat } from '@/types'
 
-/**
- * Estadísticas de impacto para la sección de contadores animados.
- * TODO: Reemplazar con datos reales de la organización.
- */
 export const IMPACTO_STATS: ImpactoStat[] = [
-  { valor: 500,  sufijo: '+', etiqueta: 'Personas acompañadas',    icono: 'users' },
-  { valor: 5,               etiqueta: 'Años de trabajo',          icono: 'calendar' },
-  { valor: 120,  sufijo: '+', etiqueta: 'Actividades realizadas',  icono: 'star' },
-  { valor: 15,               etiqueta: 'Alianzas institucionales', icono: 'handshake' },
+  { valor: 2023, sufijo: '', etiqueta: 'Año de fundación en Cusco (7 de Agosto)', icono: 'calendar' },
+  { valor: 100, sufijo: '%', etiqueta: 'Autogestión e Independencia', icono: 'heart' },
+  { valor: 25, sufijo: '+', etiqueta: 'Ferias y Actividades Realizadas', icono: 'star' },
+  { valor: 6, sufijo: '', etiqueta: 'Ejes de Derechos y Desarrollo', icono: 'shield' },
 ]

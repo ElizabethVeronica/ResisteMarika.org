@@ -2,7 +2,7 @@ import { cn } from '@/utils/cn'
 import { type ReactNode, type ButtonHTMLAttributes } from 'react'
 import { Link } from 'react-router-dom'
 
-type ButtonVariant = 'primary' | 'secondary' | 'accent' | 'outline' | 'ghost'
+type ButtonVariant = 'primary' | 'secondary' | 'accent' | 'yellow' | 'dark' | 'outline' | 'ghost'
 type ButtonSize    = 'sm' | 'md' | 'lg'
 
 interface ButtonBaseProps {
@@ -30,17 +30,25 @@ type ButtonAsLink = ButtonBaseProps & {
 type ButtonProps = ButtonAsButton | ButtonAsLink
 
 const variants: Record<ButtonVariant, string> = {
+  // Morado / Lavanda NB
   primary:   'bg-brand-purple text-white hover:bg-brand-purple/90 shadow-md shadow-brand-purple/20',
-  secondary: 'bg-brand-magenta text-white hover:bg-brand-magenta/90 shadow-md shadow-brand-magenta/25',
-  accent:    'bg-brand-cyan text-brand-dark hover:bg-brand-cyan/90 font-bold shadow-md shadow-brand-cyan/25',
-  outline:   'border-2 border-brand-purple text-brand-purple hover:bg-brand-purple hover:text-white',
-  ghost:     'text-brand-dark hover:text-brand-purple hover:bg-brand-purple/10',
+  // Rosa Trans suave y tierno
+  secondary: 'bg-brand-pink text-brand-dark hover:bg-brand-pinkSoft shadow-md shadow-brand-pink/25 font-bold',
+  // Celeste Trans cielo
+  accent:    'bg-brand-sky text-brand-dark hover:bg-brand-skySoft shadow-md shadow-brand-sky/25 font-bold',
+  // Amarillo NB cálido
+  yellow:    'bg-brand-yellowWarm text-brand-dark hover:bg-brand-yellow shadow-md shadow-brand-yellowWarm/25 font-bold',
+  // Pizarra institucional serio
+  dark:      'bg-brand-dark text-white hover:bg-brand-charcoal shadow-md shadow-brand-dark/20',
+  // Contorno suave
+  outline:   'border-2 border-brand-purple text-brand-purple hover:bg-brand-purpleLight font-bold',
+  ghost:     'text-brand-dark hover:text-brand-purple hover:bg-brand-purpleLight/60 font-semibold',
 }
 
 const sizes: Record<ButtonSize, string> = {
-  sm: 'h-9 px-4 text-xs font-semibold uppercase tracking-wider gap-1.5',
-  md: 'h-11 px-6 text-sm font-semibold gap-2',
-  lg: 'h-13 px-8 text-base font-bold gap-2.5',
+  sm: 'h-9 px-4 text-xs font-bold tracking-wide gap-1.5 rounded-xl',
+  md: 'h-11 px-5 text-sm font-bold gap-2 rounded-2xl',
+  lg: 'h-13 px-7 text-base font-bold gap-2.5 rounded-2xl',
 }
 
 export default function Button({
@@ -53,7 +61,7 @@ export default function Button({
   ...props
 }: ButtonProps) {
   const baseClass = cn(
-    'inline-flex items-center justify-center rounded-xl font-sans',
+    'inline-flex items-center justify-center font-sans tracking-normal',
     'transition-all duration-200 ease-out focus-visible:outline-none',
     'focus-visible:ring-2 focus-visible:ring-brand-purple focus-visible:ring-offset-2',
     'disabled:opacity-50 disabled:cursor-not-allowed',

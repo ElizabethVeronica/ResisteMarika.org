@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
-import { FaInstagram, FaFacebook, FaTwitter, FaWhatsapp } from 'react-icons/fa'
+import { Menu, X, Heart } from 'lucide-react'
+import { FaInstagram, FaFacebook, FaWhatsapp } from 'react-icons/fa'
 import { motion, AnimatePresence } from 'framer-motion'
 import Container from '@/components/ui/Container'
 import Button from '@/components/ui/Button'
@@ -24,26 +24,48 @@ export default function Navbar() {
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
           scrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 py-3'
-            : 'bg-white py-4 sm:py-5 border-b border-gray-100/60'
+            ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-surface-border py-2.5'
+            : 'bg-white/80 backdrop-blur-sm py-3.5 sm:py-4 border-b border-surface-border/50'
         )}
       >
         <Container className="flex items-center justify-between">
-          {/* Logo */}
+          {/* Logo con bandera Trans + NB sutil */}
           <Link
             to="/"
-            className="flex items-center gap-2 group"
+            className="flex items-center gap-3 group"
             onClick={() => setMobileOpen(false)}
           >
-            <div className="h-10 w-10 rounded-xl bg-gradient-to-tr from-brand-purple to-brand-magenta flex items-center justify-center text-white font-impact text-xl shadow-md shadow-brand-purple/20 transition-transform group-hover:scale-105">
-              RM
+            {/* Isotipo con barras de banderas Trans y No Binaria */}
+            <div className="relative h-11 w-11 rounded-2xl overflow-hidden shadow-sm border border-brand-purpleSoft/30 flex flex-col justify-between p-1 bg-white group-hover:scale-105 transition-transform">
+              {/* Barra superior Trans: celeste, blanco, rosa */}
+              <div className="h-1.5 rounded-full flex gap-0.5 overflow-hidden">
+                <span className="flex-1 bg-brand-sky" />
+                <span className="flex-1 bg-brand-pink" />
+                <span className="flex-1 bg-white border border-gray-100" />
+                <span className="flex-1 bg-brand-pink" />
+                <span className="flex-1 bg-brand-sky" />
+              </div>
+              
+              <div className="text-center font-display font-extrabold text-sm text-brand-purple tracking-tight">
+                RM
+              </div>
+
+              {/* Barra inferior NB: amarillo, blanco, morado, negro */}
+              <div className="h-1.5 rounded-full flex gap-0.5 overflow-hidden">
+                <span className="flex-1 bg-brand-yellowWarm" />
+                <span className="flex-1 bg-white border border-gray-100" />
+                <span className="flex-1 bg-brand-purple" />
+                <span className="flex-1 bg-brand-dark" />
+              </div>
             </div>
+
             <div className="flex flex-col">
-              <span className="font-display font-extrabold text-xl tracking-tight text-brand-dark leading-none">
-                Resiste <span className="text-brand-magenta">Marika</span>
+              <span className="font-display font-black text-lg sm:text-xl tracking-tight text-brand-dark leading-none">
+                Resiste <span className="text-brand-purple">Marika</span> <span className="text-brand-pink font-bold">Cusco</span>
               </span>
-              <span className="text-[10px] font-semibold text-brand-purple tracking-widest uppercase mt-0.5">
-                Asociación Civil
+              <span className="text-[10px] font-bold text-surface-muted tracking-wider uppercase mt-0.5 flex items-center gap-1">
+                <Heart size={10} className="text-brand-pink fill-brand-pink" />
+                Red de Apoyo Mutuo & Autogestión
               </span>
             </div>
           </Link>
@@ -56,10 +78,10 @@ export default function Navbar() {
                 to={link.href}
                 className={({ isActive }) =>
                   cn(
-                    'px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200',
+                    'px-4 py-2 rounded-2xl text-sm font-bold transition-all duration-200',
                     isActive
-                      ? 'text-brand-magenta bg-brand-magenta/10 font-bold'
-                      : 'text-brand-dark/80 hover:text-brand-purple hover:bg-brand-purple/5'
+                      ? 'text-brand-purple bg-brand-purpleLight font-extrabold shadow-sm'
+                      : 'text-brand-dark/75 hover:text-brand-purple hover:bg-brand-purpleLight/40'
                   )
                 }
               >
@@ -69,45 +91,45 @@ export default function Navbar() {
           </nav>
 
           {/* Redes Sociales + Botón Desktop */}
-          <div className="hidden lg:flex items-center gap-4">
-            <div className="flex items-center gap-2 text-brand-dark/70 pr-3 border-r border-gray-200">
+          <div className="hidden lg:flex items-center gap-3">
+            <div className="flex items-center gap-1.5 text-brand-dark/60 pr-3 border-r border-gray-200">
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
-                className="hover:text-brand-magenta transition-colors p-1"
+                className="hover:text-brand-pink transition-colors p-1.5 rounded-xl hover:bg-brand-pinkLight"
               >
-                <FaInstagram size={17} />
+                <FaInstagram size={16} />
               </a>
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Facebook"
-                className="hover:text-brand-purple transition-colors p-1"
+                className="hover:text-brand-purple transition-colors p-1.5 rounded-xl hover:bg-brand-purpleLight"
               >
-                <FaFacebook size={16} />
+                <FaFacebook size={15} />
               </a>
               <a
                 href="https://wa.me/"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="WhatsApp"
-                className="hover:text-emerald-500 transition-colors p-1"
+                className="hover:text-emerald-500 transition-colors p-1.5 rounded-xl hover:bg-emerald-50"
               >
-                <FaWhatsapp size={18} />
+                <FaWhatsapp size={17} />
               </a>
             </div>
 
-            <Button href="/contacto" variant="secondary" size="sm">
+            <Button href="/contacto" variant="primary" size="sm">
               Escríbenos
             </Button>
           </div>
 
           {/* Botón Menú Móvil */}
           <button
-            className="lg:hidden p-2 rounded-xl text-brand-dark hover:bg-gray-100 transition-colors"
+            className="lg:hidden p-2 rounded-2xl text-brand-dark hover:bg-brand-purpleLight/50 transition-colors"
             onClick={() => setMobileOpen((v) => !v)}
             aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
           >
@@ -124,7 +146,7 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-40 bg-brand-dark/50 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 z-40 bg-brand-dark/40 backdrop-blur-sm lg:hidden"
               onClick={() => setMobileOpen(false)}
             />
             <motion.nav
@@ -132,7 +154,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-72 bg-white flex flex-col pt-20 pb-8 px-6 shadow-2xl lg:hidden"
+              className="fixed top-0 right-0 bottom-0 z-50 w-72 bg-white flex flex-col pt-20 pb-8 px-6 shadow-2xl lg:hidden border-l border-surface-border"
             >
               <div className="flex flex-col gap-2">
                 {NAV_LINKS.map((link) => (
@@ -142,10 +164,10 @@ export default function Navbar() {
                     onClick={() => setMobileOpen(false)}
                     className={({ isActive }) =>
                       cn(
-                        'px-4 py-3 rounded-xl text-base font-semibold transition-colors',
+                        'px-4 py-3 rounded-2xl text-base font-bold transition-colors',
                         isActive
-                          ? 'text-brand-magenta bg-brand-magenta/10'
-                          : 'text-brand-dark hover:text-brand-purple hover:bg-gray-50'
+                          ? 'text-brand-purple bg-brand-purpleLight'
+                          : 'text-brand-dark hover:text-brand-purple hover:bg-brand-purpleLight/40'
                       )
                     }
                   >
@@ -154,25 +176,25 @@ export default function Navbar() {
                 ))}
               </div>
 
-              <div className="mt-8 pt-6 border-t border-gray-100 flex flex-col gap-4">
-                <Button href="/contacto" variant="secondary" size="md" className="w-full">
+              <div className="mt-auto pt-6 border-t border-surface-border flex flex-col gap-4">
+                <Button href="/contacto" variant="primary" size="md" className="w-full">
                   Escríbenos
                 </Button>
 
-                <div className="flex justify-center gap-4 text-brand-dark/70 pt-2">
-                  <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-brand-magenta p-2">
+                <div className="flex justify-center gap-4 text-brand-dark/70 pt-1">
+                  <a href="https://instagram.com" target="_blank" rel="noreferrer" className="p-2 hover:text-brand-pink">
                     <FaInstagram size={18} />
                   </a>
-                  <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:text-brand-purple p-2">
+                  <a href="https://facebook.com" target="_blank" rel="noreferrer" className="p-2 hover:text-brand-purple">
                     <FaFacebook size={18} />
                   </a>
-                  <a href="https://x.com" target="_blank" rel="noreferrer" className="hover:text-brand-dark p-2">
-                    <FaTwitter size={18} />
-                  </a>
                   <a href="https://wa.me/" target="_blank" rel="noreferrer" className="hover:text-emerald-500 p-2">
-                    <FaWhatsapp size={20} />
+                    <FaWhatsapp size={19} />
                   </a>
                 </div>
+                <p className="text-[11px] text-surface-muted text-center font-medium">
+                  Cusco · Desde el 7 de agosto del 2023
+                </p>
               </div>
             </motion.nav>
           </>

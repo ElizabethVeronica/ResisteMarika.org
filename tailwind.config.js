@@ -4,30 +4,46 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Paleta inspirada en la línea gráfica activista (Ser Valiente en Red / Resiste Marika)
+        // Paleta inspirada en las banderas Trans y No Binaria (NB) con balance serio e institucional
         brand: {
-          dark:    '#102259', // Azul noche profundo para textos y secciones de contraste
-          purple:  '#8C4C89', // Violeta principal
-          deep:    '#524889', // Violeta medio / índigo
-          magenta: '#CF39B2', // Fucsia / magenta brillante
-          cyan:    '#07CAD1', // Turquesa / cian vibrante
-          peach:   '#FFBC7D', // Durazno cálido
-          yellow:  '#EDDC83', // Amarillo luz
-          light:   '#FFF9FD', // Fondo blanco con toque lila muy suave
+          // Bandera Trans (Celeste pastel y Rosa suave)
+          sky:       '#5BCEFA', // Celeste trans vibrante
+          skySoft:   '#78D5FA', // Celeste cielo pastel
+          skyLight:  '#E6F7FE', // Fondo celeste muy suave
+          pink:      '#F5A9B8', // Rosa trans dulce
+          pinkSoft:  '#F9BDC9', // Rosa pastel suave
+          pinkLight: '#FDF0F3', // Fondo rosa muy suave
+          
+          // Bandera No Binaria (Amarillo cálido, Lavanda / Morado disidente y Pizarra oscura)
+          yellow:     '#FDE047', // Amarillo NB vivo
+          yellowWarm: '#F6D860', // Amarillo cálido pastel
+          yellowSoft: '#FEF9C3', // Amarillo luz suave
+          purple:     '#8E5DB5', // Morado / lavanda NB principal
+          purpleSoft: '#B48FCE', // Lavanda tierno
+          purpleLight:'#F5EEFA', // Fondo lila muy sutil
+          
+          // Toque serio, sobrio y de alta legibilidad
+          dark:       '#1E1A29', // Pizarra violeta profundo (base seria para textos principales)
+          darkNavy:   '#161B2E', // Azul oscuro noche institucional para contrastes y footer
+          charcoal:   '#2D2638', // Gris pizarra cálido
         },
         surface: {
-          white: '#FFFFFF',
-          soft:  '#F8F9FC',
+          light: '#FCFAFE', // Fondo general limpio y suave
           card:  '#FFFFFF',
-          border:'#E5E7EB',
-          text:  '#102259',
-          muted: '#5B6790',
+          border:'#EDE7F6', // Borde lavanda suave
+          muted: '#635B73', // Texto secundario suave y legible
         },
       },
       fontFamily: {
-        sans: ['Poppins', 'system-ui', 'sans-serif'],
-        display: ['Montserrat', 'Poppins', 'sans-serif'],
-        impact: ['Bebas Neue', 'Montserrat', 'sans-serif'],
+        // Tipografías con suavidad, curvas amables, ternura y a la vez seriedad
+        sans: ['Nunito', 'system-ui', 'sans-serif'],
+        display: ['Outfit', 'Nunito', 'sans-serif'],
+        soft: ['Nunito', 'sans-serif'],
+      },
+      borderRadius: {
+        '2xl': '1.25rem',
+        '3xl': '1.75rem',
+        '4xl': '2.25rem',
       },
     },
   },
