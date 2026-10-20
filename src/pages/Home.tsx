@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, ShieldCheck, Heart, FileText, Eye, Sparkles, Users, Network, Calendar, Flame } from 'lucide-react'
+import { ArrowRight, ShieldCheck, Heart, FileText, Eye, Sparkles, Users, Network, Calendar } from 'lucide-react'
 import Container from '@/components/ui/Container'
 import Button from '@/components/ui/Button'
 import Reveal from '@/components/ui/Reveal'
 import { PROGRAMAS } from '@/config/programas'
 import { NOTICIAS } from '@/config/noticias'
-import { HISTORIA_RESUMEN, OBJETIVOS_ESTRATEGICOS } from '@/config/nosotros'
+import { HISTORIA_RESUMEN, OBJETIVOS_ESTRATEGICOS, FORMAS_AUTOGESTION, DISCIPLINAS } from '@/config/nosotros'
 
 const ICON_MAP: Record<string, React.ElementType> = {
   Heart,
@@ -22,66 +22,79 @@ export default function Home() {
 
   return (
     <div className="bg-[#FAF9F6] text-gray-900">
-      {/* ── HERO INSTITUCIONAL ───────────────────────────── */}
-      <section className="relative overflow-hidden bg-white border-b border-gray-200 py-16 sm:py-24">
-        <Container className="relative z-10">
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-14 items-center">
-            {/* Texto de Cabecera */}
+      {/* ── HERO AL ESTILO DERECHOS HUMANOS SIN FRONTERAS ───── */}
+      <section className="relative bg-white border-b border-gray-200 py-14 sm:py-20 lg:py-24">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* Texto Principal */}
             <div className="lg:col-span-7 flex flex-col items-start">
-              <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-gray-100 border border-gray-200 px-3.5 py-1 text-xs font-semibold text-gray-700">
-                <span className="h-2 w-2 rounded-full bg-brand-purple" />
-                Cusco · Fundada el {HISTORIA_RESUMEN.fundacion}
-              </div>
+              <span className="inline-block px-3 py-1 rounded-md bg-gray-100 text-gray-700 text-xs font-bold uppercase tracking-wider mb-3 font-display">
+                Cusco, Perú · Fundada el {HISTORIA_RESUMEN.fundacion}
+              </span>
 
-              <h1 className="text-3xl sm:text-5xl lg:text-5xl font-black font-display text-gray-900 leading-[1.15] text-balance mb-5">
-                Las artes nos devuelven el poder para resistir en el Cusco
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black font-display text-gray-900 leading-tight tracking-tight mb-4">
+                Resiste Marika Cusco
               </h1>
 
-              <p className="text-base sm:text-lg text-gray-700 leading-relaxed max-w-xl mb-4 font-sans font-medium">
+              {/* Lema directo tomado de sus propias palabras */}
+              <p className="text-lg sm:text-xl font-bold font-display text-brand-purple leading-snug mb-5 border-l-4 border-brand-purple pl-4">
                 {HISTORIA_RESUMEN.declaracionInicial}
               </p>
 
-              <p className="text-sm sm:text-base text-gray-600 leading-relaxed max-w-xl mb-8 font-sans">
-                Red de apoyo mutuo y autogestión donde la comunidad LGTBIQ+ y mujeres organizan ferias, marchan con batucada propia, comparten talleres y defienden sus derechos sin depender de financiamientos que condicionen su lucha.
-              </p>
+              {/* Quiénes somos y origen en primera persona plural */}
+              <div className="space-y-3 text-sm sm:text-base text-gray-700 font-sans leading-relaxed mb-7">
+                <p>
+                  {HISTORIA_RESUMEN.parrafo1}
+                </p>
+                <p className="text-gray-600">
+                  {HISTORIA_RESUMEN.pilarArtes}
+                </p>
+              </div>
 
               <div className="flex flex-wrap gap-3">
                 <Button href="/quienes-somos" size="lg" variant="primary" icon={<ArrowRight size={17} />}>
-                  Conoce nuestra historia
+                  Quiénes somos y qué hacemos
                 </Button>
                 <Button href="/proyectos" size="lg" variant="secondary">
-                  Ferias y Proyectos
+                  Nuestras ferias y proyectos
                 </Button>
               </div>
             </div>
 
-            {/* Tarjeta de Resumen Institucional y Fotografía */}
+            {/* Columna Lateral: Tarjeta Institucional de Identidad */}
             <div className="lg:col-span-5">
-              <div className="bg-[#FAF9F6] border border-gray-200 rounded-3xl overflow-hidden p-3 shadow-sm">
-                <div className="aspect-[4/3] rounded-2xl overflow-hidden relative">
+              <div className="bg-[#FAF9F6] border border-gray-200 rounded-2xl p-6 sm:p-7 shadow-sm space-y-5">
+                <div>
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-gray-500 font-display">
+                    Nuestra Identidad
+                  </span>
+                  <h2 className="font-display font-black text-xl text-gray-900 mt-1">
+                    Red de Apoyo Mutuo, Arte y Autogestión
+                  </h2>
+                </div>
+
+                <div className="aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 border border-gray-200 relative">
                   <img
                     src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=80"
                     alt="Comunidad Resiste Marika Cusco"
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-950/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-amber-300">
-                      Segundo Pilar Institucional
-                    </span>
-                    <p className="font-display font-bold text-base leading-tight mt-0.5">
-                      Batucada LGTBIQ+ y artivismo callejero
+                  <div className="absolute bottom-3 left-3 right-3 bg-gray-900/85 backdrop-blur-sm text-white p-3 rounded-lg text-xs font-sans">
+                    <p className="font-bold font-display text-amber-300">
+                      Batucada LGTBIQ+ Cusco
+                    </p>
+                    <p className="text-[11px] text-gray-300 mt-0.5">
+                      Marchamos y performamos en las calles haciendo activismo.
                     </p>
                   </div>
                 </div>
 
-                <div className="p-4 pt-4 space-y-2">
-                  <div className="flex items-center gap-2 text-xs font-semibold text-gray-800">
-                    <Flame size={15} className="text-brand-purple shrink-0" />
-                    <span>8 de Marzo del 2024: Tambores propios en las calles del Cusco</span>
-                  </div>
-                  <p className="text-xs text-gray-600 font-sans leading-relaxed">
-                    Nuestros miembros son escritores, ilustradores, actores, escultores, músicos, tejedores, danzantes y arte terapeutas.
+                <div className="p-3.5 rounded-xl bg-white border border-gray-200 text-xs text-gray-700 font-sans space-y-1">
+                  <p className="font-bold text-gray-900 font-display">
+                    Solidaridad e interdependencia
+                  </p>
+                  <p className="text-gray-600">
+                    Sostenemos nuestras actividades mediante el aporte de miembros, rifas, ferias, talleres y artivismo.
                   </p>
                 </div>
               </div>
@@ -90,7 +103,7 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* ── MANIFIESTO: SOLIDARIDAD FRENTE A DEPENDENCIAS ──── */}
+      {/* ── MANIFIESTO: LA SOLIDARIDAD Y LA INTERDEPENDENCIA ── */}
       <section className="py-14 sm:py-20 bg-white border-b border-gray-200">
         <Container>
           <Reveal>
@@ -98,113 +111,115 @@ export default function Home() {
               <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display mb-2 block">
                 Nuestra Fortaleza Comunitaria
               </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-gray-900 mb-6 leading-tight">
-                "Nuestra fortaleza más grande es la solidaridad y la interdependencia"
+              <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-gray-900 mb-5 leading-tight">
+                "Nuestra fortaleza más grande: la solidaridad y la interdependencia"
               </h2>
-              <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-sans mb-8">
+
+              <p className="text-base sm:text-lg text-gray-700 font-sans leading-relaxed mb-6">
                 {HISTORIA_RESUMEN.parrafo2}
               </p>
 
-              <div className="p-4 rounded-xl bg-gray-50 border border-gray-200 inline-flex flex-wrap items-center justify-center gap-2 text-xs sm:text-sm font-semibold text-gray-800">
-                <span className="text-brand-purple font-bold">Autogestión real:</span>
-                <span>Cuotas de integrantes · Rifas solidarias · Ferias de arte · Talleres · Mercancía de artivismo</span>
+              <div className="p-4 rounded-xl bg-gray-50 border border-gray-200 text-xs sm:text-sm text-gray-800 font-sans inline-block">
+                <span className="font-bold text-brand-purple">¿Cómo nos sostenemos? </span>
+                {HISTORIA_RESUMEN.parrafo3}
               </div>
             </div>
           </Reveal>
         </Container>
       </section>
 
-      {/* ── LOS DOS PILARES INSTITUCIONALES ───────────────── */}
-      <section className="py-16 sm:py-24 bg-[#FAF9F6] border-b border-gray-200">
+      {/* ── FORMAS DE AUTOGESTIÓN ─────────────────────────── */}
+      <section className="py-14 sm:py-20 bg-[#FAF9F6] border-b border-gray-200">
         <Container>
           <Reveal>
-            <div className="max-w-2xl mx-auto text-center mb-12">
+            <div className="max-w-2xl mx-auto text-center mb-10">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display">
-                Bases de Acción
+                Autonomía Económica
               </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-gray-900 mt-2">
-                Los dos pilares de Resiste Marika
+              <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-gray-900 mt-1">
+                Cómo hacemos posible nuestras actividades
               </h2>
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Pilar 1 */}
-            <div className="p-8 rounded-2xl bg-white border border-gray-200 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-black uppercase tracking-wider text-gray-400 font-display">
-                  Pilar 01
-                </span>
-                <h3 className="text-xl font-bold font-display text-gray-900 mt-1 mb-3">
-                  Autogestión y Apoyo Mutuo
-                </h3>
-                <p className="text-sm text-gray-700 font-sans leading-relaxed mb-4">
-                  Organizamos espacios comerciales seguros, ferias de emprendimiento y mecanismos solidarios internos para que la comunidad LGTBIQ+ y mujeres puedan generar ingresos dignos desde la cooperación horizontal.
-                </p>
-                <div className="text-xs text-gray-600 space-y-1.5 pt-3 border-t border-gray-100">
-                  <div className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-brand-purple" />
-                    <span>Ferias de arte y emprendimientos locales en Cusco</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-brand-purple" />
-                    <span>Rifas, cuotas comunitarias y venta de mercancía autogestiva</span>
-                  </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            {FORMAS_AUTOGESTION.map((forma) => (
+              <div
+                key={forma.id}
+                className="p-5 rounded-2xl bg-white border border-gray-200 flex flex-col justify-between"
+              >
+                <div>
+                  <h3 className="font-display font-bold text-sm text-gray-900 mb-2">
+                    {forma.titulo}
+                  </h3>
+                  <p className="text-xs text-gray-600 leading-relaxed font-sans">
+                    {forma.descripcion}
+                  </p>
                 </div>
               </div>
-              <div className="pt-6 mt-6 border-t border-gray-100">
-                <Button href="/quienes-somos#nosotros" variant="outline" size="sm">
-                  Leer sobre nuestra autogestión →
-                </Button>
-              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ── EL SEGUNDO PILAR: LAS ARTES PARA HACER ACTIVISMO ─ */}
+      <section className="py-16 sm:py-24 bg-white border-b border-gray-200">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+            <div className="lg:col-span-5 space-y-4">
+              <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display block">
+                Segundo Pilar Institucional
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-gray-900 leading-tight">
+                El uso de las artes para hacer activismo
+              </h2>
+              <p className="text-sm sm:text-base text-gray-700 font-sans leading-relaxed">
+                {HISTORIA_RESUMEN.pilarArtes}
+              </p>
+              <p className="text-sm sm:text-base text-gray-700 font-sans leading-relaxed">
+                {HISTORIA_RESUMEN.disciplinasArtisticas}
+              </p>
+              <p className="text-sm sm:text-base text-gray-700 font-sans leading-relaxed font-semibold text-brand-purple">
+                {HISTORIA_RESUMEN.talleresMultidisciplinarios}
+              </p>
             </div>
 
-            {/* Pilar 2 */}
-            <div className="p-8 rounded-2xl bg-white border border-gray-200 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-black uppercase tracking-wider text-gray-400 font-display">
-                  Pilar 02
-                </span>
-                <h3 className="text-xl font-bold font-display text-gray-900 mt-1 mb-3">
-                  Las Artes para hacer Activismo
-                </h3>
-                <p className="text-sm text-gray-700 font-sans leading-relaxed mb-4">
-                  {HISTORIA_RESUMEN.pilarArtes}
-                </p>
-                <div className="text-xs text-gray-600 space-y-1.5 pt-3 border-t border-gray-100">
-                  <div className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-brand-purple" />
-                    <span>Batucada LGTBIQ+ en las calles del Cusco</span>
+            <div className="lg:col-span-7">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {DISCIPLINAS.map((d) => (
+                  <div
+                    key={d.nombre}
+                    className="p-5 rounded-xl bg-[#FAF9F6] border border-gray-200 flex flex-col justify-between"
+                  >
+                    <div>
+                      <h3 className="font-display font-bold text-sm text-gray-900 mb-1.5">
+                        {d.nombre}
+                      </h3>
+                      <p className="text-xs text-gray-600 font-sans leading-relaxed">
+                        {d.descripcion}
+                      </p>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-brand-purple" />
-                    <span>Talleres de activismo antipatriarcal, descolonial y antirracista</span>
-                  </div>
-                </div>
-              </div>
-              <div className="pt-6 mt-6 border-t border-gray-100">
-                <Button href="/quienes-somos#nosotros" variant="outline" size="sm">
-                  Conoce nuestras disciplinas →
-                </Button>
+                ))}
               </div>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* ── OBJETIVOS ESTRATÉGICOS ─────────────────────────── */}
-      <section className="py-16 sm:py-24 bg-white border-b border-gray-200">
+      {/* ── QUÉ BUSCAMOS Y HACEMOS: OBJETIVOS ESTRATÉGICOS ─── */}
+      <section className="py-16 sm:py-24 bg-[#FAF9F6] border-b border-gray-200">
         <Container>
           <Reveal>
             <div className="max-w-2xl mx-auto text-center mb-12">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display">
-                Líneas Institucionales
+                Misión y Visión
               </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-gray-900 mt-2 mb-3">
-                Nuestros 6 Objetivos Estratégicos
+              <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-gray-900 mt-1 mb-2">
+                Nuestros Objetivos Fundamentales
               </h2>
               <p className="text-xs sm:text-sm text-gray-600 font-sans">
-                Aprobados para promover la defensa de derechos, salud, empleo y vigilancia ciudadana en Cusco.
+                Compromisos que guían nuestro activismo y trabajo comunitario en Cusco.
               </p>
             </div>
           </Reveal>
@@ -215,11 +230,11 @@ export default function Home() {
               return (
                 <div
                   key={obj.id}
-                  className="p-6 rounded-2xl bg-gray-50 border border-gray-200 flex flex-col justify-between hover:border-gray-300 transition-colors"
+                  className="p-6 rounded-2xl bg-white border border-gray-200 flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-3">
-                      <span className="font-display font-extrabold text-xl text-gray-300">
+                      <span className="font-display font-black text-2xl text-gray-300">
                         {obj.numero}
                       </span>
                       <IconComp size={16} className="text-brand-purple" />
@@ -238,23 +253,23 @@ export default function Home() {
 
           <div className="text-center mt-10">
             <Button href="/quienes-somos#mision-vision" variant="outline" size="sm">
-              Ver misión, visión y marco institucional completo
+              Conoce en detalle nuestra misión y visión
             </Button>
           </div>
         </Container>
       </section>
 
-      {/* ── PROYECTOS Y FERIAS ACTIVAS ─────────────────────── */}
-      <section className="py-16 sm:py-24 bg-[#FAF9F6] border-b border-gray-200">
+      {/* ── NUESTRAS FERIAS Y PROYECTOS EN CUSCO ────────────── */}
+      <section className="py-16 sm:py-24 bg-white border-b border-gray-200">
         <Container>
           <Reveal>
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display block mb-1">
-                  Iniciativas en Cusco
+                  En el Cusco
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-gray-900">
-                  Proyectos Comunitarios
+                  Nuestras Ferias y Proyectos
                 </h2>
               </div>
               <Button href="/proyectos" variant="outline" size="sm" icon={<ArrowRight size={14} />}>
@@ -267,13 +282,13 @@ export default function Home() {
             {proyectosPreview.map((prog) => (
               <div
                 key={prog.id}
-                className="group flex flex-col rounded-2xl bg-white border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                className="group flex flex-col rounded-2xl bg-[#FAF9F6] border border-gray-200 overflow-hidden"
               >
-                <div className="aspect-[16/10] overflow-hidden bg-gray-100">
+                <div className="aspect-[16/10] overflow-hidden bg-gray-200">
                   <img
                     src={prog.imagen}
                     alt={prog.titulo}
-                    className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
+                    className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="p-6 flex flex-col flex-1">
@@ -286,7 +301,7 @@ export default function Home() {
                   <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-sans flex-1 line-clamp-3">
                     {prog.descripcion}
                   </p>
-                  <div className="pt-4 mt-4 border-t border-gray-100">
+                  <div className="pt-4 mt-4 border-t border-gray-200">
                     <Link
                       to="/proyectos"
                       className="text-xs font-bold text-brand-purple hover:underline inline-flex items-center gap-1"
@@ -301,17 +316,17 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* ── NOTICIAS Y ACTIVIDADES RECIENTES ──────────────── */}
-      <section className="py-16 sm:py-24 bg-white border-b border-gray-200">
+      {/* ── ACTIVIDADES Y NOTICIAS RECIENTES ──────────────── */}
+      <section className="py-16 sm:py-24 bg-[#FAF9F6] border-b border-gray-200">
         <Container>
           <Reveal>
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display block mb-1">
-                  Prensa y Difusión
+                  Registro Comunitario
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-gray-900">
-                  Actividades y Pronunciamientos
+                  Actividades y Noticias
                 </h2>
               </div>
               <Button href="/noticias" variant="outline" size="sm" icon={<ArrowRight size={14} />}>
@@ -324,7 +339,7 @@ export default function Home() {
             {noticiasPreview.map((n) => (
               <article
                 key={n.id}
-                className="flex flex-col rounded-2xl bg-[#FAF9F6] border border-gray-200 overflow-hidden"
+                className="flex flex-col rounded-2xl bg-white border border-gray-200 overflow-hidden"
               >
                 <div className="aspect-[16/10] overflow-hidden bg-gray-200">
                   <img src={n.imagen} alt={n.titulo} className="w-full h-full object-cover" />
@@ -346,7 +361,7 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* ── LLAMADO A LA ACCIÓN / CONTACTO ─────────────────── */}
+      {/* ── LLAMADO A ARTICULAR / CONTACTO ─────────────────── */}
       <section className="py-16 sm:py-20 bg-gray-900 text-white">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
@@ -354,10 +369,10 @@ export default function Home() {
               Red Comunitaria en Cusco
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold font-display leading-tight mb-4">
-              ¿Quieres sumarte, proponer un taller o colaborar?
+              ¿Quieres sumarte, proponer un taller o articular con nosotres?
             </h2>
             <p className="text-sm sm:text-base text-gray-300 font-sans leading-relaxed mb-8">
-              Escríbenos a nuestro correo oficial o comunícate a través de nuestras redes oficiales en Instagram y TikTok.
+              Escríbenos a nuestro correo oficial <span className="text-white font-semibold underline">resistemarik@gmail.com</span> o contáctanos por Instagram y TikTok.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <Button href="/contacto" size="lg" variant="primary">

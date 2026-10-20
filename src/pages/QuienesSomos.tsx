@@ -225,40 +225,25 @@ export default function QuienesSomos() {
             </div>
           </Reveal>
 
-          {/* Tarjetas de Misión y Visión */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            <div className="p-8 rounded-2xl bg-gray-50 border border-gray-200 flex flex-col justify-between">
-              <div>
-                <span className="inline-block px-3 py-1 rounded-md bg-gray-900 text-white text-xs font-bold uppercase tracking-wider mb-4 font-display">
-                  Misión
-                </span>
-                <h3 className="text-xl font-bold font-display text-gray-900 mb-3">
-                  ¿Cuál es nuestro compromiso?
-                </h3>
-                <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-sans">
-                  {MISION_VISION.mision}
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-gray-200 text-xs font-semibold text-gray-500">
-                Satisfacción integral de derechos en Cusco
-              </div>
-            </div>
-
-            <div className="p-8 rounded-2xl bg-brand-purpleLight/40 border border-brand-purpleSoft/40 flex flex-col justify-between">
-              <div>
-                <span className="inline-block px-3 py-1 rounded-md bg-brand-purple text-white text-xs font-bold uppercase tracking-wider mb-4 font-display">
-                  Visión
-                </span>
-                <h3 className="text-xl font-bold font-display text-gray-900 mb-3">
-                  ¿Hacia dónde caminamos?
-                </h3>
-                <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-sans">
-                  {MISION_VISION.vision}
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-brand-purpleSoft/30 text-xs font-semibold text-brand-purple">
-                Autonomía comunitaria, dignidad y soberanía
-              </div>
+          {/* Bloque Central de Misión y Visión */}
+          <div className="p-8 sm:p-10 rounded-2xl bg-gray-50 border border-gray-200 mb-14">
+            <span className="inline-block px-3 py-1 rounded-md bg-gray-900 text-white text-xs font-bold uppercase tracking-wider mb-4 font-display">
+              Nuestra Misión y Visión
+            </span>
+            <h3 className="text-xl sm:text-2xl font-bold font-display text-gray-900 mb-6">
+              Qué buscamos, defendemos y construimos como colectiva
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm sm:text-base text-gray-700 font-sans leading-relaxed">
+              {MISION_VISION.objetivosPrincipales.map((item, idx) => (
+                <div key={idx} className="p-4 rounded-xl bg-white border border-gray-200/80 flex items-start gap-3">
+                  <span className="font-display font-black text-brand-purple text-base shrink-0">
+                    0{idx + 1}.
+                  </span>
+                  <p className="text-xs sm:text-sm text-gray-800 leading-relaxed font-sans">
+                    {item}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
 
