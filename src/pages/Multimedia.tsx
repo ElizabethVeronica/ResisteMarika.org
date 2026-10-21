@@ -112,7 +112,7 @@ export default function Multimedia() {
                       <h3 className="font-display font-bold text-base text-gray-900 leading-snug group-hover:text-brand-purple transition-colors mb-2">
                         {item.titulo}
                       </h3>
-                      <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-sans line-clamp-2">
+                      <p className="text-sm text-gray-600 leading-relaxed font-sans line-clamp-2">
                         {item.descripcion}
                       </p>
                     </div>

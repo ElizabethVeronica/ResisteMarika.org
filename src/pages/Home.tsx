@@ -97,7 +97,7 @@ export default function Home() {
                   <h3 className="font-display font-bold text-base text-gray-900 mb-2">
                     {prog.titulo}
                   </h3>
-                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-sans flex-1">
+                  <p className="text-sm text-gray-600 leading-relaxed font-sans flex-1">
                     {prog.descripcion}
                   </p>
                 </div>
@@ -149,7 +149,7 @@ export default function Home() {
                   <h3 className="font-display font-bold text-base text-gray-900 line-clamp-2">
                     {n.titulo}
                   </h3>
-                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-sans flex-1 line-clamp-3">
+                  <p className="text-sm text-gray-600 leading-relaxed font-sans flex-1 line-clamp-3">
                     {n.resumen}
                   </p>
                 </div>

@@ -76,7 +76,7 @@ export default function Proyectos() {
                           <p className="text-[11px] font-bold uppercase tracking-wider text-brand-purple mb-1 font-display">
                             Propósito Colectivo
                           </p>
-                          <p className="text-xs sm:text-sm text-brand-dark font-medium font-sans">
+                          <p className="text-sm text-brand-dark font-medium font-sans">
                             {prog.objetivo}
                           </p>
                         </div>
@@ -85,7 +85,7 @@ export default function Proyectos() {
                       {prog.detalles && prog.detalles.length > 0 && (
                         <ul className="flex flex-col gap-2 my-2">
                           {prog.detalles.map((detalle, i) => (
-                            <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-surface-muted font-sans">
+                            <li key={i} className="flex items-start gap-2.5 text-sm text-surface-muted font-sans">
                               <CheckCircle2 size={16} className="text-brand-pink shrink-0 mt-0.5" />
                               <span>{detalle}</span>
                             </li>

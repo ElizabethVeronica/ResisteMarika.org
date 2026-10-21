@@ -84,7 +84,7 @@ export default function QuienesSomos() {
       </section>
 
       {/* ── 1. SECCIÓN: NOSOTROS ───────────────────────────── */}
-      <section id="nosotros" className="pt-16 sm:pt-24 pb-16">
+      <section id="nosotros" className="py-12 sm:py-16">
         <Container>
           <Reveal>
             <div className="max-w-3xl mb-8">
@@ -99,25 +99,27 @@ export default function QuienesSomos() {
           </Reveal>
 
           {/* Identidad y origen */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch mb-12">
-            <div className="lg:col-span-7 space-y-4 text-gray-700 font-sans text-base sm:text-lg leading-relaxed">
-              <p className="font-semibold text-gray-900 text-lg sm:text-xl border-l-4 border-brand-purple pl-4 py-1">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start mb-12">
+            <div className="lg:col-span-7 space-y-4 text-base text-gray-700 font-sans leading-relaxed">
+              <p className="rounded-2xl border-l-4 border-brand-purple bg-brand-purpleLight/40 px-5 py-4 font-semibold text-gray-900">
                 {HISTORIA_RESUMEN.declaracionInicial}
               </p>
               <p>{HISTORIA_RESUMEN.parrafo1}</p>
 
-              <div className="p-4 sm:p-5 rounded-2xl bg-amber-50/80 border border-amber-200 text-gray-800 text-sm sm:text-base">
+              <div className="p-4 sm:p-5 rounded-2xl bg-amber-50/80 border border-amber-200 text-gray-800 text-sm leading-relaxed">
                 <p className="font-bold text-amber-900 mb-1">
                   Nuestra postura frente a la dependencia externa:
                 </p>
                 <p>{HISTORIA_RESUMEN.parrafo2}</p>
               </div>
 
-              <p className="font-medium text-gray-900">{HISTORIA_RESUMEN.parrafo3}</p>
+              <p className="rounded-2xl bg-white border border-gray-200 px-5 py-4 font-medium text-gray-900">
+                {HISTORIA_RESUMEN.parrafo3}
+              </p>
             </div>
 
             <div className="lg:col-span-5 flex flex-col gap-4">
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-gray-100">
+              <div className="aspect-[16/10] rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-gray-100">
                 <img
                   src="/images/Ceremonia de Agradecimiento a la Pachamama y Compartir Marika 2024.jpg"
                   alt="Ceremonia y compartir colectivo en Cusco"
@@ -129,28 +131,28 @@ export default function QuienesSomos() {
                 <h3 className="font-display font-extrabold text-base sm:text-lg text-gray-900 mb-3 pb-2 border-b border-gray-100">
                   Ficha de la Organización
                 </h3>
-                <dl className="space-y-3 text-xs sm:text-sm font-sans">
-                  <div>
-                    <dt className="text-gray-400 font-medium">Nombre oficial</dt>
-                    <dd className="font-bold text-gray-900">Resiste Marika Cusco</dd>
+                <dl className="grid grid-cols-2 gap-x-4 gap-y-3 font-sans">
+                  <div className="min-w-0">
+                    <dt className="text-xs text-gray-500 font-medium">Nombre oficial</dt>
+                    <dd className="text-sm font-bold text-gray-900">Resiste Marika Cusco</dd>
                   </div>
-                  <div>
-                    <dt className="text-gray-400 font-medium">Fecha de fundación</dt>
-                    <dd className="font-semibold text-gray-800">{HISTORIA_RESUMEN.fundacion}</dd>
+                  <div className="min-w-0">
+                    <dt className="text-xs text-gray-500 font-medium">Fecha de fundación</dt>
+                    <dd className="text-sm font-semibold text-gray-800">{HISTORIA_RESUMEN.fundacion}</dd>
                   </div>
-                  <div>
-                    <dt className="text-gray-400 font-medium">Ámbito territorial</dt>
-                    <dd className="font-semibold text-gray-800">{HISTORIA_RESUMEN.ciudad}</dd>
+                  <div className="min-w-0">
+                    <dt className="text-xs text-gray-500 font-medium">Ámbito territorial</dt>
+                    <dd className="text-sm font-semibold text-gray-800">{HISTORIA_RESUMEN.ciudad}</dd>
                   </div>
-                  <div>
-                    <dt className="text-gray-400 font-medium">Naturaleza</dt>
-                    <dd className="font-semibold text-gray-800">
+                  <div className="col-span-2 min-w-0">
+                    <dt className="text-xs text-gray-500 font-medium">Naturaleza</dt>
+                    <dd className="text-sm font-semibold text-gray-800">
                       Asociación civil, colectiva autoorganizada
                     </dd>
                   </div>
-                  <div>
-                    <dt className="text-gray-400 font-medium">Enfoques</dt>
-                    <dd className="font-semibold text-gray-800">
+                  <div className="col-span-2 min-w-0">
+                    <dt className="text-xs text-gray-500 font-medium">Enfoques</dt>
+                    <dd className="text-sm font-semibold text-gray-800">
                       LGTBIQ+, racializado, antipatriarcal, decolonial y antirracista
                     </dd>
                   </div>
@@ -166,16 +168,16 @@ export default function QuienesSomos() {
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-skyLight text-gray-800 text-xs font-bold mb-3 font-display">
                   El arte y la batucada
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-bold font-display text-gray-900 mb-4">
+                <h3 className="text-xl sm:text-2xl font-bold font-display text-gray-900 mb-4">
                   El uso de las artes para hacer activismo y la batucada LGTBIQ+
                 </h3>
-                <p className="text-gray-700 font-sans text-base sm:text-lg leading-relaxed mb-4">
+                <p className="text-gray-700 font-sans text-base leading-relaxed mb-4">
                   {HISTORIA_RESUMEN.pilarArtes}
                 </p>
-                <p className="text-gray-700 font-sans text-sm sm:text-base leading-relaxed mb-4">
+                <p className="text-gray-700 font-sans text-sm leading-relaxed mb-4">
                   {HISTORIA_RESUMEN.disciplinasArtisticas}
                 </p>
-                <p className="text-gray-700 font-sans text-sm sm:text-base leading-relaxed font-semibold text-brand-purple">
+                <p className="text-gray-700 font-sans text-sm leading-relaxed font-semibold text-brand-purple">
                   {HISTORIA_RESUMEN.talleresMultidisciplinarios}
                 </p>
               </div>
@@ -194,7 +196,7 @@ export default function QuienesSomos() {
               {DISCIPLINAS.map((d) => (
                 <div key={d.nombre} className="p-4 rounded-xl bg-gray-50 border border-gray-200/80">
                   <h4 className="font-bold text-sm text-gray-900 font-display">{d.nombre}</h4>
-                  <p className="text-xs text-gray-600 mt-1 font-sans">{d.descripcion}</p>
+                  <p className="text-sm text-gray-600 mt-1 font-sans leading-relaxed">{d.descripcion}</p>
                 </div>
               ))}
             </div>
@@ -215,7 +217,7 @@ export default function QuienesSomos() {
                     <h4 className="font-display font-bold text-base text-gray-900 mb-2">
                       {f.titulo}
                     </h4>
-                    <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-sans">
+                    <p className="text-sm text-gray-600 leading-relaxed font-sans">
                       {f.descripcion}
                     </p>
                   </div>
@@ -297,7 +299,7 @@ export default function QuienesSomos() {
                       <h4 className="font-display font-bold text-base text-gray-900 mt-1 mb-2">
                         {obj.titulo}
                       </h4>
-                      <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-sans">
+                      <p className="text-sm text-gray-600 leading-relaxed font-sans">
                         {obj.descripcion}
                       </p>
                     </div>
@@ -326,7 +328,7 @@ export default function QuienesSomos() {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
             <div className="lg:col-span-5 bg-white p-5 sm:p-6 rounded-2xl border border-gray-200 shadow-sm space-y-4">
-              <div className="aspect-[16/10] rounded-xl overflow-hidden bg-gray-100 border border-gray-200">
+              <div className="aspect-[16/9] rounded-xl overflow-hidden bg-gray-100 border border-gray-200">
                 <img
                   src="/images/marcha del orgullo 2025.png"
                   alt="Marcha de Resiste Marika en Cusco"
@@ -346,18 +348,18 @@ export default function QuienesSomos() {
                 </div>
               </div>
 
-              <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-sans">
+              <p className="text-sm text-gray-700 leading-relaxed font-sans">
                 Nuestra presencia se despliega activamente en la ciudad del Cusco, sus distritos y espacios públicos: calles, plazas históricas, ferias vecinales y espacios de participación ciudadana.
               </p>
             </div>
 
-            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 auto-rows-fr gap-4">
               {DONDE_TRABAJAMOS.espacios.map((esp) => (
                 <div
                   key={esp.titulo}
-                  className="p-4 sm:p-5 rounded-2xl bg-white border border-gray-200 flex flex-col justify-between shadow-sm"
+                  className="h-full p-5 rounded-2xl bg-white border border-gray-200 flex flex-col shadow-sm"
                 >
-                  <h4 className="font-display font-bold text-sm text-gray-900 mb-2">
+                  <h4 className="font-display font-bold text-base text-gray-900 mb-2">
                     {esp.titulo}
                   </h4>
                   <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-sans">

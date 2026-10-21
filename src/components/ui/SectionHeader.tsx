@@ -53,7 +53,7 @@ export default function SectionHeader({
       )}
       <h2
         className={cn(
-          'text-3xl font-extrabold font-display sm:text-4xl lg:text-5xl text-balance leading-tight',
+          'text-2xl font-extrabold font-display sm:text-3xl lg:text-4xl text-balance leading-tight',
           light ? 'text-white' : 'text-brand-dark'
         )}
       >

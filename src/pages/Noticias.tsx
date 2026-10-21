@@ -188,7 +188,7 @@ export default function Noticias() {
                         {n.titulo}
                       </h3>
 
-                      <p className="text-xs sm:text-sm text-surface-muted leading-relaxed flex-1 line-clamp-3 font-sans">
+                      <p className="text-sm text-surface-muted leading-relaxed flex-1 line-clamp-3 font-sans">
                         {n.resumen}
                       </p>
 
