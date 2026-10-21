@@ -37,7 +37,7 @@ export default function QuienesSomos() {
   return (
     <div className="bg-[#FAF9F6] text-gray-900">
       {/* ── ENCABEZADO INSTITUCIONAL ───────────────────────── */}
-      <section className="bg-white border-b border-gray-200 pt-12 pb-14 sm:pt-16 sm:pb-20">
+      <section className="bg-white border-b border-gray-200 pt-12 pb-8 sm:pt-16 sm:pb-10">
         <Container>
           <div className="max-w-4xl mx-auto text-center">
             <span className="inline-block px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-brand-purple bg-brand-purpleLight/70 rounded-full mb-4 font-display">
@@ -51,11 +51,29 @@ export default function QuienesSomos() {
             <p className="text-lg sm:text-xl text-gray-700 leading-relaxed font-sans max-w-3xl mx-auto font-medium">
               {HISTORIA_RESUMEN.sublema}
             </p>
-
           </div>
         </Container>
-        <div id="quienes-somos-menu-trigger" className="h-px" aria-hidden="true" />
       </section>
+
+      <nav
+        aria-label="Secciones de quiénes somos"
+        className="sticky top-[5rem] sm:top-[6.25rem] lg:top-[4.75rem] z-40 mx-auto w-[calc(100%-2rem)] max-w-5xl rounded-2xl border border-gray-200/80 bg-white/95 p-2 shadow-lg shadow-gray-900/10 backdrop-blur-md"
+      >
+        <div className="flex max-w-full justify-center gap-1 overflow-x-auto">
+          <a href="#nosotros" className="whitespace-nowrap rounded-xl px-3 py-2 text-xs sm:text-sm font-bold text-gray-700 transition-colors hover:bg-gray-100 hover:text-brand-purple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple">
+            Nosotros
+          </a>
+          <a href="#mision-vision" className="whitespace-nowrap rounded-xl px-3 py-2 text-xs sm:text-sm font-bold text-gray-700 transition-colors hover:bg-gray-100 hover:text-brand-purple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple">
+            Misión y Visión
+          </a>
+          <a href="#donde-trabajamos" className="whitespace-nowrap rounded-xl px-3 py-2 text-xs sm:text-sm font-bold text-gray-700 transition-colors hover:bg-gray-100 hover:text-brand-purple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple">
+            Dónde trabajamos
+          </a>
+          <a href="#con-quienes-trabajamos" className="whitespace-nowrap rounded-xl px-3 py-2 text-xs sm:text-sm font-bold text-gray-700 transition-colors hover:bg-gray-100 hover:text-brand-purple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple">
+            Con quiénes trabajamos
+          </a>
+        </div>
+      </nav>
 
       {/* ── 1. SECCIÓN: NOSOTROS ───────────────────────────── */}
       <section id="nosotros" className="scroll-mt-24 py-12 sm:py-16">

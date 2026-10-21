@@ -11,7 +11,6 @@ import { cn } from '@/utils/cn'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(() => window.scrollY > 20)
-  const [sectionMenuVisible, setSectionMenuVisible] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [desktopDropdownOpen, setDesktopDropdownOpen] = useState(false)
   const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState(true)
@@ -19,15 +18,7 @@ export default function Navbar() {
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
-      const trigger = document.getElementById('quienes-somos-menu-trigger')
-      setSectionMenuVisible(
-        location.pathname === '/quienes-somos' &&
-          trigger !== null &&
-          trigger.getBoundingClientRect().bottom < 0
-      )
-    }
+    const handleScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [location.pathname])
@@ -53,7 +44,8 @@ export default function Navbar() {
     <>
       <header
         className={cn(
-          'relative transition-all duration-200',
+          'transition-all duration-200',
+          location.pathname === '/quienes-somos' ? 'sticky top-0 z-50' : 'relative',
           scrolled
             ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200/80 pt-3'
             : 'bg-white/90 backdrop-blur-sm pt-4 sm:pt-5 border-b border-gray-100'
@@ -259,36 +251,6 @@ export default function Navbar() {
           </button>
         </Container>
       </header>
-
-      <AnimatePresence>
-        {sectionMenuVisible && location.pathname === '/quienes-somos' && (
-          <motion.nav
-            initial={{ opacity: 0, y: -12, x: '-50%' }}
-            animate={{ opacity: 1, y: 0, x: '-50%' }}
-            exit={{ opacity: 0, y: -12, x: '-50%' }}
-            transition={{ duration: 0.18 }}
-            aria-label="Secciones de quiénes somos"
-            className="fixed top-3 left-1/2 z-40 w-max max-w-[calc(100vw-1.5rem)] rounded-2xl border border-gray-200/80 bg-white/95 p-2 shadow-lg shadow-gray-900/10 backdrop-blur-md"
-          >
-            <div className="flex max-w-full gap-1 overflow-x-auto">
-              {NAV_LINKS.find((link) => link.href === '/quienes-somos')?.children?.map((sublink) => (
-                <Link
-                  key={sublink.href}
-                  to={sublink.href}
-                  className={cn(
-                    'whitespace-nowrap rounded-xl px-3 py-2 text-xs sm:text-sm font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple',
-                    location.hash === sublink.href.slice(sublink.href.indexOf('#'))
-                      ? 'bg-brand-purpleLight text-brand-purple'
-                      : 'text-gray-700 hover:bg-gray-100 hover:text-brand-purple'
-                  )}
-                >
-                  {sublink.label}
-                </Link>
-              ))}
-            </div>
-          </motion.nav>
-        )}
-      </AnimatePresence>
 
       {/* Menú Lateral Móvil */}
       <AnimatePresence>
