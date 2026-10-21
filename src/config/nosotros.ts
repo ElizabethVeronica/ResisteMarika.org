@@ -6,8 +6,6 @@ export const HISTORIA_RESUMEN = {
   organizacion: 'Resiste Marika Cusco',
   lema: 'Las artes nos han devuelto el poder para existir como marikas racializadas y resistir contra la discriminación en Cusco.',
   sublema: 'Red de autogestión, arte y ternura',
-  declaracionInicial:
-    'Las artes nos han devuelto el poder para existir como marikas racializadas y para resistir contra la discriminación de género, orientación sexual y el racismo en Cusco.',
   parrafo1:
     'Resiste Marika nació el 7 de agosto del 2023 con el sueño de organizar espacios de autogestión donde la comunidad LGTBIQ+ pueda organizarse y construir espacios de forma colectiva.',
   parrafo2:
@@ -19,7 +17,7 @@ export const HISTORIA_RESUMEN = {
   disciplinasArtisticas:
     'Además de hacer música y performar en las calles del Cusco haciendo activismo, nuestros miembros somos escritores, ilustradores, actores, escultores, psicólogos, músicos, tejedores, danzantes y arte terapeutas.',
   talleresMultidisciplinarios:
-    'Por esa razón, solemos compartir talleres artísticos multidisciplinarios en los que conectamos con las artes como forma de acompañarnos y hacer activismo LGTBIQ+, antipatriarcal, descolonial y antirracista.',
+    'Por esa razón, solemos compartir talleres artísticos multidisciplinarios en los que conectamos con las artes como forma de acompañarnos y hacer activismo LGTBIQ+, antipatriarcal, decolonial y antirracista.',
 }
 
 export const DISCIPLINAS = [
@@ -137,7 +135,7 @@ export const DONDE_TRABAJAMOS = {
     {
       titulo: 'En talleres artísticos colectivos',
       descripcion:
-        'Compartimos talleres multidisciplinarios conectando con el arte como activismo antipatriarcal, descolonial y antirracista.',
+        'Compartimos talleres multidisciplinarios conectando con el arte como activismo antipatriarcal, decolonial y antirracista.',
     },
     {
       titulo: 'En instancias de vigilancia ciudadana',
@@ -218,7 +216,7 @@ export const EQUIPO: TeamMember[] = [
     id: '3',
     nombre: 'Batucada y Talleres',
     rol: 'Música y Artivismo',
-    bio: 'Nuestros tambores en las calles del Cusco y talleres de activismo antipatriarcal, descolonial y antirracista.',
+    bio: 'Nuestros tambores en las calles del Cusco y talleres de activismo antipatriarcal, decolonial y antirracista.',
     foto: '/images/taller de batucada.jpg',
     redes: { instagram: 'https://www.instagram.com/resiste.marika.cusco' },
   },

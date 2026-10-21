@@ -21,7 +21,6 @@ import {
   Network,
   ArrowRight,
   MapPin,
-  Flame,
   type LucideIcon,
 } from 'lucide-react'
 
@@ -50,7 +49,7 @@ export default function QuienesSomos() {
             </h1>
 
             <p className="text-lg sm:text-xl text-gray-700 leading-relaxed font-sans max-w-3xl mx-auto font-medium">
-              {HISTORIA_RESUMEN.declaracionInicial}
+              {HISTORIA_RESUMEN.sublema}
             </p>
 
             {/* Barra rápida de navegación interna tipo índice */}
@@ -99,13 +98,9 @@ export default function QuienesSomos() {
             </div>
           </Reveal>
 
-          {/* Bloque de Declaración Principal */}
+          {/* Identidad y origen */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-16">
             <div className="lg:col-span-7 space-y-5 text-gray-700 font-sans text-base sm:text-lg leading-relaxed">
-              <p className="font-semibold text-gray-900 text-lg sm:text-xl border-l-4 border-brand-purple pl-4 py-1">
-                {HISTORIA_RESUMEN.declaracionInicial}
-              </p>
-
               <p>{HISTORIA_RESUMEN.parrafo1}</p>
 
               <div className="p-5 sm:p-6 rounded-2xl bg-amber-50/80 border border-amber-200 text-gray-800 text-sm sm:text-base">
@@ -147,13 +142,13 @@ export default function QuienesSomos() {
                   <div>
                     <dt className="text-gray-400 font-medium">Naturaleza</dt>
                     <dd className="font-semibold text-gray-800">
-                      Asociación civil autónoma, red colectiva y artivismo
+                      Asociación civil, colectiva autoorganizada
                     </dd>
                   </div>
                   <div>
-                    <dt className="text-gray-400 font-medium">Enfoques rectores</dt>
+                    <dt className="text-gray-400 font-medium">Enfoques</dt>
                     <dd className="font-semibold text-gray-800">
-                      LGTBIQ+, racializado, antipatriarcal, descolonial y antirracista
+                      LGTBIQ+, racializado, antipatriarcal, decolonial y antirracista
                     </dd>
                   </div>
                 </dl>
@@ -161,12 +156,12 @@ export default function QuienesSomos() {
             </div>
           </div>
 
-          {/* El segundo pilar: El arte y la Batucada */}
+          {/* El arte y la batucada */}
           <div className="bg-white rounded-2xl border border-gray-200 p-8 sm:p-10 mb-16 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-8">
               <div className="lg:col-span-7">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-skyLight text-gray-800 text-xs font-bold mb-3 font-display">
-                  <Flame size={14} className="text-brand-purple" /> Segundo Pilar Institucional
+                  El arte y la batucada
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-bold font-display text-gray-900 mb-4">
                   El uso de las artes para hacer activismo y la batucada LGTBIQ+
