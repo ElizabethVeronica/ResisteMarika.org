@@ -44,7 +44,7 @@ export default function Navbar() {
     <>
       <header
         className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-200',
+          'relative transition-all duration-200',
           scrolled
             ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200/80 py-3'
             : 'bg-white/90 backdrop-blur-sm py-4 sm:py-5 border-b border-gray-100'
@@ -57,26 +57,13 @@ export default function Navbar() {
             className="flex items-center gap-3 group"
             onClick={() => setMobileOpen(false)}
           >
-            {/* Isotipo con barras de colores Trans y No Binaria */}
-            <div className="relative h-11 w-11 rounded-xl overflow-hidden shadow-sm border border-gray-200 flex flex-col justify-between p-1 bg-white group-hover:border-brand-purple/50 transition-colors">
-              <div className="h-1.5 rounded-sm flex gap-0.5 overflow-hidden">
-                <span className="flex-1 bg-brand-sky" />
-                <span className="flex-1 bg-brand-pink" />
-                <span className="flex-1 bg-white border border-gray-100" />
-                <span className="flex-1 bg-brand-pink" />
-                <span className="flex-1 bg-brand-sky" />
-              </div>
-              
-              <div className="text-center font-display font-extrabold text-sm text-brand-dark tracking-tight">
-                RM
-              </div>
-
-              <div className="h-1.5 rounded-sm flex gap-0.5 overflow-hidden">
-                <span className="flex-1 bg-brand-yellowWarm" />
-                <span className="flex-1 bg-white border border-gray-100" />
-                <span className="flex-1 bg-brand-purple" />
-                <span className="flex-1 bg-brand-dark" />
-              </div>
+            {/* Logo oficial de Resiste Marika Cusco */}
+            <div className="relative h-11 w-11 rounded-xl overflow-hidden shadow-sm border border-gray-200 bg-white group-hover:border-brand-purple/50 transition-colors flex items-center justify-center">
+              <img
+                src="/images/logo.jpg"
+                alt="Logo Resiste Marika Cusco"
+                className="w-full h-full object-cover"
+              />
             </div>
 
             <div className="flex flex-col">

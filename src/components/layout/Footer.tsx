@@ -82,7 +82,7 @@ export default function Footer() {
 
             <div className="flex items-center gap-2 text-xs text-brand-yellowWarm font-semibold">
               <MapPin size={14} className="shrink-0" />
-              <span>Cusco, Perú · Solidaridad e Interdependencia</span>
+              <span>Cusco, Perú</span>
             </div>
 
             {/* Redes */}
@@ -133,7 +133,7 @@ export default function Footer() {
               Apoyo Comunitario
             </h3>
             <p className="text-xs text-white/70 leading-relaxed font-sans">
-              Nos sostenemos de manera autónoma con rifas, ferias de emprendimiento, venta de mercancía de artivismo, talleres y cuotas de miembros.
+              Nos sostenemos de manera autónoma con rifas, ferias, artivismo, talleres.
             </p>
             <div className="rounded-2xl bg-white/5 border border-white/10 p-3.5 mt-2 flex items-center gap-3">
               <Mail size={16} className="text-brand-pink shrink-0" />

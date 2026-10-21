@@ -7,10 +7,11 @@
 @layer base {
   html {
     @apply scroll-smooth antialiased;
+    font-size: 17.5px;
   }
 
   body {
-    @apply bg-surface-light text-brand-dark font-sans selection:bg-brand-pink selection:text-brand-dark;
+    @apply bg-surface-light text-brand-dark font-sans selection:bg-brand-pink selection:text-brand-dark leading-relaxed;
   }
 
   h1, h2, h3, h4, h5, h6 {

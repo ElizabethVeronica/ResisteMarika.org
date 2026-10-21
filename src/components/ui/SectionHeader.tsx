@@ -3,6 +3,8 @@ import type { ReactNode } from 'react'
 
 interface SectionHeaderProps {
   pill?: string
+  /** Etiqueta superior estilo editorial (MSF, Amnesty, Frida Fund) */
+  eyebrow?: string
   title: ReactNode
   subtitle?: string
   align?: 'left' | 'center' | 'right'
@@ -12,6 +14,7 @@ interface SectionHeaderProps {
 
 export default function SectionHeader({
   pill,
+  eyebrow,
   title,
   subtitle,
   align = 'center',
@@ -26,6 +29,16 @@ export default function SectionHeader({
 
   return (
     <div className={cn('flex flex-col gap-3', alignClass, className)}>
+      {eyebrow && (
+        <span
+          className={cn(
+            'text-xs font-bold uppercase tracking-wider font-display',
+            light ? 'text-brand-yellowWarm' : 'text-brand-purple',
+          )}
+        >
+          {eyebrow}
+        </span>
+      )}
       {pill && (
         <span
           className={cn(

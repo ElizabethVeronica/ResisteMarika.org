@@ -6,6 +6,8 @@ import Reveal from '@/components/ui/Reveal'
 import { PROGRAMAS } from '@/config/programas'
 import { NOTICIAS } from '@/config/noticias'
 import { HISTORIA_RESUMEN, OBJETIVOS_ESTRATEGICOS, FORMAS_AUTOGESTION, DISCIPLINAS } from '@/config/nosotros'
+import ImpactStrip from '@/components/sections/ImpactStrip'
+import EngagementPaths from '@/components/sections/EngagementPaths'
 
 const ICON_MAP: Record<string, React.ElementType> = {
   Heart,
@@ -28,21 +30,21 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* Texto Principal */}
             <div className="lg:col-span-7 flex flex-col items-start">
-              <span className="inline-block px-3 py-1 rounded-md bg-gray-100 text-gray-700 text-xs font-bold uppercase tracking-wider mb-3 font-display">
+              <span className="inline-block px-3.5 py-1.5 rounded-md bg-gray-100 text-gray-800 text-xs sm:text-sm font-bold uppercase tracking-wider mb-4 font-display">
                 Cusco, Perú · Fundada el {HISTORIA_RESUMEN.fundacion}
               </span>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black font-display text-gray-900 leading-tight tracking-tight mb-4">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black font-display text-gray-900 leading-tight tracking-tight mb-5">
                 Resiste Marika Cusco
               </h1>
 
               {/* Lema directo tomado de sus propias palabras */}
-              <p className="text-lg sm:text-xl font-bold font-display text-brand-purple leading-snug mb-5 border-l-4 border-brand-purple pl-4">
+              <p className="text-xl sm:text-2xl font-bold font-display text-brand-purple leading-snug mb-6 border-l-4 border-brand-purple pl-4">
                 {HISTORIA_RESUMEN.declaracionInicial}
               </p>
 
               {/* Quiénes somos y origen en primera persona plural */}
-              <div className="space-y-3 text-sm sm:text-base text-gray-700 font-sans leading-relaxed mb-7">
+              <div className="space-y-4 text-base sm:text-lg text-gray-700 font-sans leading-relaxed mb-8">
                 <p>
                   {HISTORIA_RESUMEN.parrafo1}
                 </p>
@@ -51,50 +53,50 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-3">
-                <Button href="/quienes-somos" size="lg" variant="primary" icon={<ArrowRight size={17} />}>
+              <div className="flex flex-wrap gap-3.5">
+                <Button href="/quienes-somos" size="lg" variant="primary" icon={<ArrowRight size={18} />}>
                   Quiénes somos y qué hacemos
                 </Button>
-                <Button href="/proyectos" size="lg" variant="secondary">
-                  Nuestras ferias y proyectos
+                <Button href="/multimedia" size="lg" variant="outline">
+                  Ver fotos y multimedia
                 </Button>
               </div>
             </div>
 
-            {/* Columna Lateral: Tarjeta Institucional de Identidad */}
+            {/* Columna Lateral: Tarjeta con Fotografía Real */}
             <div className="lg:col-span-5">
-              <div className="bg-[#FAF9F6] border border-gray-200 rounded-2xl p-6 sm:p-7 shadow-sm space-y-5">
+              <div className="bg-[#FAF9F6] border border-gray-200 rounded-2xl p-5 sm:p-6 shadow-sm space-y-4">
                 <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-gray-500 font-display">
-                    Nuestra Identidad
+                  <span className="text-xs font-bold uppercase tracking-wider text-gray-500 font-display">
+                    Nuestra Batucada en las Calles
                   </span>
-                  <h2 className="font-display font-black text-xl text-gray-900 mt-1">
-                    Red de Apoyo Mutuo, Arte y Autogestión
+                  <h2 className="font-display font-black text-xl text-gray-900 mt-0.5">
+                    Marcha 8M Cusco con Tambores Propios
                   </h2>
                 </div>
 
-                <div className="aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 border border-gray-200 relative">
+                <div className="aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 border border-gray-200 relative group">
                   <img
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=80"
-                    alt="Comunidad Resiste Marika Cusco"
-                    className="w-full h-full object-cover"
+                    src="/images/marcha 8M 2025.png"
+                    alt="Marcha de Resiste Marika Cusco con tambores"
+                    className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
                   />
                   <div className="absolute bottom-3 left-3 right-3 bg-gray-900/85 backdrop-blur-sm text-white p-3 rounded-lg text-xs font-sans">
                     <p className="font-bold font-display text-amber-300">
                       Batucada LGTBIQ+ Cusco
                     </p>
-                    <p className="text-[11px] text-gray-300 mt-0.5">
-                      Marchamos y performamos en las calles haciendo activismo.
+                    <p className="text-xs text-gray-200 mt-0.5">
+                      Performando y marchando en las calles del Cusco haciendo activismo.
                     </p>
                   </div>
                 </div>
 
-                <div className="p-3.5 rounded-xl bg-white border border-gray-200 text-xs text-gray-700 font-sans space-y-1">
+                <div className="p-3.5 rounded-xl bg-white border border-gray-200 text-xs sm:text-sm text-gray-700 font-sans space-y-1">
                   <p className="font-bold text-gray-900 font-display">
-                    Solidaridad e interdependencia
+                    Autogestión comunitaria
                   </p>
-                  <p className="text-gray-600">
-                    Sostenemos nuestras actividades mediante el aporte de miembros, rifas, ferias, talleres y artivismo.
+                  <p className="text-gray-600 text-xs">
+                    Nos sostenemos de manera autónoma con rifas, ferias, artivismo, talleres.
                   </p>
                 </div>
               </div>
@@ -103,7 +105,11 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* ── MANIFIESTO: LA SOLIDARIDAD Y LA INTERDEPENDENCIA ── */}
+      <ImpactStrip />
+
+      <EngagementPaths />
+
+      {/* ── MANIFIESTO Y AUTOGESTIÓN ────────────────────────── */}
       <section className="py-14 sm:py-20 bg-white border-b border-gray-200">
         <Container>
           <Reveal>
@@ -111,30 +117,30 @@ export default function Home() {
               <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display mb-2 block">
                 Nuestra Fortaleza Comunitaria
               </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-gray-900 mb-5 leading-tight">
-                "Nuestra fortaleza más grande: la solidaridad y la interdependencia"
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-gray-900 mb-5 leading-tight">
+                "Nuestra fortaleza más grande: la solidaridad y el apoyo mutuo"
               </h2>
 
               <p className="text-base sm:text-lg text-gray-700 font-sans leading-relaxed mb-6">
                 {HISTORIA_RESUMEN.parrafo2}
               </p>
 
-              <div className="p-4 rounded-xl bg-gray-50 border border-gray-200 text-xs sm:text-sm text-gray-800 font-sans inline-block">
+              <div className="p-4 sm:p-5 rounded-xl bg-gray-50 border border-gray-200 text-sm sm:text-base text-gray-800 font-sans inline-block">
                 <span className="font-bold text-brand-purple">¿Cómo nos sostenemos? </span>
-                {HISTORIA_RESUMEN.parrafo3}
+                Nos sostenemos de manera autónoma con rifas, ferias, artivismo, talleres.
               </div>
             </div>
           </Reveal>
         </Container>
       </section>
 
-      {/* ── FORMAS DE AUTOGESTIÓN ─────────────────────────── */}
+      {/* ── LAS 4 FORMAS DE AUTOGESTIÓN ────────────────────── */}
       <section className="py-14 sm:py-20 bg-[#FAF9F6] border-b border-gray-200">
         <Container>
           <Reveal>
             <div className="max-w-2xl mx-auto text-center mb-10">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display">
-                Autonomía Económica
+                Autonomía Colectiva
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-gray-900 mt-1">
                 Cómo hacemos posible nuestras actividades
@@ -142,17 +148,17 @@ export default function Home() {
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {FORMAS_AUTOGESTION.map((forma) => (
               <div
                 key={forma.id}
-                className="p-5 rounded-2xl bg-white border border-gray-200 flex flex-col justify-between"
+                className="p-6 rounded-2xl bg-white border border-gray-200 flex flex-col justify-between shadow-sm"
               >
                 <div>
-                  <h3 className="font-display font-bold text-sm text-gray-900 mb-2">
+                  <h3 className="font-display font-bold text-base text-gray-900 mb-2">
                     {forma.titulo}
                   </h3>
-                  <p className="text-xs text-gray-600 leading-relaxed font-sans">
+                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-sans">
                     {forma.descripcion}
                   </p>
                 </div>
@@ -165,15 +171,15 @@ export default function Home() {
       {/* ── EL SEGUNDO PILAR: LAS ARTES PARA HACER ACTIVISMO ─ */}
       <section className="py-16 sm:py-24 bg-white border-b border-gray-200">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-5 space-y-4">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display block">
                 Segundo Pilar Institucional
               </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-gray-900 leading-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-gray-900 leading-tight">
                 El uso de las artes para hacer activismo
               </h2>
-              <p className="text-sm sm:text-base text-gray-700 font-sans leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-700 font-sans leading-relaxed">
                 {HISTORIA_RESUMEN.pilarArtes}
               </p>
               <p className="text-sm sm:text-base text-gray-700 font-sans leading-relaxed">
@@ -185,14 +191,22 @@ export default function Home() {
             </div>
 
             <div className="lg:col-span-7">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="mb-6 rounded-2xl overflow-hidden border border-gray-200 shadow-sm aspect-[16/9] bg-gray-100">
+                <img
+                  src="/images/taller de batucada.jpg"
+                  alt="Taller de batucada y ensayo en Cusco"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 {DISCIPLINAS.map((d) => (
                   <div
                     key={d.nombre}
-                    className="p-5 rounded-xl bg-[#FAF9F6] border border-gray-200 flex flex-col justify-between"
+                    className="p-4 rounded-xl bg-[#FAF9F6] border border-gray-200 flex flex-col justify-between"
                   >
                     <div>
-                      <h3 className="font-display font-bold text-sm text-gray-900 mb-1.5">
+                      <h3 className="font-display font-bold text-sm text-gray-900 mb-1">
                         {d.nombre}
                       </h3>
                       <p className="text-xs text-gray-600 font-sans leading-relaxed">
@@ -215,10 +229,10 @@ export default function Home() {
               <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display">
                 Misión y Visión
               </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-gray-900 mt-1 mb-2">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-gray-900 mt-1 mb-3">
                 Nuestros Objetivos Fundamentales
               </h2>
-              <p className="text-xs sm:text-sm text-gray-600 font-sans">
+              <p className="text-sm sm:text-base text-gray-600 font-sans">
                 Compromisos que guían nuestro activismo y trabajo comunitario en Cusco.
               </p>
             </div>
@@ -230,14 +244,14 @@ export default function Home() {
               return (
                 <div
                   key={obj.id}
-                  className="p-6 rounded-2xl bg-white border border-gray-200 flex flex-col justify-between"
+                  className="p-6 rounded-2xl bg-white border border-gray-200 flex flex-col justify-between shadow-sm"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-3">
                       <span className="font-display font-black text-2xl text-gray-300">
                         {obj.numero}
                       </span>
-                      <IconComp size={16} className="text-brand-purple" />
+                      <IconComp size={18} className="text-brand-purple" />
                     </div>
                     <h3 className="font-display font-bold text-base text-gray-900 mb-2">
                       {obj.titulo}
@@ -268,7 +282,7 @@ export default function Home() {
                 <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display block mb-1">
                   En el Cusco
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-gray-900">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-gray-900">
                   Nuestras Ferias y Proyectos
                 </h2>
               </div>
@@ -282,17 +296,17 @@ export default function Home() {
             {proyectosPreview.map((prog) => (
               <div
                 key={prog.id}
-                className="group flex flex-col rounded-2xl bg-[#FAF9F6] border border-gray-200 overflow-hidden"
+                className="group flex flex-col rounded-2xl bg-[#FAF9F6] border border-gray-200 overflow-hidden shadow-sm"
               >
                 <div className="aspect-[16/10] overflow-hidden bg-gray-200">
                   <img
                     src={prog.imagen}
                     alt={prog.titulo}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
                   />
                 </div>
                 <div className="p-6 flex flex-col flex-1">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-brand-purple mb-1">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-brand-purple mb-1 font-display">
                     {prog.categoria}
                   </span>
                   <h3 className="font-display font-bold text-base text-gray-900 mb-2">
@@ -304,9 +318,9 @@ export default function Home() {
                   <div className="pt-4 mt-4 border-t border-gray-200">
                     <Link
                       to="/proyectos"
-                      className="text-xs font-bold text-brand-purple hover:underline inline-flex items-center gap-1"
+                      className="text-xs sm:text-sm font-bold text-brand-purple hover:underline inline-flex items-center gap-1"
                     >
-                      Más información <ArrowRight size={13} />
+                      Más información <ArrowRight size={14} />
                     </Link>
                   </div>
                 </div>
@@ -325,7 +339,7 @@ export default function Home() {
                 <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display block mb-1">
                   Registro Comunitario
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-gray-900">
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-gray-900">
                   Actividades y Noticias
                 </h2>
               </div>
@@ -339,7 +353,7 @@ export default function Home() {
             {noticiasPreview.map((n) => (
               <article
                 key={n.id}
-                className="flex flex-col rounded-2xl bg-white border border-gray-200 overflow-hidden"
+                className="flex flex-col rounded-2xl bg-white border border-gray-200 overflow-hidden shadow-sm"
               >
                 <div className="aspect-[16/10] overflow-hidden bg-gray-200">
                   <img src={n.imagen} alt={n.titulo} className="w-full h-full object-cover" />
@@ -351,7 +365,7 @@ export default function Home() {
                   <h3 className="font-display font-bold text-base text-gray-900 line-clamp-2">
                     {n.titulo}
                   </h3>
-                  <p className="text-xs text-gray-600 leading-relaxed font-sans flex-1 line-clamp-3">
+                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-sans flex-1 line-clamp-3">
                     {n.resumen}
                   </p>
                 </div>
@@ -368,18 +382,18 @@ export default function Home() {
             <span className="text-xs font-bold uppercase tracking-wider text-amber-300 font-display mb-2 block">
               Red Comunitaria en Cusco
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold font-display leading-tight mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display leading-tight mb-4">
               ¿Quieres sumarte, proponer un taller o articular con nosotres?
             </h2>
             <p className="text-sm sm:text-base text-gray-300 font-sans leading-relaxed mb-8">
               Escríbenos a nuestro correo oficial <span className="text-white font-semibold underline">resistemarik@gmail.com</span> o contáctanos por Instagram y TikTok.
             </p>
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="flex flex-wrap justify-center gap-3.5">
               <Button href="/contacto" size="lg" variant="primary">
                 Escríbenos un mensaje
               </Button>
-              <Button href="/quienes-somos#con-quienes-trabajamos" size="lg" variant="secondary">
-                Ver con quiénes trabajamos
+              <Button href="/multimedia" size="lg" variant="secondary">
+                Ver archivo multimedia
               </Button>
             </div>
           </div>

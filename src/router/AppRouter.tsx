@@ -3,6 +3,7 @@ import AppLayout from '@/components/layout/AppLayout'
 import Home from '@/pages/Home'
 import QuienesSomos from '@/pages/QuienesSomos'
 import Proyectos from '@/pages/Proyectos'
+import Multimedia from '@/pages/Multimedia'
 import Noticias from '@/pages/Noticias'
 import Contacto from '@/pages/Contacto'
 
@@ -14,6 +15,7 @@ export default function AppRouter() {
           <Route path="/" element={<Home />} />
           <Route path="/quienes-somos" element={<QuienesSomos />} />
           <Route path="/proyectos" element={<Proyectos />} />
+          <Route path="/multimedia" element={<Multimedia />} />
           <Route path="/noticias" element={<Noticias />} />
           <Route path="/contacto" element={<Contacto />} />
 

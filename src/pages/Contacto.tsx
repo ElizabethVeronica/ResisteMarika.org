@@ -51,7 +51,7 @@ export default function Contacto() {
                   Ponte en contacto con <span className="text-gradient">nosotres</span>
                 </>
               }
-              subtitle="Escríbenos para participar en nuestras ferias de emprendimiento, coordinar talleres de artivismo, proponer alianzas o sumarte a la red."
+              subtitle="Escríbenos para participar en nuestras ferias, coordinar talleres de artivismo, proponer alianzas o sumarte a la red."
               className="max-w-3xl mx-auto text-center"
             />
           </Reveal>

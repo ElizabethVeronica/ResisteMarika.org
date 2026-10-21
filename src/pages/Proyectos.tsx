@@ -119,10 +119,10 @@ export default function Proyectos() {
                 <Heart size={24} fill="currentColor" />
               </div>
               <h3 className="text-2xl sm:text-3xl font-extrabold font-display mb-3">
-                ¿Tienes un emprendimiento o propuesta de taller en Cusco?
+                ¿Haces arte, tienes una iniciativa o quieres proponer un taller en Cusco?
               </h3>
               <p className="text-sm sm:text-base text-white/80 max-w-2xl mx-auto mb-6 leading-relaxed font-sans">
-                Nuestras ferias y actividades están abiertas a la comunidad LGTBIQ+ y mujeres que quieran sumar sus artes, oficios y creaciones desde la solidaridad y la economía popular.
+                Nuestras ferias y actividades están abiertas a la comunidad LGTBIQ+ y mujeres que quieran sumar sus artes, oficios y creaciones desde la solidaridad y el apoyo mutuo.
               </p>
               <Button href="/contacto" size="lg" variant="yellow">
                 Escríbenos para participar

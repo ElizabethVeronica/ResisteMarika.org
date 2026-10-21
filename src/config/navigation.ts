@@ -13,6 +13,7 @@ export const NAV_LINKS: NavLink[] = [
     ],
   },
   { label: 'Proyectos',      href: '/proyectos' },
+  { label: 'Multimedia',     href: '/multimedia' },
   { label: 'Noticias',       href: '/noticias' },
   { label: 'Contacto',       href: '/contacto' },
 ]

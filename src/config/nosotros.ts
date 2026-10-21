@@ -11,9 +11,9 @@ export const HISTORIA_RESUMEN = {
   parrafo1:
     'RESISTE MARIKA CUSCO nacimos el 7 de agosto del 2023 con el sueño de ser una red de apoyo que pueda organizar espacios de autogestión donde la comunidad LGTBIQ podamos vender nuestras artes y construir nuestros emprendimientos desde el apoyo mutuo.',
   parrafo2:
-    'Nos dimos cuenta de que muchas actividades del activismo dependían del financiamiento de ONGs para existir. Estos grandes montos de dinero han generado un fuerte deterioro en las relaciones entre activistas y que se pierda de vista nuestra fortaleza más grande: la solidaridad y la interdependencia.',
+    'Nos dimos cuenta de que muchas actividades del activismo dependían del financiamiento de ONGs para existir. Estos grandes montos de dinero han generado un fuerte deterioro en las relaciones entre activistas y que se pierda de vista nuestra fortaleza más grande: la solidaridad y el apoyo mutuo.',
   parrafo3:
-    'Hasta ahora, la gran parte de las actividades que realizamos son posibles mediante la autogestión. Cada miembro aporta con cuotas, realizamos rifas, organizamos y participamos en ferias, compartimos talleres y vendemos mercancía de nuestro artivismo.',
+    'Nos sostenemos de manera autónoma con rifas, ferias, artivismo, talleres.',
   pilarArtes:
     'El segundo pilar de RESISTE MARIKA es el uso de las ARTES para hacer activismo. El 8 de Marzo del 2024, gracias a un apoyo económico, pudimos comprar nuestros tambores y salir por primera vez a marchar como una BATUCADA LGTBIQ.',
   disciplinasArtisticas:
@@ -104,29 +104,24 @@ export const OBJETIVOS_ESTRATEGICOS = [
 
 export const FORMAS_AUTOGESTION = [
   {
-    id: 'cuotas',
-    titulo: 'Cuotas de miembros',
-    descripcion: 'Cada miembro aporta con cuotas periódicas para sostener nuestras actividades y necesidades comunes.',
-  },
-  {
     id: 'rifas',
-    titulo: 'Rifas solidarias',
-    descripcion: 'Organizamos rifas con premios donados por nosotres para comprar materiales de trabajo y herramientas.',
+    titulo: 'Rifas',
+    descripcion: 'Organizamos rifas solidarias para adquirir materiales de trabajo y sostener nuestras actividades.',
   },
   {
     id: 'ferias',
-    titulo: 'Ferias de emprendimiento',
-    descripcion: 'Organizamos y participamos en ferias donde vendemos nuestras creaciones, artes y productos.',
+    titulo: 'Ferias',
+    descripcion: 'Organizamos y participamos en ferias comunitarias donde compartimos y comercializamos nuestras creaciones.',
+  },
+  {
+    id: 'artivismo',
+    titulo: 'Artivismo',
+    descripcion: 'El arte como trinchera y expresión política: fanzines, gráfica, música y performance en las calles.',
   },
   {
     id: 'talleres',
-    titulo: 'Talleres compartidos',
-    descripcion: 'Compartimos talleres artísticos y formativos para conectar con las artes y enseñar a la comunidad.',
-  },
-  {
-    id: 'mercancia',
-    titulo: 'Venta de artivismo',
-    descripcion: 'Vendemos mercancía fruto de nuestro artivismo: zines, impresiones, afiches y piezas autogestionadas.',
+    titulo: 'Talleres',
+    descripcion: 'Compartimos talleres artísticos y formativos multidisciplinarios abiertos a la comunidad.',
   },
 ]
 
@@ -143,7 +138,7 @@ export const DONDE_TRABAJAMOS = {
     {
       titulo: 'En ferias y espacios autogestionados',
       descripcion:
-        'Creamos y habitamos ferias para que nuestra comunidad venda su arte y construya sus emprendimientos.',
+        'Creamos y habitamos ferias para que nuestra comunidad comparta su arte y construya iniciativas desde el apoyo mutuo.',
     },
     {
       titulo: 'En talleres artísticos comunitarios',
@@ -160,7 +155,7 @@ export const DONDE_TRABAJAMOS = {
 
 export const CON_QUIENES_TRABAJAMOS = {
   principios:
-    'Nos articulamos desde la solidaridad, la interdependencia y el respeto mutuo, priorizando siempre la autonomía comunitaria.',
+    'Nos articulamos desde la solidaridad, el apoyo mutuo y el respeto mutuo, priorizando siempre la autonomía comunitaria.',
   redes: [
     {
       categoria: 'Colectivos LGTBIQ+ y disidencias',
@@ -185,13 +180,13 @@ export const VALORES: ValorInstitucional[] = [
   {
     id: 'autogestion',
     titulo: 'Autogestión',
-    descripcion: 'Sostenemos lo que hacemos con cuotas, rifas, ferias, talleres y venta de mercancía.',
+    descripcion: 'Nos sostenemos de manera autónoma con rifas, ferias, artivismo, talleres.',
     icono: 'Sparkles',
   },
   {
     id: 'solidaridad',
-    titulo: 'Solidaridad e Interdependencia',
-    descripcion: 'Nuestra fortaleza más grande es reconocernos, cuidarnos y apoyarnos mutuamente.',
+    titulo: 'Solidaridad y Apoyo Mutuo',
+    descripcion: 'Nuestra fortaleza radica en reconocernos, cuidarnos y sostenernos comunitariamente.',
     icono: 'HeartHandshake',
   },
   {
@@ -214,15 +209,15 @@ export const EQUIPO: TeamMember[] = [
     nombre: 'Coordinación Comunitaria',
     rol: 'Resiste Marika Cusco',
     bio: 'Articulación de actividades, batucada y talleres multidisciplinarios desde la autogestión en Cusco.',
-    foto: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80',
+    foto: '/images/marcha 8M 2025.png',
     redes: { instagram: 'https://www.instagram.com/resiste.marika.cusco' },
   },
   {
     id: '2',
-    nombre: 'Ferias y Emprendimiento',
-    rol: 'Economía Solidaria',
-    bio: 'Organización de ferias donde la comunidad vende sus artes y productos desde el apoyo mutuo.',
-    foto: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80',
+    nombre: 'Ferias Comunitarias',
+    rol: 'Autogestión Colectiva',
+    bio: 'Organización de ferias donde la comunidad comparte sus artes y creaciones desde el apoyo mutuo.',
+    foto: '/images/Marika Fest 2024 - Feria de autogestión LGTBIQ.jpg',
     redes: { instagram: 'https://www.instagram.com/resiste.marika.cusco' },
   },
   {
@@ -230,7 +225,7 @@ export const EQUIPO: TeamMember[] = [
     nombre: 'Batucada y Talleres',
     rol: 'Música y Artivismo',
     bio: 'Nuestros tambores en las calles del Cusco y talleres de activismo antipatriarcal, descolonial y antirracista.',
-    foto: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
+    foto: '/images/taller de batucada.jpg',
     redes: { instagram: 'https://www.instagram.com/resiste.marika.cusco' },
   },
   {
@@ -238,14 +233,14 @@ export const EQUIPO: TeamMember[] = [
     nombre: 'Incidencia y Vigilancia',
     rol: 'Políticas Públicas',
     bio: 'Participación en vigilancia ciudadana y formulación de políticas públicas en favor de la comunidad.',
-    foto: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80',
+    foto: '/images/planton 25N.jpg',
     redes: { instagram: 'https://www.instagram.com/resiste.marika.cusco' },
   },
 ]
 
 export const ALIANZAS: Alianza[] = [
   { id: '1', nombre: 'Colectivos LGTBIQ+ de Cusco', tipo: 'Articulación Local', logoText: 'CUSCO' },
-  { id: '2', nombre: 'Red de Emprendimientos Disidentes', tipo: 'Apoyo Mutuo', logoText: 'RED' },
+  { id: '2', nombre: 'Redes Comunitarias', tipo: 'Apoyo Mutuo', logoText: 'RED' },
   { id: '3', nombre: 'Organizaciones de Mujeres', tipo: 'Defensa de Derechos', logoText: 'MUJERES' },
   { id: '4', nombre: 'Creadores y Artivistas', tipo: 'Artes Independientes', logoText: 'ARTE' },
   { id: '5', nombre: 'Instancias de Vigilancia Ciudadana', tipo: 'Gestión Participativa', logoText: 'VIGILA' },
