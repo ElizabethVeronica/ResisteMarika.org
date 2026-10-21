@@ -34,7 +34,7 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
   },
   {
     id: 'taller-batucada',
-    titulo: 'Ensayo y Taller de Batucada Comunitaria',
+    titulo: 'Ensayo y Taller de Batucada Colectiva',
     categoria: 'Batucada y Marchas',
     fecha: 'Cusco',
     archivo: '/images/taller de batucada.jpg',
@@ -54,7 +54,7 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
     categoria: 'Batucada y Marchas',
     fecha: 'Cusco, 2024',
     archivo: '/images/marcha dle orgullo 2024.jpg',
-    descripcion: 'Presencia comunitaria de Resiste Marika Cusco con pancartas y demandas colectivas.',
+    descripcion: 'Presencia colectiva de Resiste Marika Cusco con pancartas y demandas colectivas.',
   },
   {
     id: 'planton-25n',
@@ -86,7 +86,7 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
     categoria: 'Ferias y Artivismo',
     fecha: 'Cusco, 2024',
     archivo: '/images/Marika Fest 2024 - Feria de autogestión LGTBIQ.jpg',
-    descripcion: 'Espacio comunitario autogestionado donde compartimos y comercializamos artes y creaciones desde el apoyo mutuo.',
+    descripcion: 'Espacio colectivo autogestionado donde compartimos y comercializamos artes y creaciones desde el apoyo mutuo.',
   },
   {
     id: 'marika-fest-productos',
@@ -126,7 +126,7 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
     categoria: 'Talleres y Saberes',
     fecha: '2025',
     archivo: '/images/Taller de Memoria con el Archivo Marika del Perú 2025.png',
-    descripcion: 'Recuperación de la memoria histórica disidente andina y preservación comunitaria de archivos marikas.',
+    descripcion: 'Recuperación de la memoria histórica disidente andina y preservación colectiva de archivos marikas.',
   },
   {
     id: 'taller-collage-qhariwarmi',
@@ -142,7 +142,7 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
     categoria: 'Talleres y Saberes',
     fecha: '2025',
     archivo: '/images/Rimanakuy Marika 2025  - Investigaciones sobre la Memoria Andina LGTBIQ.png',
-    descripcion: 'Círculo de diálogo e investigaciones comunitarias sobre identidades disidentes en los Andes.',
+    descripcion: 'Círculo de diálogo e investigaciones colectivas sobre identidades disidentes en los Andes.',
   },
   {
     id: 'taller-mascaras-8m',
@@ -166,7 +166,7 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
     categoria: 'Rituales y Encuentros',
     fecha: 'Cusco, 2024',
     archivo: '/images/Ceremonia de Agradecimiento a la Pachamama y Compartir Marika 2024.jpg',
-    descripcion: 'Pago a la tierra, agradecimiento y encuentro comunitario entre integrantes de la red.',
+    descripcion: 'Pago a la tierra, agradecimiento y encuentro colectivo entre integrantes de la red.',
   },
   {
     id: 'rezo-chuquichinchay',

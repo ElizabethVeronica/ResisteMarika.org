@@ -111,7 +111,7 @@ export const FORMAS_AUTOGESTION = [
   {
     id: 'ferias',
     titulo: 'Ferias',
-    descripcion: 'Organizamos y participamos en ferias comunitarias donde compartimos y comercializamos nuestras creaciones.',
+    descripcion: 'Organizamos y participamos en ferias colectivas donde compartimos y comercializamos nuestras creaciones.',
   },
   {
     id: 'artivismo',
@@ -141,7 +141,7 @@ export const DONDE_TRABAJAMOS = {
         'Creamos y habitamos ferias para que nuestra comunidad comparta su arte y construya iniciativas desde el apoyo mutuo.',
     },
     {
-      titulo: 'En talleres artísticos comunitarios',
+      titulo: 'En talleres artísticos colectivos',
       descripcion:
         'Compartimos talleres multidisciplinarios conectando con el arte como activismo antipatriarcal, descolonial y antirracista.',
     },
@@ -155,7 +155,7 @@ export const DONDE_TRABAJAMOS = {
 
 export const CON_QUIENES_TRABAJAMOS = {
   principios:
-    'Nos articulamos desde la solidaridad, el apoyo mutuo y el respeto mutuo, priorizando siempre la autonomía comunitaria.',
+    'Nos articulamos desde la solidaridad, el apoyo mutuo y el respeto mutuo, priorizando siempre la autonomía colectiva.',
   redes: [
     {
       categoria: 'Colectivos LGTBIQ+ y disidencias',
@@ -186,7 +186,7 @@ export const VALORES: ValorInstitucional[] = [
   {
     id: 'solidaridad',
     titulo: 'Solidaridad y Apoyo Mutuo',
-    descripcion: 'Nuestra fortaleza radica en reconocernos, cuidarnos y sostenernos comunitariamente.',
+    descripcion: 'Nuestra fortaleza radica en reconocernos, cuidarnos y sostenernos colectivamente.',
     icono: 'HeartHandshake',
   },
   {
@@ -206,7 +206,7 @@ export const VALORES: ValorInstitucional[] = [
 export const EQUIPO: TeamMember[] = [
   {
     id: '1',
-    nombre: 'Coordinación Comunitaria',
+    nombre: 'Coordinación Colectiva',
     rol: 'Resiste Marika Cusco',
     bio: 'Articulación de actividades, batucada y talleres multidisciplinarios desde la autogestión en Cusco.',
     foto: '/images/marcha 8M 2025.png',
@@ -214,7 +214,7 @@ export const EQUIPO: TeamMember[] = [
   },
   {
     id: '2',
-    nombre: 'Ferias Comunitarias',
+    nombre: 'Ferias Colectivas',
     rol: 'Autogestión Colectiva',
     bio: 'Organización de ferias donde la comunidad comparte sus artes y creaciones desde el apoyo mutuo.',
     foto: '/images/Marika Fest 2024 - Feria de autogestión LGTBIQ.jpg',
@@ -240,7 +240,7 @@ export const EQUIPO: TeamMember[] = [
 
 export const ALIANZAS: Alianza[] = [
   { id: '1', nombre: 'Colectivos LGTBIQ+ de Cusco', tipo: 'Articulación Local', logoText: 'CUSCO' },
-  { id: '2', nombre: 'Redes Comunitarias', tipo: 'Apoyo Mutuo', logoText: 'RED' },
+  { id: '2', nombre: 'Redes Colectivas', tipo: 'Apoyo Mutuo', logoText: 'RED' },
   { id: '3', nombre: 'Organizaciones de Mujeres', tipo: 'Defensa de Derechos', logoText: 'MUJERES' },
   { id: '4', nombre: 'Creadores y Artivistas', tipo: 'Artes Independientes', logoText: 'ARTE' },
   { id: '5', nombre: 'Instancias de Vigilancia Ciudadana', tipo: 'Gestión Participativa', logoText: 'VIGILA' },

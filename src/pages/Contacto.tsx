@@ -232,7 +232,7 @@ export default function Contacto() {
                       </div>
                       <div>
                         <p className="text-xs font-bold text-surface-muted uppercase tracking-wider font-display">
-                          Espacio Comunitario
+                          Espacio Colectivo
                         </p>
                         <p className="text-brand-dark font-semibold">Ferias itinerantes y encuentros presenciales</p>
                       </div>

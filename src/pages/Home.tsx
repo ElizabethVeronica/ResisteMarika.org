@@ -6,7 +6,6 @@ import Reveal from '@/components/ui/Reveal'
 import { PROGRAMAS } from '@/config/programas'
 import { NOTICIAS } from '@/config/noticias'
 import { HISTORIA_RESUMEN, OBJETIVOS_ESTRATEGICOS, FORMAS_AUTOGESTION, DISCIPLINAS } from '@/config/nosotros'
-import ImpactStrip from '@/components/sections/ImpactStrip'
 import EngagementPaths from '@/components/sections/EngagementPaths'
 
 const ICON_MAP: Record<string, React.ElementType> = {
@@ -93,7 +92,7 @@ export default function Home() {
 
                 <div className="p-3.5 rounded-xl bg-white border border-gray-200 text-xs sm:text-sm text-gray-700 font-sans space-y-1">
                   <p className="font-bold text-gray-900 font-display">
-                    Autogestión comunitaria
+                    Autogestión colectiva
                   </p>
                   <p className="text-gray-600 text-xs">
                     Nos sostenemos de manera autónoma con rifas, ferias, artivismo, talleres.
@@ -105,8 +104,6 @@ export default function Home() {
         </Container>
       </section>
 
-      <ImpactStrip />
-
       <EngagementPaths />
 
       {/* ── MANIFIESTO Y AUTOGESTIÓN ────────────────────────── */}
@@ -115,7 +112,7 @@ export default function Home() {
           <Reveal>
             <div className="max-w-3xl mx-auto text-center">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display mb-2 block">
-                Nuestra Fortaleza Comunitaria
+                Nuestra Fortaleza Colectiva
               </span>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-gray-900 mb-5 leading-tight">
                 "Nuestra fortaleza más grande: la solidaridad y el apoyo mutuo"
@@ -233,7 +230,7 @@ export default function Home() {
                 Nuestros Objetivos Fundamentales
               </h2>
               <p className="text-sm sm:text-base text-gray-600 font-sans">
-                Compromisos que guían nuestro activismo y trabajo comunitario en Cusco.
+                Compromisos que guían nuestro activismo y trabajo colectivo en Cusco.
               </p>
             </div>
           </Reveal>
@@ -337,7 +334,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display block mb-1">
-                  Registro Comunitario
+                  Registro Colectivo
                 </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-gray-900">
                   Actividades y Noticias
@@ -380,7 +377,7 @@ export default function Home() {
         <Container>
           <div className="max-w-3xl mx-auto text-center">
             <span className="text-xs font-bold uppercase tracking-wider text-amber-300 font-display mb-2 block">
-              Red Comunitaria en Cusco
+              Red Colectiva en Cusco
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display leading-tight mb-4">
               ¿Quieres sumarte, proponer un taller o articular con nosotres?

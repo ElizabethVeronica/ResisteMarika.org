@@ -122,7 +122,7 @@ export default function QuienesSomos() {
               <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-gray-100">
                 <img
                   src="/images/Ceremonia de Agradecimiento a la Pachamama y Compartir Marika 2024.jpg"
-                  alt="Ceremonia y Compartir Comunitario en Cusco"
+                  alt="Ceremonia y compartir colectivo en Cusco"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -344,7 +344,7 @@ export default function QuienesSomos() {
                   <h3 className="font-display font-bold text-lg text-gray-900">
                     Región Cusco
                   </h3>
-                  <p className="text-xs text-gray-500">Ámbito urbano y comunitario</p>
+                  <p className="text-xs text-gray-500">Ámbito urbano y colectivo</p>
                 </div>
               </div>
 

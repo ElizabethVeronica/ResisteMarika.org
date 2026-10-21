@@ -40,7 +40,7 @@ export default function Noticias() {
                   Noticias, ferias y <span className="text-gradient">comunicados</span>
                 </>
               }
-              subtitle="Registro de las ferias autogestivas, convocatorias, pronunciamientos y actividades comunitarias de Resiste Marika Cusco."
+              subtitle="Registro de las ferias autogestivas, convocatorias, pronunciamientos y actividades colectivas de Resiste Marika Cusco."
               className="max-w-3xl mx-auto text-center"
             />
           </Reveal>

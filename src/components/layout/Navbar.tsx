@@ -58,7 +58,7 @@ export default function Navbar() {
             onClick={() => setMobileOpen(false)}
           >
             {/* Logo oficial de Resiste Marika Cusco */}
-            <div className="relative h-11 w-11 rounded-xl overflow-hidden shadow-sm border border-gray-200 bg-white group-hover:border-brand-purple/50 transition-colors flex items-center justify-center">
+            <div className="relative h-14 w-14 sm:h-16 sm:w-16 overflow-hidden transition-transform group-hover:scale-105">
               <img
                 src="/images/logo.jpg"
                 alt="Logo Resiste Marika Cusco"
@@ -71,7 +71,7 @@ export default function Navbar() {
                 Resiste <span className="text-brand-purple">Marika</span> <span className="text-brand-pink font-bold">Cusco</span>
               </span>
               <span className="text-[11px] font-semibold text-gray-500 tracking-wider uppercase mt-1">
-                Autogestión · Arte · Apoyo Mutuo
+                Autogestión y Arte
               </span>
             </div>
           </Link>

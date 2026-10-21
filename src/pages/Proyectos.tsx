@@ -16,7 +16,7 @@ export default function Proyectos() {
               pill="Nuestras Acciones en Cusco"
               title={
                 <>
-                  Ferias, artivismo y <span className="text-gradient">proyectos comunitarios</span>
+                  Ferias, artivismo y <span className="text-gradient">proyectos colectivos</span>
                 </>
               }
               subtitle="Espacios de autogestión económica, formación entre pares, apoyo mutuo y vigilancia ciudadana para la comunidad LGTBIQ+ y mujeres."
@@ -74,7 +74,7 @@ export default function Proyectos() {
                       {prog.objetivo && (
                         <div className="rounded-2xl bg-brand-purpleLight/40 p-4 border border-brand-purpleSoft/30">
                           <p className="text-[11px] font-bold uppercase tracking-wider text-brand-purple mb-1 font-display">
-                            Propósito Comunitario
+                            Propósito Colectivo
                           </p>
                           <p className="text-xs sm:text-sm text-brand-dark font-medium font-sans">
                             {prog.objetivo}

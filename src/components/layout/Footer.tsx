@@ -130,7 +130,7 @@ export default function Footer() {
           {/* Columna 3: Autogestión y Contacto */}
           <div className="lg:col-span-4 flex flex-col gap-3">
             <h3 className="text-xs font-bold text-brand-yellowWarm uppercase tracking-widest mb-2 font-display">
-              Apoyo Comunitario
+              Apoyo Colectivo
             </h3>
             <p className="text-xs text-white/70 leading-relaxed font-sans">
               Nos sostenemos de manera autónoma con rifas, ferias, artivismo, talleres.

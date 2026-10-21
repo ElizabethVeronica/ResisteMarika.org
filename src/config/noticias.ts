@@ -5,7 +5,7 @@ export const NOTICIAS: Noticia[] = [
     id: '1',
     titulo: 'Rimanakuy Marika 2025: Investigaciones sobre la Memoria Andina LGTBIQ',
     resumen:
-      'Círculo de diálogo e investigaciones comunitarias sobre memoria disidente andina, identidades históricas y resistencia en el Cusco.',
+      'Círculo de diálogo e investigaciones colectivas sobre memoria disidente andina, identidades históricas y resistencia en el Cusco.',
     imagen: '/images/Rimanakuy Marika 2025  - Investigaciones sobre la Memoria Andina LGTBIQ.png',
     fecha: '2025',
     categoria: 'Memoria',
@@ -17,7 +17,7 @@ export const NOTICIAS: Noticia[] = [
     id: '2',
     titulo: 'Taller de Memoria con el Archivo Marika del Perú',
     resumen:
-      'Jornada de rescate y preservación comunitaria de archivos, fanzines y documentos vivos de la resistencia marika en el Perú.',
+      'Jornada de rescate y preservación colectiva de archivos, fanzines y documentos vivos de la resistencia marika en el Perú.',
     imagen: '/images/Taller de Memoria con el Archivo Marika del Perú 2025.png',
     fecha: '2025',
     categoria: 'Formación',
@@ -27,7 +27,7 @@ export const NOTICIAS: Noticia[] = [
   },
   {
     id: '3',
-    titulo: 'Marika Fest 2024: Feria Comunitaria y Autogestión LGTBIQ en Cusco',
+    titulo: 'Marika Fest 2024: Feria Colectiva y Autogestión LGTBIQ en Cusco',
     resumen:
       'Espacio autogestionado de arte disidente, productos de concientización, talleres de cuidado y encuentro colectivo.',
     imagen: '/images/Marika Fest 2024 - Feria de autogestión LGTBIQ.jpg',

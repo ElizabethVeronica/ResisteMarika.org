@@ -37,7 +37,7 @@ export default function Multimedia() {
             </h1>
 
             <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-sans max-w-2xl mx-auto">
-              Memoria fotográfica de nuestras marchas con batucada, ferias comunitarias, talleres formativos y encuentros en el Cusco.
+              Memoria fotográfica de nuestras marchas con batucada, ferias colectivas, talleres formativos y encuentros en el Cusco.
             </p>
 
             {/* Pestañas de Filtrado por Categoría */}

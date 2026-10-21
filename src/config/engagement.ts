@@ -22,7 +22,7 @@ export const ENGAGEMENT_PATHS: EngagementPath[] = [
     id: 'participar',
     titulo: 'Participar en proyectos',
     descripcion:
-      'Ferias comunitarias, talleres de batucada, drag, circo y espacios de apoyo mutuo que organizamos.',
+      'Ferias colectivas, talleres de batucada, arte drag y espacios de apoyo colectivo y auto-organización.',
     href: '/proyectos',
     cta: 'Ver proyectos',
     tiempo: 'Explorar actividades',

@@ -12,8 +12,8 @@ export default function EngagementPaths() {
         <SectionHeader
           align="center"
           eyebrow="Cómo puedes involucrarte"
-          title="Elige tu camino dentro de la red"
-          subtitle="Organizamos el sitio como muchas ONG comunitarias: primero entiendes quiénes somos, luego ves en qué participamos y, si te mueve, contactas."
+          title="Acompáñanos"
+          subtitle="Organizamos con varias colectivas, animate a participar con nosotres y contactanos"
           className="mb-10 max-w-2xl mx-auto"
         />
 

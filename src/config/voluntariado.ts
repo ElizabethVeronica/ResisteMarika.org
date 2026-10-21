@@ -50,7 +50,7 @@ export const FAQS_COLABORA: FAQItem[] = [
     id: '2',
     pregunta: '¿Cómo se utilizan las donaciones económicas?',
     respuesta:
-      'El 100% de los fondos recibidos se destina a sostener el programa de asesoría gratuita, materiales para talleres educativos comunitarios y fondo de emergencia para personas en situación de vulnerabilidad extrema. Publicamos balances periódicos de rendición de cuentas.',
+      'El 100% de los fondos recibidos se destina a sostener el programa de asesoría gratuita, materiales para talleres educativos colectivos y fondo de emergencia para personas en situación de vulnerabilidad extrema. Publicamos balances periódicos de rendición de cuentas.',
   },
   {
     id: '3',

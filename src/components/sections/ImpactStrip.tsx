@@ -42,7 +42,7 @@ export default function ImpactStrip({ className }: { className?: string }) {
   return (
     <section
       className={cn('bg-white border-b border-gray-200 py-10 sm:py-12', className)}
-      aria-label="Cifras de nuestra labor comunitaria"
+      aria-label="Cifras de nuestra labor colectiva"
     >
       <Container>
         <p className="text-[11px] font-bold uppercase tracking-widest text-gray-500 font-display mb-6">
