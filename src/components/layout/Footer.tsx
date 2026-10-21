@@ -26,39 +26,6 @@ export default function Footer() {
       </div>
 
       <Container className="pt-14 pb-12">
-        {/* Franja de Contacto presente debajo de cada página */}
-        <div className="mb-14 p-6 sm:p-8 rounded-3xl bg-white/5 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex flex-col gap-1.5 text-center md:text-left">
-            <div className="flex items-center justify-center md:justify-start gap-2 text-brand-yellowWarm text-xs font-bold uppercase tracking-wider font-display">
-              <Mail size={14} className="text-brand-pink" />
-              <span>Contacto de la Red</span>
-            </div>
-            <h4 className="text-lg sm:text-xl font-bold font-display text-white">
-              ¿Quieres sumarte, proponer un taller o participar en ferias?
-            </h4>
-            <p className="text-xs sm:text-sm text-white/75 font-sans">
-              Escríbenos directamente o visita nuestra página de contacto para más detalles.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">
-            <a
-              href="mailto:resistemarik@gmail.com"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-brand-purple to-brand-pink text-white text-xs font-bold hover:opacity-90 transition-opacity shadow-sm font-sans"
-            >
-              <Mail size={15} />
-              resistemarik@gmail.com
-            </a>
-            <Link
-              to="/contacto"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition-colors font-sans border border-white/15"
-            >
-              <Sparkles size={14} className="text-brand-yellowWarm" />
-              Página de Contacto
-            </Link>
-          </div>
-        </div>
-
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-12 pb-12 border-b border-white/10">
           {/* Columna 1: Identidad y Origen */}
           <div className="lg:col-span-5 flex flex-col gap-4">

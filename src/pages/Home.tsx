@@ -256,7 +256,7 @@ export default function Home() {
                   <h3 className="font-display font-bold text-base text-gray-900 mb-2">
                     {prog.titulo}
                   </h3>
-                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-sans flex-1 line-clamp-3">
+                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-sans flex-1">
                     {prog.descripcion}
                   </p>
                 </div>
@@ -327,7 +327,28 @@ export default function Home() {
               ¿Quieres sumarte, proponer un taller o articular con nosotres?
             </h2>
             <p className="text-sm sm:text-base text-surface-muted font-sans leading-relaxed mb-8">
-              Escríbenos a nuestro correo oficial <span className="text-brand-purple font-semibold underline">resistemarik@gmail.com</span> o contáctanos por Instagram y TikTok.
+              Escríbenos a nuestro correo oficial{' '}
+              <a href="mailto:resistemarik@gmail.com" className="text-brand-purple font-semibold underline">
+                resistemarik@gmail.com
+              </a>{' '}
+              o contáctanos por{' '}
+              <a
+                href="https://www.instagram.com/resiste.marika.cusco"
+                target="_blank"
+                rel="noreferrer"
+                className="text-brand-purple font-semibold underline hover:text-brand-pink transition-colors"
+              >
+                Instagram
+              </a>{' '}
+              y{' '}
+              <a
+                href="https://www.tiktok.com/@resistemarik"
+                target="_blank"
+                rel="noreferrer"
+                className="text-brand-purple font-semibold underline hover:text-brand-pink transition-colors"
+              >
+                TikTok
+              </a>.
             </p>
             <div className="flex flex-wrap justify-center gap-3.5">
               <Button href="/contacto" size="lg" variant="primary">

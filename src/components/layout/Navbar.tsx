@@ -50,15 +50,15 @@ export default function Navbar() {
             : 'bg-white/90 backdrop-blur-sm pt-4 sm:pt-5 border-b border-gray-100'
         )}
       >
-        <Container className="flex items-end justify-between">
+        <Container className="flex items-center justify-between">
           {/* Logo institucional de Resiste Marika */}
           <Link
             to="/"
-            className="flex items-end gap-3 group"
+            className="flex items-center gap-2 group lg:hidden"
             onClick={() => setMobileOpen(false)}
           >
             {/* Logo oficial de Resiste Marika */}
-            <div className="relative h-20 w-20 sm:h-24 sm:w-24 shrink-0 overflow-hidden transition-transform group-hover:scale-105 origin-bottom">
+            <div className="relative h-16 w-16 sm:h-20 sm:w-20 shrink-0 overflow-hidden transition-transform group-hover:scale-105">
               <img
                 src="/images/logo.jpg"
                 alt="Logo de Resiste Marika"
@@ -76,8 +76,33 @@ export default function Navbar() {
             </div>
           </Link>
 
+          <Link
+            to="/"
+            className="hidden lg:block shrink-0 group"
+            onClick={() => setMobileOpen(false)}
+            aria-label="Resiste Marika - Inicio"
+          >
+            <div className="relative h-16 w-16 shrink-0 overflow-hidden transition-transform group-hover:scale-105">
+              <img
+                src="/images/logo.jpg"
+                alt=""
+                className="w-full h-full object-contain object-bottom"
+              />
+            </div>
+          </Link>
+
+          <div className="hidden lg:flex flex-1 items-center justify-center gap-3 xl:gap-5">
+            <Link to="/" className="flex flex-col shrink-0">
+              <span className="font-display font-extrabold text-lg tracking-tight text-brand-dark leading-none">
+                Resiste <span className="text-brand-purple">Marika</span>
+              </span>
+              <span className="text-[10px] font-semibold text-gray-500 tracking-wider uppercase mt-1">
+                Autogestión y Arte
+              </span>
+            </Link>
+
           {/* Navegación Desktop */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2" aria-label="Navegación principal">
+          <nav className="flex items-center gap-0 xl:gap-1" aria-label="Navegación principal">
             {NAV_LINKS.map((link) => {
               if (link.children && link.children.length > 0) {
                 const isChildActive =
@@ -189,7 +214,7 @@ export default function Navbar() {
           </nav>
 
           {/* Redes Sociales Oficiales + Botón Contacto */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="flex items-center gap-2 xl:gap-3">
             <div className="flex items-center gap-2 pr-3 border-r border-gray-200 text-gray-600">
               <a
                 href="https://www.instagram.com/resiste.marika.cusco"
@@ -214,6 +239,7 @@ export default function Navbar() {
             <Button href="/contacto" variant="primary" size="sm">
               Escríbenos
             </Button>
+          </div>
           </div>
 
           {/* Botón Menú Móvil */}
