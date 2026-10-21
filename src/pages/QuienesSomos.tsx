@@ -80,23 +80,23 @@ export default function QuienesSomos() {
       <nav
         ref={sectionMenuRef}
         aria-label="Secciones de quiénes somos"
-        className={`sticky top-24 sm:top-[8.5rem] lg:top-[7.5rem] z-[60] mx-auto w-[calc(100%-2rem)] max-w-5xl rounded-2xl border p-2 transition-[background-color,border-color,box-shadow] duration-200 ${
+        className={`sticky top-24 sm:top-[8.5rem] lg:top-[7.5rem] z-[60] mx-auto w-fit max-w-[calc(100%-2rem)] rounded-2xl border p-1.5 transition-[background-color,border-color,box-shadow] duration-200 ${
           sectionMenuStuck
             ? 'border-gray-200/80 bg-white/95 shadow-lg shadow-gray-900/10 backdrop-blur-md'
             : 'border-transparent bg-[#FAF9F6]'
         }`}
       >
         <div className="flex max-w-full justify-center gap-1 overflow-x-auto">
-          <a href="#nosotros" className="whitespace-nowrap rounded-xl px-3 py-2 text-xs sm:text-sm font-bold text-gray-700 transition-colors hover:bg-gray-100 hover:text-brand-purple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple">
+          <a href="#nosotros" className="whitespace-nowrap rounded-xl px-2.5 py-1.5 text-xs sm:text-sm font-bold text-gray-700 transition-colors hover:bg-gray-100 hover:text-brand-purple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple">
             Nosotros
           </a>
-          <a href="#mision-vision" className="whitespace-nowrap rounded-xl px-3 py-2 text-xs sm:text-sm font-bold text-gray-700 transition-colors hover:bg-gray-100 hover:text-brand-purple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple">
+          <a href="#mision-vision" className="whitespace-nowrap rounded-xl px-2.5 py-1.5 text-xs sm:text-sm font-bold text-gray-700 transition-colors hover:bg-gray-100 hover:text-brand-purple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple">
             Misión y Visión
           </a>
-          <a href="#donde-trabajamos" className="whitespace-nowrap rounded-xl px-3 py-2 text-xs sm:text-sm font-bold text-gray-700 transition-colors hover:bg-gray-100 hover:text-brand-purple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple">
+          <a href="#donde-trabajamos" className="whitespace-nowrap rounded-xl px-2.5 py-1.5 text-xs sm:text-sm font-bold text-gray-700 transition-colors hover:bg-gray-100 hover:text-brand-purple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple">
             Dónde trabajamos
           </a>
-          <a href="#con-quienes-trabajamos" className="whitespace-nowrap rounded-xl px-3 py-2 text-xs sm:text-sm font-bold text-gray-700 transition-colors hover:bg-gray-100 hover:text-brand-purple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple">
+          <a href="#con-quienes-trabajamos" className="whitespace-nowrap rounded-xl px-2.5 py-1.5 text-xs sm:text-sm font-bold text-gray-700 transition-colors hover:bg-gray-100 hover:text-brand-purple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple">
             Con quiénes trabajamos
           </a>
         </div>
