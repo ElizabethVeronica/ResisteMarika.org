@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react'
 import Container from '@/components/ui/Container'
 import Reveal from '@/components/ui/Reveal'
 import Button from '@/components/ui/Button'
@@ -34,6 +35,27 @@ const ICON_MAP: Record<string, LucideIcon> = {
 }
 
 export default function QuienesSomos() {
+  const sectionMenuRef = useRef<HTMLElement>(null)
+  const [sectionMenuStuck, setSectionMenuStuck] = useState(false)
+
+  useEffect(() => {
+    const updateSectionMenu = () => {
+      const menu = sectionMenuRef.current
+      if (!menu) return
+
+      const stickyTop = Number.parseFloat(window.getComputedStyle(menu).top)
+      setSectionMenuStuck(menu.getBoundingClientRect().top <= stickyTop)
+    }
+
+    updateSectionMenu()
+    window.addEventListener('scroll', updateSectionMenu, { passive: true })
+    window.addEventListener('resize', updateSectionMenu)
+    return () => {
+      window.removeEventListener('scroll', updateSectionMenu)
+      window.removeEventListener('resize', updateSectionMenu)
+    }
+  }, [])
+
   return (
     <div className="bg-[#FAF9F6] text-gray-900">
       {/* ── ENCABEZADO INSTITUCIONAL ───────────────────────── */}
@@ -56,8 +78,13 @@ export default function QuienesSomos() {
       </section>
 
       <nav
+        ref={sectionMenuRef}
         aria-label="Secciones de quiénes somos"
-        className="sticky top-[5rem] sm:top-[6.25rem] lg:top-[4.75rem] z-40 mx-auto w-[calc(100%-2rem)] max-w-5xl rounded-2xl border border-gray-200/80 bg-white/95 p-2 shadow-lg shadow-gray-900/10 backdrop-blur-md"
+        className={`sticky top-24 sm:top-[8.5rem] lg:top-[7.5rem] z-[60] mx-auto w-[calc(100%-2rem)] max-w-5xl rounded-2xl border p-2 transition-[background-color,border-color,box-shadow] duration-200 ${
+          sectionMenuStuck
+            ? 'border-gray-200/80 bg-white/95 shadow-lg shadow-gray-900/10 backdrop-blur-md'
+            : 'border-transparent bg-[#FAF9F6]'
+        }`}
       >
         <div className="flex max-w-full justify-center gap-1 overflow-x-auto">
           <a href="#nosotros" className="whitespace-nowrap rounded-xl px-3 py-2 text-xs sm:text-sm font-bold text-gray-700 transition-colors hover:bg-gray-100 hover:text-brand-purple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple">
