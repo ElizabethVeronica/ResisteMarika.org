@@ -46,23 +46,23 @@ export default function Navbar() {
         className={cn(
           'relative transition-all duration-200',
           scrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200/80 py-3'
-            : 'bg-white/90 backdrop-blur-sm py-4 sm:py-5 border-b border-gray-100'
+            ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200/80 pt-3'
+            : 'bg-white/90 backdrop-blur-sm pt-4 sm:pt-5 border-b border-gray-100'
         )}
       >
-        <Container className="flex items-center justify-between">
+        <Container className="flex items-end justify-between">
           {/* Logo institucional de Resiste Marika */}
           <Link
             to="/"
-            className="flex items-center gap-3 group"
+            className="flex items-end gap-3 group"
             onClick={() => setMobileOpen(false)}
           >
             {/* Logo oficial de Resiste Marika */}
-            <div className="relative h-14 w-14 sm:h-16 sm:w-16 overflow-hidden transition-transform group-hover:scale-105">
+            <div className="relative h-20 w-20 sm:h-24 sm:w-24 shrink-0 overflow-hidden transition-transform group-hover:scale-105 origin-bottom">
               <img
                 src="/images/logo.jpg"
                 alt="Logo de Resiste Marika"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain object-bottom"
               />
             </div>
 

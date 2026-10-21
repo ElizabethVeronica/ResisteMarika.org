@@ -1,11 +1,10 @@
-import { Link } from 'react-router-dom'
 import { ArrowRight, ShieldCheck, Heart, FileText, Eye, Sparkles, Users, Network, Calendar } from 'lucide-react'
 import Container from '@/components/ui/Container'
 import Button from '@/components/ui/Button'
 import Reveal from '@/components/ui/Reveal'
 import { PROGRAMAS } from '@/config/programas'
 import { NOTICIAS } from '@/config/noticias'
-import { HISTORIA_RESUMEN, OBJETIVOS_ESTRATEGICOS, FORMAS_AUTOGESTION, DISCIPLINAS } from '@/config/nosotros'
+import { HISTORIA_RESUMEN, OBJETIVOS_ESTRATEGICOS, FORMAS_AUTOGESTION } from '@/config/nosotros'
 import EngagementPaths from '@/components/sections/EngagementPaths'
 
 const ICON_MAP: Record<string, React.ElementType> = {
@@ -62,42 +61,14 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Columna Lateral: Tarjeta con Fotografía Real */}
+            {/* Fotografía de la marcha */}
             <div className="lg:col-span-5">
-              <div className="bg-[#FAF9F6] border border-gray-200 rounded-2xl p-5 sm:p-6 shadow-sm space-y-4">
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-gray-500 font-display">
-                    Nuestra Batucada
-                  </span>
-                  <h2 className="font-display font-black text-xl text-gray-900 mt-0.5">
-                    Marcha 8M Cusco
-                  </h2>
-                </div>
-
-                <div className="aspect-[4/3] rounded-xl overflow-hidden bg-gray-200 border border-gray-200 relative group">
-                  <img
-                    src="/images/marcha 8M 2025.png"
-                    alt="Marcha de Resiste Marika Cusco con tambores"
-                    className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
-                  />
-                  <div className="absolute bottom-3 left-3 right-3 bg-gray-900/85 backdrop-blur-sm text-white p-3 rounded-lg text-xs font-sans">
-                    <p className="font-bold font-display text-brand-yellowWarm">
-                      Batucada LGTBIQ+ Cusco
-                    </p>
-                    <p className="text-xs text-gray-200 mt-0.5">
-                      Performando y marchando en las calles del Cusco haciendo activismo.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="p-3.5 rounded-xl bg-white border border-gray-200 text-xs sm:text-sm text-gray-700 font-sans space-y-1">
-                  <p className="font-bold text-gray-900 font-display">
-                    Autogestión colectiva
-                  </p>
-                  <p className="text-gray-600 text-xs">
-                    Nos sostenemos de manera autónoma con rifas, ferias, artivismo, talleres.
-                  </p>
-                </div>
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gray-200 shadow-sm group">
+                <img
+                  src="/images/marcha 8M 2025.png"
+                  alt="Marcha de Resiste Marika Cusco con tambores"
+                  className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
+                />
               </div>
             </div>
           </div>
@@ -192,23 +163,6 @@ export default function Home() {
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                {DISCIPLINAS.map((d) => (
-                  <div
-                    key={d.nombre}
-                    className="p-4 rounded-xl bg-[#FAF9F6] border border-gray-200 flex flex-col justify-between"
-                  >
-                    <div>
-                      <h3 className="font-display font-bold text-sm text-gray-900 mb-1">
-                        {d.nombre}
-                      </h3>
-                      <p className="text-xs text-gray-600 font-sans leading-relaxed">
-                        {d.descripcion}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </Container>
@@ -279,9 +233,6 @@ export default function Home() {
                   Nuestras Ferias y Proyectos
                 </h2>
               </div>
-              <Button href="/proyectos" variant="outline" size="sm" icon={<ArrowRight size={14} />}>
-                Ver todos los proyectos
-              </Button>
             </div>
           </Reveal>
 
@@ -308,17 +259,14 @@ export default function Home() {
                   <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-sans flex-1 line-clamp-3">
                     {prog.descripcion}
                   </p>
-                  <div className="pt-4 mt-4 border-t border-gray-200">
-                    <Link
-                      to="/proyectos"
-                      className="text-xs sm:text-sm font-bold text-brand-purple hover:underline inline-flex items-center gap-1"
-                    >
-                      Más información <ArrowRight size={14} />
-                    </Link>
-                  </div>
                 </div>
               </div>
             ))}
+          </div>
+          <div className="mt-10 flex justify-center">
+            <Button href="/proyectos" variant="primary" size="lg" icon={<ArrowRight size={18} />}>
+              Ver todos los proyectos
+            </Button>
           </div>
         </Container>
       </section>
