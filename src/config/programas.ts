@@ -27,14 +27,13 @@ export const PROGRAMAS: Programa[] = [
   },
   {
     id: 'talleres-capacidades',
-    titulo: 'Talleres Compartidos & Educación Popular',
+    titulo: 'Talleres & Educación Popular',
     descripcion:
       'Espacios de aprendizaje mutuo donde integrantes y aliades compartimos conocimientos sobre arte, memoria, espiritualidad, salud colectiva y activismo.',
     objetivo: 'Democratizar el conocimiento y potenciar las capacidades individuales y colectivas de la comunidad.',
     detalles: [
       'Talleres presenciales y círculos de formación entre pares.',
-      'Espacios de cuidado y salud integral para personas LGTBIQ+ y mujeres.',
-      'Herramientas prácticas para el desarrollo de proyectos colectivos.',
+      'Espacios de cuidado y salud integral para personas LGTBIQ+.',
     ],
     imagen: '/images/Taller de collage - Ancestralidad Qhariwarmi.jpg',
     categoria: 'Talleres',
