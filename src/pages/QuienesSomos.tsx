@@ -80,10 +80,10 @@ export default function QuienesSomos() {
       <nav
         ref={sectionMenuRef}
         aria-label="Secciones de quiénes somos"
-        className={`sticky top-24 sm:top-[8.5rem] lg:top-[7.5rem] z-[60] mx-auto flex w-fit max-w-[calc(100%-2rem)] rounded-xl border p-1.5 transition-all duration-500 ease-out ${
+        className={`sticky top-24 sm:top-[8.5rem] lg:top-[7.5rem] z-[60] mx-auto flex w-fit max-w-[calc(100%-2rem)] rounded-xl border p-1.5 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
           sectionMenuStuck
-            ? 'translate-y-0 scale-100 border-gray-200/80 bg-white/95 shadow-lg shadow-gray-900/10 backdrop-blur-md'
-            : 'translate-y-1 scale-[0.98] border-transparent bg-[#FAF9F6]'
+            ? 'translate-y-0 border-gray-200/80 bg-white/95 shadow-lg shadow-gray-900/10'
+            : 'translate-y-1 border-transparent bg-[#FAF9F6]'
         }`}
       >
         <div className="flex w-fit max-w-full gap-0.5 overflow-x-auto">
