@@ -88,6 +88,7 @@ export default function QuienesSomos() {
       </section>
 
       <nav
+        id="quienes-somos-section-nav"
         ref={sectionMenuRef}
         aria-label="Secciones de quiénes somos"
         className={`sticky top-24 sm:top-[8.5rem] lg:top-[7.5rem] z-[60] mx-auto w-fit max-w-[calc(100%-2rem)] rounded-2xl border p-1.5 transition-[background-color,border-color,box-shadow] duration-200 ${
