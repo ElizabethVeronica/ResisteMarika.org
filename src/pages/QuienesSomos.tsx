@@ -87,7 +87,7 @@ export default function QuienesSomos() {
       <section id="nosotros" className="pt-16 sm:pt-24 pb-16">
         <Container>
           <Reveal>
-            <div className="max-w-3xl mb-12">
+            <div className="max-w-3xl mb-8">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display">
                 01. Nuestra Identidad y Origen
               </span>
@@ -99,14 +99,14 @@ export default function QuienesSomos() {
           </Reveal>
 
           {/* Identidad y origen */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-16">
-            <div className="lg:col-span-7 space-y-5 text-gray-700 font-sans text-base sm:text-lg leading-relaxed">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch mb-12">
+            <div className="lg:col-span-7 space-y-4 text-gray-700 font-sans text-base sm:text-lg leading-relaxed">
               <p className="font-semibold text-gray-900 text-lg sm:text-xl border-l-4 border-brand-purple pl-4 py-1">
                 {HISTORIA_RESUMEN.declaracionInicial}
               </p>
               <p>{HISTORIA_RESUMEN.parrafo1}</p>
 
-              <div className="p-5 sm:p-6 rounded-2xl bg-amber-50/80 border border-amber-200 text-gray-800 text-sm sm:text-base">
+              <div className="p-4 sm:p-5 rounded-2xl bg-amber-50/80 border border-amber-200 text-gray-800 text-sm sm:text-base">
                 <p className="font-bold text-amber-900 mb-1">
                   Nuestra postura frente a la dependencia externa:
                 </p>
@@ -116,7 +116,7 @@ export default function QuienesSomos() {
               <p className="font-medium text-gray-900">{HISTORIA_RESUMEN.parrafo3}</p>
             </div>
 
-            <div className="lg:col-span-5 space-y-4">
+            <div className="lg:col-span-5 flex flex-col gap-4">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-gray-100">
                 <img
                   src="/images/Ceremonia de Agradecimiento a la Pachamama y Compartir Marika 2024.jpg"
@@ -125,7 +125,7 @@ export default function QuienesSomos() {
                 />
               </div>
 
-              <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+              <div className="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm">
                 <h3 className="font-display font-extrabold text-base sm:text-lg text-gray-900 mb-3 pb-2 border-b border-gray-100">
                   Ficha de la Organización
                 </h3>
@@ -160,7 +160,7 @@ export default function QuienesSomos() {
           </div>
 
           {/* El arte y la batucada */}
-          <div className="bg-white rounded-2xl border border-gray-200 p-8 sm:p-10 mb-16 shadow-sm">
+          <div className="bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 mb-12 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-8">
               <div className="lg:col-span-7">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-skyLight text-gray-800 text-xs font-bold mb-3 font-display">
@@ -267,10 +267,10 @@ export default function QuienesSomos() {
           <div>
             <div className="mb-8">
               <h3 className="text-xl sm:text-2xl font-bold font-display text-gray-900">
-                Nuestros 6 Objetivos Institucionales
+                Objetivos institucionales
               </h3>
               <p className="text-sm text-gray-600 mt-1 font-sans">
-                Estatutos y líneas de acción que guían nuestra labor en el ámbito distrital, regional y nacional.
+                Líneas de acción que guían nuestra labor en el ámbito distrital, regional y nacional.
               </p>
             </div>
 
@@ -313,7 +313,7 @@ export default function QuienesSomos() {
       <section id="donde-trabajamos" className="pt-16 sm:pt-24 pb-16">
         <Container>
           <Reveal>
-            <div className="max-w-3xl mb-12">
+            <div className="max-w-3xl mb-8">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display">
                 03. Territorio y Ámbito de Acción
               </span>
@@ -324,8 +324,8 @@ export default function QuienesSomos() {
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            <div className="lg:col-span-5 bg-white p-7 rounded-2xl border border-gray-200 shadow-sm space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+            <div className="lg:col-span-5 bg-white p-5 sm:p-6 rounded-2xl border border-gray-200 shadow-sm space-y-4">
               <div className="aspect-[16/10] rounded-xl overflow-hidden bg-gray-100 border border-gray-200">
                 <img
                   src="/images/marcha del orgullo 2025.png"
@@ -355,7 +355,7 @@ export default function QuienesSomos() {
               {DONDE_TRABAJAMOS.espacios.map((esp) => (
                 <div
                   key={esp.titulo}
-                  className="p-5 rounded-2xl bg-white border border-gray-200 flex flex-col justify-between shadow-sm"
+                  className="p-4 sm:p-5 rounded-2xl bg-white border border-gray-200 flex flex-col justify-between shadow-sm"
                 >
                   <h4 className="font-display font-bold text-sm text-gray-900 mb-2">
                     {esp.titulo}

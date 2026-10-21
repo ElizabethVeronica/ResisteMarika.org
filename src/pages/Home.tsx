@@ -61,9 +61,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <EngagementPaths />
-
-      {/* ── NUESTRAS FERIAS Y PROYECTOS EN CUSCO ────────────── */}
+      {/* ── NUESTROS PROYECTOS EN CUSCO ─────────────────────── */}
       <section className="py-16 sm:py-24 bg-white border-b border-gray-200">
         <Container>
           <Reveal>
@@ -73,7 +71,7 @@ export default function Home() {
                   En el Cusco
                 </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-gray-900">
-                  Nuestras Ferias y Proyectos
+                  Nuestros proyectos
                 </h2>
               </div>
             </div>
@@ -113,6 +111,8 @@ export default function Home() {
           </div>
         </Container>
       </section>
+
+      <EngagementPaths />
 
       {/* ── ACTIVIDADES Y NOTICIAS RECIENTES ──────────────── */}
       <section className="py-16 sm:py-24 bg-[#FAF9F6] border-b border-gray-200">

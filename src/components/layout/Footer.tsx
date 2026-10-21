@@ -116,7 +116,7 @@ export default function Footer() {
               className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-pink hover:text-white transition-colors mt-1"
             >
               <Sparkles size={13} />
-              Contáctanos para sumar ferias o talleres →
+              Contáctanos para sumar proyectos o talleres →
             </Link>
           </div>
         </div>

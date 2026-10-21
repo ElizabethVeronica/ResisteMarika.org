@@ -22,7 +22,7 @@ export const ENGAGEMENT_PATHS: EngagementPath[] = [
     id: 'participar',
     titulo: 'Participar en proyectos',
     descripcion:
-      'Ferias colectivas, talleres de batucada, arte drag y espacios de apoyo colectivo y auto-organización.',
+      'Iniciativas de arte y formación, espacios de apoyo colectivo y acciones de auto-organización.',
     href: '/proyectos',
     cta: 'Ver proyectos',
     tiempo: 'Explorar actividades',
@@ -31,7 +31,7 @@ export const ENGAGEMENT_PATHS: EngagementPath[] = [
     id: 'accion',
     titulo: 'Articular o proponer',
     descripcion:
-      'Si quieres sumarte, proponer un taller o colaborar en una feria, escríbenos directamente.',
+      'Si quieres sumarte, proponer un taller o colaborar en un proyecto, escríbenos directamente.',
     href: '/contacto',
     cta: 'Escríbenos',
     tiempo: 'Respuesta por correo o redes',

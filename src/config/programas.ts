@@ -3,7 +3,7 @@ import type { Programa } from '@/types'
 export const PROGRAMAS: Programa[] = [
   {
     id: 'ferias-autogestion',
-    titulo: 'Ferias Colectivas & Autogestión',
+    titulo: 'Autogestión Colectiva',
     subtitulo: 'Autogestión, ternura y organización entre colectivas',
     descripcion:
       'Organizamos y participamos en ferias donde personas de la comunidad LGTBIQ+ de Cusco pueden vender sus creaciones en un entorno seguro.',
