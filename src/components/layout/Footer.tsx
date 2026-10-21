@@ -68,6 +68,68 @@ export default function Footer() {
               </div>
             </Link>
 
+            <div className="flex flex-col gap-3">
+              <p className="text-xs font-bold text-brand-yellowWarm uppercase tracking-widest font-display">
+                Correo Electrónico
+              </p>
+              <a
+                href="mailto:resistemarik@gmail.com"
+                className="inline-flex w-fit items-center gap-2 text-sm text-white/90 font-medium hover:text-brand-pink transition-colors"
+              >
+                <Mail size={16} className="text-brand-pink shrink-0" />
+                resistemarik@gmail.com
+              </a>
+              <div className="flex gap-2.5">
+                <a
+                  href="https://www.instagram.com/resiste.marika.cusco"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Instagram"
+                  className="h-10 w-10 rounded-xl bg-white/10 flex items-center justify-center text-white hover:bg-brand-pink hover:text-brand-dark transition-colors"
+                >
+                  <FaInstagram size={16} />
+                </a>
+                <a
+                  href="https://www.tiktok.com/@resistemarik"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="TikTok"
+                  className="h-10 w-10 rounded-xl bg-white/10 flex items-center justify-center text-white hover:bg-white hover:text-brand-dark transition-colors"
+                >
+                  <FaTiktok size={15} />
+                </a>
+              </div>
+              <Link
+                to="/contacto"
+                className="inline-flex w-fit items-center gap-1.5 text-xs font-bold text-brand-pink hover:text-white transition-colors mt-1"
+              >
+                <Sparkles size={13} />
+                Contáctanos para sumar proyectos o talleres →
+              </Link>
+            </div>
+          </div>
+
+          {/* Columna 2: Páginas */}
+          <div className="lg:col-span-3">
+            <h3 className="text-xs font-bold text-brand-sky uppercase tracking-widest mb-4 font-display">
+              Navegación
+            </h3>
+            <ul className="flex flex-col gap-2.5">
+              {NAV_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    to={link.href}
+                    className="text-sm text-white/75 hover:text-brand-pink transition-colors font-medium"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Columna 3: Formulario de contacto */}
+          <div className="lg:col-span-4 flex flex-col gap-3">
             {contactState === 'success' ? (
               <div className="flex items-center gap-2 text-sm font-semibold text-emerald-300" role="status">
                 <CheckCircle size={18} />
@@ -131,76 +193,10 @@ export default function Footer() {
                 </button>
               </form>
             )}
-
             <div className="flex items-center gap-2 text-xs text-brand-yellowWarm font-semibold">
               <MapPin size={14} className="shrink-0" />
               <span>Cusco, Perú</span>
             </div>
-
-          </div>
-
-          {/* Columna 2: Páginas */}
-          <div className="lg:col-span-3">
-            <h3 className="text-xs font-bold text-brand-sky uppercase tracking-widest mb-4 font-display">
-              Navegación
-            </h3>
-            <ul className="flex flex-col gap-2.5">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-white/75 hover:text-brand-pink transition-colors font-medium"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Columna 3: Correo y redes */}
-          <div className="lg:col-span-4 flex flex-col gap-3">
-            <h3 className="text-xs font-bold text-brand-yellowWarm uppercase tracking-widest mb-2 font-display">
-              Correo Electrónico
-            </h3>
-            <div className="flex flex-wrap items-center gap-3">
-              <div className="rounded-2xl bg-white/5 border border-white/10 p-3.5 flex items-center gap-3">
-                <Mail size={16} className="text-brand-pink shrink-0" />
-                <a
-                  href="mailto:resistemarik@gmail.com"
-                  className="text-xs text-white/90 font-medium hover:text-brand-pink transition-colors"
-                >
-                  resistemarik@gmail.com
-                </a>
-              </div>
-              <div className="flex gap-2.5">
-                <a
-                  href="https://www.instagram.com/resiste.marika.cusco"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Instagram"
-                  className="h-10 w-10 rounded-xl bg-white/10 flex items-center justify-center text-white hover:bg-brand-pink hover:text-brand-dark transition-colors"
-                >
-                  <FaInstagram size={16} />
-                </a>
-                <a
-                  href="https://www.tiktok.com/@resistemarik"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="TikTok"
-                  className="h-10 w-10 rounded-xl bg-white/10 flex items-center justify-center text-white hover:bg-white hover:text-brand-dark transition-colors"
-                >
-                  <FaTiktok size={15} />
-                </a>
-              </div>
-            </div>
-            <Link
-              to="/contacto"
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-pink hover:text-white transition-colors mt-1"
-            >
-              <Sparkles size={13} />
-              Contáctanos para sumar proyectos o talleres →
-            </Link>
           </div>
         </div>
 
