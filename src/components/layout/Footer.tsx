@@ -1,5 +1,6 @@
+import { useState, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
-import { Mail, Heart, Sparkles, MapPin } from 'lucide-react'
+import { Mail, Heart, Sparkles, MapPin, Send, CheckCircle } from 'lucide-react'
 import { FaInstagram } from 'react-icons/fa'
 import { FaTiktok } from 'react-icons/fa6'
 import Container from '@/components/ui/Container'
@@ -7,6 +8,29 @@ import { NAV_LINKS } from '@/config/navigation'
 
 export default function Footer() {
   const year = new Date().getFullYear()
+  const [contactState, setContactState] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+
+  async function handleContactSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    setContactState('loading')
+
+    const form = event.currentTarget
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/resistemarik@gmail.com', {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(form),
+      })
+      if (response.ok) {
+        form.reset()
+        setContactState('success')
+      } else {
+        setContactState('error')
+      }
+    } catch {
+      setContactState('error')
+    }
+  }
 
   return (
     <footer className="bg-brand-dark text-white relative overflow-hidden">
@@ -43,6 +67,70 @@ export default function Footer() {
                 </span>
               </div>
             </Link>
+
+            {contactState === 'success' ? (
+              <div className="flex items-center gap-2 text-sm font-semibold text-emerald-300" role="status">
+                <CheckCircle size={18} />
+                Mensaje enviado. ¡Gracias por escribirnos!
+              </div>
+            ) : (
+              <form onSubmit={handleContactSubmit} className="flex flex-col gap-3" aria-label="Formulario de contacto rápido">
+                <input type="text" name="_honey" className="hidden" tabIndex={-1} />
+                <input type="hidden" name="_captcha" value="false" />
+                <div>
+                  <label htmlFor="footer-nombre" className="mb-1.5 block text-xs font-bold text-white/90">
+                    Nombre *
+                  </label>
+                  <input
+                    id="footer-nombre"
+                    name="nombre"
+                    type="text"
+                    required
+                    placeholder="Tu nombre"
+                    className="w-full rounded-xl border border-white/15 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/45 focus:border-brand-purple focus:outline-none"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="footer-email" className="mb-1.5 block text-xs font-bold text-white/90">
+                    Correo Electrónico *
+                  </label>
+                  <input
+                    id="footer-email"
+                    name="email"
+                    type="email"
+                    required
+                    placeholder="tu@correo.com"
+                    className="w-full rounded-xl border border-white/15 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/45 focus:border-brand-purple focus:outline-none"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="footer-mensaje" className="mb-1.5 block text-xs font-bold text-white/90">
+                    Mensaje *
+                  </label>
+                  <textarea
+                    id="footer-mensaje"
+                    name="mensaje"
+                    required
+                    rows={3}
+                    placeholder="¿Cómo podemos ayudarte?"
+                    className="w-full resize-y rounded-xl border border-white/15 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/45 focus:border-brand-purple focus:outline-none"
+                  />
+                </div>
+                {contactState === 'error' && (
+                  <p className="text-xs text-rose-300" role="alert">
+                    No se pudo enviar. Inténtalo de nuevo o escríbenos por correo.
+                  </p>
+                )}
+                <button
+                  type="submit"
+                  disabled={contactState === 'loading'}
+                  className="inline-flex w-fit items-center gap-2 rounded-xl bg-brand-purple px-4 py-2.5 text-sm font-bold text-white transition-colors hover:bg-brand-pink hover:text-brand-dark disabled:cursor-wait disabled:opacity-60"
+                >
+                  <Send size={15} />
+                  {contactState === 'loading' ? 'Enviando...' : 'Enviar mensaje'}
+                </button>
+              </form>
+            )}
 
             <div className="flex items-center gap-2 text-xs text-brand-yellowWarm font-semibold">
               <MapPin size={14} className="shrink-0" />

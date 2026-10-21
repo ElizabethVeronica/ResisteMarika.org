@@ -95,14 +95,14 @@ export default function Contacto() {
                             htmlFor="nombre"
                             className="block mb-2 text-xs font-bold uppercase tracking-wider text-brand-dark font-display"
                           >
-                            Nombre o Pronombre *
+                            Nombre *
                           </label>
                           <input
                             id="nombre"
                             name="nombre"
                             type="text"
                             required
-                            placeholder="¿Cómo te gusta que te llamemos?"
+                            placeholder="Tu nombre"
                             className="w-full rounded-2xl border border-gray-200 bg-surface-light px-4 py-3 text-sm text-brand-dark placeholder:text-gray-400 focus:border-brand-purple focus:outline-none transition-colors font-sans"
                           />
                         </div>
@@ -123,27 +123,6 @@ export default function Contacto() {
                             className="w-full rounded-2xl border border-gray-200 bg-surface-light px-4 py-3 text-sm text-brand-dark placeholder:text-gray-400 focus:border-brand-purple focus:outline-none transition-colors font-sans"
                           />
                         </div>
-                      </div>
-
-                      <div>
-                        <label
-                          htmlFor="motivo"
-                          className="block mb-2 text-xs font-bold uppercase tracking-wider text-brand-dark font-display"
-                        >
-                          ¿En qué te gustaría sumar o coordinar? *
-                        </label>
-                        <select
-                          id="motivo"
-                          name="motivo"
-                          required
-                          className="w-full rounded-2xl border border-gray-200 bg-surface-light px-4 py-3 text-sm text-brand-dark focus:border-brand-purple focus:outline-none transition-colors font-sans"
-                        >
-                          <option value="Ferias y Emprendimiento">Sumar mi emprendimiento / arte a las ferias</option>
-                          <option value="Talleres y Saberes">Compartir o proponer un taller</option>
-                          <option value="Vigilancia y Políticas">Vigilancia ciudadana y derechos en Cusco</option>
-                          <option value="Alianzas y Apoyo">Alianzas entre colectivos y articulación</option>
-                          <option value="Consulta general">Otra consulta general</option>
-                        </select>
                       </div>
 
                       <div>
