@@ -10,7 +10,7 @@ import { NAV_LINKS } from '@/config/navigation'
 import { cn } from '@/utils/cn'
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
+  const [scrolled, setScrolled] = useState(() => window.scrollY > 20)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [desktopDropdownOpen, setDesktopDropdownOpen] = useState(false)
   const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState(true)
@@ -176,14 +176,9 @@ export default function Navbar() {
                                 onClick={() => setDesktopDropdownOpen(false)}
                                 className="group/item flex flex-col px-3 py-2.5 rounded-xl hover:bg-brand-purpleLight/40 transition-colors"
                               >
-                                <span className="text-xs font-bold text-gray-900 group-hover/item:text-brand-purple transition-colors">
+                                <span className="text-sm font-bold text-gray-900 group-hover/item:text-brand-purple transition-colors">
                                   {sublink.label}
                                 </span>
-                                {sublink.descripcion && (
-                                  <span className="text-[11px] text-gray-500 mt-0.5 font-normal">
-                                    {sublink.descripcion}
-                                  </span>
-                                )}
                               </Link>
                             ))}
                           </div>
@@ -255,6 +250,36 @@ export default function Navbar() {
           </button>
         </Container>
       </header>
+
+      <AnimatePresence>
+        {scrolled && location.pathname === '/quienes-somos' && (
+          <motion.nav
+            initial={{ opacity: 0, y: -12, x: '-50%' }}
+            animate={{ opacity: 1, y: 0, x: '-50%' }}
+            exit={{ opacity: 0, y: -12, x: '-50%' }}
+            transition={{ duration: 0.18 }}
+            aria-label="Secciones de quiénes somos"
+            className="fixed top-3 left-1/2 z-40 w-max max-w-[calc(100vw-1.5rem)] rounded-2xl border border-gray-200/80 bg-white/95 p-2 shadow-lg shadow-gray-900/10 backdrop-blur-md"
+          >
+            <div className="flex flex-wrap justify-center gap-1">
+              {NAV_LINKS.find((link) => link.href === '/quienes-somos')?.children?.map((sublink) => (
+                <Link
+                  key={sublink.href}
+                  to={sublink.href}
+                  className={cn(
+                    'whitespace-nowrap rounded-xl px-3 py-2 text-xs sm:text-sm font-bold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple',
+                    location.hash === sublink.href.slice(sublink.href.indexOf('#'))
+                      ? 'bg-brand-purpleLight text-brand-purple'
+                      : 'text-gray-700 hover:bg-gray-100 hover:text-brand-purple'
+                  )}
+                >
+                  {sublink.label}
+                </Link>
+              ))}
+            </div>
+          </motion.nav>
+        )}
+      </AnimatePresence>
 
       {/* Menú Lateral Móvil */}
       <AnimatePresence>
