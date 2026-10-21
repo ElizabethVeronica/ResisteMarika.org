@@ -34,7 +34,7 @@ export default function Home() {
               </span>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black font-display text-gray-900 leading-tight tracking-tight mb-5">
-                Resiste Marika Cusco
+                Resiste Marika
               </h1>
 
               {/* Lema directo tomado de sus propias palabras */}
@@ -81,7 +81,7 @@ export default function Home() {
                     className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
                   />
                   <div className="absolute bottom-3 left-3 right-3 bg-gray-900/85 backdrop-blur-sm text-white p-3 rounded-lg text-xs font-sans">
-                    <p className="font-bold font-display text-amber-300">
+                    <p className="font-bold font-display text-brand-yellowWarm">
                       Batucada LGTBIQ+ Cusco
                     </p>
                     <p className="text-xs text-gray-200 mt-0.5">
@@ -115,17 +115,13 @@ export default function Home() {
                 Nuestra Fortaleza Colectiva
               </span>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-gray-900 mb-5 leading-tight">
-                "Nuestra fortaleza más grande: la solidaridad y el apoyo mutuo"
+                La autogestión, el arte y la ternura
               </h2>
 
               <p className="text-base sm:text-lg text-gray-700 font-sans leading-relaxed mb-6">
                 {HISTORIA_RESUMEN.parrafo2}
               </p>
 
-              <div className="p-4 sm:p-5 rounded-xl bg-gray-50 border border-gray-200 text-sm sm:text-base text-gray-800 font-sans inline-block">
-                <span className="font-bold text-brand-purple">¿Cómo nos sostenemos? </span>
-                Nos sostenemos de manera autónoma con rifas, ferias, artivismo, talleres.
-              </div>
             </div>
           </Reveal>
         </Container>
@@ -373,17 +369,17 @@ export default function Home() {
       </section>
 
       {/* ── LLAMADO A ARTICULAR / CONTACTO ─────────────────── */}
-      <section className="py-16 sm:py-20 bg-gray-900 text-white">
+      <section className="py-16 sm:py-20 bg-gradient-to-br from-brand-skyLight via-white to-brand-purpleLight border-y border-brand-pinkSoft/60">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
-            <span className="text-xs font-bold uppercase tracking-wider text-amber-300 font-display mb-2 block">
+            <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display mb-2 block">
               Red Colectiva en Cusco
             </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display leading-tight mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-brand-dark leading-tight mb-4">
               ¿Quieres sumarte, proponer un taller o articular con nosotres?
             </h2>
-            <p className="text-sm sm:text-base text-gray-300 font-sans leading-relaxed mb-8">
-              Escríbenos a nuestro correo oficial <span className="text-white font-semibold underline">resistemarik@gmail.com</span> o contáctanos por Instagram y TikTok.
+            <p className="text-sm sm:text-base text-surface-muted font-sans leading-relaxed mb-8">
+              Escríbenos a nuestro correo oficial <span className="text-brand-purple font-semibold underline">resistemarik@gmail.com</span> o contáctanos por Instagram y TikTok.
             </p>
             <div className="flex flex-wrap justify-center gap-3.5">
               <Button href="/contacto" size="lg" variant="primary">

@@ -35,7 +35,7 @@ export const ROLES_VOLUNTARIADO: OportunidadVoluntariado[] = [
     modalidad: 'Presencial / Virtual',
     dedicacion: '3 a 5 hrs / semana',
     descripcion:
-      'Dirigido a profesionales o últimos ciclos de Psicología o Trabajo Social con formación previa en enfoque afirmativo LGBTIQ+.',
+      'Dirigido a profesionales o últimos ciclos de Psicología o Trabajo Social con formación previa en enfoque afirmativo LGTBIQ+.',
   },
 ]
 
@@ -44,7 +44,7 @@ export const FAQS_COLABORA: FAQItem[] = [
     id: '1',
     pregunta: '¿Cuáles son los requisitos para ser voluntarie?',
     respuesta:
-      'Tener compromiso con los derechos humanos y la causa LGBTIQ+, disposición de tiempo para reuniones de coordinación y participar en nuestro taller de inducción obligatoria.',
+      'Tener compromiso con los derechos humanos y la causa LGTBIQ+, disposición de tiempo para reuniones de coordinación y participar en nuestro taller de inducción obligatoria.',
   },
   {
     id: '2',

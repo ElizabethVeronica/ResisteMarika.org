@@ -82,11 +82,11 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
   },
   {
     id: 'marika-fest-feria',
-    titulo: 'Marika Fest 2024 - Feria de Autogestión LGTBIQ',
+    titulo: 'Marika Fest 2024 - Feria de Autogestión LGTBIQ+',
     categoria: 'Ferias y Artivismo',
     fecha: 'Cusco, 2024',
     archivo: '/images/Marika Fest 2024 - Feria de autogestión LGTBIQ.jpg',
-    descripcion: 'Espacio colectivo autogestionado donde compartimos y comercializamos artes y creaciones desde el apoyo mutuo.',
+    descripcion: 'Espacio colectivo autogestionado donde compartimos y comercializamos artes y creaciones desde la ternura y la autonomía.',
   },
   {
     id: 'marika-fest-productos',
@@ -106,7 +106,7 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
   },
   {
     id: 'feria-cuidarte-colegio',
-    titulo: 'Feria Informativa LGTBIQ CuidArte',
+    titulo: 'Feria Informativa LGTBIQ+ CuidArte',
     categoria: 'Ferias y Artivismo',
     fecha: 'Colegio San Francisco de Borja',
     archivo: '/images/Feria Informativa LGTBIQ CuidArte en el Colegio San Francisco de Borja.jpg',
@@ -138,7 +138,7 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
   },
   {
     id: 'rimanakuy-marika-2025',
-    titulo: 'Rimanakuy Marika 2025: Memoria Andina LGTBIQ',
+    titulo: 'Rimanakuy Marika 2025: Memoria Andina LGTBIQ+',
     categoria: 'Talleres y Saberes',
     fecha: '2025',
     archivo: '/images/Rimanakuy Marika 2025  - Investigaciones sobre la Memoria Andina LGTBIQ.png',

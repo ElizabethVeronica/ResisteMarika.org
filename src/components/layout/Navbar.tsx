@@ -51,24 +51,24 @@ export default function Navbar() {
         )}
       >
         <Container className="flex items-center justify-between">
-          {/* Logo Institucional: Resiste Marika Cusco */}
+          {/* Logo institucional de Resiste Marika */}
           <Link
             to="/"
             className="flex items-center gap-3 group"
             onClick={() => setMobileOpen(false)}
           >
-            {/* Logo oficial de Resiste Marika Cusco */}
+            {/* Logo oficial de Resiste Marika */}
             <div className="relative h-14 w-14 sm:h-16 sm:w-16 overflow-hidden transition-transform group-hover:scale-105">
               <img
                 src="/images/logo.jpg"
-                alt="Logo Resiste Marika Cusco"
+                alt="Logo de Resiste Marika"
                 className="w-full h-full object-cover"
               />
             </div>
 
             <div className="flex flex-col">
               <span className="font-display font-extrabold text-lg sm:text-xl tracking-tight text-brand-dark leading-none">
-                Resiste <span className="text-brand-purple">Marika</span> <span className="text-brand-pink font-bold">Cusco</span>
+                Resiste <span className="text-brand-purple">Marika</span>
               </span>
               <span className="text-[11px] font-semibold text-gray-500 tracking-wider uppercase mt-1">
                 Autogestión y Arte

@@ -272,7 +272,7 @@ export default function Contacto() {
                 </div>
               </Reveal>
 
-              {/* Mensaje de Apoyo Mutuo */}
+              {/* Mensaje de economía autogestionada */}
               <Reveal direction="right" delay={0.2}>
                 <div className="rounded-3xl border-2 border-brand-pinkSoft/40 bg-brand-pinkLight/30 p-6 flex items-start gap-4">
                   <Sparkles size={24} className="text-brand-purple shrink-0 mt-0.5" />
@@ -281,7 +281,7 @@ export default function Contacto() {
                       Construcción colectiva
                     </h4>
                     <p className="text-xs text-surface-muted leading-relaxed font-sans">
-                      Resiste Marika Cusco no cobra comisiones abusivas ni lucra con las actividades de la comunidad. Construimos economía solidaria basada en el respeto, el afecto y la transparencia.
+                      Resiste Marika no cobra comisiones abusivas ni lucra con las actividades de la comunidad. Construimos una economía autogestionada desde el respeto, el afecto y la transparencia.
                     </p>
                   </div>
                 </div>

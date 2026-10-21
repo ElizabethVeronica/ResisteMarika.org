@@ -19,7 +19,7 @@ export default function Proyectos() {
                   Ferias, artivismo y <span className="text-gradient">proyectos colectivos</span>
                 </>
               }
-              subtitle="Espacios de autogestión económica, formación entre pares, apoyo mutuo y vigilancia ciudadana para la comunidad LGTBIQ+ y mujeres."
+              subtitle="Espacios de auto-organización, formación colectiva y vigilancia ciudadana para la comunidad LGTBIQ+ y mujeres."
               className="max-w-3xl mx-auto text-center"
             />
           </Reveal>
@@ -122,7 +122,7 @@ export default function Proyectos() {
                 ¿Haces arte, tienes una iniciativa o quieres proponer un taller en Cusco?
               </h3>
               <p className="text-sm sm:text-base text-white/80 max-w-2xl mx-auto mb-6 leading-relaxed font-sans">
-                Nuestras ferias y actividades están abiertas a la comunidad LGTBIQ+ y mujeres que quieran sumar sus artes, oficios y creaciones desde la solidaridad y el apoyo mutuo.
+                Nuestras ferias y actividades están abiertas a la comunidad LGTBIQ+ y mujeres que quieran sumar sus artes, oficios y creaciones desde la auto-organización y la ternura.
               </p>
               <Button href="/contacto" size="lg" variant="yellow">
                 Escríbenos para participar

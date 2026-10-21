@@ -68,16 +68,16 @@ export default function Footer() {
               </div>
               <div className="flex flex-col">
                 <span className="font-display font-extrabold text-xl tracking-tight text-white leading-none">
-                  Resiste <span className="text-brand-purpleSoft">Marika</span> <span className="text-brand-pink">Cusco</span>
+                  Resiste <span className="text-brand-purpleSoft">Marika</span>
                 </span>
                 <span className="text-[10px] font-bold text-brand-sky tracking-wider uppercase mt-0.5">
-                  Red de Apoyo Mutuo & Autogestión
+                  Red Colectiva & Autogestión
                 </span>
               </div>
             </Link>
 
             <p className="text-sm text-white/75 leading-relaxed max-w-sm mt-1 font-sans">
-              Nacimos el <strong>7 de agosto del 2023</strong> en Cusco como una red de apoyo mutuo para construir espacios de autogestión, arte y defensa de los derechos de la comunidad LGTBIQ+ y mujeres.
+              Nacimos el <strong>7 de agosto del 2023</strong> en Cusco como una red colectiva para construir espacios de autogestión, arte y defensa de los derechos de la comunidad LGTBIQ+ y mujeres.
             </p>
 
             <div className="flex items-center gap-2 text-xs text-brand-yellowWarm font-semibold">
@@ -156,9 +156,9 @@ export default function Footer() {
 
         {/* Barra Inferior */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60 font-sans">
-          <p>© {year} Resiste Marika Cusco. Asociación Civil Sin Fines de Lucro.</p>
+          <p>© {year} Resiste Marika. Asociación Civil Sin Fines de Lucro.</p>
           <p className="flex items-center gap-1.5 font-medium">
-            Solidaridad, artivismo y ternura radical <Heart size={12} className="text-brand-pink fill-brand-pink" />
+            Colectividad, artivismo y ternura radical <Heart size={12} className="text-brand-pink fill-brand-pink" />
           </p>
         </div>
       </Container>

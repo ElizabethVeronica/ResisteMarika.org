@@ -9,7 +9,7 @@ export const NAV_LINKS: NavLink[] = [
       { label: 'Nosotros',               href: '/quienes-somos#nosotros',               descripcion: 'Historia, arte y comunidad en Cusco' },
       { label: 'Misión y Visión',        href: '/quienes-somos#mision-vision',          descripcion: 'Propósito y 6 objetivos estratégicos' },
       { label: 'Dónde trabajamos',       href: '/quienes-somos#donde-trabajamos',       descripcion: 'Ámbito territorial y presencia en Cusco' },
-      { label: 'Con quiénes trabajamos', href: '/quienes-somos#con-quienes-trabajamos', descripcion: 'Redes, articulación y apoyo mutuo' },
+      { label: 'Con quiénes trabajamos', href: '/quienes-somos#con-quienes-trabajamos', descripcion: 'Redes, articulación y auto-organización' },
     ],
   },
   { label: 'Proyectos',      href: '/proyectos' },

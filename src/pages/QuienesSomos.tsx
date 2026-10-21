@@ -147,13 +147,13 @@ export default function QuienesSomos() {
                   <div>
                     <dt className="text-gray-400 font-medium">Naturaleza</dt>
                     <dd className="font-semibold text-gray-800">
-                      Asociación civil autónoma, red de apoyo mutuo y artivismo
+                      Asociación civil autónoma, red colectiva y artivismo
                     </dd>
                   </div>
                   <div>
                     <dt className="text-gray-400 font-medium">Enfoques rectores</dt>
                     <dd className="font-semibold text-gray-800">
-                      LGBTIQ+, racializado, antipatriarcal, descolonial y antirracista
+                      LGTBIQ+, racializado, antipatriarcal, descolonial y antirracista
                     </dd>
                   </div>
                 </dl>
@@ -169,7 +169,7 @@ export default function QuienesSomos() {
                   <Flame size={14} className="text-brand-purple" /> Segundo Pilar Institucional
                 </span>
                 <h3 className="text-2xl sm:text-3xl font-bold font-display text-gray-900 mb-4">
-                  El uso de las ARTES para hacer activismo y la Batucada LGTBIQ+
+                  El uso de las artes para hacer activismo y la batucada LGTBIQ+
                 </h3>
                 <p className="text-gray-700 font-sans text-base sm:text-lg leading-relaxed mb-4">
                   {HISTORIA_RESUMEN.pilarArtes}
