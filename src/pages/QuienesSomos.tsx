@@ -82,8 +82,8 @@ export default function QuienesSomos() {
         aria-label="Secciones de quiénes somos"
         className={`sticky top-24 sm:top-[8.5rem] lg:top-[7.5rem] z-[60] mx-auto flex w-fit max-w-[calc(100%-2rem)] rounded-xl border p-1.5 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
           sectionMenuStuck
-            ? 'translate-y-0 border-gray-300 bg-white shadow-[0_8px_24px_rgba(17,24,39,0.22)]'
-            : 'translate-y-1 border-transparent bg-transparent shadow-none'
+            ? 'translate-y-0 border-gray-200 bg-white shadow-md shadow-gray-900/15'
+            : 'translate-y-1 border-transparent bg-white'
         }`}
       >
         <div className="flex w-fit max-w-full gap-0.5 overflow-x-auto">
