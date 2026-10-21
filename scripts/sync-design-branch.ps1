@@ -17,7 +17,9 @@ try {
     exit 1
   }
 
-  & git -C $repositoryPath fetch --quiet origin $expectedBranch
+  $remoteRef = "refs/heads/$expectedBranch"
+  $trackingRef = "refs/remotes/origin/$expectedBranch"
+  & git -C $repositoryPath fetch --quiet origin "${remoteRef}:${trackingRef}"
   if ($LASTEXITCODE -ne 0) {
     Write-SyncLog 'Fetch failed; local files were not changed.'
     exit 1
