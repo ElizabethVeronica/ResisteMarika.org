@@ -11,6 +11,7 @@ import { cn } from '@/utils/cn'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(() => window.scrollY > 20)
+  const [sectionMenuVisible, setSectionMenuVisible] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [desktopDropdownOpen, setDesktopDropdownOpen] = useState(false)
   const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState(true)
@@ -18,10 +19,18 @@ export default function Navbar() {
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20)
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+      const trigger = document.getElementById('quienes-somos-menu-trigger')
+      setSectionMenuVisible(
+        location.pathname === '/quienes-somos' &&
+          trigger !== null &&
+          trigger.getBoundingClientRect().bottom < 0
+      )
+    }
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [location.pathname])
 
   // Cerrar menús al cambiar de ruta
   useEffect(() => {
@@ -252,7 +261,7 @@ export default function Navbar() {
       </header>
 
       <AnimatePresence>
-        {scrolled && location.pathname === '/quienes-somos' && (
+        {sectionMenuVisible && location.pathname === '/quienes-somos' && (
           <motion.nav
             initial={{ opacity: 0, y: -12, x: '-50%' }}
             animate={{ opacity: 1, y: 0, x: '-50%' }}
@@ -261,7 +270,7 @@ export default function Navbar() {
             aria-label="Secciones de quiénes somos"
             className="fixed top-3 left-1/2 z-40 w-max max-w-[calc(100vw-1.5rem)] rounded-2xl border border-gray-200/80 bg-white/95 p-2 shadow-lg shadow-gray-900/10 backdrop-blur-md"
           >
-            <div className="flex flex-wrap justify-center gap-1">
+            <div className="flex max-w-full gap-1 overflow-x-auto">
               {NAV_LINKS.find((link) => link.href === '/quienes-somos')?.children?.map((sublink) => (
                 <Link
                   key={sublink.href}

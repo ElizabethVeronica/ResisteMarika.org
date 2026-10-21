@@ -52,39 +52,13 @@ export default function QuienesSomos() {
               {HISTORIA_RESUMEN.sublema}
             </p>
 
-            {/* Barra rápida de navegación interna tipo índice */}
-            <div className="mt-8 pt-6 border-t border-gray-100 flex flex-wrap justify-center gap-2 sm:gap-3 text-xs sm:text-sm font-semibold">
-              <a
-                href="#nosotros"
-                className="px-4 py-2 rounded-xl bg-gray-100 text-gray-700 hover:bg-brand-purpleLight hover:text-brand-purple transition-colors"
-              >
-                1. Nosotros
-              </a>
-              <a
-                href="#mision-vision"
-                className="px-4 py-2 rounded-xl bg-gray-100 text-gray-700 hover:bg-brand-purpleLight hover:text-brand-purple transition-colors"
-              >
-                2. Misión y Visión
-              </a>
-              <a
-                href="#donde-trabajamos"
-                className="px-4 py-2 rounded-xl bg-gray-100 text-gray-700 hover:bg-brand-purpleLight hover:text-brand-purple transition-colors"
-              >
-                3. Dónde trabajamos
-              </a>
-              <a
-                href="#con-quienes-trabajamos"
-                className="px-4 py-2 rounded-xl bg-gray-100 text-gray-700 hover:bg-brand-purpleLight hover:text-brand-purple transition-colors"
-              >
-                4. Con quiénes trabajamos
-              </a>
-            </div>
           </div>
         </Container>
+        <div id="quienes-somos-menu-trigger" className="h-px" aria-hidden="true" />
       </section>
 
       {/* ── 1. SECCIÓN: NOSOTROS ───────────────────────────── */}
-      <section id="nosotros" className="py-12 sm:py-16">
+      <section id="nosotros" className="scroll-mt-24 py-12 sm:py-16">
         <Container>
           <Reveal>
             <div className="max-w-3xl mb-8">
@@ -229,7 +203,7 @@ export default function QuienesSomos() {
       </section>
 
       {/* ── 2. SECCIÓN: MISIÓN Y VISIÓN ────────────────────── */}
-      <section id="mision-vision" className="pt-16 sm:pt-24 pb-16 bg-white border-y border-gray-200">
+      <section id="mision-vision" className="scroll-mt-24 pt-16 sm:pt-24 pb-16 bg-white border-y border-gray-200">
         <Container>
           <Reveal>
             <div className="max-w-3xl mb-12">
@@ -312,7 +286,7 @@ export default function QuienesSomos() {
       </section>
 
       {/* ── 3. SECCIÓN: DÓNDE TRABAJAMOS ───────────────────── */}
-      <section id="donde-trabajamos" className="pt-16 sm:pt-24 pb-16">
+      <section id="donde-trabajamos" className="scroll-mt-24 pt-16 sm:pt-24 pb-16">
         <Container>
           <Reveal>
             <div className="max-w-3xl mb-8">
@@ -373,7 +347,7 @@ export default function QuienesSomos() {
       </section>
 
       {/* ── 4. SECCIÓN: CON QUIÉNES TRABAJAMOS ─────────────── */}
-      <section id="con-quienes-trabajamos" className="pt-16 sm:pt-24 pb-16 bg-white border-t border-gray-200">
+      <section id="con-quienes-trabajamos" className="scroll-mt-24 pt-16 sm:pt-24 pb-16 bg-white border-t border-gray-200">
         <Container>
           <Reveal>
             <div className="max-w-3xl mb-12">
