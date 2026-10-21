@@ -9,16 +9,6 @@ import Button from '@/components/ui/Button'
 import { NAV_LINKS } from '@/config/navigation'
 import { cn } from '@/utils/cn'
 
-function isSectionMenuStuck(pathname: string) {
-  if (pathname !== '/quienes-somos') return false
-
-  const sectionMenu = document.getElementById('quienes-somos-section-nav')
-  if (!sectionMenu) return false
-
-  const stickyTop = Number.parseFloat(window.getComputedStyle(sectionMenu).top)
-  return sectionMenu.getBoundingClientRect().top <= stickyTop
-}
-
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(() => window.scrollY > 20)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -30,7 +20,6 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
-      if (isSectionMenuStuck(location.pathname)) setDesktopDropdownOpen(false)
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
     window.addEventListener('resize', handleScroll)
@@ -38,7 +27,7 @@ export default function Navbar() {
       window.removeEventListener('scroll', handleScroll)
       window.removeEventListener('resize', handleScroll)
     }
-  }, [location.pathname])
+  }, [])
 
   // Cerrar menús al cambiar de ruta
   useEffect(() => {
@@ -123,6 +112,7 @@ export default function Navbar() {
           <nav className="flex items-center gap-0 xl:gap-1" aria-label="Navegación principal">
             {NAV_LINKS.map((link) => {
               if (link.children && link.children.length > 0) {
+                const isCurrentPage = location.pathname === link.href
                 const isChildActive =
                   location.pathname === link.href ||
                   link.children.some((c) => location.pathname + location.hash === c.href)
@@ -132,16 +122,17 @@ export default function Navbar() {
                     key={link.label}
                     ref={dropdownRef}
                     className="relative"
-                    onMouseEnter={() => {
-                      if (!isSectionMenuStuck(location.pathname)) setDesktopDropdownOpen(true)
-                    }}
+                    onMouseEnter={() => !isCurrentPage && setDesktopDropdownOpen(true)}
                     onMouseLeave={() => setDesktopDropdownOpen(false)}
                   >
                     <div className="flex items-center">
                       <NavLink
                         to={link.href}
                         className={cn(
-                          'pl-4 pr-1.5 py-2 rounded-l-xl text-sm font-bold transition-colors flex items-center',
+                          cn(
+                            'py-2 text-sm font-bold transition-colors flex items-center',
+                            isCurrentPage ? 'px-4 rounded-xl' : 'pl-4 pr-1.5 rounded-l-xl'
+                          ),
                           isChildActive
                             ? 'text-brand-purple bg-brand-purpleLight/60'
                             : 'text-gray-700 hover:text-brand-purple hover:bg-gray-50'
@@ -149,34 +140,35 @@ export default function Navbar() {
                       >
                         {link.label}
                       </NavLink>
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.preventDefault()
-                          e.stopPropagation()
-                          if (isSectionMenuStuck(location.pathname)) return
-                          setDesktopDropdownOpen((v) => !v)
-                        }}
-                        aria-expanded={desktopDropdownOpen && !isSectionMenuStuck(location.pathname)}
-                        aria-label="Desplegar menú de Quiénes Somos"
-                        className={cn(
-                          'pr-3 pl-1 py-2 rounded-r-xl text-sm font-bold transition-colors text-gray-700 hover:text-brand-purple',
-                          isChildActive && 'bg-brand-purpleLight/60 text-brand-purple'
-                        )}
-                      >
-                        <ChevronDown
-                          size={15}
+                      {!isCurrentPage && (
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.preventDefault()
+                            e.stopPropagation()
+                            setDesktopDropdownOpen((v) => !v)
+                          }}
+                          aria-expanded={desktopDropdownOpen}
+                          aria-label="Desplegar menú de Quiénes Somos"
                           className={cn(
-                            'transition-transform duration-200',
-                            desktopDropdownOpen && 'rotate-180 text-brand-purple'
+                            'pr-3 pl-1 py-2 rounded-r-xl text-sm font-bold transition-colors text-gray-700 hover:text-brand-purple',
+                            isChildActive && 'bg-brand-purpleLight/60 text-brand-purple'
                           )}
-                        />
-                      </button>
+                        >
+                          <ChevronDown
+                            size={15}
+                            className={cn(
+                              'transition-transform duration-200',
+                              desktopDropdownOpen && 'rotate-180 text-brand-purple'
+                            )}
+                          />
+                        </button>
+                      )}
                     </div>
 
                     {/* Dropdown flotante */}
                     <AnimatePresence>
-                      {desktopDropdownOpen && (
+                      {desktopDropdownOpen && !isCurrentPage && (
                         <motion.div
                           initial={{ opacity: 0, y: 8, scale: 0.98 }}
                           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -184,11 +176,6 @@ export default function Navbar() {
                           transition={{ duration: 0.15 }}
                           className="absolute top-full left-0 mt-1 w-72 rounded-2xl bg-white shadow-xl border border-gray-200/90 py-2 z-50 overflow-hidden"
                         >
-                          <div className="px-4 py-2 border-b border-gray-100 bg-gray-50/70">
-                            <p className="text-[11px] font-bold uppercase tracking-wider text-gray-500 font-display">
-                              Conoce la organización
-                            </p>
-                          </div>
                           <div className="p-1.5 flex flex-col gap-0.5">
                             {link.children.map((sublink) => (
                               <Link
@@ -307,6 +294,7 @@ export default function Navbar() {
               <div className="flex flex-col gap-1">
                 {NAV_LINKS.map((link) => {
                   if (link.children && link.children.length > 0) {
+                    const isCurrentPage = location.pathname === link.href
                     return (
                       <div key={link.label} className="flex flex-col rounded-xl bg-gray-50/70 p-1">
                         <div className="flex items-center justify-between">
@@ -317,23 +305,25 @@ export default function Navbar() {
                           >
                             {link.label}
                           </NavLink>
-                          <button
-                            type="button"
-                            onClick={() => setMobileSubmenuOpen((v) => !v)}
-                            className="p-2 text-gray-500 hover:text-brand-purple"
-                            aria-label="Expandir submenú"
-                          >
-                            <ChevronDown
-                              size={16}
-                              className={cn(
-                                'transition-transform duration-200',
-                                mobileSubmenuOpen && 'rotate-180 text-brand-purple'
-                              )}
-                            />
-                          </button>
+                          {!isCurrentPage && (
+                            <button
+                              type="button"
+                              onClick={() => setMobileSubmenuOpen((v) => !v)}
+                              className="p-2 text-gray-500 hover:text-brand-purple"
+                              aria-label="Expandir submenú"
+                            >
+                              <ChevronDown
+                                size={16}
+                                className={cn(
+                                  'transition-transform duration-200',
+                                  mobileSubmenuOpen && 'rotate-180 text-brand-purple'
+                                )}
+                              />
+                            </button>
+                          )}
                         </div>
 
-                        {mobileSubmenuOpen && (
+                        {!isCurrentPage && mobileSubmenuOpen && (
                           <div className="flex flex-col gap-1 pl-3 pr-1 py-1 border-t border-gray-200/60 mt-1">
                             {link.children.map((sublink) => (
                               <Link
