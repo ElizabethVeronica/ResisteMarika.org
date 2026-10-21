@@ -30,49 +30,25 @@ export default function Footer() {
           {/* Columna 1: Identidad y Origen */}
           <div className="lg:col-span-5 flex flex-col gap-4">
             <Link to="/" className="flex items-center gap-3 w-fit">
-              <div className="h-10 w-10 rounded-2xl bg-gradient-to-tr from-brand-purple to-brand-pink flex items-center justify-center text-white font-display font-extrabold text-base shadow-sm">
-                RM
+              <div className="h-12 w-12 rounded-xl bg-white flex items-center justify-center overflow-hidden shadow-sm">
+                <img
+                  src="/images/logo.jpg"
+                  alt="Logo de Resiste Marika"
+                  className="h-full w-full object-contain"
+                />
               </div>
               <div className="flex flex-col">
                 <span className="font-display font-extrabold text-xl tracking-tight text-white leading-none">
                   Resiste <span className="text-brand-purpleSoft">Marika</span>
                 </span>
-                <span className="text-[10px] font-bold text-brand-sky tracking-wider uppercase mt-0.5">
-                  Red Colectiva & Autogestión
-                </span>
               </div>
             </Link>
-
-            <p className="text-sm text-white/75 leading-relaxed max-w-sm mt-1 font-sans">
-              Nacimos el <strong>7 de agosto del 2023</strong> en Cusco como una red colectiva para construir espacios de autogestión, arte y defensa de los derechos de la comunidad LGTBIQ+ y mujeres.
-            </p>
 
             <div className="flex items-center gap-2 text-xs text-brand-yellowWarm font-semibold">
               <MapPin size={14} className="shrink-0" />
               <span>Cusco, Perú</span>
             </div>
 
-            {/* Redes */}
-            <div className="flex gap-2.5 mt-2">
-              <a
-                href="https://www.instagram.com/resiste.marika.cusco"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Instagram"
-                className="h-9 w-9 rounded-xl bg-white/10 flex items-center justify-center text-white hover:bg-brand-pink hover:text-brand-dark transition-colors"
-              >
-                <FaInstagram size={16} />
-              </a>
-              <a
-                href="https://www.tiktok.com/@resistemarik"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="TikTok"
-                className="h-9 w-9 rounded-xl bg-white/10 flex items-center justify-center text-white hover:bg-white hover:text-brand-dark transition-colors"
-              >
-                <FaTiktok size={15} />
-              </a>
-            </div>
           </div>
 
           {/* Columna 2: Páginas */}
@@ -94,22 +70,41 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Columna 3: Autogestión y Contacto */}
+          {/* Columna 3: Correo y redes */}
           <div className="lg:col-span-4 flex flex-col gap-3">
             <h3 className="text-xs font-bold text-brand-yellowWarm uppercase tracking-widest mb-2 font-display">
-              Apoyo Colectivo
+              Correo Electrónico
             </h3>
-            <p className="text-xs text-white/70 leading-relaxed font-sans">
-              Nos sostenemos de manera autónoma con rifas, ferias, artivismo, talleres.
-            </p>
-            <div className="rounded-2xl bg-white/5 border border-white/10 p-3.5 mt-2 flex items-center gap-3">
-              <Mail size={16} className="text-brand-pink shrink-0" />
-              <a
-                href="mailto:resistemarik@gmail.com"
-                className="text-xs text-white/90 font-medium hover:text-brand-pink transition-colors"
-              >
-                resistemarik@gmail.com
-              </a>
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="rounded-2xl bg-white/5 border border-white/10 p-3.5 flex items-center gap-3">
+                <Mail size={16} className="text-brand-pink shrink-0" />
+                <a
+                  href="mailto:resistemarik@gmail.com"
+                  className="text-xs text-white/90 font-medium hover:text-brand-pink transition-colors"
+                >
+                  resistemarik@gmail.com
+                </a>
+              </div>
+              <div className="flex gap-2.5">
+                <a
+                  href="https://www.instagram.com/resiste.marika.cusco"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Instagram"
+                  className="h-10 w-10 rounded-xl bg-white/10 flex items-center justify-center text-white hover:bg-brand-pink hover:text-brand-dark transition-colors"
+                >
+                  <FaInstagram size={16} />
+                </a>
+                <a
+                  href="https://www.tiktok.com/@resistemarik"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="TikTok"
+                  className="h-10 w-10 rounded-xl bg-white/10 flex items-center justify-center text-white hover:bg-white hover:text-brand-dark transition-colors"
+                >
+                  <FaTiktok size={15} />
+                </a>
+              </div>
             </div>
             <Link
               to="/contacto"

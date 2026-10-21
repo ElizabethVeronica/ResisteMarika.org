@@ -22,6 +22,9 @@ import {
   Network,
   ArrowRight,
   MapPin,
+  Drum,
+  Store,
+  Palette,
   type LucideIcon,
 } from 'lucide-react'
 
@@ -32,6 +35,13 @@ const ICON_MAP: Record<string, LucideIcon> = {
   Sparkles,
   Users,
   Network,
+}
+
+const ESPACIO_ICON_MAP: Record<string, LucideIcon> = {
+  'En las calles y plazas del Cusco': Drum,
+  'En ferias y espacios autogestionados': Store,
+  'En talleres artísticos colectivos': Palette,
+  'En instancias de vigilancia ciudadana': Eye,
 }
 
 export default function QuienesSomos() {
@@ -373,19 +383,25 @@ export default function QuienesSomos() {
             </div>
 
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 auto-rows-fr gap-4">
-              {DONDE_TRABAJAMOS.espacios.map((esp) => (
-                <div
-                  key={esp.titulo}
-                  className="h-full p-5 rounded-2xl bg-white border border-gray-200 flex flex-col shadow-sm"
-                >
-                  <h4 className="font-display font-bold text-base text-gray-900 mb-2">
-                    {esp.titulo}
-                  </h4>
-                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-sans">
-                    {esp.descripcion}
-                  </p>
-                </div>
-              ))}
+              {DONDE_TRABAJAMOS.espacios.map((esp) => {
+                const Icon = ESPACIO_ICON_MAP[esp.titulo]
+                return (
+                  <div
+                    key={esp.titulo}
+                    className="h-full p-5 rounded-2xl bg-white border border-gray-200 flex flex-col shadow-sm"
+                  >
+                    <h4 className="font-display font-bold text-base text-gray-900 mb-2">
+                      {esp.titulo}
+                    </h4>
+                    <p className="text-sm text-gray-600 leading-relaxed font-sans">
+                      {esp.descripcion}
+                    </p>
+                    <div className="mt-4 flex justify-center text-brand-purple" aria-hidden="true">
+                      <Icon size={24} />
+                    </div>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </Container>
