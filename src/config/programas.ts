@@ -9,7 +9,7 @@ export const PROGRAMAS: Programa[] = [
     objetivo: 'Fomentar la autonomía, la autogestión y la articulación entre personas de la comunidad LGTBIQ+.',
     detalles: [
       'Convocatorias abiertas y participación en ferias en Cusco.',
-      'Visibilidad para creaciones hechas por personas trans, no binarias y de la diversidad.',
+      'Visibilidad para las creaciones de personas de la comunidad.',
       'Espacios seguros fomentando la autogestión.',
     ],
     imagen: '/images/Marika Fest 2024 - Feria de autogestión LGTBIQ.jpg',
@@ -18,22 +18,16 @@ export const PROGRAMAS: Programa[] = [
   {
     id: 'artivismo-colectivo',
     titulo: 'Artivismo & Resistencia Creativa',
-    subtitulo: 'El arte como trinchera de lucha, pedagogía y afecto colectivo',
     descripcion:
-      'Desarrollamos artivismo colectivo (prints, fanzines, stickers, serigrafía, música y batucada) donde mostramos nuestra resistencia como personas de la comunidad.',
-    objetivo: 'Disputar las narrativas públicas a través de la creatividad, el arte y la memoria viva.',
-    detalles: [
-      'Producción gráfica con mensajes de visibilidad trans, no binaria y LGTBIQ+.',
-      'Rifas y actividades culturales para sostener nuestras iniciativas.',
-      'Talleres de fanzines, expresión artística y batucada colectiva.',
-    ],
+      'Desarrollamos artivismo (prints, fanzines, stickers, serigrafía, música y poesía) donde mostramos nuestra resistencia como personas de la comunidad.',
+    objetivo: 'Disputar las narrativas públicas a través de la creatividad, el arte y la memoria.',
+    detalles: ['Producción artística mostrando nuestra expresión como personas de la comunidad.'],
     imagen: '/images/Presentacion Fanzine colaborativo Manifiesto Marika Vol1 y Vol2.jpg',
     categoria: 'Artivismo',
   },
   {
     id: 'talleres-capacidades',
     titulo: 'Talleres Compartidos & Educación Popular',
-    subtitulo: 'Socialización horizontal de saberes y fortalecimiento integral',
     descripcion:
       'Espacios de aprendizaje mutuo donde integrantes y aliades compartimos conocimientos sobre arte, memoria, espiritualidad, salud colectiva y activismo.',
     objetivo: 'Democratizar el conocimiento y potenciar las capacidades individuales y colectivas de la comunidad.',
@@ -48,7 +42,6 @@ export const PROGRAMAS: Programa[] = [
   {
     id: 'vigilancia-politicas',
     titulo: 'Vigilancia Ciudadana & Políticas Públicas',
-    subtitulo: 'Participación ciudadana, concertación y exigibilidad de derechos',
     descripcion:
       'Participamos activamente en los espacios de concertación y gestión participativa distritales en Cusco, promoviendo ordenanzas y políticas públicas en favor de la comunidad y mujeres.',
     objetivo: 'Garantizar el cumplimiento efectivo de derechos fundamentales como salud, empleo, educación y vida libre de violencia.',

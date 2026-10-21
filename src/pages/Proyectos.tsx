@@ -43,30 +43,15 @@ export default function Proyectos() {
                           alt={prog.titulo}
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
-                        <div className="absolute top-4 left-4">
-                          <span className="badge-pill bg-brand-dark text-white text-xs font-bold">
-                            {prog.categoria}
-                          </span>
-                        </div>
                       </div>
                     </div>
 
                     {/* Contenido */}
                     <div className={`lg:col-span-7 flex flex-col gap-4 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
                       <div>
-                        {prog.id !== 'ferias-autogestion' && (
-                          <span className="text-xs font-bold uppercase tracking-wider text-brand-purple mb-1 block font-display">
-                            Iniciativa Autogestiva
-                          </span>
-                        )}
                         <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-brand-dark leading-tight">
                           {prog.titulo}
                         </h2>
-                        {prog.subtitulo && (
-                          <p className="text-sm font-bold text-brand-purpleSoft mt-1">
-                            {prog.subtitulo}
-                          </p>
-                        )}
                       </div>
 
                       <p className="text-surface-muted text-sm sm:text-base leading-relaxed font-sans">
