@@ -50,8 +50,7 @@ export const OBJETIVOS_ESTRATEGICOS = [
     id: 'derechos',
     numero: '01',
     titulo: 'Derechos Fundamentales',
-    descripcion:
-      'Buscamos la satisfacción de los derechos fundamentales de nuestros integrantes y de la comunidad como salud, empleo, desarrollo económico y productivo, educación y recreación, junto con otras organizaciones afines.',
+    descripcion: MISION_VISION.objetivosPrincipales[0],
     icono: 'Heart',
     enfoque: 'Salud, Trabajo y Educación',
   },
@@ -59,8 +58,7 @@ export const OBJETIVOS_ESTRATEGICOS = [
     id: 'politicas',
     numero: '02',
     titulo: 'Políticas Públicas',
-    descripcion:
-      'Fortalecemos las capacidades de nuestros miembros para aportar en la formulación de políticas públicas en favor de la comunidad.',
+    descripcion: MISION_VISION.objetivosPrincipales[1],
     icono: 'FileText',
     enfoque: 'Incidencia y Propuesta',
   },
@@ -68,8 +66,7 @@ export const OBJETIVOS_ESTRATEGICOS = [
     id: 'vigilancia',
     numero: '03',
     titulo: 'Vigilancia Ciudadana',
-    descripcion:
-      'Participamos en los procesos, espacios e instancias de vigilancia ciudadana, concertación y gestión participativa distritales existentes, y en aquéllos que se instituyan en adelante.',
+    descripcion: MISION_VISION.objetivosPrincipales[2],
     icono: 'Eye',
     enfoque: 'Gestión Participativa',
   },
@@ -77,8 +74,7 @@ export const OBJETIVOS_ESTRATEGICOS = [
     id: 'desarrollo',
     numero: '04',
     titulo: 'Desarrollo Integral',
-    descripcion:
-      'Promovemos e impulsamos proyectos y programas de desarrollo integral con el fin de fortalecer las capacidades de las y los integrantes y de la comunidad en general.',
+    descripcion: MISION_VISION.objetivosPrincipales[3],
     icono: 'Sparkles',
     enfoque: 'Capacidades Colectivas',
   },
@@ -86,8 +82,7 @@ export const OBJETIVOS_ESTRATEGICOS = [
     id: 'mujeres-lgbtiq',
     numero: '05',
     titulo: 'Reconocimiento y Derechos',
-    descripcion:
-      'Reconocemos y valoramos el rol y los derechos de la población LGTBIQ+ y mujeres en las diferentes etapas del desarrollo de vida, en la organización, en la comunidad y en la sociedad.',
+    descripcion: MISION_VISION.objetivosPrincipales[4],
     icono: 'Users',
     enfoque: 'Comunidad y Mujeres',
   },
@@ -95,8 +90,7 @@ export const OBJETIVOS_ESTRATEGICOS = [
     id: 'articulacion',
     numero: '06',
     titulo: 'Coordinación y Alianzas',
-    descripcion:
-      'Impulsamos la creación, el fortalecimiento y coordinación permanente con organizaciones afines y superiores estatales y privadas de ámbito nacional e internacional.',
+    descripcion: MISION_VISION.objetivosPrincipales[5],
     icono: 'Network',
     enfoque: 'Organizaciones Afines',
   },
