@@ -200,10 +200,12 @@ export default function Navbar() {
                   to={link.href}
                   className={({ isActive }) =>
                     cn(
-                      'px-4 py-2 rounded-xl text-sm font-bold transition-colors',
-                      isActive
-                        ? 'text-brand-purple bg-brand-purpleLight/60'
-                        : 'text-gray-700 hover:text-brand-purple hover:bg-gray-50'
+                      'px-4 py-2 rounded-xl text-sm font-bold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple focus-visible:ring-offset-2',
+                      link.href === '/quienes-somos'
+                        ? 'text-brand-purple bg-brand-purpleLight/70 border border-brand-purple/20 shadow-sm hover:-translate-y-0.5 hover:bg-brand-purpleLight hover:shadow-md'
+                        : isActive
+                          ? 'text-brand-purple bg-brand-purpleLight/60'
+                          : 'text-gray-700 hover:text-brand-purple hover:bg-gray-50'
                     )
                   }
                 >

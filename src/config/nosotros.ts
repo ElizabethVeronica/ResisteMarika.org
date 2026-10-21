@@ -6,6 +6,8 @@ export const HISTORIA_RESUMEN = {
   organizacion: 'Resiste Marika Cusco',
   lema: 'Las artes nos han devuelto el poder para existir como marikas racializadas y resistir contra la discriminación en Cusco.',
   sublema: 'Red de autogestión, arte y ternura',
+  declaracionInicial:
+    'Las artes nos han devuelto el poder para existir como marikas racializadas y para resistir contra la discriminación de género, sexo y el racismo en Cusco.',
   parrafo1:
     'Resiste Marika nació el 7 de agosto del 2023 con el sueño de organizar espacios de autogestión donde la comunidad LGTBIQ+ pueda organizarse y construir espacios de forma colectiva.',
   parrafo2:

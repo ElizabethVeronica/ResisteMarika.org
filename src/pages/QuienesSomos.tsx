@@ -35,7 +35,7 @@ const ICON_MAP: Record<string, LucideIcon> = {
 
 export default function QuienesSomos() {
   return (
-    <div className="bg-[#FAF9F6] text-gray-900 pb-20 sm:pb-28">
+    <div className="bg-[#FAF9F6] text-gray-900">
       {/* ── ENCABEZADO INSTITUCIONAL ───────────────────────── */}
       <section className="bg-white border-b border-gray-200 pt-12 pb-14 sm:pt-16 sm:pb-20">
         <Container>
@@ -101,6 +101,9 @@ export default function QuienesSomos() {
           {/* Identidad y origen */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-16">
             <div className="lg:col-span-7 space-y-5 text-gray-700 font-sans text-base sm:text-lg leading-relaxed">
+              <p className="font-semibold text-gray-900 text-lg sm:text-xl border-l-4 border-brand-purple pl-4 py-1">
+                {HISTORIA_RESUMEN.declaracionInicial}
+              </p>
               <p>{HISTORIA_RESUMEN.parrafo1}</p>
 
               <div className="p-5 sm:p-6 rounded-2xl bg-amber-50/80 border border-amber-200 text-gray-800 text-sm sm:text-base">
@@ -422,9 +425,9 @@ export default function QuienesSomos() {
           </div>
 
           {/* Llamado final a colaborar */}
-          <div className="mt-14 p-8 rounded-2xl bg-gray-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="mt-10 p-8 rounded-2xl bg-gray-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
-              <h3 className="text-xl font-bold font-display">
+              <h3 className="text-xl font-bold font-display text-brand-yellowWarm">
                 ¿Deseas articular acciones o sumar tu proyecto?
               </h3>
               <p className="text-xs sm:text-sm text-gray-300 font-sans mt-1">
