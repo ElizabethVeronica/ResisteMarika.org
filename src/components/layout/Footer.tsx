@@ -70,16 +70,16 @@ export default function Footer() {
 
             <div className="flex flex-col gap-3">
               <p className="text-xs font-bold text-brand-yellowWarm uppercase tracking-widest font-display">
-                Correo Electrónico
+                Correo y Redes sociales
               </p>
-              <a
-                href="mailto:resistemarik@gmail.com"
-                className="inline-flex w-fit items-center gap-2 text-sm text-white/90 font-medium hover:text-brand-pink transition-colors"
-              >
-                <Mail size={16} className="text-brand-pink shrink-0" />
-                resistemarik@gmail.com
-              </a>
-              <div className="flex gap-2.5">
+              <div className="flex flex-wrap items-center gap-2.5">
+                <a
+                  href="mailto:resistemarik@gmail.com"
+                  aria-label="Correo electrónico: resistemarik@gmail.com"
+                  className="h-10 w-10 rounded-xl bg-white/10 flex items-center justify-center text-white hover:bg-brand-pink hover:text-brand-dark transition-colors"
+                >
+                  <Mail size={16} />
+                </a>
                 <a
                   href="https://www.instagram.com/resiste.marika.cusco"
                   target="_blank"
