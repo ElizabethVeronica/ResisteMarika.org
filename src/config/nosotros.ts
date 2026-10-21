@@ -9,17 +9,17 @@ export const HISTORIA_RESUMEN = {
   declaracionInicial:
     'Las artes nos han devuelto el poder para existir como marikas racializadas y para resistir contra la discriminación de género, sexo y el racismo en Cusco.',
   parrafo1:
-    'Resiste Marika nació el 7 de agosto del 2023 con el sueño de organizar espacios de autogestión donde la comunidad LGTBIQ+ pueda compartir y vender sus artes y construir emprendimientos de forma colectiva.',
+    'Resiste Marika nació el 7 de agosto del 2023 con el sueño de organizar espacios de autogestión donde la comunidad LGTBIQ+ pueda organizarse y construir espacios de forma colectiva.',
   parrafo2:
-    'Nos dimos cuenta de que muchas actividades del activismo dependían del financiamiento de ONGs para existir. Estos grandes montos de dinero han generado un fuerte deterioro en las relaciones entre activistas y que se pierda de vista nuestra fortaleza más grande: la colectividad y la ternura.',
+    'Nos dimos cuenta de que muchas actividades del activismo dependían del financiamiento de ONGs para existir. Esto nos motivó a tomar la autogestión como forma de sostenernos y no perder de vista nuestros objetivos: la colectividad y la ternura.',
   parrafo3:
     'Nos sostenemos de manera autónoma con rifas, ferias, artivismo, talleres.',
   pilarArtes:
-    'El segundo pilar de Resiste Marika es el uso de las artes para hacer activismo. El 8 de marzo del 2024, gracias a un apoyo económico, pudimos comprar nuestros tambores y salir por primera vez a marchar con nuestra batucada LGTBIQ+.',
+    'Uno de los pilares de Resiste Marika es el uso de las artes para hacer activismo. El 8 de marzo del 2024, gracias a un apoyo económico, pudimos comprar nuestros tambores y salir por primera vez a marchar con nuestra batucada. ',
   disciplinasArtisticas:
-    'Además de hacer música y performar en las calles del Cusco haciendo activismo, nuestros miembros somos escritores, ilustradores, actores, escultores, músicos, tejedores, danzantes y arte terapeutas.',
+    'Además de hacer música y performar en las calles del Cusco haciendo activismo, nuestros miembros somos escritores, ilustradores, actores, escultores, psicólogos, músicos, tejedores, danzantes y arte terapeutas.',
   talleresMultidisciplinarios:
-    'Por esa razón, solemos compartir talleres artísticos multidisciplinarios en los que conectamos con las artes como forma de activismo LGTBIQ+, antipatriarcal, descolonial y antirracista.',
+    'Por esa razón, solemos compartir talleres artísticos multidisciplinarios en los que conectamos con las artes como forma de acompañarnos y hacer activismo LGTBIQ+, antipatriarcal, descolonial y antirracista.',
 }
 
 export const DISCIPLINAS = [
@@ -36,10 +36,10 @@ export const MISION_VISION = {
   descripcion:
     'Nuestra misión y visión se expresan directamente en los objetivos fundamentales que nos unen como colectiva en Cusco.',
   objetivosPrincipales: [
-    'Buscamos la satisfacción de los derechos fundamentales de nuestros integrantes y de la comunidad como salud, empleo, desarrollo económico y productivo, educación y recreación, junto con otras organizaciones afines.',
+    'Buscamos la satisfacción de los derechos fundamentales de nuestros integrantes y de la comunidad como salud, empleo, educación y recreación, junto con otras organizaciones afines.',
     'Fortalecemos las capacidades de nuestros miembros para aportar en la formulación de políticas públicas en favor de la comunidad.',
     'Participamos en los procesos, espacios e instancias de vigilancia ciudadana, concertación y gestión participativa distritales existentes, y en aquéllos que se instituyan en adelante.',
-    'Promovemos e impulsamos proyectos y programas de desarrollo integral con el fin de fortalecer las capacidades de las y los integrantes y de la comunidad en general.',
+    'Promovemos e impulsamos proyectos y programas de desarrollo integral con el fin de fortalecer las capacidades los integrantes y de la comunidad en general.',
     'Reconocemos y valoramos el rol y los derechos de la población LGTBIQ+ y mujeres en las diferentes etapas del desarrollo de vida, en la organización, en la comunidad y en la sociedad.',
     'Impulsamos la creación, el fortalecimiento y coordinación permanente con organizaciones afines y superiores estatales y privadas de ámbito nacional e internacional.',
   ],

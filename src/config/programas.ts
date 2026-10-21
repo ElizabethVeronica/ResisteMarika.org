@@ -6,7 +6,7 @@ export const PROGRAMAS: Programa[] = [
     titulo: 'Ferias Colectivas & Autogestión',
     subtitulo: 'Autogestión, ternura y organización entre colectivas',
     descripcion:
-      'Organizamos y participamos en ferias donde personas de la comunidad LGTBIQ+ de Cusco exhiben y comparten sus artes y creaciones en un entorno seguro y afectivo.',
+      'Organizamos y participamos en ferias donde personas de la comunidad LGTBIQ+ de Cusco pueden vender sus creaciones en un entorno seguro.',
     objetivo: 'Fomentar la autonomía, la auto-organización y la articulación entre colectivas.',
     detalles: [
       'Convocatorias abiertas y participación colectiva en ferias en Cusco.',
@@ -21,7 +21,7 @@ export const PROGRAMAS: Programa[] = [
     titulo: 'Artivismo & Resistencia Creativa',
     subtitulo: 'El arte como trinchera de lucha, pedagogía y afecto colectivo',
     descripcion:
-      'Desarrollamos artivismo colectivo (prints, fanzines, stickers, serigrafía, música y batucada) que difunde nuestras demandas y reafirma nuestro orgullo.',
+      'Desarrollamos artivismo colectivo (prints, fanzines, stickers, serigrafía, música y batucada) donde mostramos nuestra resistencia como personas de la comunidad.',
     objetivo: 'Disputar las narrativas públicas a través de la creatividad, el arte y la memoria viva.',
     detalles: [
       'Producción gráfica con mensajes de visibilidad trans, no binaria y LGTBIQ+.',
@@ -36,7 +36,7 @@ export const PROGRAMAS: Programa[] = [
     titulo: 'Talleres Compartidos & Educación Popular',
     subtitulo: 'Socialización horizontal de saberes y fortalecimiento integral',
     descripcion:
-      'Espacios de aprendizaje mutuo donde integrantes y aliades compartimos conocimientos sobre arte, memoria, derechos, salud colectiva y desarrollo personal.',
+      'Espacios de aprendizaje mutuo donde integrantes y aliades compartimos conocimientos sobre arte, memoria, espiritualidad, salud colectiva y activismo.',
     objetivo: 'Democratizar el conocimiento y potenciar las capacidades individuales y colectivas de la comunidad.',
     detalles: [
       'Talleres presenciales y círculos de formación entre pares.',
@@ -44,7 +44,7 @@ export const PROGRAMAS: Programa[] = [
       'Herramientas prácticas para el desarrollo de proyectos colectivos.',
     ],
     imagen: '/images/Taller de collage - Ancestralidad Qhariwarmi.jpg',
-    categoria: 'Formación',
+    categoria: 'Talleres',
   },
   {
     id: 'vigilancia-politicas',

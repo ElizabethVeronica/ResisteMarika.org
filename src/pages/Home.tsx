@@ -67,10 +67,10 @@ export default function Home() {
               <div className="bg-[#FAF9F6] border border-gray-200 rounded-2xl p-5 sm:p-6 shadow-sm space-y-4">
                 <div>
                   <span className="text-xs font-bold uppercase tracking-wider text-gray-500 font-display">
-                    Nuestra Batucada en las Calles
+                    Nuestra Batucada
                   </span>
                   <h2 className="font-display font-black text-xl text-gray-900 mt-0.5">
-                    Marcha 8M Cusco con Tambores Propios
+                    Marcha 8M Cusco
                   </h2>
                 </div>
 
@@ -167,7 +167,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-5 space-y-4">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display block">
-                Segundo Pilar Institucional
+                Uno de nuestros pilares
               </span>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-gray-900 leading-tight">
                 El uso de las artes para hacer activismo
