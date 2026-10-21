@@ -3,15 +3,14 @@ import type { Programa } from '@/types'
 export const PROGRAMAS: Programa[] = [
   {
     id: 'ferias-autogestion',
-    titulo: 'Autogestión Colectiva',
-    subtitulo: 'Autogestión, ternura y organización entre colectivas',
+    titulo: 'Autogestión',
     descripcion:
       'Organizamos y participamos en ferias donde personas de la comunidad LGTBIQ+ de Cusco pueden vender sus creaciones en un entorno seguro.',
-    objetivo: 'Fomentar la autonomía, la auto-organización y la articulación entre colectivas.',
+    objetivo: 'Fomentar la autonomía, la autogestión y la articulación entre personas de la comunidad LGTBIQ+.',
     detalles: [
-      'Convocatorias abiertas y participación colectiva en ferias en Cusco.',
+      'Convocatorias abiertas y participación en ferias en Cusco.',
       'Visibilidad para creaciones hechas por personas trans, no binarias y de la diversidad.',
-      'Espacios libres de discriminación y con fomento a la autogestión.',
+      'Espacios seguros fomentando la autogestión.',
     ],
     imagen: '/images/Marika Fest 2024 - Feria de autogestión LGTBIQ.jpg',
     categoria: 'Autogestión',

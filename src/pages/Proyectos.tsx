@@ -54,9 +54,11 @@ export default function Proyectos() {
                     {/* Contenido */}
                     <div className={`lg:col-span-7 flex flex-col gap-4 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
                       <div>
-                        <span className="text-xs font-bold uppercase tracking-wider text-brand-purple mb-1 block font-display">
-                          Iniciativa Autogestiva
-                        </span>
+                        {prog.id !== 'ferias-autogestion' && (
+                          <span className="text-xs font-bold uppercase tracking-wider text-brand-purple mb-1 block font-display">
+                            Iniciativa Autogestiva
+                          </span>
+                        )}
                         <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-brand-dark leading-tight">
                           {prog.titulo}
                         </h2>
@@ -74,7 +76,7 @@ export default function Proyectos() {
                       {prog.objetivo && (
                         <div className="rounded-2xl bg-brand-purpleLight/40 p-4 border border-brand-purpleSoft/30">
                           <p className="text-[11px] font-bold uppercase tracking-wider text-brand-purple mb-1 font-display">
-                            Propósito Colectivo
+                            Propósito
                           </p>
                           <p className="text-sm text-brand-dark font-medium font-sans">
                             {prog.objetivo}
@@ -96,9 +98,6 @@ export default function Proyectos() {
                       <div className="pt-2 flex flex-wrap gap-4">
                         <Button href="/contacto" variant="primary" size="sm" icon={<ArrowRight size={14} />}>
                           Participar en esta iniciativa
-                        </Button>
-                        <Button href="/contacto" variant="outline" size="sm">
-                          Más información
                         </Button>
                       </div>
                     </div>
