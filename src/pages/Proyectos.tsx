@@ -19,7 +19,7 @@ export default function Proyectos() {
                   Artivismo y <span className="text-gradient">proyectos colectivos</span>
                 </>
               }
-              subtitle="Espacios de auto-organización, formación colectiva y vigilancia ciudadana para la comunidad LGTBIQ+ y mujeres."
+              subtitle="Espacios de autogestión en colectividad, arte y vigilancia ciudadana para la comunidad LGTBIQ+."
               className="max-w-3xl mx-auto text-center"
             />
           </Reveal>
@@ -102,11 +102,11 @@ export default function Proyectos() {
               <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-pink text-brand-dark mb-4 shadow-sm">
                 <Heart size={24} fill="currentColor" />
               </div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold font-display mb-3">
-                ¿Haces arte, tienes una iniciativa o quieres proponer un taller en Cusco?
+              <h3 className="text-2xl sm:text-3xl text-brand-pink font-extrabold font-display mb-3">
+                ¿Tienes alguna iniciativa o proyecto en mente?
               </h3>
               <p className="text-sm sm:text-base text-white/80 max-w-2xl mx-auto mb-6 leading-relaxed font-sans">
-                Nuestros proyectos y actividades están abiertos a la comunidad LGTBIQ+ y mujeres que quieran sumar sus artes, oficios y propuestas desde la auto-organización y la ternura.
+                Nuestros proyectos y actividades están abiertos a la comunidad LGTBIQ+ que quieran sumar sus artes, oficios y propuestas desde la auto-organización y colectividad.
               </p>
               <Button href="/contacto" size="lg" variant="yellow">
                 Escríbenos para participar

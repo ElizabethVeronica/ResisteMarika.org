@@ -5,7 +5,7 @@ export const HISTORIA_RESUMEN = {
   ciudad: 'Cusco, Perú',
   organizacion: 'Resiste Marika Cusco',
   lema: 'Las artes nos han devuelto el poder para existir como marikas racializadas y resistir contra la discriminación en Cusco.',
-  sublema: 'Red de autogestión, arte y ternura',
+  sublema: 'Autogestión y Artivismo',
   declaracionInicial:
     'Las artes nos han devuelto el poder para existir como marikas racializadas y para resistir contra la discriminación de género, sexo y el racismo en Cusco.',
   parrafo1:
@@ -132,7 +132,7 @@ export const DONDE_TRABAJAMOS = {
     {
       titulo: 'En ferias y espacios autogestionados',
       descripcion:
-        'Creamos y habitamos ferias para compartir nuestro arte y construir iniciativas desde la auto-organización.',
+        'Creamos y habitamos ferias para compartir nuestro arte y construir iniciativas desde la autogestión.',
     },
     {
       titulo: 'En talleres artísticos colectivos',
@@ -149,7 +149,7 @@ export const DONDE_TRABAJAMOS = {
 
 export const CON_QUIENES_TRABAJAMOS = {
   principios:
-    'Nos articulamos desde la auto-organización, la ternura y el respeto, priorizando siempre la autonomía colectiva.',
+    'Nos articulamos desde la autogestión priorizando siempre la autonomía colectiva.',
   redes: [
     {
       categoria: 'Colectivos LGTBIQ+ y disidencias',
@@ -210,7 +210,7 @@ export const EQUIPO: TeamMember[] = [
     id: '2',
     nombre: 'Ferias Colectivas',
     rol: 'Autogestión Colectiva',
-    bio: 'Organización de ferias donde compartimos nuestras artes y creaciones desde la auto-organización.',
+    bio: 'Organización de ferias donde compartimos nuestras artes y creaciones desde la autogestión.',
     foto: '/images/Marika Fest 2024 - Feria de autogestión LGTBIQ.jpg',
     redes: { instagram: 'https://www.instagram.com/resiste.marika.cusco' },
   },
@@ -234,7 +234,7 @@ export const EQUIPO: TeamMember[] = [
 
 export const ALIANZAS: Alianza[] = [
   { id: '1', nombre: 'Colectivos LGTBIQ+ de Cusco', tipo: 'Articulación Local', logoText: 'CUSCO' },
-  { id: '2', nombre: 'Redes Colectivas', tipo: 'Auto-organización', logoText: 'RED' },
+  { id: '2', nombre: 'Redes Colectivas', tipo: 'Autogestión', logoText: 'RED' },
   { id: '3', nombre: 'Organizaciones de Mujeres', tipo: 'Defensa de Derechos', logoText: 'MUJERES' },
   { id: '4', nombre: 'Creadores y Artivistas', tipo: 'Artes Independientes', logoText: 'ARTE' },
   { id: '5', nombre: 'Instancias de Vigilancia Ciudadana', tipo: 'Gestión Participativa', logoText: 'VIGILA' },
