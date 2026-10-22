@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Container from '@/components/ui/Container'
 import { MULTIMEDIA_ITEMS, CATEGORIAS_MULTIMEDIA, type MultimediaItem } from '@/config/multimedia'
@@ -7,6 +7,12 @@ import { Calendar, X, ZoomIn } from 'lucide-react'
 export default function Multimedia() {
   const [activeCategory, setActiveCategory] = useState<string>('Todas')
   const [selectedItem, setSelectedItem] = useState<MultimediaItem | null>(null)
+  const galleryRef = useRef<HTMLElement>(null)
+
+  const selectCategory = (category: string) => {
+    setActiveCategory(category)
+    galleryRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
 
   const filteredItems =
     activeCategory === 'Todas'
@@ -45,7 +51,7 @@ export default function Multimedia() {
       </section>
 
       {/* ── GALERÍA DE FOTOS ──────────────────────────────── */}
-      <section className="pt-4 sm:pt-6">
+      <section ref={galleryRef} className="scroll-mt-[7.5rem] pt-4 sm:pt-6">
         <Container>
           <div className="sticky top-[6.5rem] sm:top-[7rem] z-[60] mb-4 py-2">
             <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
@@ -60,8 +66,8 @@ export default function Multimedia() {
                   <button
                     key={cat}
                     type="button"
-                    onClick={() => setActiveCategory(cat)}
-                    className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 flex items-center gap-1.5 ${
+                    onClick={() => selectCategory(cat)}
+                    className={`px-3 py-1.5 rounded-xl text-[11px] sm:text-xs font-bold transition-all duration-200 flex items-center gap-1.5 ${
                       isActive
                         ? 'bg-brand-purple text-white shadow-sm'
                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -69,7 +75,7 @@ export default function Multimedia() {
                   >
                     <span>{cat}</span>
                     <span
-                      className={`text-[10px] px-1.5 py-0.5 rounded-full ${
+                      className={`text-[9px] px-1 py-0.5 rounded-full ${
                         isActive ? 'bg-white/20 text-white' : 'bg-gray-200 text-gray-600'
                       }`}
                     >
