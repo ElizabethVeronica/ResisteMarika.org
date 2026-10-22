@@ -8,6 +8,7 @@ import { Calendar, X, ZoomIn } from 'lucide-react'
 export default function Multimedia() {
   const [activeCategory, setActiveCategory] = useState<string>('Todas')
   const [selectedItem, setSelectedItem] = useState<MultimediaItem | null>(null)
+  const [nearPageBottom, setNearPageBottom] = useState(false)
   const galleryRef = useRef<HTMLElement>(null)
   const location = useLocation()
 
@@ -26,6 +27,22 @@ export default function Multimedia() {
     const validCategory = CATEGORIAS_MULTIMEDIA.find((category) => category === requestedCategory)
     setActiveCategory(validCategory ?? 'Todas')
   }, [location.search])
+
+  useEffect(() => {
+    const updateBottomVisibility = () => {
+      const remainingPageHeight =
+        document.documentElement.scrollHeight - window.scrollY - window.innerHeight
+      setNearPageBottom(remainingPageHeight <= 320)
+    }
+
+    updateBottomVisibility()
+    window.addEventListener('scroll', updateBottomVisibility, { passive: true })
+    window.addEventListener('resize', updateBottomVisibility)
+    return () => {
+      window.removeEventListener('scroll', updateBottomVisibility)
+      window.removeEventListener('resize', updateBottomVisibility)
+    }
+  }, [])
 
   // Cerrar lightbox con tecla ESC
   useEffect(() => {
@@ -61,7 +78,12 @@ export default function Multimedia() {
       {/* ── GALERÍA DE FOTOS ──────────────────────────────── */}
       <section ref={galleryRef} className="scroll-mt-[7.5rem] pt-4 sm:pt-6">
         <Container>
-          <div className="sticky top-[6.5rem] sm:top-[7rem] z-[60] mb-4 py-2">
+          <div
+            aria-hidden={nearPageBottom}
+            className={`sticky top-[6.5rem] sm:top-[7rem] z-[60] mb-4 py-2 transition-opacity duration-200 ${
+              nearPageBottom ? 'pointer-events-none opacity-0' : 'opacity-100'
+            }`}
+          >
             <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
               {CATEGORIAS_MULTIMEDIA.map((cat) => {
                 const count =

@@ -54,10 +54,15 @@ const SECTION_LINKS = [
 export default function QuienesSomos() {
   const sectionMenuRef = useRef<HTMLElement>(null)
   const [activeSection, setActiveSection] = useState('nosotros')
+  const [nearPageBottom, setNearPageBottom] = useState(false)
 
   useEffect(() => {
     const updateSectionMenu = () => {
       if (!sectionMenuRef.current) return
+
+      const remainingPageHeight =
+        document.documentElement.scrollHeight - window.scrollY - window.innerHeight
+      setNearPageBottom(remainingPageHeight <= 320)
 
       const currentSection = [...SECTION_LINKS]
         .reverse()
@@ -106,7 +111,10 @@ export default function QuienesSomos() {
         id="quienes-somos-section-nav"
         ref={sectionMenuRef}
         aria-label="Secciones de quiénes somos"
-        className="sticky top-[6.5rem] sm:top-[7rem] z-[60] mx-auto mt-4 sm:mt-6 mb-4 w-fit max-w-[calc(100%-2rem)] py-2"
+        aria-hidden={nearPageBottom}
+        className={`sticky top-[6.5rem] sm:top-[7rem] z-[60] mx-auto mt-4 sm:mt-6 mb-4 w-fit max-w-[calc(100%-2rem)] py-2 transition-opacity duration-200 ${
+          nearPageBottom ? 'pointer-events-none opacity-0' : 'opacity-100'
+        }`}
       >
         <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
           {SECTION_LINKS.map(({ id, label }) => {
