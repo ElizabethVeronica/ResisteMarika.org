@@ -47,7 +47,7 @@ export default function Multimedia() {
       {/* ── GALERÍA DE FOTOS ──────────────────────────────── */}
       <section className="pt-12 sm:pt-16">
         <Container>
-          <div className="sticky top-3 z-40 mb-6 py-2">
+          <div className="sticky top-[7rem] sm:top-[7.5rem] z-[60] mb-6 py-2">
             <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
               {CATEGORIAS_MULTIMEDIA.map((cat) => {
                 const count =
