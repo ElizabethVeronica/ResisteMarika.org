@@ -102,36 +102,38 @@ export default function QuienesSomos() {
         </Container>
       </section>
 
-      <nav
-        id="quienes-somos-section-nav"
-        ref={sectionMenuRef}
-        aria-label="Secciones de quiénes somos"
-        className="sticky top-[6.5rem] sm:top-[7rem] z-[60] mx-auto mb-4 w-fit max-w-[calc(100%-2rem)] py-2"
-      >
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
-          {SECTION_LINKS.map(({ id, label }) => {
-            const isActive = activeSection === id
-            return (
-              <a
-                key={id}
-                href={`#${id}`}
-                onClick={() => setActiveSection(id)}
-                aria-current={isActive ? 'location' : undefined}
-                className={`whitespace-nowrap rounded-xl px-3 py-1.5 text-[11px] sm:text-xs font-bold transition-all duration-200 ${
-                  isActive
-                    ? 'bg-brand-purple text-white shadow-sm'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                {label}
-              </a>
-            )
-          })}
-        </div>
-      </nav>
+      <section className="pt-4 sm:pt-6">
+        <nav
+          id="quienes-somos-section-nav"
+          ref={sectionMenuRef}
+          aria-label="Secciones de quiénes somos"
+          className="sticky top-[6.5rem] sm:top-[7rem] z-[60] mx-auto mb-4 w-fit max-w-[calc(100%-2rem)] py-2"
+        >
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+            {SECTION_LINKS.map(({ id, label }) => {
+              const isActive = activeSection === id
+              return (
+                <a
+                  key={id}
+                  href={`#${id}`}
+                  onClick={() => setActiveSection(id)}
+                  aria-current={isActive ? 'location' : undefined}
+                  className={`whitespace-nowrap rounded-xl px-3 py-1.5 text-[11px] sm:text-xs font-bold transition-all duration-200 ${
+                    isActive
+                      ? 'bg-brand-purple text-white shadow-sm'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  {label}
+                </a>
+              )
+            })}
+          </div>
+        </nav>
+      </section>
 
       {/* ── 1. SECCIÓN: NOSOTROS ───────────────────────────── */}
-      <section id="nosotros" className="scroll-mt-24 py-12 sm:py-16">
+      <section id="nosotros" className="scroll-mt-24 pt-0 pb-12 sm:pb-16">
         <Container>
           <Reveal>
             <div className="max-w-3xl mb-8">
