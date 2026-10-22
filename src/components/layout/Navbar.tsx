@@ -15,7 +15,7 @@ export default function Navbar() {
   const [desktopDropdownOpen, setDesktopDropdownOpen] = useState(false)
   const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState(true)
   const location = useLocation()
-  const dropdownRef = useRef<HTMLDivElement>(null)
+  const dropdownRefs = useRef<(HTMLDivElement | null)[]>([])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,7 +38,10 @@ export default function Navbar() {
   // Cerrar dropdown si se hace clic fuera
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+      const clickedInsideDropdown = dropdownRefs.current.some((dropdown) =>
+        dropdown?.contains(e.target as Node)
+      )
+      if (!clickedInsideDropdown) {
         setDesktopDropdownOpen(false)
       }
     }
@@ -110,17 +113,20 @@ export default function Navbar() {
 
           {/* Navegación Desktop */}
           <nav className="flex items-center gap-0 xl:gap-1" aria-label="Navegación principal">
-            {NAV_LINKS.map((link) => {
+            {NAV_LINKS.map((link, index) => {
               if (link.children && link.children.length > 0) {
-                const isCurrentPage = location.pathname === link.href
+                const isCurrentPage =
+                  link.href === '/quienes-somos' && location.pathname === link.href
                 const isChildActive =
                   location.pathname === link.href ||
-                  link.children.some((c) => location.pathname + location.hash === c.href)
+                  link.children.some((c) => location.pathname + location.search + location.hash === c.href)
 
                 return (
                   <div
                     key={link.label}
-                    ref={dropdownRef}
+                    ref={(element) => {
+                      dropdownRefs.current[index] = element
+                    }}
                     className="relative"
                     onMouseEnter={() => !isCurrentPage && setDesktopDropdownOpen(true)}
                     onMouseLeave={() => setDesktopDropdownOpen(false)}
@@ -149,7 +155,7 @@ export default function Navbar() {
                             setDesktopDropdownOpen((v) => !v)
                           }}
                           aria-expanded={desktopDropdownOpen}
-                          aria-label="Desplegar menú de Quiénes Somos"
+                          aria-label={`Desplegar menú de ${link.label}`}
                           className={cn(
                             'pr-3 pl-1 py-2 rounded-r-xl text-sm font-bold transition-colors text-gray-700 hover:text-brand-purple',
                             isChildActive && 'bg-brand-purpleLight/60 text-brand-purple'

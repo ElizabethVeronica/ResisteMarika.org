@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useLocation } from 'react-router-dom'
 import Container from '@/components/ui/Container'
 import { MULTIMEDIA_ITEMS, CATEGORIAS_MULTIMEDIA, type MultimediaItem } from '@/config/multimedia'
 import { Calendar, X, ZoomIn } from 'lucide-react'
@@ -8,6 +9,7 @@ export default function Multimedia() {
   const [activeCategory, setActiveCategory] = useState<string>('Todas')
   const [selectedItem, setSelectedItem] = useState<MultimediaItem | null>(null)
   const galleryRef = useRef<HTMLElement>(null)
+  const location = useLocation()
 
   const selectCategory = (category: string) => {
     setActiveCategory(category)
@@ -18,6 +20,12 @@ export default function Multimedia() {
     activeCategory === 'Todas'
       ? MULTIMEDIA_ITEMS
       : MULTIMEDIA_ITEMS.filter((item) => item.categoria === activeCategory)
+
+  useEffect(() => {
+    const requestedCategory = new URLSearchParams(location.search).get('categoria')
+    const validCategory = CATEGORIAS_MULTIMEDIA.find((category) => category === requestedCategory)
+    setActiveCategory(validCategory ?? 'Todas')
+  }, [location.search])
 
   // Cerrar lightbox con tecla ESC
   useEffect(() => {

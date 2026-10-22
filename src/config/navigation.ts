@@ -1,4 +1,18 @@
 import type { NavLink } from '@/types'
+import { CATEGORIAS_MULTIMEDIA, MULTIMEDIA_ITEMS } from '@/config/multimedia'
+
+const multimediaLinks = CATEGORIAS_MULTIMEDIA.map((category) => {
+  const count =
+    category === 'Todas'
+      ? MULTIMEDIA_ITEMS.length
+      : MULTIMEDIA_ITEMS.filter((item) => item.categoria === category).length
+  const search = category === 'Todas' ? '' : `?categoria=${encodeURIComponent(category)}`
+
+  return {
+    label: `${category} ${count}`,
+    href: `/multimedia${search}`,
+  }
+})
 
 export const NAV_LINKS: NavLink[] = [
   { label: 'Inicio',         href: '/' },
@@ -13,7 +27,7 @@ export const NAV_LINKS: NavLink[] = [
     ],
   },
   { label: 'Proyectos',      href: '/proyectos' },
-  { label: 'Multimedia',     href: '/multimedia' },
+  { label: 'Multimedia',     href: '/multimedia', children: multimediaLinks },
   { label: 'Noticias',       href: '/noticias' },
   { label: 'Contacto',       href: '/contacto' },
 ]
