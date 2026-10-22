@@ -91,7 +91,7 @@ export default function QuienesSomos() {
         id="quienes-somos-section-nav"
         ref={sectionMenuRef}
         aria-label="Secciones de quiénes somos"
-        className={`sticky top-24 sm:top-[8.5rem] lg:top-[7.5rem] z-[60] mx-auto w-fit max-w-[calc(100%-2rem)] rounded-2xl border p-1.5 transition-[background-color,border-color,box-shadow] duration-200 ${
+        className={`sticky top-[6.5rem] sm:top-[7rem] z-[60] mx-auto mb-4 w-fit max-w-[calc(100%-2rem)] rounded-2xl border p-1.5 transition-[background-color,border-color,box-shadow] duration-200 ${
           sectionMenuStuck
             ? 'border-gray-200/80 bg-white/95 shadow-lg shadow-gray-900/10 backdrop-blur-md'
             : 'border-transparent bg-[#FAF9F6]'
