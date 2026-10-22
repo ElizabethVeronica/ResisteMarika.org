@@ -7,6 +7,8 @@ import { Calendar, X, ZoomIn } from 'lucide-react'
 export default function Multimedia() {
   const [activeCategory, setActiveCategory] = useState<string>('Todas')
   const [selectedItem, setSelectedItem] = useState<MultimediaItem | null>(null)
+  const [categoryMenuStuck, setCategoryMenuStuck] = useState(false)
+  const categoryMenuRef = useRef<HTMLElement>(null)
   const galleryRef = useRef<HTMLElement>(null)
 
   const selectCategory = (category: string) => {
@@ -26,6 +28,24 @@ export default function Multimedia() {
     }
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [])
+
+  useEffect(() => {
+    const updateCategoryMenu = () => {
+      const menu = categoryMenuRef.current
+      if (!menu) return
+
+      const stickyTop = Number.parseFloat(window.getComputedStyle(menu).top)
+      setCategoryMenuStuck(menu.getBoundingClientRect().top <= stickyTop)
+    }
+
+    updateCategoryMenu()
+    window.addEventListener('scroll', updateCategoryMenu, { passive: true })
+    window.addEventListener('resize', updateCategoryMenu)
+    return () => {
+      window.removeEventListener('scroll', updateCategoryMenu)
+      window.removeEventListener('resize', updateCategoryMenu)
+    }
   }, [])
 
   return (
@@ -53,8 +73,17 @@ export default function Multimedia() {
       {/* ── GALERÍA DE FOTOS ──────────────────────────────── */}
       <section ref={galleryRef} className="scroll-mt-[7.5rem] pt-4 sm:pt-6">
         <Container>
-          <div className="sticky top-[6.5rem] sm:top-[7rem] z-[60] mb-4 py-2">
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+          <nav
+            id="multimedia-category-nav"
+            ref={categoryMenuRef}
+            aria-label="Categorías multimedia"
+            className={`sticky top-[6.5rem] sm:top-[7rem] z-[60] mx-auto mb-4 w-fit max-w-full rounded-2xl border p-1.5 transition-[background-color,border-color,box-shadow] duration-200 ${
+              categoryMenuStuck
+                ? 'border-gray-200/80 bg-white/95 shadow-lg shadow-gray-900/10 backdrop-blur-md'
+                : 'border-transparent bg-[#FAF9F6]'
+            }`}
+          >
+            <div className="flex max-w-full flex-wrap justify-center gap-1">
               {CATEGORIAS_MULTIMEDIA.map((cat) => {
                 const count =
                   cat === 'Todas'
@@ -67,7 +96,7 @@ export default function Multimedia() {
                     key={cat}
                     type="button"
                     onClick={() => selectCategory(cat)}
-                    className={`px-3 py-1.5 rounded-xl text-[11px] sm:text-xs font-bold transition-all duration-200 flex items-center gap-1.5 ${
+                    className={`rounded-xl px-2.5 py-1.5 text-[11px] sm:text-xs font-bold transition-all duration-200 flex items-center gap-1.5 ${
                       isActive
                         ? 'bg-brand-purple text-white shadow-sm'
                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -85,7 +114,7 @@ export default function Multimedia() {
                 )
               })}
             </div>
-          </div>
+            </nav>
 
           <AnimatePresence mode="wait">
             {filteredItems.length > 0 ? (
