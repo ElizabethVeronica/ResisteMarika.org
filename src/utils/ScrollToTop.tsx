@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useLayoutEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
 /**
@@ -8,13 +8,12 @@ import { useLocation } from 'react-router-dom'
 export default function ScrollToTop() {
   const { pathname, hash } = useLocation()
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (hash) {
       const id = hash.replace('#', '')
       const element = document.getElementById(id)
       if (element) {
-        // Leve retardo para permitir que el DOM se monte si viene de otra página
-        setTimeout(() => {
+        const timeoutId = window.setTimeout(() => {
           const navHeight = 90
           const elementPosition = element.getBoundingClientRect().top + window.scrollY
           window.scrollTo({
@@ -22,11 +21,11 @@ export default function ScrollToTop() {
             behavior: 'smooth',
           })
         }, 80)
-        return
+        return () => window.clearTimeout(timeoutId)
       }
     }
 
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo({ top: 0, behavior: 'instant' })
   }, [pathname, hash])
 
   return null
