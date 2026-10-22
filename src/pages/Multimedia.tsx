@@ -25,7 +25,7 @@ export default function Multimedia() {
   return (
     <div className="bg-[#FAF9F6] text-gray-900 pb-20 sm:pb-28">
       {/* ── ENCABEZADO DE PÁGINA ──────────────────────────── */}
-      <section className="bg-white border-b border-gray-200 pt-12 pb-14 sm:pt-16 sm:pb-20">
+      <section className="bg-white border-b border-gray-200 pt-12 pb-8 sm:pt-16 sm:pb-10">
         <Container>
           <div className="max-w-4xl mx-auto text-center">
             <span className="inline-block px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-brand-purple bg-brand-purpleLight/70 rounded-full mb-3 font-display">
@@ -45,9 +45,9 @@ export default function Multimedia() {
       </section>
 
       {/* ── GALERÍA DE FOTOS ──────────────────────────────── */}
-      <section className="pt-12 sm:pt-16">
+      <section className="pt-4 sm:pt-6">
         <Container>
-          <div className="sticky top-[7rem] sm:top-[7.5rem] z-[60] mb-6 py-2">
+          <div className="sticky top-[6.5rem] sm:top-[7rem] z-[60] mb-4 py-2">
             <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
               {CATEGORIAS_MULTIMEDIA.map((cat) => {
                 const count =
