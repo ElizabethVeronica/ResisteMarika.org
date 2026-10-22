@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react'
-import { Send, CheckCircle, Mail, MapPin, Heart, Sparkles } from 'lucide-react'
+import { Send, CheckCircle, Mail, MapPin, Heart } from 'lucide-react'
 import { FaInstagram } from 'react-icons/fa'
 import { FaTiktok } from 'react-icons/fa6'
 import Container from '@/components/ui/Container'
@@ -39,19 +39,18 @@ export default function Contacto() {
   }
 
   return (
-    <div className="py-12 sm:py-20 bg-surface-light">
+    <div className="bg-surface-light py-8 sm:py-10">
       {/* ── ENCABEZADO ───────────────────────────────────── */}
-      <section className="mb-14 sm:mb-20">
+      <section className="mb-8 sm:mb-10">
         <Container>
           <Reveal>
             <SectionHeader
-              pill="Contacto Directo en Cusco"
               title={
                 <>
                   Ponte en contacto con <span className="text-gradient">nosotres</span>
                 </>
               }
-              subtitle="Escríbenos para participar en nuestras ferias, coordinar talleres de artivismo, proponer alianzas o sumarte a la red."
+              subtitle="Escríbenos para participar en nuestras ferias, coordinar talleres, proponer actividades colectivas."
               className="max-w-3xl mx-auto text-center"
             />
           </Reveal>
@@ -59,13 +58,13 @@ export default function Contacto() {
       </section>
 
       {/* ── FORMULARIO Y CANALES ─────────────────────────── */}
-      <section className="mb-20">
+      <section className="mb-10">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-10">
             {/* Formulario */}
             <div className="lg:col-span-7">
               <Reveal direction="left">
-                <div className="bg-white rounded-3xl p-6 sm:p-10 border border-surface-border shadow-md">
+                <div className="bg-white rounded-3xl p-5 sm:p-7 border border-surface-border shadow-md">
                   {state === 'success' ? (
                     <div className="flex flex-col items-center justify-center gap-4 py-12 text-center">
                       <div className="h-16 w-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center">
@@ -85,11 +84,11 @@ export default function Contacto() {
                       </button>
                     </div>
                   ) : (
-                    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                       <input type="text" name="_honey" className="hidden" />
                       <input type="hidden" name="_captcha" value="false" />
 
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                           <label
                             htmlFor="nombre"
@@ -103,7 +102,7 @@ export default function Contacto() {
                             type="text"
                             required
                             placeholder="Tu nombre"
-                            className="w-full rounded-2xl border border-gray-200 bg-surface-light px-4 py-3 text-sm text-brand-dark placeholder:text-gray-400 focus:border-brand-purple focus:outline-none transition-colors font-sans"
+                            className="w-full rounded-2xl border border-gray-200 bg-surface-light px-4 py-2.5 text-sm text-brand-dark placeholder:text-gray-400 focus:border-brand-purple focus:outline-none transition-colors font-sans"
                           />
                         </div>
 
@@ -120,7 +119,7 @@ export default function Contacto() {
                             type="email"
                             required
                             placeholder="tu@correo.com"
-                            className="w-full rounded-2xl border border-gray-200 bg-surface-light px-4 py-3 text-sm text-brand-dark placeholder:text-gray-400 focus:border-brand-purple focus:outline-none transition-colors font-sans"
+                            className="w-full rounded-2xl border border-gray-200 bg-surface-light px-4 py-2.5 text-sm text-brand-dark placeholder:text-gray-400 focus:border-brand-purple focus:outline-none transition-colors font-sans"
                           />
                         </div>
                       </div>
@@ -136,9 +135,9 @@ export default function Contacto() {
                           id="mensaje"
                           name="mensaje"
                           required
-                          rows={5}
-                          placeholder="Cuéntanos sobre tu iniciativa, emprendimiento o propuesta..."
-                          className="w-full rounded-2xl border border-gray-200 bg-surface-light px-4 py-3 text-sm text-brand-dark placeholder:text-gray-400 focus:border-brand-purple focus:outline-none transition-colors resize-none font-sans"
+                          rows={4}
+                          placeholder="Cuéntanos sobre tu iniciativa o propuesta"
+                          className="w-full rounded-2xl border border-gray-200 bg-surface-light px-4 py-2.5 text-sm text-brand-dark placeholder:text-gray-400 focus:border-brand-purple focus:outline-none transition-colors resize-none font-sans"
                         />
                       </div>
 
@@ -166,7 +165,7 @@ export default function Contacto() {
             {/* Canales Directos & Info */}
             <div className="lg:col-span-5 flex flex-col gap-6 justify-between">
               <Reveal direction="right" delay={0.1}>
-                <div className="bg-white rounded-3xl p-6 sm:p-8 border border-surface-border shadow-md flex flex-col gap-6">
+                <div className="bg-white rounded-3xl p-5 sm:p-7 border border-surface-border shadow-md flex flex-col gap-4">
                   <div>
                     <h3 className="font-display font-extrabold text-xl text-brand-dark mb-1">
                       Canales de Contacto
@@ -176,7 +175,7 @@ export default function Contacto() {
                     </p>
                   </div>
 
-                  <div className="flex flex-col gap-4 text-sm font-sans">
+                  <div className="flex flex-col gap-3 text-sm font-sans">
                     <div className="flex items-start gap-3">
                       <div className="h-10 w-10 rounded-2xl bg-brand-purpleLight text-brand-purple flex items-center justify-center shrink-0">
                         <Mail size={18} />
@@ -218,50 +217,26 @@ export default function Contacto() {
                     </div>
                   </div>
 
-                  <div className="pt-4 border-t border-gray-100 flex flex-col gap-3">
+                  <div className="pt-3 border-t border-gray-100 flex flex-col gap-2.5">
                     <a
                       href="https://www.instagram.com/resiste.marika.cusco"
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-gradient-to-r from-brand-pink to-brand-purple text-white font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-opacity shadow-sm font-sans"
+                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-gradient-to-r from-brand-pink to-brand-purple text-white font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-opacity shadow-sm font-sans"
                     >
                       <FaInstagram size={16} />
-                      Seguirnos en Instagram
+                      Síguenos en Instagram
                     </a>
 
                     <a
                       href="https://www.tiktok.com/@resistemarik"
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-brand-dark text-white font-bold text-xs uppercase tracking-wider hover:bg-brand-dark/80 transition-colors shadow-sm font-sans"
+                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-brand-dark text-white font-bold text-xs uppercase tracking-wider hover:bg-brand-dark/80 transition-colors shadow-sm font-sans"
                     >
                       <FaTiktok size={15} />
-                      Seguirnos en TikTok
+                      Síguenos en TikTok
                     </a>
-
-                    <div className="flex justify-center gap-3 pt-2 text-brand-dark/70">
-                      <a href="https://www.instagram.com/resiste.marika.cusco" target="_blank" rel="noreferrer" aria-label="Instagram" className="p-2 hover:text-brand-pink transition-colors">
-                        <FaInstagram size={17} />
-                      </a>
-                      <a href="https://www.tiktok.com/@resistemarik" target="_blank" rel="noreferrer" aria-label="TikTok" className="p-2 hover:text-brand-dark transition-colors">
-                        <FaTiktok size={17} />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-
-              {/* Mensaje de economía autogestionada */}
-              <Reveal direction="right" delay={0.2}>
-                <div className="rounded-3xl border-2 border-brand-pinkSoft/40 bg-brand-pinkLight/30 p-6 flex items-start gap-4">
-                  <Sparkles size={24} className="text-brand-purple shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-display font-bold text-sm text-brand-dark mb-1">
-                      Construcción colectiva
-                    </h4>
-                    <p className="text-xs text-surface-muted leading-relaxed font-sans">
-                      Resiste Marika no cobra comisiones abusivas ni lucra con las actividades de la comunidad. Construimos una economía autogestionada desde el respeto, el afecto y la transparencia.
-                    </p>
                   </div>
                 </div>
               </Reveal>
