@@ -44,17 +44,32 @@ const ESPACIO_ICON_MAP: Record<string, LucideIcon> = {
   'En instancias de vigilancia ciudadana': Eye,
 }
 
+const SECTION_LINKS = [
+  { id: 'nosotros', label: 'Nosotros' },
+  { id: 'mision-vision', label: 'Misión y Visión' },
+  { id: 'donde-trabajamos', label: 'Dónde trabajamos' },
+  { id: 'con-quienes-trabajamos', label: 'Con quiénes trabajamos' },
+]
+
 export default function QuienesSomos() {
   const sectionMenuRef = useRef<HTMLElement>(null)
-  const [sectionMenuStuck, setSectionMenuStuck] = useState(false)
+  const [activeSection, setActiveSection] = useState('nosotros')
 
   useEffect(() => {
     const updateSectionMenu = () => {
-      const menu = sectionMenuRef.current
-      if (!menu) return
+      if (!sectionMenuRef.current) return
 
-      const stickyTop = Number.parseFloat(window.getComputedStyle(menu).top)
-      setSectionMenuStuck(menu.getBoundingClientRect().top <= stickyTop)
+      const currentSection = [...SECTION_LINKS]
+        .reverse()
+        .find(({ id }) => {
+          const section = document.getElementById(id)
+          return section && section.getBoundingClientRect().top <= 180
+        })
+      if (currentSection) {
+        setActiveSection(currentSection.id)
+      } else if (window.scrollY < 180) {
+        setActiveSection(SECTION_LINKS[0].id)
+      }
     }
 
     updateSectionMenu()
@@ -91,25 +106,27 @@ export default function QuienesSomos() {
         id="quienes-somos-section-nav"
         ref={sectionMenuRef}
         aria-label="Secciones de quiénes somos"
-        className={`sticky top-[6.5rem] sm:top-[7rem] z-[60] mx-auto mb-4 w-fit max-w-[calc(100%-2rem)] rounded-2xl border p-1.5 transition-[background-color,border-color,box-shadow] duration-200 ${
-          sectionMenuStuck
-            ? 'border-gray-200/80 bg-white/95 shadow-lg shadow-gray-900/10 backdrop-blur-md'
-            : 'border-transparent bg-[#FAF9F6]'
-        }`}
+        className="sticky top-[6.5rem] sm:top-[7rem] z-[60] mx-auto mb-4 w-fit max-w-[calc(100%-2rem)] py-2"
       >
-        <div className="flex max-w-full justify-center gap-1 overflow-x-auto">
-          <a href="#nosotros" className="whitespace-nowrap rounded-xl px-2.5 py-1.5 text-xs sm:text-sm font-bold text-gray-700 transition-colors hover:bg-gray-100 hover:text-brand-purple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple">
-            Nosotros
-          </a>
-          <a href="#mision-vision" className="whitespace-nowrap rounded-xl px-2.5 py-1.5 text-xs sm:text-sm font-bold text-gray-700 transition-colors hover:bg-gray-100 hover:text-brand-purple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple">
-            Misión y Visión
-          </a>
-          <a href="#donde-trabajamos" className="whitespace-nowrap rounded-xl px-2.5 py-1.5 text-xs sm:text-sm font-bold text-gray-700 transition-colors hover:bg-gray-100 hover:text-brand-purple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple">
-            Dónde trabajamos
-          </a>
-          <a href="#con-quienes-trabajamos" className="whitespace-nowrap rounded-xl px-2.5 py-1.5 text-xs sm:text-sm font-bold text-gray-700 transition-colors hover:bg-gray-100 hover:text-brand-purple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple">
-            Con quiénes trabajamos
-          </a>
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+          {SECTION_LINKS.map(({ id, label }) => {
+            const isActive = activeSection === id
+            return (
+              <a
+                key={id}
+                href={`#${id}`}
+                onClick={() => setActiveSection(id)}
+                aria-current={isActive ? 'location' : undefined}
+                className={`whitespace-nowrap rounded-xl px-3 py-1.5 text-[11px] sm:text-xs font-bold transition-all duration-200 ${
+                  isActive
+                    ? 'bg-brand-purple text-white shadow-sm'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                }`}
+              >
+                {label}
+              </a>
+            )
+          })}
         </div>
       </nav>
 
