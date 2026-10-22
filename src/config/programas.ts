@@ -42,12 +42,11 @@ export const PROGRAMAS: Programa[] = [
     id: 'vigilancia-politicas',
     titulo: 'Vigilancia Ciudadana & Políticas Públicas',
     descripcion:
-      'Participamos activamente en los espacios de concertación y gestión participativa distritales en Cusco, promoviendo ordenanzas y políticas públicas en favor de la comunidad y mujeres.',
-    objetivo: 'Garantizar el cumplimiento efectivo de derechos fundamentales como salud, empleo, educación y vida libre de violencia.',
+      'Participamos activamente en espacios políticos, como los de concertación y gestión participativa en la ciudad del Cusco, buscando la promoción de políticas públicas en favor de la comunidad.',
+    objetivo: 'Garantizar el cumplimiento efectivo de derechos fundamentales como salud, empleo y educación.',
     detalles: [
-      'Seguimiento a planes y ordenanzas distritales y regionales en Cusco.',
-      'Monitoreo del acceso a servicios de salud y oportunidades laborales.',
       'Articulación permanente con organizaciones afines locales, nacionales e internacionales.',
+      'Movilización e incidencia política mediante el arte y la percusión.',
     ],
     imagen: '/images/planton 25N.jpg',
     categoria: 'Incidencia',
