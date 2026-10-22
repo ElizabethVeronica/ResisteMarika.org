@@ -85,9 +85,9 @@ export default function Multimedia() {
       <section ref={galleryRef} className="scroll-mt-[7.5rem] pt-4 sm:pt-6">
         <Container>
           <div
-            aria-hidden={nearPageBottom}
+            aria-hidden={nearPageBottom || selectedItem !== null}
             className={`sticky top-[6.5rem] sm:top-[7rem] z-[60] mb-4 py-2 transition-opacity duration-200 ${
-              nearPageBottom ? 'pointer-events-none opacity-0' : 'opacity-100'
+              nearPageBottom || selectedItem ? 'pointer-events-none opacity-0' : 'opacity-100'
             }`}
           >
             <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
@@ -197,52 +197,65 @@ export default function Multimedia() {
       </section>
 
       {/* ── MODAL LIGHTBOX ─────────────────────────────────── */}
-      {selectedItem && (
-        <div
-          className="fixed inset-0 z-50 bg-gray-950/80 backdrop-blur-sm flex items-center justify-center p-4 sm:p-6"
-          onClick={() => setSelectedItem(null)}
-        >
-          <div
-            className="bg-white rounded-3xl overflow-hidden max-w-4xl w-full max-h-[95vh] flex flex-col shadow-2xl border border-gray-200"
-            onClick={(e) => e.stopPropagation()}
+      <AnimatePresence>
+        {selectedItem && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-gray-950/90 p-3 backdrop-blur-md sm:p-6"
+            onClick={() => setSelectedItem(null)}
           >
-            {/* Cabecera del Modal */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 bg-gray-50">
-              <div className="flex items-center gap-2">
-                <span className="px-2.5 py-1 rounded-md bg-brand-purple text-white text-xs font-bold font-display">
-                  {selectedItem.categoria}
-                </span>
-                <span className="text-xs text-gray-500 flex items-center gap-1">
-                  <Calendar size={13} /> {selectedItem.fecha}
-                </span>
+            <motion.div
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="multimedia-lightbox-title"
+              initial={{ opacity: 0, y: 12, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 8, scale: 0.98 }}
+              transition={{ duration: 0.2 }}
+              className="flex max-h-[94vh] w-full max-w-6xl flex-col overflow-hidden rounded-2xl border border-white/10 bg-gray-950 shadow-2xl sm:rounded-3xl"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <header className="flex items-center justify-between gap-4 border-b border-white/10 px-4 py-3 text-white sm:px-6 sm:py-4">
+                <div className="min-w-0">
+                  <span className="mb-1 block text-[10px] font-bold uppercase tracking-[0.16em] text-brand-pink sm:text-xs">
+                    {selectedItem.categoria}
+                  </span>
+                  <h2
+                    id="multimedia-lightbox-title"
+                    className="truncate font-display text-sm font-bold text-white sm:text-base"
+                  >
+                    {selectedItem.titulo}
+                  </h2>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setSelectedItem(null)}
+                  className="shrink-0 rounded-full border border-white/15 p-2 text-white/75 transition-colors hover:border-white/30 hover:bg-white/10 hover:text-white"
+                  aria-label="Cerrar imagen"
+                >
+                  <X size={19} />
+                </button>
+              </header>
+
+              <div className="flex min-h-0 flex-1 items-center justify-center overflow-hidden bg-black/30 p-2 sm:p-5">
+                <img
+                  src={selectedItem.archivo}
+                  alt={selectedItem.titulo}
+                  className="max-h-[72vh] max-w-full rounded-lg object-contain sm:rounded-xl"
+                />
               </div>
-              <button
-                type="button"
-                onClick={() => setSelectedItem(null)}
-                className="p-1.5 rounded-lg text-gray-500 hover:bg-gray-200 text-gray-700 transition-colors"
-                aria-label="Cerrar imagen"
-              >
-                <X size={20} />
-              </button>
-            </div>
 
-            {/* Imagen Grande */}
-            <div className="flex-1 overflow-hidden bg-gray-900 flex items-center justify-center p-2 sm:p-4 min-h-0">
-              <img
-                src={selectedItem.archivo}
-                alt={selectedItem.titulo}
-                className="max-h-[70vh] max-w-full object-contain rounded-lg"
-              />
-            </div>
-
-            <div className="px-5 py-4 bg-white border-t border-gray-100">
-              <h2 className="font-display font-extrabold text-lg sm:text-xl text-gray-900">
-                {selectedItem.titulo}
-              </h2>
-            </div>
-          </div>
-        </div>
-      )}
+              <footer className="flex items-center gap-2 border-t border-white/10 px-4 py-3 text-xs text-white/65 sm:px-6">
+                {isDateLabel(selectedItem.fecha) ? <Calendar size={14} /> : <MapPin size={14} />}
+                <span>{selectedItem.fecha}</span>
+              </footer>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
