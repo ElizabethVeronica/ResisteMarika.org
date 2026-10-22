@@ -7,31 +7,38 @@
 @keyframes page-transition-in {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translate3d(0, 12px, 0) scale(0.99);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0) scale(1);
   }
 }
 
 @keyframes page-transition-out {
   from {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0) scale(1);
   }
   to {
     opacity: 0;
-    transform: translateY(-8px);
+    transform: translate3d(0, -4px, 0) scale(1.005);
   }
 }
 
+::view-transition-group(root),
+::view-transition-group(page-content),
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+}
+
 ::view-transition-old(page-content) {
-  animation: page-transition-out 300ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  animation: page-transition-out 380ms cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
 ::view-transition-new(page-content) {
-  animation: page-transition-in 460ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  animation: page-transition-in 560ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .page-transition {
@@ -39,6 +46,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root),
   ::view-transition-old(page-content),
   ::view-transition-new(page-content) {
     animation-duration: 1ms;
