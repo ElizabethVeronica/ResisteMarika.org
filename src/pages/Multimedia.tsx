@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { createPortal } from 'react-dom'
 import { useLocation } from 'react-router-dom'
 import Container from '@/components/ui/Container'
 import { MULTIMEDIA_ITEMS, CATEGORIAS_MULTIMEDIA, type MultimediaItem } from '@/config/multimedia'
@@ -197,65 +198,68 @@ export default function Multimedia() {
       </section>
 
       {/* ── MODAL LIGHTBOX ─────────────────────────────────── */}
-      <AnimatePresence>
-        {selectedItem && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-gray-950/90 p-3 backdrop-blur-md sm:p-6"
-            onClick={() => setSelectedItem(null)}
-          >
+      {createPortal(
+        <AnimatePresence>
+          {selectedItem && (
             <motion.div
-              role="dialog"
-              aria-modal="true"
-              aria-labelledby="multimedia-lightbox-title"
-              initial={{ opacity: 0, y: 12, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 8, scale: 0.98 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="flex max-h-[94vh] w-full max-w-6xl flex-col overflow-hidden rounded-2xl border border-white/10 bg-gray-950 shadow-2xl sm:rounded-3xl"
-              onClick={(event) => event.stopPropagation()}
+              className="fixed inset-0 z-[100] flex items-center justify-center bg-gray-950/90 p-3 backdrop-blur-md sm:p-6"
+              onClick={() => setSelectedItem(null)}
             >
-              <header className="flex items-center justify-between gap-4 border-b border-white/10 px-4 py-3 text-white sm:px-6 sm:py-4">
-                <div className="min-w-0">
-                  <span className="mb-1 block text-[10px] font-bold uppercase tracking-[0.16em] text-brand-pink sm:text-xs">
-                    {selectedItem.categoria}
-                  </span>
-                  <h2
-                    id="multimedia-lightbox-title"
-                    className="truncate font-display text-sm font-bold text-white sm:text-base"
+              <motion.div
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="multimedia-lightbox-title"
+                initial={{ opacity: 0, y: 12, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                transition={{ duration: 0.2 }}
+                className="flex max-h-[94vh] w-full max-w-6xl flex-col overflow-hidden rounded-2xl border border-white/10 bg-gray-950 shadow-2xl sm:rounded-3xl"
+                onClick={(event) => event.stopPropagation()}
+              >
+                <header className="flex items-center justify-between gap-4 border-b border-white/10 px-4 py-3 text-white sm:px-6 sm:py-4">
+                  <div className="min-w-0">
+                    <span className="mb-1 block text-[10px] font-bold uppercase tracking-[0.16em] text-brand-pink sm:text-xs">
+                      {selectedItem.categoria}
+                    </span>
+                    <h2
+                      id="multimedia-lightbox-title"
+                      className="truncate font-display text-sm font-bold text-white sm:text-base"
+                    >
+                      {selectedItem.titulo}
+                    </h2>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedItem(null)}
+                    className="shrink-0 rounded-full border border-white/15 p-2 text-white/75 transition-colors hover:border-white/30 hover:bg-white/10 hover:text-white"
+                    aria-label="Cerrar imagen"
                   >
-                    {selectedItem.titulo}
-                  </h2>
+                    <X size={19} />
+                  </button>
+                </header>
+
+                <div className="flex min-h-0 flex-1 items-center justify-center overflow-hidden bg-black/30 p-2 sm:p-5">
+                  <img
+                    src={selectedItem.archivo}
+                    alt={selectedItem.titulo}
+                    className="max-h-[72vh] max-w-full rounded-lg object-contain sm:rounded-xl"
+                  />
                 </div>
-                <button
-                  type="button"
-                  onClick={() => setSelectedItem(null)}
-                  className="shrink-0 rounded-full border border-white/15 p-2 text-white/75 transition-colors hover:border-white/30 hover:bg-white/10 hover:text-white"
-                  aria-label="Cerrar imagen"
-                >
-                  <X size={19} />
-                </button>
-              </header>
 
-              <div className="flex min-h-0 flex-1 items-center justify-center overflow-hidden bg-black/30 p-2 sm:p-5">
-                <img
-                  src={selectedItem.archivo}
-                  alt={selectedItem.titulo}
-                  className="max-h-[72vh] max-w-full rounded-lg object-contain sm:rounded-xl"
-                />
-              </div>
-
-              <footer className="flex items-center gap-2 border-t border-white/10 px-4 py-3 text-xs text-white/65 sm:px-6">
-                {isDateLabel(selectedItem.fecha) ? <Calendar size={14} /> : <MapPin size={14} />}
-                <span>{selectedItem.fecha}</span>
-              </footer>
+                <footer className="flex items-center gap-2 border-t border-white/10 px-4 py-3 text-xs text-white/65 sm:px-6">
+                  {isDateLabel(selectedItem.fecha) ? <Calendar size={14} /> : <MapPin size={14} />}
+                  <span>{selectedItem.fecha}</span>
+                </footer>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </div>
   )
 }
