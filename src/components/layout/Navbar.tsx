@@ -117,7 +117,8 @@ export default function Navbar() {
             {NAV_LINKS.map((link, index) => {
               if (link.children && link.children.length > 0) {
                 const isCurrentPage =
-                  link.href === '/quienes-somos' && location.pathname === link.href
+                  (link.href === '/quienes-somos' || link.href === '/multimedia') &&
+                  location.pathname === link.href
                 const isChildActive =
                   location.pathname === link.href ||
                   link.children.some((c) => location.pathname + location.search + location.hash === c.href)
@@ -301,7 +302,9 @@ export default function Navbar() {
               <div className="flex flex-col gap-1">
                 {NAV_LINKS.map((link) => {
                   if (link.children && link.children.length > 0) {
-                    const isCurrentPage = location.pathname === link.href
+                    const isCurrentPage =
+                      (link.href === '/quienes-somos' || link.href === '/multimedia') &&
+                      location.pathname === link.href
                     return (
                       <div key={link.label} className="flex flex-col rounded-xl bg-gray-50/70 p-1">
                         <div className="flex items-center justify-between">
