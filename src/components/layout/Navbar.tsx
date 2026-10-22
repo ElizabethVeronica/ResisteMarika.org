@@ -65,6 +65,7 @@ export default function Navbar() {
           {/* Logo institucional de Resiste Marika */}
           <Link
             to="/"
+            viewTransition
             className="flex items-center gap-2 group lg:hidden"
             onClick={() => setMobileOpen(false)}
           >
@@ -89,6 +90,7 @@ export default function Navbar() {
 
           <Link
             to="/"
+            viewTransition
             className="hidden lg:block shrink-0 group"
             onClick={() => setMobileOpen(false)}
             aria-label="Resiste Marika - Inicio"
@@ -103,7 +105,7 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden lg:flex flex-1 items-center justify-center gap-3 xl:gap-5">
-            <Link to="/" className="flex flex-col shrink-0">
+            <Link to="/" viewTransition className="flex flex-col shrink-0">
               <span className="font-display font-extrabold text-lg tracking-tight text-brand-dark leading-none">
                 Resiste <span className="text-brand-purple">Marika</span>
               </span>
@@ -139,6 +141,7 @@ export default function Navbar() {
                     <div className="flex items-center">
                       <NavLink
                         to={link.href}
+                        viewTransition
                         className={cn(
                           cn(
                             'py-2 text-sm font-bold transition-colors flex items-center',
@@ -192,6 +195,7 @@ export default function Navbar() {
                               <Link
                                 key={sublink.href}
                                 to={sublink.href}
+                                viewTransition
                                 onClick={() => setDesktopDropdownOpen(null)}
                                 className="group/item flex flex-col px-2.5 py-2 rounded-xl hover:bg-brand-purpleLight/40 transition-colors"
                               >
@@ -212,6 +216,7 @@ export default function Navbar() {
                 <NavLink
                   key={link.href}
                   to={link.href}
+                  viewTransition
                   className={({ isActive }) =>
                     cn(
                       'px-4 py-2 rounded-xl text-sm font-bold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple focus-visible:ring-offset-2',
@@ -313,6 +318,7 @@ export default function Navbar() {
                         <div className="flex items-center justify-between">
                           <NavLink
                             to={link.href}
+                            viewTransition
                             onClick={() => setMobileOpen(false)}
                             className="flex-1 px-3 py-2 text-sm font-bold text-gray-900 hover:text-brand-purple"
                           >
@@ -344,6 +350,7 @@ export default function Navbar() {
                               <Link
                                 key={sublink.href}
                                 to={sublink.href}
+                                viewTransition
                                 onClick={() => setMobileOpen(false)}
                                 className="px-3 py-2 rounded-lg text-xs font-semibold text-gray-600 hover:text-brand-purple hover:bg-white transition-colors"
                               >
@@ -360,6 +367,7 @@ export default function Navbar() {
                     <NavLink
                       key={link.href}
                       to={link.href}
+                      viewTransition
                       onClick={() => setMobileOpen(false)}
                       className={({ isActive }) =>
                         cn(

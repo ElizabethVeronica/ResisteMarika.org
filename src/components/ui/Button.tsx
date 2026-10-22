@@ -81,7 +81,7 @@ export default function Button({
   if ('href' in props && props.href != null) {
     const { href } = props
     return (
-      <Link to={href} className={baseClass}>
+      <Link to={href} viewTransition className={baseClass}>
         {content}
       </Link>
     )
