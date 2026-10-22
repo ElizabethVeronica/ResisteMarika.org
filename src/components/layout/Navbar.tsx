@@ -9,22 +9,6 @@ import Button from '@/components/ui/Button'
 import { NAV_LINKS } from '@/config/navigation'
 import { cn } from '@/utils/cn'
 
-function isSectionMenuFloating(pathname: string) {
-  const menuId =
-    pathname === '/quienes-somos'
-      ? 'quienes-somos-section-nav'
-      : pathname === '/multimedia'
-        ? 'multimedia-category-nav'
-        : null
-  if (!menuId) return false
-
-  const sectionMenu = document.getElementById(menuId)
-  if (!sectionMenu) return false
-
-  const stickyTop = Number.parseFloat(window.getComputedStyle(sectionMenu).top)
-  return sectionMenu.getBoundingClientRect().top <= stickyTop
-}
-
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(() => window.scrollY > 20)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -36,10 +20,6 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
-      if (isSectionMenuFloating(location.pathname)) {
-        setDesktopDropdownOpen(false)
-        setMobileSubmenuOpen(false)
-      }
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
     window.addEventListener('resize', handleScroll)
@@ -47,7 +27,7 @@ export default function Navbar() {
       window.removeEventListener('scroll', handleScroll)
       window.removeEventListener('resize', handleScroll)
     }
-  }, [location.pathname])
+  }, [])
 
   // Cerrar menús al cambiar de ruta
   useEffect(() => {
@@ -142,11 +122,7 @@ export default function Navbar() {
                     key={link.label}
                     ref={dropdownRef}
                     className="relative"
-                    onMouseEnter={() => {
-                      if (!isCurrentPage && !isSectionMenuFloating(location.pathname)) {
-                        setDesktopDropdownOpen(true)
-                      }
-                    }}
+                    onMouseEnter={() => !isCurrentPage && setDesktopDropdownOpen(true)}
                     onMouseLeave={() => setDesktopDropdownOpen(false)}
                   >
                     <div className="flex items-center">
@@ -170,10 +146,9 @@ export default function Navbar() {
                           onClick={(e) => {
                             e.preventDefault()
                             e.stopPropagation()
-                            if (isSectionMenuFloating(location.pathname)) return
                             setDesktopDropdownOpen((v) => !v)
                           }}
-                          aria-expanded={desktopDropdownOpen && !isSectionMenuFloating(location.pathname)}
+                          aria-expanded={desktopDropdownOpen}
                           aria-label="Desplegar menú de Quiénes Somos"
                           className={cn(
                             'pr-3 pl-1 py-2 rounded-r-xl text-sm font-bold transition-colors text-gray-700 hover:text-brand-purple',
@@ -193,9 +168,7 @@ export default function Navbar() {
 
                     {/* Dropdown flotante */}
                     <AnimatePresence>
-                      {desktopDropdownOpen &&
-                        !isCurrentPage &&
-                        !isSectionMenuFloating(location.pathname) && (
+                      {desktopDropdownOpen && !isCurrentPage && (
                         <motion.div
                           initial={{ opacity: 0, y: 8, scale: 0.98 }}
                           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -332,13 +305,10 @@ export default function Navbar() {
                           >
                             {link.label}
                           </NavLink>
-                          {!isCurrentPage && !isSectionMenuFloating(location.pathname) && (
+                          {!isCurrentPage && (
                             <button
                               type="button"
-                              onClick={() => {
-                                if (isSectionMenuFloating(location.pathname)) return
-                                setMobileSubmenuOpen((v) => !v)
-                              }}
+                              onClick={() => setMobileSubmenuOpen((v) => !v)}
                               className="p-2 text-gray-500 hover:text-brand-purple"
                               aria-label="Expandir submenú"
                             >
@@ -353,9 +323,7 @@ export default function Navbar() {
                           )}
                         </div>
 
-                        {!isCurrentPage &&
-                          mobileSubmenuOpen &&
-                          !isSectionMenuFloating(location.pathname) && (
+                        {!isCurrentPage && mobileSubmenuOpen && (
                           <div className="flex flex-col gap-1 pl-3 pr-1 py-1 border-t border-gray-200/60 mt-1">
                             {link.children.map((sublink) => (
                               <Link
