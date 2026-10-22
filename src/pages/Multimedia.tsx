@@ -3,7 +3,13 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useLocation } from 'react-router-dom'
 import Container from '@/components/ui/Container'
 import { MULTIMEDIA_ITEMS, CATEGORIAS_MULTIMEDIA, type MultimediaItem } from '@/config/multimedia'
-import { Calendar, X, ZoomIn } from 'lucide-react'
+import { Calendar, MapPin, X, ZoomIn } from 'lucide-react'
+
+function isDateLabel(value: string) {
+  return /\b(?:19|20)\d{2}\b|(?:enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)\b/i.test(
+    value
+  )
+}
 
 export default function Multimedia() {
   const [activeCategory, setActiveCategory] = useState<string>('Todas')
@@ -164,7 +170,7 @@ export default function Multimedia() {
                     <div className="p-5 flex flex-col flex-1 justify-between">
                       <div>
                         <div className="flex items-center gap-1.5 text-xs text-gray-500 mb-1.5 font-sans">
-                          <Calendar size={13} />
+                          {isDateLabel(item.fecha) ? <Calendar size={13} /> : <MapPin size={13} />}
                           <span>{item.fecha}</span>
                         </div>
                         <h3 className="font-display font-bold text-base text-gray-900 leading-snug group-hover:text-brand-purple transition-colors">
