@@ -12,8 +12,8 @@ import { cn } from '@/utils/cn'
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(() => window.scrollY > 20)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [desktopDropdownOpen, setDesktopDropdownOpen] = useState(false)
-  const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState(true)
+  const [desktopDropdownOpen, setDesktopDropdownOpen] = useState<string | null>(null)
+  const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState<string | null>(null)
   const location = useLocation()
   const dropdownRefs = useRef<(HTMLDivElement | null)[]>([])
 
@@ -31,7 +31,8 @@ export default function Navbar() {
 
   // Cerrar menús al cambiar de ruta
   useEffect(() => {
-    setDesktopDropdownOpen(false)
+    setDesktopDropdownOpen(null)
+    setMobileSubmenuOpen(null)
     setMobileOpen(false)
   }, [location.pathname, location.hash])
 
@@ -42,7 +43,7 @@ export default function Navbar() {
         dropdown?.contains(e.target as Node)
       )
       if (!clickedInsideDropdown) {
-        setDesktopDropdownOpen(false)
+        setDesktopDropdownOpen(null)
       }
     }
     document.addEventListener('mousedown', handleClickOutside)
@@ -128,8 +129,8 @@ export default function Navbar() {
                       dropdownRefs.current[index] = element
                     }}
                     className="relative"
-                    onMouseEnter={() => !isCurrentPage && setDesktopDropdownOpen(true)}
-                    onMouseLeave={() => setDesktopDropdownOpen(false)}
+                    onMouseEnter={() => !isCurrentPage && setDesktopDropdownOpen(link.label)}
+                    onMouseLeave={() => setDesktopDropdownOpen(null)}
                   >
                     <div className="flex items-center">
                       <NavLink
@@ -152,9 +153,9 @@ export default function Navbar() {
                           onClick={(e) => {
                             e.preventDefault()
                             e.stopPropagation()
-                            setDesktopDropdownOpen((v) => !v)
+                            setDesktopDropdownOpen((v) => (v === link.label ? null : link.label))
                           }}
-                          aria-expanded={desktopDropdownOpen}
+                          aria-expanded={desktopDropdownOpen === link.label}
                           aria-label={`Desplegar menú de ${link.label}`}
                           className={cn(
                             'pr-3 pl-1 py-2 rounded-r-xl text-sm font-bold transition-colors text-gray-700 hover:text-brand-purple',
@@ -165,7 +166,7 @@ export default function Navbar() {
                             size={15}
                             className={cn(
                               'transition-transform duration-200',
-                              desktopDropdownOpen && 'rotate-180 text-brand-purple'
+                              desktopDropdownOpen === link.label && 'rotate-180 text-brand-purple'
                             )}
                           />
                         </button>
@@ -174,23 +175,23 @@ export default function Navbar() {
 
                     {/* Dropdown flotante */}
                     <AnimatePresence>
-                      {desktopDropdownOpen && !isCurrentPage && (
+                      {desktopDropdownOpen === link.label && !isCurrentPage && (
                         <motion.div
                           initial={{ opacity: 0, y: 8, scale: 0.98 }}
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 4, scale: 0.98 }}
                           transition={{ duration: 0.15 }}
-                          className="absolute top-full left-0 mt-1 w-72 rounded-2xl bg-white shadow-xl border border-gray-200/90 py-2 z-50 overflow-hidden"
+                          className="absolute top-full left-0 mt-1 w-60 rounded-2xl bg-white shadow-xl border border-gray-200/90 py-1.5 z-50 overflow-hidden"
                         >
-                          <div className="p-1.5 flex flex-col gap-0.5">
+                          <div className="p-1 flex flex-col gap-0.5">
                             {link.children.map((sublink) => (
                               <Link
                                 key={sublink.href}
                                 to={sublink.href}
-                                onClick={() => setDesktopDropdownOpen(false)}
-                                className="group/item flex flex-col px-3 py-2.5 rounded-xl hover:bg-brand-purpleLight/40 transition-colors"
+                                onClick={() => setDesktopDropdownOpen(null)}
+                                className="group/item flex flex-col px-2.5 py-2 rounded-xl hover:bg-brand-purpleLight/40 transition-colors"
                               >
-                                <span className="text-sm font-bold text-gray-900 group-hover/item:text-brand-purple transition-colors">
+                                <span className="text-xs font-bold text-gray-900 group-hover/item:text-brand-purple transition-colors">
                                   {sublink.label}
                                 </span>
                               </Link>
@@ -314,7 +315,9 @@ export default function Navbar() {
                           {!isCurrentPage && (
                             <button
                               type="button"
-                              onClick={() => setMobileSubmenuOpen((v) => !v)}
+                              onClick={() =>
+                                setMobileSubmenuOpen((v) => (v === link.label ? null : link.label))
+                              }
                               className="p-2 text-gray-500 hover:text-brand-purple"
                               aria-label="Expandir submenú"
                             >
@@ -322,14 +325,14 @@ export default function Navbar() {
                                 size={16}
                                 className={cn(
                                   'transition-transform duration-200',
-                                  mobileSubmenuOpen && 'rotate-180 text-brand-purple'
+                                  mobileSubmenuOpen === link.label && 'rotate-180 text-brand-purple'
                                 )}
                               />
                             </button>
                           )}
                         </div>
 
-                        {!isCurrentPage && mobileSubmenuOpen && (
+                        {!isCurrentPage && mobileSubmenuOpen === link.label && (
                           <div className="flex flex-col gap-1 pl-3 pr-1 py-1 border-t border-gray-200/60 mt-1">
                             {link.children.map((sublink) => (
                               <Link
