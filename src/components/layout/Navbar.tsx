@@ -116,9 +116,10 @@ export default function Navbar() {
           <nav className="flex items-center gap-0 xl:gap-1" aria-label="Navegación principal">
             {NAV_LINKS.map((link, index) => {
               if (link.children && link.children.length > 0) {
-                const isCurrentPage =
-                  (link.href === '/quienes-somos' || link.href === '/multimedia') &&
-                  location.pathname === link.href
+                const isCurrentPage = location.pathname === link.href
+                const sectionDropdownsDisabled = ['/quienes-somos', '/multimedia'].includes(
+                  location.pathname
+                )
                 const isChildActive =
                   location.pathname === link.href ||
                   link.children.some((c) => location.pathname + location.search + location.hash === c.href)
@@ -130,7 +131,9 @@ export default function Navbar() {
                       dropdownRefs.current[index] = element
                     }}
                     className="relative"
-                    onMouseEnter={() => !isCurrentPage && setDesktopDropdownOpen(link.label)}
+                    onMouseEnter={() =>
+                      !sectionDropdownsDisabled && setDesktopDropdownOpen(link.label)
+                    }
                     onMouseLeave={() => setDesktopDropdownOpen(null)}
                   >
                     <div className="flex items-center">
@@ -148,7 +151,7 @@ export default function Navbar() {
                       >
                         {link.label}
                       </NavLink>
-                      {!isCurrentPage && (
+                      {!sectionDropdownsDisabled && (
                         <button
                           type="button"
                           onClick={(e) => {
@@ -176,7 +179,7 @@ export default function Navbar() {
 
                     {/* Dropdown flotante */}
                     <AnimatePresence>
-                      {desktopDropdownOpen === link.label && !isCurrentPage && (
+                      {desktopDropdownOpen === link.label && !sectionDropdownsDisabled && (
                         <motion.div
                           initial={{ opacity: 0, y: 8, scale: 0.98 }}
                           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -302,9 +305,9 @@ export default function Navbar() {
               <div className="flex flex-col gap-1">
                 {NAV_LINKS.map((link) => {
                   if (link.children && link.children.length > 0) {
-                    const isCurrentPage =
-                      (link.href === '/quienes-somos' || link.href === '/multimedia') &&
-                      location.pathname === link.href
+                    const sectionDropdownsDisabled = ['/quienes-somos', '/multimedia'].includes(
+                      location.pathname
+                    )
                     return (
                       <div key={link.label} className="flex flex-col rounded-xl bg-gray-50/70 p-1">
                         <div className="flex items-center justify-between">
@@ -315,7 +318,7 @@ export default function Navbar() {
                           >
                             {link.label}
                           </NavLink>
-                          {!isCurrentPage && (
+                          {!sectionDropdownsDisabled && (
                             <button
                               type="button"
                               onClick={() =>
@@ -335,7 +338,7 @@ export default function Navbar() {
                           )}
                         </div>
 
-                        {!isCurrentPage && mobileSubmenuOpen === link.label && (
+                        {!sectionDropdownsDisabled && mobileSubmenuOpen === link.label && (
                           <div className="flex flex-col gap-1 pl-3 pr-1 py-1 border-t border-gray-200/60 mt-1">
                             {link.children.map((sublink) => (
                               <Link
