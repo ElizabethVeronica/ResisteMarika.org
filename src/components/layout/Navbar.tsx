@@ -72,9 +72,15 @@ export default function Navbar() {
             {/* Logo oficial de Resiste Marika */}
             <div className="relative h-16 w-16 sm:h-20 sm:w-20 shrink-0 overflow-hidden transition-transform group-hover:scale-105">
               <img
-                src="/images/logo.jpg"
+                src="/images/logo png.png"
                 alt="Logo de Resiste Marika"
-                className="w-full h-full object-contain object-bottom"
+                className="site-logo--light w-full h-full object-contain object-bottom"
+              />
+              <img
+                src="/images/logo trazo blanco transparente.png"
+                alt=""
+                aria-hidden="true"
+                className="site-logo--dark w-full h-full object-contain object-bottom"
               />
             </div>
 
@@ -97,9 +103,15 @@ export default function Navbar() {
           >
             <div className="relative h-16 w-16 shrink-0 overflow-hidden transition-transform group-hover:scale-105">
               <img
-                src="/images/logo.jpg"
+                src="/images/logo png.png"
                 alt=""
-                className="w-full h-full object-contain object-bottom"
+                className="site-logo--light w-full h-full object-contain object-bottom"
+              />
+              <img
+                src="/images/logo trazo blanco transparente.png"
+                alt=""
+                aria-hidden="true"
+                className="site-logo--dark w-full h-full object-contain object-bottom"
               />
             </div>
           </Link>
