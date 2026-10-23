@@ -147,6 +147,8 @@ export default function Navbar() {
                         <NavLink
                           to={link.href}
                           viewTransition
+                          onPointerDown={() => setDesktopDropdownOpen(null)}
+                          onClick={() => setDesktopDropdownOpen(null)}
                           className={cn(
                             cn(
                               'py-2 text-sm font-bold transition-colors flex items-center',
@@ -186,33 +188,30 @@ export default function Navbar() {
                       </div>
 
                       {/* Dropdown flotante */}
-                      <AnimatePresence>
-                        {desktopDropdownOpen === link.label && !sectionDropdownsDisabled && (
-                          <motion.div
-                            initial={{ opacity: 0, y: 8, scale: 0.98 }}
-                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                            exit={{ opacity: 0, y: 4, scale: 0.98 }}
-                            transition={{ duration: 0.15 }}
-                            className="absolute top-full left-0 mt-1 w-60 rounded-2xl bg-white shadow-xl border border-gray-200/90 py-1.5 z-50 overflow-hidden"
-                          >
-                            <div className="p-1 flex flex-col gap-0.5">
-                              {link.children.map((sublink) => (
-                                <Link
-                                  key={sublink.href}
-                                  to={sublink.href}
-                                  viewTransition
-                                  onClick={() => setDesktopDropdownOpen(null)}
-                                  className="group/item flex flex-col px-2.5 py-2 rounded-xl hover:bg-brand-purpleLight/40 transition-colors"
-                                >
-                                  <span className="text-xs font-bold text-gray-900 group-hover/item:text-brand-purple transition-colors">
-                                    {sublink.label}
-                                  </span>
-                                </Link>
-                              ))}
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
+                      {desktopDropdownOpen === link.label && !sectionDropdownsDisabled && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 8, scale: 0.98 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          transition={{ duration: 0.15 }}
+                          className="absolute top-full left-0 mt-1 w-60 rounded-2xl bg-white shadow-xl border border-gray-200/90 py-1.5 z-50 overflow-hidden"
+                        >
+                          <div className="p-1 flex flex-col gap-0.5">
+                            {link.children.map((sublink) => (
+                              <Link
+                                key={sublink.href}
+                                to={sublink.href}
+                                viewTransition
+                                onClick={() => setDesktopDropdownOpen(null)}
+                                className="group/item flex flex-col px-2.5 py-2 rounded-xl hover:bg-brand-purpleLight/40 transition-colors"
+                              >
+                                <span className="text-xs font-bold text-gray-900 group-hover/item:text-brand-purple transition-colors">
+                                  {sublink.label}
+                                </span>
+                              </Link>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
                     </div>
                   )
                 }
@@ -222,6 +221,8 @@ export default function Navbar() {
                     key={link.href}
                     to={link.href}
                     viewTransition
+                    onPointerDown={() => setDesktopDropdownOpen(null)}
+                    onClick={() => setDesktopDropdownOpen(null)}
                     className={({ isActive }) =>
                       cn(
                         'px-4 py-2 rounded-xl text-sm font-bold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple focus-visible:ring-offset-2',
