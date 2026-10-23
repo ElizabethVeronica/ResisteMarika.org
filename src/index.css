@@ -28,8 +28,22 @@
 
 ::view-transition-group(root),
 ::view-transition-group(page-content),
+::view-transition-group(site-header),
 ::view-transition-old(root),
 ::view-transition-new(root) {
+  animation: none;
+}
+
+::view-transition-group(page-content) {
+  z-index: 0;
+}
+
+::view-transition-group(site-header) {
+  z-index: 1;
+}
+
+::view-transition-old(site-header),
+::view-transition-new(site-header) {
   animation: none;
 }
 
@@ -43,6 +57,10 @@
 
 .page-transition {
   view-transition-name: page-content;
+}
+
+.site-header {
+  view-transition-name: site-header;
 }
 
 @media (prefers-reduced-motion: reduce) {
