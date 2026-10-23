@@ -87,7 +87,7 @@ export default function Multimedia() {
         <Container>
           <div
             aria-hidden={nearPageBottom || selectedItem !== null}
-            className={`sticky top-[7rem] sm:top-[8.5rem] z-[60] mb-4 py-2 transition-opacity duration-200 ${
+            className={`sticky-section-nav z-[60] mb-4 py-2 transition-opacity duration-200 ${
               nearPageBottom || selectedItem ? 'pointer-events-none opacity-0' : 'opacity-100'
             }`}
           >
