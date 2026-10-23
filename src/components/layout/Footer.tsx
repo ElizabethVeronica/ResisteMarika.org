@@ -58,13 +58,7 @@ export default function Footer() {
                 <img
                   src="/images/logo png.png"
                   alt="Logo de Resiste Marika"
-                  className="site-logo--light h-full w-full object-contain"
-                />
-                <img
-                  src="/images/logo morado blanco.jpg"
-                  alt=""
-                  aria-hidden="true"
-                  className="site-logo--dark h-full w-full object-contain"
+                  className="h-full w-full object-contain"
                 />
               </div>
               <div className="flex flex-col">
