@@ -70,14 +70,14 @@ export default function Navbar() {
             onClick={() => setMobileOpen(false)}
           >
             {/* Logo oficial de Resiste Marika */}
-            <div className="relative h-16 w-16 sm:h-20 sm:w-20 shrink-0 overflow-hidden transition-transform group-hover:scale-105">
+            <div className="relative h-[4.5rem] w-[4.5rem] sm:h-20 sm:w-20 shrink-0 overflow-hidden transition-transform group-hover:scale-105">
               <img
                 src="/images/logo png.png"
                 alt="Logo de Resiste Marika"
                 className="site-logo--light w-full h-full object-contain object-bottom"
               />
               <img
-                src="/images/logo trazo blanco transparente.png"
+                src="/images/logo morado blanco.jpg"
                 alt=""
                 aria-hidden="true"
                 className="site-logo--dark w-full h-full object-contain object-bottom"
@@ -94,185 +94,178 @@ export default function Navbar() {
             </div>
           </Link>
 
-          <Link
-            to="/"
-            viewTransition
-            className="hidden lg:block shrink-0 group"
-            onClick={() => setMobileOpen(false)}
-            aria-label="Resiste Marika - Inicio"
-          >
-            <div className="relative h-16 w-16 shrink-0 overflow-hidden transition-transform group-hover:scale-105">
-              <img
-                src="/images/logo png.png"
-                alt=""
-                className="site-logo--light w-full h-full object-contain object-bottom"
-              />
-              <img
-                src="/images/logo trazo blanco transparente.png"
-                alt=""
-                aria-hidden="true"
-                className="site-logo--dark w-full h-full object-contain object-bottom"
-              />
-            </div>
-          </Link>
-
           <div className="hidden lg:flex flex-1 items-center justify-center gap-3 xl:gap-5">
-            <Link to="/" viewTransition className="flex flex-col shrink-0">
-              <span className="font-display font-extrabold text-lg tracking-tight text-brand-dark leading-none">
-                Resiste <span className="text-brand-purple">Marika</span>
-              </span>
-              <span className="text-[10px] font-semibold text-gray-500 tracking-wider uppercase mt-1">
-                Autogestión y Arte
+            <Link to="/" viewTransition className="flex items-center gap-2 shrink-0 group" aria-label="Resiste Marika - Inicio">
+              <div className="relative h-20 w-20 shrink-0 overflow-hidden transition-transform group-hover:scale-105">
+                <img
+                  src="/images/logo png.png"
+                  alt=""
+                  className="site-logo--light w-full h-full object-contain object-bottom"
+                />
+                <img
+                  src="/images/logo morado blanco.jpg"
+                  alt=""
+                  aria-hidden="true"
+                  className="site-logo--dark w-full h-full object-contain object-bottom"
+                />
+              </div>
+              <span className="flex flex-col">
+                <span className="font-display font-extrabold text-lg tracking-tight text-brand-dark leading-none">
+                  Resiste <span className="text-brand-purple">Marika</span>
+                </span>
+                <span className="text-[10px] font-semibold text-gray-500 tracking-wider uppercase mt-1">
+                  Autogestión y Arte
+                </span>
               </span>
             </Link>
 
-          {/* Navegación Desktop */}
-          <nav className="flex items-center gap-0 xl:gap-1" aria-label="Navegación principal">
-            {NAV_LINKS.map((link, index) => {
-              if (link.children && link.children.length > 0) {
-                const isCurrentPage = location.pathname === link.href
-                const sectionDropdownsDisabled = ['/quienes-somos', '/multimedia'].includes(
-                  location.pathname
-                )
-                const isChildActive =
-                  location.pathname === link.href ||
-                  link.children.some((c) => location.pathname + location.search + location.hash === c.href)
+            {/* Navegación Desktop */}
+            <nav className="flex items-center gap-0 xl:gap-1" aria-label="Navegación principal">
+              {NAV_LINKS.map((link, index) => {
+                if (link.children && link.children.length > 0) {
+                  const isCurrentPage = location.pathname === link.href
+                  const sectionDropdownsDisabled = ['/quienes-somos', '/multimedia'].includes(
+                    location.pathname
+                  )
+                  const isChildActive =
+                    location.pathname === link.href ||
+                    link.children.some((c) => location.pathname + location.search + location.hash === c.href)
 
-                return (
-                  <div
-                    key={link.label}
-                    ref={(element) => {
-                      dropdownRefs.current[index] = element
-                    }}
-                    className="relative"
-                    onMouseEnter={() =>
-                      !sectionDropdownsDisabled && setDesktopDropdownOpen(link.label)
-                    }
-                    onMouseLeave={() => setDesktopDropdownOpen(null)}
-                  >
-                    <div className="flex items-center">
-                      <NavLink
-                        to={link.href}
-                        viewTransition
-                        className={cn(
-                          cn(
-                            'py-2 text-sm font-bold transition-colors flex items-center',
-                            isCurrentPage ? 'px-4 rounded-xl' : 'pl-4 pr-1.5 rounded-l-xl'
-                          ),
-                          isChildActive
-                            ? 'text-brand-purple bg-brand-purpleLight/60'
-                            : 'text-gray-700 hover:text-brand-purple hover:bg-gray-50'
-                        )}
-                      >
-                        {link.label}
-                      </NavLink>
-                      {!sectionDropdownsDisabled && (
-                        <button
-                          type="button"
-                          onClick={(e) => {
-                            e.preventDefault()
-                            e.stopPropagation()
-                            setDesktopDropdownOpen((v) => (v === link.label ? null : link.label))
-                          }}
-                          aria-expanded={desktopDropdownOpen === link.label}
-                          aria-label={`Desplegar menú de ${link.label}`}
+                  return (
+                    <div
+                      key={link.label}
+                      ref={(element) => {
+                        dropdownRefs.current[index] = element
+                      }}
+                      className="relative"
+                      onMouseEnter={() =>
+                        !sectionDropdownsDisabled && setDesktopDropdownOpen(link.label)
+                      }
+                      onMouseLeave={() => setDesktopDropdownOpen(null)}
+                    >
+                      <div className="flex items-center">
+                        <NavLink
+                          to={link.href}
+                          viewTransition
                           className={cn(
-                            'pr-3 pl-1 py-2 rounded-r-xl text-sm font-bold transition-colors text-gray-700 hover:text-brand-purple',
-                            isChildActive && 'bg-brand-purpleLight/60 text-brand-purple'
+                            cn(
+                              'py-2 text-sm font-bold transition-colors flex items-center',
+                              isCurrentPage ? 'px-4 rounded-xl' : 'pl-4 pr-1.5 rounded-l-xl'
+                            ),
+                            isChildActive
+                              ? 'text-brand-purple bg-brand-purpleLight/60'
+                              : 'text-gray-700 hover:text-brand-purple hover:bg-gray-50'
                           )}
                         >
-                          <ChevronDown
-                            size={15}
+                          {link.label}
+                        </NavLink>
+                        {!sectionDropdownsDisabled && (
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.preventDefault()
+                              e.stopPropagation()
+                              setDesktopDropdownOpen((v) => (v === link.label ? null : link.label))
+                            }}
+                            aria-expanded={desktopDropdownOpen === link.label}
+                            aria-label={`Desplegar menú de ${link.label}`}
                             className={cn(
-                              'transition-transform duration-200',
-                              desktopDropdownOpen === link.label && 'rotate-180 text-brand-purple'
+                              'pr-3 pl-1 py-2 rounded-r-xl text-sm font-bold transition-colors text-gray-700 hover:text-brand-purple',
+                              isChildActive && 'bg-brand-purpleLight/60 text-brand-purple'
                             )}
-                          />
-                        </button>
-                      )}
+                          >
+                            <ChevronDown
+                              size={15}
+                              className={cn(
+                                'transition-transform duration-200',
+                                desktopDropdownOpen === link.label && 'rotate-180 text-brand-purple'
+                              )}
+                            />
+                          </button>
+                        )}
+                      </div>
+
+                      {/* Dropdown flotante */}
+                      <AnimatePresence>
+                        {desktopDropdownOpen === link.label && !sectionDropdownsDisabled && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 8, scale: 0.98 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: 4, scale: 0.98 }}
+                            transition={{ duration: 0.15 }}
+                            className="absolute top-full left-0 mt-1 w-60 rounded-2xl bg-white shadow-xl border border-gray-200/90 py-1.5 z-50 overflow-hidden"
+                          >
+                            <div className="p-1 flex flex-col gap-0.5">
+                              {link.children.map((sublink) => (
+                                <Link
+                                  key={sublink.href}
+                                  to={sublink.href}
+                                  viewTransition
+                                  onClick={() => setDesktopDropdownOpen(null)}
+                                  className="group/item flex flex-col px-2.5 py-2 rounded-xl hover:bg-brand-purpleLight/40 transition-colors"
+                                >
+                                  <span className="text-xs font-bold text-gray-900 group-hover/item:text-brand-purple transition-colors">
+                                    {sublink.label}
+                                  </span>
+                                </Link>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
+                  )
+                }
 
-                    {/* Dropdown flotante */}
-                    <AnimatePresence>
-                      {desktopDropdownOpen === link.label && !sectionDropdownsDisabled && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 8, scale: 0.98 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: 4, scale: 0.98 }}
-                          transition={{ duration: 0.15 }}
-                          className="absolute top-full left-0 mt-1 w-60 rounded-2xl bg-white shadow-xl border border-gray-200/90 py-1.5 z-50 overflow-hidden"
-                        >
-                          <div className="p-1 flex flex-col gap-0.5">
-                            {link.children.map((sublink) => (
-                              <Link
-                                key={sublink.href}
-                                to={sublink.href}
-                                viewTransition
-                                onClick={() => setDesktopDropdownOpen(null)}
-                                className="group/item flex flex-col px-2.5 py-2 rounded-xl hover:bg-brand-purpleLight/40 transition-colors"
-                              >
-                                <span className="text-xs font-bold text-gray-900 group-hover/item:text-brand-purple transition-colors">
-                                  {sublink.label}
-                                </span>
-                              </Link>
-                            ))}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
+                return (
+                  <NavLink
+                    key={link.href}
+                    to={link.href}
+                    viewTransition
+                    className={({ isActive }) =>
+                      cn(
+                        'px-4 py-2 rounded-xl text-sm font-bold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple focus-visible:ring-offset-2',
+                        link.href === '/quienes-somos'
+                          ? 'text-brand-purple bg-brand-purpleLight/70 border border-brand-purple/20 shadow-sm hover:-translate-y-0.5 hover:bg-brand-purpleLight hover:shadow-md'
+                          : isActive
+                            ? 'text-brand-purple bg-brand-purpleLight/60'
+                            : 'text-gray-700 hover:text-brand-purple hover:bg-gray-50'
+                      )
+                    }
+                  >
+                    {link.label}
+                  </NavLink>
                 )
-              }
+              })}
+            </nav>
 
-              return (
-                <NavLink
-                  key={link.href}
-                  to={link.href}
-                  viewTransition
-                  className={({ isActive }) =>
-                    cn(
-                      'px-4 py-2 rounded-xl text-sm font-bold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple focus-visible:ring-offset-2',
-                      link.href === '/quienes-somos'
-                        ? 'text-brand-purple bg-brand-purpleLight/70 border border-brand-purple/20 shadow-sm hover:-translate-y-0.5 hover:bg-brand-purpleLight hover:shadow-md'
-                        : isActive
-                          ? 'text-brand-purple bg-brand-purpleLight/60'
-                          : 'text-gray-700 hover:text-brand-purple hover:bg-gray-50'
-                    )
-                  }
+            {/* Redes Sociales Oficiales + Botón Contacto */}
+            <div className="flex items-center gap-2 xl:gap-3">
+              <div className="flex items-center gap-2 pr-3 border-r border-gray-200 text-gray-600">
+                <a
+                  href="https://www.instagram.com/resiste.marika.cusco"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Instagram de Resiste Marika Cusco"
+                  className="hover:text-brand-pink transition-colors p-2 rounded-xl hover:bg-gray-50"
                 >
-                  {link.label}
-                </NavLink>
-              )
-            })}
-          </nav>
+                  <FaInstagram size={17} />
+                </a>
+                <a
+                  href="https://www.tiktok.com/@resistemarik"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="TikTok de Resiste Marika"
+                  className="hover:text-gray-900 transition-colors p-2 rounded-xl hover:bg-gray-50"
+                >
+                  <FaTiktok size={15} />
+                </a>
+              </div>
 
-          {/* Redes Sociales Oficiales + Botón Contacto */}
-          <div className="flex items-center gap-2 xl:gap-3">
-            <div className="flex items-center gap-2 pr-3 border-r border-gray-200 text-gray-600">
-              <a
-                href="https://www.instagram.com/resiste.marika.cusco"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Instagram de Resiste Marika Cusco"
-                className="hover:text-brand-pink transition-colors p-2 rounded-xl hover:bg-gray-50"
-              >
-                <FaInstagram size={17} />
-              </a>
-              <a
-                href="https://www.tiktok.com/@resistemarik"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="TikTok de Resiste Marika"
-                className="hover:text-gray-900 transition-colors p-2 rounded-xl hover:bg-gray-50"
-              >
-                <FaTiktok size={15} />
-              </a>
+              <Button href="/contacto" variant="primary" size="sm">
+                Escríbenos
+              </Button>
             </div>
-
-            <Button href="/contacto" variant="primary" size="sm">
-              Escríbenos
-            </Button>
-          </div>
           </div>
 
           {/* Botón Menú Móvil */}

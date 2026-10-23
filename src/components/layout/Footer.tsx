@@ -54,14 +54,14 @@ export default function Footer() {
           {/* Columna 1: Identidad y Origen */}
           <div className="lg:col-span-5 flex flex-col gap-4">
             <Link to="/" className="flex items-center gap-3 w-fit">
-              <div className="site-logo-frame h-16 w-16 rounded-2xl bg-white flex items-center justify-center overflow-hidden shadow-sm">
+              <div className="site-logo-frame h-[4.5rem] w-[4.5rem] rounded-2xl bg-white flex items-center justify-center overflow-hidden shadow-sm">
                 <img
                   src="/images/logo png.png"
                   alt="Logo de Resiste Marika"
                   className="site-logo--light h-full w-full object-contain"
                 />
                 <img
-                  src="/images/logo trazo blanco transparente.png"
+                  src="/images/logo morado blanco.jpg"
                   alt=""
                   aria-hidden="true"
                   className="site-logo--dark h-full w-full object-contain"
