@@ -19,7 +19,7 @@ export default function Navbar() {
 
   const scrollToTopIfCurrentPage = (href: string) => {
     if (location.pathname === href) {
-      window.scrollTo({ top: 0, behavior: 'instant' })
+      window.scrollTo({ top: 0, behavior: 'smooth' })
     }
   }
 
