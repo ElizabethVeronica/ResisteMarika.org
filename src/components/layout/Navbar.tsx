@@ -17,6 +17,17 @@ export default function Navbar() {
   const location = useLocation()
   const dropdownRefs = useRef<(HTMLDivElement | null)[]>([])
 
+  const scrollToTopIfCurrentPage = (href: string) => {
+    if (location.pathname === href) {
+      window.scrollTo({ top: 0, behavior: 'instant' })
+    }
+  }
+
+  const handleLogoClick = () => {
+    setMobileOpen(false)
+    scrollToTopIfCurrentPage('/')
+  }
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
@@ -67,7 +78,7 @@ export default function Navbar() {
             to="/"
             viewTransition
             className="flex items-center gap-2 group lg:hidden"
-            onClick={() => setMobileOpen(false)}
+            onClick={handleLogoClick}
           >
             {/* Logo oficial de Resiste Marika */}
             <div className="relative h-[4.5rem] w-[4.5rem] sm:h-20 sm:w-20 shrink-0 overflow-hidden transition-transform group-hover:scale-105">
@@ -95,7 +106,13 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden lg:flex flex-1 items-center justify-center gap-3 xl:gap-5">
-            <Link to="/" viewTransition className="flex items-center gap-2 shrink-0 group" aria-label="Resiste Marika - Inicio">
+            <Link
+              to="/"
+              viewTransition
+              onClick={handleLogoClick}
+              className="flex items-center gap-2 shrink-0 group"
+              aria-label="Resiste Marika - Inicio"
+            >
               <div className="relative h-20 w-20 shrink-0 overflow-hidden transition-transform group-hover:scale-105">
                 <img
                   src="/images/logo png.png"
@@ -147,8 +164,14 @@ export default function Navbar() {
                         <NavLink
                           to={link.href}
                           viewTransition
-                          onPointerDown={() => setDesktopDropdownOpen(null)}
-                          onClick={() => setDesktopDropdownOpen(null)}
+                          onPointerDown={() => {
+                            setDesktopDropdownOpen(null)
+                            scrollToTopIfCurrentPage(link.href)
+                          }}
+                          onClick={() => {
+                            setDesktopDropdownOpen(null)
+                            scrollToTopIfCurrentPage(link.href)
+                          }}
                           className={cn(
                             cn(
                               'py-2 text-sm font-bold transition-colors flex items-center',
@@ -221,8 +244,14 @@ export default function Navbar() {
                     key={link.href}
                     to={link.href}
                     viewTransition
-                    onPointerDown={() => setDesktopDropdownOpen(null)}
-                    onClick={() => setDesktopDropdownOpen(null)}
+                    onPointerDown={() => {
+                      setDesktopDropdownOpen(null)
+                      scrollToTopIfCurrentPage(link.href)
+                    }}
+                    onClick={() => {
+                      setDesktopDropdownOpen(null)
+                      scrollToTopIfCurrentPage(link.href)
+                    }}
                     className={({ isActive }) =>
                       cn(
                         'px-4 py-2 rounded-xl text-sm font-bold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple focus-visible:ring-offset-2',
@@ -263,8 +292,13 @@ export default function Navbar() {
                 </a>
               </div>
 
-              <Button href="/contacto" variant="primary" size="sm">
-                Escríbenos
+              <Button
+                href="/contacto"
+                variant="primary"
+                size="sm"
+                onClick={() => scrollToTopIfCurrentPage('/contacto')}
+              >
+                Contáctanos
               </Button>
             </div>
           </div>
@@ -331,7 +365,10 @@ export default function Navbar() {
                           <NavLink
                             to={link.href}
                             viewTransition
-                            onClick={() => setMobileOpen(false)}
+                            onClick={() => {
+                              setMobileOpen(false)
+                              scrollToTopIfCurrentPage(link.href)
+                            }}
                             className="flex-1 px-3 py-3 text-sm font-bold text-gray-900 hover:text-brand-purple"
                           >
                             {link.label}
@@ -380,7 +417,10 @@ export default function Navbar() {
                       key={link.href}
                       to={link.href}
                       viewTransition
-                      onClick={() => setMobileOpen(false)}
+                      onClick={() => {
+                        setMobileOpen(false)
+                        scrollToTopIfCurrentPage(link.href)
+                      }}
                       className={({ isActive }) =>
                         cn(
                           'px-4 py-3 rounded-xl text-sm font-bold transition-colors',
@@ -397,8 +437,17 @@ export default function Navbar() {
               </div>
 
               <div className="mt-auto pt-6 border-t border-gray-200 flex flex-col gap-3">
-                <Button href="/contacto" variant="primary" size="md" className="w-full">
-                  Escríbenos
+                <Button
+                  href="/contacto"
+                  variant="primary"
+                  size="md"
+                  className="w-full"
+                  onClick={() => {
+                    setMobileOpen(false)
+                    scrollToTopIfCurrentPage('/contacto')
+                  }}
+                >
+                  Contáctanos
                 </Button>
 
                 <div className="flex justify-center gap-4 text-gray-600 pt-2">

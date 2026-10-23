@@ -16,7 +16,6 @@ export default function TopBar() {
     root.classList.add('theme-transition')
     root.classList.toggle('dark', nextTheme === 'dark')
     root.style.colorScheme = nextTheme
-    window.localStorage.setItem('resiste-marika-theme', nextTheme)
     setDarkMode(nextTheme === 'dark')
 
     window.clearTimeout(transitionTimeout.current)

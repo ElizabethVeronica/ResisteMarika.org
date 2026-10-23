@@ -1,5 +1,5 @@
 import { cn } from '@/utils/cn'
-import { type ReactNode, type ButtonHTMLAttributes } from 'react'
+import { type ReactNode, type ButtonHTMLAttributes, type MouseEventHandler } from 'react'
 import { Link } from 'react-router-dom'
 
 type ButtonVariant = 'primary' | 'secondary' | 'accent' | 'yellow' | 'dark' | 'outline' | 'ghost'
@@ -24,7 +24,7 @@ type ButtonAsLink = ButtonBaseProps & {
   children?: ReactNode
   type?: never
   disabled?: never
-  onClick?: never
+  onClick?: MouseEventHandler<HTMLAnchorElement>
 }
 
 type ButtonProps = ButtonAsButton | ButtonAsLink
@@ -79,9 +79,9 @@ export default function Button({
   )
 
   if ('href' in props && props.href != null) {
-    const { href } = props
+    const { href, onClick } = props
     return (
-      <Link to={href} viewTransition className={baseClass}>
+      <Link to={href} viewTransition className={baseClass} onClick={onClick}>
         {content}
       </Link>
     )
