@@ -12,7 +12,7 @@ export default function AppLayout() {
         <TopBar />
         <Navbar />
       </div>
-      <main className="page-transition flex-1 pt-24 sm:pt-[7.25rem]">
+      <main className="page-transition flex-1 pt-[6.75rem] sm:pt-[7.25rem]">
         <Outlet />
       </main>
       <Footer />
