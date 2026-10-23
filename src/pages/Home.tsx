@@ -160,9 +160,9 @@ export default function Home() {
       </section>
 
       {/* ── LLAMADO A ARTICULAR / CONTACTO ─────────────────── */}
-      <section className="py-16 sm:py-20 bg-gradient-to-br from-brand-skyLight via-white to-brand-purpleLight border-y border-brand-pinkSoft/60">
+      <section className="home-network-cta py-16 sm:py-20 bg-gradient-to-br from-brand-skyLight via-white to-brand-purpleLight border-y border-brand-pinkSoft/60">
         <Container>
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="home-network-cta__content max-w-3xl mx-auto text-center">
             <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display mb-2 block">
               Red Colectiva en Cusco
             </span>
