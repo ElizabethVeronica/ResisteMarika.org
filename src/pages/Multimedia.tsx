@@ -91,7 +91,7 @@ export default function Multimedia() {
               nearPageBottom || selectedItem ? 'pointer-events-none opacity-0' : 'opacity-100'
             }`}
           >
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+            <div className="mobile-scrollbar-hidden -mx-4 flex w-[calc(100%+2rem)] flex-nowrap justify-start gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:w-auto sm:flex-wrap sm:justify-center sm:gap-3 sm:overflow-visible sm:px-0 sm:pb-0">
               {CATEGORIAS_MULTIMEDIA.map((cat) => {
                 const count =
                   cat === 'Todas'
@@ -104,7 +104,7 @@ export default function Multimedia() {
                     key={cat}
                     type="button"
                     onClick={() => selectCategory(cat)}
-                    className={`px-3 py-1.5 rounded-xl text-[11px] sm:text-xs font-bold transition-all duration-200 flex items-center gap-1.5 ${
+                    className={`shrink-0 px-3 py-1.5 rounded-xl text-[11px] sm:text-xs font-bold transition-all duration-200 flex items-center gap-1.5 ${
                       isActive
                         ? 'bg-brand-purple text-white shadow-sm'
                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200'

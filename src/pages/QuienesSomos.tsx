@@ -112,11 +112,11 @@ export default function QuienesSomos() {
         ref={sectionMenuRef}
         aria-label="Secciones de quiénes somos"
         aria-hidden={nearPageBottom}
-        className={`sticky top-[6.5rem] sm:top-[7rem] z-[60] mx-auto mt-4 sm:mt-6 mb-4 w-fit max-w-[calc(100%-2rem)] py-2 transition-opacity duration-200 ${
+        className={`sticky top-[6.5rem] sm:top-[7rem] z-[60] mx-auto mt-4 sm:mt-6 mb-4 w-full max-w-full px-4 py-2 transition-opacity duration-200 sm:w-fit sm:max-w-[calc(100%-2rem)] sm:px-0 ${
           nearPageBottom ? 'pointer-events-none opacity-0' : 'opacity-100'
         }`}
       >
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+        <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:justify-center sm:gap-3">
           {SECTION_LINKS.map(({ id, label }) => {
             const isActive = activeSection === id
             return (
@@ -125,7 +125,7 @@ export default function QuienesSomos() {
                 href={`#${id}`}
                 onClick={() => setActiveSection(id)}
                 aria-current={isActive ? 'location' : undefined}
-                className={`whitespace-nowrap rounded-xl px-3 py-1.5 text-[11px] sm:text-xs font-bold transition-all duration-200 ${
+                className={`rounded-xl px-2 py-2 text-center text-[11px] sm:px-3 sm:py-1.5 sm:text-xs font-bold transition-all duration-200 ${
                   isActive
                     ? 'bg-brand-purple text-white shadow-sm'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
@@ -239,7 +239,7 @@ export default function QuienesSomos() {
 
               <div className="lg:col-span-5 rounded-2xl overflow-hidden border border-gray-200 aspect-[4/3] bg-gray-100 shadow-sm">
                 <img
-                  src="/images/amrcha del 8M 2025.jpg"
+                  src="/images/marcha del 8M 2024.jpg"
                   alt="Marcha 8M con tambores y batucada en Cusco"
                   className="w-full h-full object-cover"
                 />

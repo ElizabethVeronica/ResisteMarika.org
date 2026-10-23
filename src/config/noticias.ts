@@ -43,7 +43,7 @@ export const NOTICIAS: Noticia[] = [
     resumen:
       'Acción en las calles de Cusco exigiendo justicia, vidas libres de violencia y celeridad en las investigaciones por crímenes de odio.',
     imagen: '/images/planton 25N.jpg',
-    fecha: '25 Noviembre',
+    fecha: '25 de noviembre',
     categoria: 'Comunicado',
     tiempoLectura: '4 min lectura',
     slug: 'planton-25n-violencia',
@@ -51,11 +51,11 @@ export const NOTICIAS: Noticia[] = [
   },
   {
     id: '5',
-    titulo: 'Piquete Informativo y Sensibilización en el Día Mundial del SIDA',
+    titulo: 'Piquete informativo y sensibilización en el Día Mundial del Sida',
     resumen:
       'Jornada callejera en Cusco de información sobre salud sexual, prevención de ITS y exigibilidad de atención médica digna.',
     imagen: '/images/Piquete Informativo de ETS y Sensibilización Dia Mundial del SIDA.jpg',
-    fecha: '01 Diciembre',
+    fecha: '1 de diciembre',
     categoria: 'Salud',
     tiempoLectura: '3 min lectura',
     slug: 'piquete-informativo-dia-mundial-sida',

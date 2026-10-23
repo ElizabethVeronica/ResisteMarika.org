@@ -266,9 +266,11 @@ export default function Navbar() {
           {/* Botón Menú Móvil */}
           <button
             type="button"
-            className="lg:hidden p-2 rounded-xl text-gray-800 hover:bg-gray-100 transition-colors"
+            className="lg:hidden min-h-11 min-w-11 p-2 rounded-xl text-gray-800 hover:bg-gray-100 transition-colors"
             onClick={() => setMobileOpen((v) => !v)}
             aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation"
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -287,6 +289,8 @@ export default function Navbar() {
               onClick={() => setMobileOpen(false)}
             />
             <motion.nav
+              id="mobile-navigation"
+              aria-label="Navegación móvil"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
@@ -320,7 +324,7 @@ export default function Navbar() {
                             to={link.href}
                             viewTransition
                             onClick={() => setMobileOpen(false)}
-                            className="flex-1 px-3 py-2 text-sm font-bold text-gray-900 hover:text-brand-purple"
+                            className="flex-1 px-3 py-3 text-sm font-bold text-gray-900 hover:text-brand-purple"
                           >
                             {link.label}
                           </NavLink>
@@ -352,7 +356,7 @@ export default function Navbar() {
                                 to={sublink.href}
                                 viewTransition
                                 onClick={() => setMobileOpen(false)}
-                                className="px-3 py-2 rounded-lg text-xs font-semibold text-gray-600 hover:text-brand-purple hover:bg-white transition-colors"
+                                className="px-3 py-2.5 rounded-lg text-xs font-semibold text-gray-600 hover:text-brand-purple hover:bg-white transition-colors"
                               >
                                 {sublink.label}
                               </Link>
@@ -371,7 +375,7 @@ export default function Navbar() {
                       onClick={() => setMobileOpen(false)}
                       className={({ isActive }) =>
                         cn(
-                          'px-4 py-2.5 rounded-xl text-sm font-bold transition-colors',
+                          'px-4 py-3 rounded-xl text-sm font-bold transition-colors',
                           isActive
                             ? 'text-brand-purple bg-brand-purpleLight/60'
                             : 'text-gray-800 hover:text-brand-purple hover:bg-gray-50'
@@ -410,7 +414,7 @@ export default function Navbar() {
                   </a>
                 </div>
                 <p className="text-[11px] text-gray-400 text-center font-medium">
-                  Cusco · Fundada el 7 de agosto del 2023
+                  Cusco · Fundada el 7 de agosto de 2023
                 </p>
               </div>
             </motion.nav>

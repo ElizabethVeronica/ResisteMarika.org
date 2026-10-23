@@ -81,6 +81,15 @@
 }
 
 @layer utilities {
+  .mobile-scrollbar-hidden {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .mobile-scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+
   .text-balance {
     text-wrap: balance;
   }

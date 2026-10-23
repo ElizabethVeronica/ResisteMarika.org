@@ -1,7 +1,7 @@
 import type { TeamMember, ValorInstitucional, Alianza } from '@/types'
 
 export const HISTORIA_RESUMEN = {
-  fundacion: '7 de agosto del 2023',
+  fundacion: '7 de agosto de 2023',
   ciudad: 'Cusco, Perú',
   organizacion: 'Resiste Marika Cusco',
   lema: 'Las artes nos han devuelto el poder para existir como marikas racializadas y resistir contra la discriminación en Cusco.',
@@ -9,15 +9,15 @@ export const HISTORIA_RESUMEN = {
   declaracionInicial:
     'Las artes nos han devuelto el poder para existir como marikas racializadas y para resistir contra la discriminación de género, sexo y el racismo en Cusco.',
   parrafo1:
-    'Resiste Marika nació el 7 de agosto del 2023 con el sueño de organizar espacios de autogestión donde la comunidad LGTBIQ+ pueda organizarse y construir espacios de forma colectiva.',
+    'Resiste Marika nació el 7 de agosto de 2023 con el sueño de organizar espacios de autogestión donde la comunidad LGTBIQ+ pueda organizarse y construir espacios de forma colectiva.',
   parrafo2:
-    'Nos dimos cuenta de que muchas actividades del activismo dependían del financiamiento de ONGs para existir. Esto nos motivó a tomar la autogestión como forma de sostenernos y no perder de vista nuestros objetivos: la colectividad y la ternura.',
+    'Nos dimos cuenta de que muchas actividades del activismo dependían del financiamiento de las ONG para existir. Esto nos motivó a tomar la autogestión como forma de sostenernos y no perder de vista nuestros objetivos: la colectividad y la ternura.',
   parrafo3:
-    'Nos sostenemos de manera autónoma con rifas, ferias, artivismo, talleres.',
+    'Nos sostenemos de manera autónoma con rifas, ferias, artivismo y talleres.',
   pilarArtes:
-    'Uno de los pilares de Resiste Marika es el uso de las artes para hacer activismo. El 8 de marzo del 2024, gracias a un apoyo económico, pudimos comprar nuestros tambores y salir por primera vez a marchar con nuestra batucada. ',
+    'Uno de los pilares de Resiste Marika es el uso de las artes para hacer activismo. El 8 de marzo de 2024, gracias a un apoyo económico, pudimos comprar nuestros tambores y salir por primera vez a marchar con nuestra batucada.',
   disciplinasArtisticas:
-    'Además de hacer música y performar en las calles del Cusco haciendo activismo, nuestros miembros somos escritores, ilustradores, actores, escultores, psicólogos, músicos, tejedores, danzantes y arte terapeutas.',
+    'Además de hacer música y performar en las calles del Cusco como parte de nuestro activismo, quienes integramos la colectiva practicamos la escritura, la ilustración, la actuación, la escultura, la psicología, la música, el tejido, la danza y la arteterapia.',
   talleresMultidisciplinarios:
     'Por esa razón, solemos compartir talleres artísticos multidisciplinarios en los que conectamos con las artes como forma de acompañarnos y hacer activismo LGTBIQ+, antipatriarcal, decolonial y antirracista.',
 }
@@ -28,7 +28,7 @@ export const DISCIPLINAS = [
   { nombre: 'Escritura & Poesía', descripcion: 'Escribimos textos, manifiestos y relatos desde nuestras vivencias marikas racializadas.' },
   { nombre: 'Tejido & Arte Textil', descripcion: 'Tejemos con técnicas tradicionales como memoria y resistencia viva.' },
   { nombre: 'Actuación, Escultura & Danza', descripcion: 'Usamos el cuerpo, el movimiento y la escena pública para cuestionar el racismo y el patriarcado.' },
-  { nombre: 'Arte Terapia', descripcion: 'Facilitamos espacios de cuidado, expresión y sanación colectiva entre nosotres.' },
+  { nombre: 'Arteterapia', descripcion: 'Facilitamos espacios de cuidado, expresión y sanación colectiva entre nosotres.' },
 ]
 
 export const MISION_VISION = {
@@ -36,11 +36,11 @@ export const MISION_VISION = {
   descripcion:
     'Nuestra misión y visión se expresan directamente en los objetivos fundamentales que nos unen como colectiva en Cusco.',
   objetivosPrincipales: [
-    'Buscamos la satisfacción de los derechos fundamentales de nuestros integrantes y de la comunidad como salud, empleo, educación y recreación, junto con otras organizaciones afines.',
-    'Fortalecemos las capacidades de nuestros miembros para aportar en la formulación de políticas públicas en favor de la comunidad.',
-    'Participamos en los procesos, espacios e instancias de vigilancia ciudadana, concertación y gestión participativa distritales existentes, y en aquéllos que se instituyan en adelante.',
-    'Promovemos e impulsamos proyectos y programas de desarrollo integral con el fin de fortalecer las capacidades los integrantes y de la comunidad en general.',
-    'Reconocemos y valoramos el rol y los derechos de la población LGTBIQ+ y mujeres en las diferentes etapas del desarrollo de vida, en la organización, en la comunidad y en la sociedad.',
+    'Buscamos la satisfacción de los derechos fundamentales de quienes integran la colectiva y de la comunidad, como la salud, el empleo, la educación y la recreación, junto con otras organizaciones afines.',
+    'Fortalecemos las capacidades de quienes integran la colectiva para aportar en la formulación de políticas públicas en favor de la comunidad.',
+    'Participamos en los procesos, espacios e instancias de vigilancia ciudadana, concertación y gestión participativa distritales existentes y en aquellos que se instituyan en adelante.',
+    'Promovemos e impulsamos proyectos y programas de desarrollo integral con el fin de fortalecer las capacidades de quienes integran la colectiva y de la comunidad en general.',
+    'Reconocemos y valoramos el rol y los derechos de la población LGTBIQ+ y de las mujeres en las diferentes etapas del desarrollo de la vida, en la organización, en la comunidad y en la sociedad.',
     'Impulsamos la creación, el fortalecimiento y coordinación permanente con organizaciones afines y superiores estatales y privadas de ámbito nacional e internacional.',
   ],
 }
@@ -165,7 +165,7 @@ export const CON_QUIENES_TRABAJAMOS = {
     },
     {
       categoria: 'Artistas, artesanes y creadores',
-      descripcion: 'Colaboramos con escritoras, ilustradores, escultores, músicas y danzantes independientes.',
+      descripcion: 'Colaboramos con personas dedicadas a la escritura, la ilustración, la escultura, la música y la danza.',
     },
   ],
 }
@@ -174,7 +174,7 @@ export const VALORES: ValorInstitucional[] = [
   {
     id: 'autogestion',
     titulo: 'Autogestión',
-    descripcion: 'Nos sostenemos de manera autónoma con rifas, ferias, artivismo, talleres.',
+    descripcion: 'Nos sostenemos de manera autónoma con rifas, ferias, artivismo y talleres.',
     icono: 'Sparkles',
   },
   {

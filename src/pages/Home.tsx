@@ -37,11 +37,11 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-3.5">
-                <Button href="/quienes-somos" size="lg" variant="primary" icon={<ArrowRight size={18} />}>
+              <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:gap-3.5">
+                <Button href="/quienes-somos" size="lg" variant="primary" className="w-full sm:w-auto" icon={<ArrowRight size={18} />}>
                   Quiénes somos y qué hacemos
                 </Button>
-                <Button href="/multimedia" size="lg" variant="outline">
+                <Button href="/multimedia" size="lg" variant="outline" className="w-full sm:w-auto">
                   Ver fotos y multimedia
                 </Button>
               </div>

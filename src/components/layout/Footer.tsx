@@ -49,8 +49,8 @@ export default function Footer() {
         <span className="flex-1 bg-brand-charcoal" />
       </div>
 
-      <Container className="pt-14 pb-12">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-12 pb-12 border-b border-white/10">
+      <Container className="pt-10 pb-8 sm:pt-14 sm:pb-12">
+        <div className="grid grid-cols-1 gap-8 border-b border-white/10 pb-10 sm:grid-cols-2 sm:gap-10 sm:pb-12 lg:grid-cols-12">
           {/* Columna 1: Identidad y Origen */}
           <div className="lg:col-span-5 flex flex-col gap-4">
             <Link to="/" className="flex items-center gap-3 w-fit">
@@ -129,7 +129,7 @@ export default function Footer() {
           </div>
 
           {/* Columna 3: Formulario de contacto */}
-          <div className="lg:col-span-4 flex flex-col gap-3">
+          <div className="sm:col-span-2 lg:col-span-4 flex flex-col gap-3">
             {contactState === 'success' ? (
               <div className="flex items-center gap-2 text-sm font-semibold text-emerald-300" role="status">
                 <CheckCircle size={18} />
@@ -201,7 +201,7 @@ export default function Footer() {
         </div>
 
         {/* Barra Inferior */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60 font-sans">
+        <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60 font-sans">
           <p>© {year} Resiste Marika. Asociación Civil Sin Fines de Lucro.</p>
           <p className="flex items-center gap-1.5 font-medium">
             Colectividad, artivismo y ternura radical <Heart size={12} className="text-brand-pink fill-brand-pink" />

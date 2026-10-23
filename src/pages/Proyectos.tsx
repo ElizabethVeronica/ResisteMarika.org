@@ -106,7 +106,7 @@ export default function Proyectos() {
                 ¿Tienes alguna iniciativa o proyecto en mente?
               </h3>
               <p className="text-sm sm:text-base text-white/80 max-w-2xl mx-auto mb-6 leading-relaxed font-sans">
-                Nuestros proyectos y actividades están abiertos a la comunidad LGTBIQ+ que quieran sumar sus artes, oficios y propuestas desde la auto-organización y colectividad.
+                Nuestros proyectos y actividades están abiertos a personas de la comunidad LGTBIQ+ que deseen compartir sus artes, oficios y propuestas desde la autoorganización y la colectividad.
               </p>
               <Button href="/contacto" size="lg" variant="yellow">
                 Escríbenos para participar

@@ -22,7 +22,7 @@ export const ENGAGEMENT_PATHS: EngagementPath[] = [
     id: 'participar',
     titulo: 'Participar en proyectos',
     descripcion:
-      'Iniciativas de arte y formación, espacios de apoyo colectivo y acciones de auto-organización.',
+      'Iniciativas de arte y formación, espacios de apoyo colectivo y acciones de autoorganización.',
     href: '/proyectos',
     cta: 'Ver proyectos',
     tiempo: 'Explorar actividades',
