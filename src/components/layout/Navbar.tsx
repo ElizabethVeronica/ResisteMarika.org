@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { Menu, X, ChevronDown } from 'lucide-react'
+import { Menu, X, ChevronDown, Moon, Sun } from 'lucide-react'
 import { FaInstagram } from 'react-icons/fa'
 import { FaTiktok } from 'react-icons/fa6'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -14,8 +14,19 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [desktopDropdownOpen, setDesktopDropdownOpen] = useState<string | null>(null)
   const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState<string | null>(null)
+  const [darkMode, setDarkMode] = useState(
+    () => document.documentElement.classList.contains('dark')
+  )
   const location = useLocation()
   const dropdownRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  const toggleTheme = () => {
+    const nextTheme = darkMode ? 'light' : 'dark'
+    document.documentElement.classList.toggle('dark', nextTheme === 'dark')
+    document.documentElement.style.colorScheme = nextTheme
+    window.localStorage.setItem('resiste-marika-theme', nextTheme)
+    setDarkMode(nextTheme === 'dark')
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -236,6 +247,16 @@ export default function Navbar() {
 
           {/* Redes Sociales Oficiales + Botón Contacto */}
           <div className="flex items-center gap-2 xl:gap-3">
+            <button
+              type="button"
+              onClick={toggleTheme}
+              aria-label={darkMode ? 'Activar modo claro' : 'Activar modo oscuro'}
+              aria-pressed={darkMode}
+              title={darkMode ? 'Activar modo claro' : 'Activar modo oscuro'}
+              className="hidden lg:inline-flex min-h-10 min-w-10 items-center justify-center rounded-xl text-gray-700 transition-colors hover:bg-gray-50 hover:text-brand-purple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple"
+            >
+              {darkMode ? <Sun size={19} /> : <Moon size={19} />}
+            </button>
             <div className="flex items-center gap-2 pr-3 border-r border-gray-200 text-gray-600">
               <a
                 href="https://www.instagram.com/resiste.marika.cusco"
@@ -264,16 +285,28 @@ export default function Navbar() {
           </div>
 
           {/* Botón Menú Móvil */}
-          <button
-            type="button"
-            className="lg:hidden min-h-11 min-w-11 p-2 rounded-xl text-gray-800 hover:bg-gray-100 transition-colors"
-            onClick={() => setMobileOpen((v) => !v)}
-            aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
-            aria-expanded={mobileOpen}
-            aria-controls="mobile-navigation"
-          >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="flex items-center gap-1 lg:hidden">
+            <button
+              type="button"
+              onClick={toggleTheme}
+              aria-label={darkMode ? 'Activar modo claro' : 'Activar modo oscuro'}
+              aria-pressed={darkMode}
+              title={darkMode ? 'Activar modo claro' : 'Activar modo oscuro'}
+              className="min-h-11 min-w-11 inline-flex items-center justify-center rounded-xl text-gray-700 transition-colors hover:bg-gray-100 hover:text-brand-purple focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple"
+            >
+              {darkMode ? <Sun size={19} /> : <Moon size={19} />}
+            </button>
+            <button
+              type="button"
+              className="min-h-11 min-w-11 p-2 rounded-xl text-gray-800 hover:bg-gray-100 transition-colors"
+              onClick={() => setMobileOpen((v) => !v)}
+              aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-navigation"
+            >
+              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </Container>
       </header>
 
