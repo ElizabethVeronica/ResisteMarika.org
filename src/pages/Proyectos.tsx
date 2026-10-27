@@ -7,21 +7,30 @@ import { CheckCircle2, ArrowRight, Heart } from 'lucide-react'
 
 export default function Proyectos() {
   return (
-    <div className="py-12 sm:py-20 bg-surface-light">
+    <div className="page-art-backdrop py-12 sm:py-20 bg-surface-light">
       {/* ── ENCABEZADO ───────────────────────────────────── */}
-      <section className="mb-16 sm:mb-24">
+      <section className="relative isolate mb-16 overflow-hidden py-5 sm:mb-24 sm:py-7">
+        <img
+          src="/images/marcha del orgullo 2025.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover opacity-45"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-skyLight/65 via-white/65 to-brand-pinkLight/65 dark:from-[#17141f]/75 dark:via-[#211d2a]/70 dark:to-[#34283f]/75" />
         <Container>
           <Reveal>
-            <SectionHeader
-              pill="Nuestras Acciones en Cusco"
-              title={
-                <>
-                  Artivismo y <span className="text-gradient">proyectos colectivos</span>
-                </>
-              }
-              subtitle="Espacios de autogestión en colectividad, arte y vigilancia ciudadana para la comunidad LGTBIQ+."
-              className="max-w-3xl mx-auto text-center"
-            />
+            <div className="graphic-card--stripe relative z-10 mx-auto max-w-4xl rounded-3xl border border-white/85 bg-white/85 px-5 py-8 shadow-xl backdrop-blur-md sm:px-8 sm:py-10 dark:border-white/10 dark:bg-[#211d2a]/90">
+              <SectionHeader
+                pill="Nuestras Acciones en Cusco"
+                title={
+                  <>
+                    Artivismo y <span className="text-gradient">proyectos colectivos</span>
+                  </>
+                }
+                subtitle="Espacios de autogestión en colectividad, arte y vigilancia ciudadana para la comunidad LGTBIQ+."
+                className="max-w-3xl mx-auto text-center"
+              />
+            </div>
           </Reveal>
         </Container>
       </section>
@@ -34,7 +43,7 @@ export default function Proyectos() {
               const isEven = idx % 2 === 0
               return (
                 <Reveal key={prog.id} delay={0.1}>
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-white rounded-3xl p-6 sm:p-10 border border-surface-border shadow-sm hover:shadow-xl hover:border-brand-purpleSoft/40 transition-all duration-300">
+                  <div className="graphic-card--stripe grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-white rounded-3xl p-6 sm:p-10 border border-surface-border shadow-sm hover:shadow-xl hover:border-brand-purpleSoft/40 transition-all duration-300">
                     {/* Imagen del proyecto */}
                     <div className={`lg:col-span-5 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
                       <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group shadow-md bg-white">
@@ -59,7 +68,7 @@ export default function Proyectos() {
                       </p>
 
                       {prog.objetivo && (
-                        <div className="rounded-2xl bg-brand-purpleLight/40 p-4 border border-brand-purpleSoft/30">
+                        <div className="graphic-card rounded-2xl bg-brand-purpleLight/40 p-4 border border-brand-purpleSoft/30">
                           <p className="text-[11px] font-bold uppercase tracking-wider text-brand-purple mb-1 font-display">
                             Propósito
                           </p>
@@ -98,19 +107,29 @@ export default function Proyectos() {
       <section className="mb-16">
         <Container>
           <Reveal>
-            <div className="rounded-3xl bg-brand-dark text-white p-8 sm:p-12 text-center border-2 border-brand-yellowWarm relative overflow-hidden">
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-pink text-brand-dark mb-4 shadow-sm">
-                <Heart size={24} fill="currentColor" />
+            <div className="relative isolate overflow-hidden rounded-3xl border border-brand-yellowWarm/50 shadow-xl">
+              <img
+                src="/images/Feria Informativa LGTBIQ CuidArte en el Colegio San Francisco de Borja.jpg"
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover opacity-60"
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-950/60 via-gray-950/40 to-brand-purple/45" />
+              <div className="relative z-10 m-3 rounded-2xl border border-white/20 bg-gray-950/60 p-6 text-center text-white shadow-xl backdrop-blur-md sm:m-5 sm:p-12">
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-pink text-brand-dark mb-4 shadow-sm">
+                  <Heart size={24} fill="currentColor" />
+                </div>
+                <h3 className="text-2xl sm:text-3xl text-brand-pink font-extrabold font-display mb-3">
+                  ¿Tienes alguna iniciativa o proyecto en mente?
+                </h3>
+                <p className="text-sm sm:text-base text-white/85 max-w-2xl mx-auto mb-6 leading-relaxed font-sans">
+                  Nuestros proyectos y actividades están abiertos a personas de la comunidad LGTBIQ+ que deseen compartir sus artes, oficios y propuestas desde la autoorganización y la colectividad.
+                </p>
+                <Button href="/contacto" size="lg" variant="yellow">
+                  Escríbenos para participar
+                </Button>
               </div>
-              <h3 className="text-2xl sm:text-3xl text-brand-pink font-extrabold font-display mb-3">
-                ¿Tienes alguna iniciativa o proyecto en mente?
-              </h3>
-              <p className="text-sm sm:text-base text-white/80 max-w-2xl mx-auto mb-6 leading-relaxed font-sans">
-                Nuestros proyectos y actividades están abiertos a personas de la comunidad LGTBIQ+ que deseen compartir sus artes, oficios y propuestas desde la autoorganización y la colectividad.
-              </p>
-              <Button href="/contacto" size="lg" variant="yellow">
-                Escríbenos para participar
-              </Button>
             </div>
           </Reveal>
         </Container>

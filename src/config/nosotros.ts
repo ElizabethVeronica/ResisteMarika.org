@@ -35,7 +35,7 @@ export const MISION_VISION = {
     'Nuestra misión y visión se expresan directamente en los objetivos fundamentales que nos unen como colectiva en Cusco.',
   objetivosPrincipales: [
     'Buscamos la satisfacción de los derechos fundamentales de quienes integran la colectiva y de la comunidad, como la salud, el empleo, la educación y la recreación, junto con otras organizaciones afines.',
-    'Fortalecemos las capacidades de quienes son parte de la colectica y la comunidad para aportar en la formulación de políticas públicas en favor de la población',
+    'Fortalecemos las capacidades de quienes son parte de la colectiva y de la comunidad LGTBIQ+ para aportar en la formulación de políticas públicas.',
     'Participamos en los procesos, espacios e instancias de vigilancia ciudadana, concertación y gestión participativa distritales existentes y en aquellos que se instituyan en adelante.',
     'Promovemos e impulsamos proyectos y programas de desarrollo integral con el fin de fortalecer las capacidades de quienes integran la colectiva y de la comunidad en general.',
     'Reconocemos y valoramos el rol y los derechos de la población LGTBIQ+ en las diferentes etapas de su vida, en la organización, en la comunidad y en la sociedad.',
@@ -108,7 +108,7 @@ export const FORMAS_AUTOGESTION = [
   {
     id: 'artivismo',
     titulo: 'Artivismo',
-    descripcion: 'El arte como expresión política y de cuidado: creacion de fanzines, pañuelos, mascaras, musica.',
+    descripcion: 'El arte como expresión política y de cuidado: creación de fanzines, pañuelos, máscaras y música.',
   },
   {
     id: 'talleres',
@@ -154,8 +154,8 @@ export const CON_QUIENES_TRABAJAMOS = {
       descripcion: 'Articulamos con agrupaciones de la diversidad sexual y de género en Cusco.',
     },
     {
-      categoria: 'Organizaciones de mujeres',
-      descripcion: 'Trabajamos junto a colectivas en la defensa de derechos y contra la violencia de género.',
+      categoria: 'Organizaciones comunitarias',
+      descripcion: 'Articulamos con organizaciones locales que fortalecen la defensa de los derechos de la comunidad LGTBIQ+.',
     },
     {
       categoria: 'Espacios de vigilancia ciudadana',
@@ -233,7 +233,7 @@ export const EQUIPO: TeamMember[] = [
 export const ALIANZAS: Alianza[] = [
   { id: '1', nombre: 'Colectivos LGTBIQ+ de Cusco', tipo: 'Articulación Local', logoText: 'CUSCO' },
   { id: '2', nombre: 'Redes Colectivas', tipo: 'Autogestión', logoText: 'RED' },
-  { id: '3', nombre: 'Organizaciones de Mujeres', tipo: 'Defensa de Derechos', logoText: 'MUJERES' },
+  { id: '3', nombre: 'Comunidad', tipo: 'Defensa de Derechos', logoText: 'COMUNIDAD' },
   { id: '4', nombre: 'Creadores y Artivistas', tipo: 'Artistas Independientes', logoText: 'ARTE' },
   { id: '5', nombre: 'Instancias de Vigilancia Ciudadana', tipo: 'Gestión Participativa', logoText: 'VIGILA' },
 ]

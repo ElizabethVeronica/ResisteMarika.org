@@ -35,7 +35,7 @@ function SocialPostCard({ post, platform }: { post: SocialPost; platform: 'Insta
       href={post.url}
       target="_blank"
       rel="noreferrer"
-      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-purple/30 hover:shadow-lg"
+      className="graphic-card group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-purple/30 hover:shadow-lg"
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-brand-purpleLight via-white to-brand-pinkSoft">
         {post.thumbnailUrl ? (
@@ -78,7 +78,7 @@ function SocialPostCard({ post, platform }: { post: SocialPost; platform: 'Insta
 
 function SocialEmptyState({ configured }: { configured: boolean }) {
   return (
-    <div className="rounded-3xl border border-dashed border-brand-purple/25 bg-white/70 px-6 py-10 text-center sm:px-10">
+    <div className="graphic-card rounded-3xl border border-dashed border-brand-purple/25 bg-white/70 px-6 py-10 text-center sm:px-10">
       <p className="font-display text-base font-bold text-brand-dark">
         {configured
           ? 'Todavía no hay publicaciones disponibles.'
@@ -139,19 +139,31 @@ export default function Noticias() {
   const isLoading = feedConfigured && (status === 'idle' || status === 'loading')
 
   return (
-    <div className="bg-surface-light py-12 sm:py-20">
+    <div className="page-art-backdrop bg-surface-light py-12 sm:py-20">
       <section className="mb-14 sm:mb-16">
         <Container>
           <Reveal>
-            <SectionHeader
-              title={
-                <>
-                  Noticias y <span className="text-gradient">comunicados</span>
-                </>
-              }
-              subtitle="Sigue las publicaciones recientes y novedades de Resiste Marika Cusco."
-              className="mx-auto max-w-3xl text-center"
-            />
+            <div className="relative isolate overflow-hidden rounded-3xl border border-brand-purple/15 p-3 shadow-lg sm:p-5">
+              <img
+                src="/images/Piquete Informativo de ETS y Sensibilización Dia Mundial del SIDA.jpg"
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover opacity-60"
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/20 via-brand-pink/15 to-brand-sky/20 dark:from-gray-950/55 dark:via-[#211d2a]/45 dark:to-brand-purple/40" />
+              <div className="relative z-10 rounded-2xl border border-white/80 bg-white/90 px-5 py-8 shadow-xl backdrop-blur-md sm:px-8 sm:py-10 dark:border-white/10 dark:bg-[#211d2a]/90">
+                <SectionHeader
+                  title={
+                    <>
+                      Noticias y <span className="text-gradient">comunicados</span>
+                    </>
+                  }
+                  subtitle="Sigue las publicaciones recientes y novedades de Resiste Marika Cusco."
+                  className="mx-auto max-w-3xl text-center"
+                />
+              </div>
+            </div>
           </Reveal>
         </Container>
       </section>
@@ -228,7 +240,7 @@ export default function Noticias() {
             <div className="mb-7 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
               <SectionHeader
                 eyebrow="TikTok"
-                title="Últimos 3 videos"
+                title="Últimos videos"
                 subtitle="Videos y registros breves de nuestras acciones y encuentros."
                 align="left"
               />
@@ -277,7 +289,7 @@ export default function Noticias() {
               className="mb-7"
               align="left"
             />
-            <div className="rounded-3xl border border-surface-border bg-white px-6 py-10 text-center sm:px-10">
+            <div className="graphic-card--stripe rounded-3xl border border-surface-border bg-white px-6 py-10 text-center sm:px-10">
               <p className="font-display text-base font-bold text-brand-dark">
                 Aún no hay noticias ni comunicados publicados.
               </p>

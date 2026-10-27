@@ -12,38 +12,52 @@ export default function Home() {
   const proyectosPreview = PROGRAMAS.slice(0, 3)
 
   return (
-    <div className="bg-[#FAF9F6] text-gray-900">
+    <div className="page-art-backdrop bg-[#FAF9F6] text-gray-900">
       {/* ── HERO AL ESTILO DERECHOS HUMANOS SIN FRONTERAS ───── */}
       <section className="relative bg-white border-b border-gray-200 py-14 sm:py-20 lg:py-24">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* Texto Principal */}
-            <div className="lg:col-span-7 flex flex-col items-start">
-              <span className="inline-block px-3.5 py-1.5 rounded-md bg-gray-100 text-gray-800 text-xs sm:text-sm font-bold uppercase tracking-wider mb-4 font-display">
-                Cusco, Perú · Fundada el {HISTORIA_RESUMEN.fundacion}
-              </span>
+            <div className="graphic-card relative isolate overflow-hidden rounded-3xl border border-white/85 bg-white/80 p-5 shadow-md backdrop-blur-sm sm:p-7 dark:border-white/10 dark:bg-[#211d2a]/85 lg:col-span-7">
+              <img
+                src="/images/logo png.png"
+                alt=""
+                aria-hidden="true"
+                className="home-hero-logo home-hero-logo--light"
+              />
+              <img
+                src="/images/logo inverso.png"
+                alt=""
+                aria-hidden="true"
+                className="home-hero-logo home-hero-logo--dark"
+              />
+              <div className="relative z-10 flex flex-col items-start">
+                <span className="inline-block px-3.5 py-1.5 rounded-md bg-gray-100 text-gray-800 text-xs sm:text-sm font-bold uppercase tracking-wider mb-4 font-display dark:bg-gray-800 dark:text-gray-100">
+                  Cusco, Perú · Fundada el {HISTORIA_RESUMEN.fundacion}
+                </span>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black font-display text-gray-900 leading-tight tracking-tight mb-5">
-                Resiste Marika
-              </h1>
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black font-display text-gray-900 leading-tight tracking-tight mb-5">
+                  Resiste Marika
+                </h1>
 
-              <p className="text-xl sm:text-2xl font-bold font-display text-brand-purple leading-snug mb-6 border-l-4 border-brand-purple pl-4">
-                {HISTORIA_RESUMEN.sublema}
-              </p>
-
-              <div className="mb-8 max-w-2xl">
-                <p className="text-base sm:text-lg text-gray-700 font-sans leading-relaxed">
-                  Somos una colectiva autoorganizada en Cusco que impulsa espacios de encuentro, arte y defensa de derechos para la comunidad LGTBIQ+.
+                <p className="text-xl sm:text-2xl font-bold font-display text-brand-purple leading-snug mb-6 border-l-4 border-brand-purple pl-4">
+                  {HISTORIA_RESUMEN.sublema}
                 </p>
-              </div>
 
-              <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:gap-3.5">
-                <Button href="/quienes-somos" size="lg" variant="primary" className="w-full sm:w-auto" icon={<ArrowRight size={18} />}>
-                  Quiénes somos y qué hacemos
-                </Button>
-                <Button href="/multimedia" size="lg" variant="outline" className="w-full sm:w-auto">
-                  Ver fotos y multimedia
-                </Button>
+                <div className="mb-8 max-w-2xl">
+                  <p className="text-base sm:text-lg text-gray-700 font-sans leading-relaxed">
+                    Somos una colectiva autoorganizada en Cusco que impulsa espacios de encuentro, arte y defensa de derechos para la comunidad LGTBIQ+.
+                  </p>
+                </div>
+
+                <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:gap-3.5">
+                  <Button href="/quienes-somos" size="lg" variant="primary" className="w-full sm:w-auto" icon={<ArrowRight size={18} />}>
+                    Quiénes somos y qué hacemos
+                  </Button>
+                  <Button href="/multimedia" size="lg" variant="outline" className="w-full sm:w-auto">
+                    Ver fotos y multimedia
+                  </Button>
+                </div>
               </div>
             </div>
 
@@ -81,7 +95,7 @@ export default function Home() {
             {proyectosPreview.map((prog) => (
               <div
                 key={prog.id}
-                className="group flex flex-col rounded-2xl bg-[#FAF9F6] border border-gray-200 overflow-hidden shadow-sm"
+                className="graphic-card group flex flex-col rounded-2xl bg-[#FAF9F6] border border-gray-200 overflow-hidden shadow-sm"
               >
                 <div className="aspect-[16/10] overflow-hidden bg-gray-200">
                   <img
@@ -137,7 +151,7 @@ export default function Home() {
             {noticiasPreview.map((n) => (
               <article
                 key={n.id}
-                className="flex flex-col rounded-2xl bg-white border border-gray-200 overflow-hidden shadow-sm"
+                className="graphic-card flex flex-col rounded-2xl bg-white border border-gray-200 overflow-hidden shadow-sm"
               >
                 <div className="aspect-[16/10] overflow-hidden bg-gray-200">
                   <img src={n.imagen} alt={n.titulo} className="w-full h-full object-cover" />
@@ -160,8 +174,16 @@ export default function Home() {
       </section>
 
       {/* ── LLAMADO A ARTICULAR / CONTACTO ─────────────────── */}
-      <section className="home-network-cta py-16 sm:py-20 bg-gradient-to-br from-brand-skyLight via-white to-brand-purpleLight border-y border-brand-pinkSoft/60">
-        <Container>
+      <section className="home-network-cta relative isolate overflow-hidden border-y border-brand-pinkSoft/60 py-16 sm:py-20">
+        <img
+          src="/images/Marika Fest 2024 - Productos de conscientización.jpg"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover opacity-60"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-skyLight/60 via-white/45 to-brand-purpleLight/60 dark:from-[#17141f]/65 dark:via-[#211d2a]/55 dark:to-[#34283f]/70" />
+        <Container className="relative z-10">
           <div className="home-network-cta__content max-w-3xl mx-auto text-center">
             <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display mb-2 block">
               Red Colectiva en Cusco

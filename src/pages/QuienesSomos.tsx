@@ -51,6 +51,39 @@ const SECTION_LINKS = [
   { id: 'con-quienes-trabajamos', label: 'Con quiénes trabajamos' },
 ]
 
+const ALLIANCE_PALETTES = [
+  {
+    card: 'border-brand-purpleSoft/40 bg-brand-purpleLight/50 dark:bg-[#34283f]',
+    mark: 'text-brand-purple',
+    shape: 'bg-brand-purple/15',
+    stripe: 'bg-brand-purple',
+  },
+  {
+    card: 'border-brand-pink/30 bg-brand-pinkLight/50 dark:bg-[#3c2b35]',
+    mark: 'text-rose-700 dark:text-rose-300',
+    shape: 'bg-brand-pink/20',
+    stripe: 'bg-brand-pink',
+  },
+  {
+    card: 'border-brand-sky/40 bg-brand-skyLight/60 dark:bg-[#263846]',
+    mark: 'text-sky-800 dark:text-sky-200',
+    shape: 'bg-brand-sky/20',
+    stripe: 'bg-brand-sky',
+  },
+  {
+    card: 'border-brand-yellowWarm/50 bg-amber-50/80 dark:bg-[#3b3426]',
+    mark: 'text-amber-800 dark:text-amber-200',
+    shape: 'bg-brand-yellowWarm/25',
+    stripe: 'bg-brand-yellowWarm',
+  },
+  {
+    card: 'border-brand-purpleSoft/40 bg-brand-purpleLight/50 dark:bg-[#34283f]',
+    mark: 'text-brand-purple',
+    shape: 'bg-brand-purple/15',
+    stripe: 'bg-brand-purple',
+  },
+]
+
 export default function QuienesSomos() {
   const sectionMenuRef = useRef<HTMLElement>(null)
   const [activeSection, setActiveSection] = useState('nosotros')
@@ -87,11 +120,18 @@ export default function QuienesSomos() {
   }, [])
 
   return (
-    <div className="bg-[#FAF9F6] text-gray-900">
+    <div className="page-art-backdrop bg-[#FAF9F6] text-gray-900">
       {/* ── ENCABEZADO INSTITUCIONAL ───────────────────────── */}
-      <section className="bg-white border-b border-gray-200 pt-12 pb-8 sm:pt-16 sm:pb-10">
+      <section className="relative isolate mb-6 overflow-hidden border-b border-gray-200 py-5 sm:mb-8 sm:py-7">
+        <img
+          src="/images/Presentacion Fanzine colaborativo Manifiesto Marika Vol1 y Vol2.jpg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover opacity-45"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-skyLight/65 via-white/65 to-brand-pinkLight/65 dark:from-[#17141f]/75 dark:via-[#211d2a]/70 dark:to-[#34283f]/75" />
         <Container>
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="graphic-card relative z-10 mx-auto max-w-4xl rounded-3xl border border-white/85 bg-white/85 px-5 py-8 text-center shadow-xl backdrop-blur-md sm:px-8 sm:py-10 dark:border-white/10 dark:bg-[#211d2a]/90">
             <span className="inline-block px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-brand-purple bg-brand-purpleLight/70 rounded-full mb-4 font-display">
               Asociación Civil Sin Fines de Lucro · Cusco, Perú
             </span>
@@ -112,8 +152,9 @@ export default function QuienesSomos() {
         ref={sectionMenuRef}
         aria-label="Secciones de quiénes somos"
         aria-hidden={nearPageBottom}
-        className={`sticky-section-nav z-[60] mx-auto mt-4 sm:mt-6 mb-4 w-full max-w-full px-4 transition-opacity duration-200 sm:w-fit sm:max-w-[calc(100%-2rem)] sm:px-0 ${nearPageBottom ? 'pointer-events-none opacity-0' : 'opacity-100'
-          }`}
+        className={`sticky-section-nav z-[60] mx-auto mt-4 sm:mt-6 mb-4 w-full max-w-full px-4 transition-opacity duration-200 sm:w-fit sm:max-w-[calc(100%-2rem)] sm:px-0 ${
+          nearPageBottom ? 'pointer-events-none opacity-0' : 'opacity-100'
+        }`}
       >
         <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:justify-center sm:gap-3">
           {SECTION_LINKS.map(({ id, label }) => {
@@ -124,10 +165,11 @@ export default function QuienesSomos() {
                 href={`#${id}`}
                 onClick={() => setActiveSection(id)}
                 aria-current={isActive ? 'location' : undefined}
-                className={`rounded-xl px-2 py-2 text-center text-[11px] sm:px-3 sm:py-1.5 sm:text-xs font-bold transition-all duration-200 ${isActive
+                className={`rounded-xl px-2 py-2 text-center text-[11px] sm:px-3 sm:py-1.5 sm:text-xs font-bold transition-all duration-200 ${
+                  isActive
                     ? 'bg-brand-purple text-white shadow-sm'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
+                }`}
               >
                 {label}
               </a>
@@ -154,7 +196,7 @@ export default function QuienesSomos() {
           {/* Identidad y origen */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start mb-12">
             <div className="lg:col-span-7 space-y-4 text-base text-gray-700 font-sans leading-relaxed">
-              <p className="rounded-2xl border-l-4 border-brand-purple bg-brand-purpleLight/40 px-5 py-4 font-semibold text-gray-900">
+              <p className="graphic-card rounded-2xl border-l-4 border-brand-purple bg-brand-purpleLight/40 px-5 py-4 font-semibold text-gray-900">
                 {HISTORIA_RESUMEN.declaracionInicial}
               </p>
               <p>{HISTORIA_RESUMEN.parrafo1}</p>
@@ -166,7 +208,7 @@ export default function QuienesSomos() {
                 <p>{HISTORIA_RESUMEN.parrafo2}</p>
               </div>
 
-              <p className="rounded-2xl bg-white border border-gray-200 px-5 py-4 font-medium text-gray-900">
+              <p className="graphic-card rounded-2xl bg-white border border-gray-200 px-5 py-4 font-medium text-gray-900">
                 {HISTORIA_RESUMEN.parrafo3}
               </p>
             </div>
@@ -180,7 +222,7 @@ export default function QuienesSomos() {
                 />
               </div>
 
-              <div className="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm">
+              <div className="graphic-card bg-white p-5 rounded-2xl border border-gray-200 shadow-sm">
                 <h3 className="font-display font-extrabold text-base sm:text-lg text-gray-900 mb-3 pb-2 border-b border-gray-100">
                   Ficha de la Organización
                 </h3>
@@ -215,7 +257,7 @@ export default function QuienesSomos() {
           </div>
 
           {/* El arte y la batucada */}
-          <div className="bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 mb-12 shadow-sm">
+          <div className="graphic-card--stripe bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 mb-12 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-8">
               <div className="lg:col-span-7">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-skyLight text-gray-800 text-xs font-bold mb-3 font-display">
@@ -247,7 +289,7 @@ export default function QuienesSomos() {
             {/* Cuadrícula de disciplinas */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-6 border-t border-gray-100">
               {DISCIPLINAS.map((d) => (
-                <div key={d.nombre} className="p-4 rounded-xl bg-gray-50 border border-gray-200/80">
+                <div key={d.nombre} className="graphic-card p-4 rounded-xl bg-gray-50 border border-gray-200/80">
                   <h4 className="font-bold text-sm text-gray-900 font-display">{d.nombre}</h4>
                   <p className="text-sm text-gray-600 mt-1 font-sans leading-relaxed">{d.descripcion}</p>
                 </div>
@@ -264,7 +306,7 @@ export default function QuienesSomos() {
               {FORMAS_AUTOGESTION.map((f) => (
                 <div
                   key={f.id}
-                  className="p-5 rounded-2xl bg-white border border-gray-200 flex flex-col justify-between shadow-sm"
+                  className="graphic-card p-5 rounded-2xl bg-white border border-gray-200 flex flex-col justify-between shadow-sm"
                 >
                   <div>
                     <h4 className="font-display font-bold text-base text-gray-900 mb-2">
@@ -297,7 +339,7 @@ export default function QuienesSomos() {
           </Reveal>
 
           {/* Bloque Central de Misión y Visión */}
-          <div className="p-8 sm:p-10 rounded-2xl bg-gray-50 border border-gray-200 mb-14">
+          <div className="graphic-card--stripe p-8 sm:p-10 rounded-2xl bg-gray-50 border border-gray-200 mb-14">
             <span className="inline-block px-3 py-1 rounded-md bg-gray-900 text-white text-xs font-bold uppercase tracking-wider mb-4 font-display">
               Nuestra Misión y Visión
             </span>
@@ -306,7 +348,7 @@ export default function QuienesSomos() {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm sm:text-base text-gray-700 font-sans leading-relaxed">
               {MISION_VISION.objetivosPrincipales.map((item, idx) => (
-                <div key={idx} className="p-4 rounded-xl bg-white border border-gray-200/80 flex items-start gap-3 shadow-sm">
+                <div key={idx} className="graphic-card p-4 rounded-xl bg-white border border-gray-200/80 flex items-start gap-3 shadow-sm">
                   <span className="font-display font-black text-brand-purple text-base shrink-0">
                     0{idx + 1}.
                   </span>
@@ -335,7 +377,7 @@ export default function QuienesSomos() {
                 return (
                   <div
                     key={obj.id}
-                    className="p-6 rounded-2xl bg-white border border-gray-200 hover:border-gray-400 transition-colors flex flex-col justify-between shadow-sm"
+                    className="graphic-card p-6 rounded-2xl bg-white border border-gray-200 hover:border-gray-400 transition-colors flex flex-col justify-between shadow-sm"
                   >
                     <div>
                       <div className="flex items-center justify-between mb-4">
@@ -380,7 +422,7 @@ export default function QuienesSomos() {
           </Reveal>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
-            <div className="lg:col-span-5 bg-white p-5 sm:p-6 rounded-2xl border border-gray-200 shadow-sm space-y-4">
+            <div className="graphic-card--stripe lg:col-span-5 bg-white p-5 sm:p-6 rounded-2xl border border-gray-200 shadow-sm space-y-4">
               <div className="aspect-[16/9] rounded-xl overflow-hidden bg-gray-100 border border-gray-200">
                 <img
                   src="/images/marcha del orgullo 2025.png"
@@ -412,7 +454,7 @@ export default function QuienesSomos() {
                 return (
                   <div
                     key={esp.titulo}
-                    className="h-full p-5 rounded-2xl bg-white border border-gray-200 flex flex-col shadow-sm"
+                    className="graphic-card h-full p-5 rounded-2xl bg-white border border-gray-200 flex flex-col shadow-sm"
                   >
                     <h4 className="font-display font-bold text-base text-gray-900 mb-2">
                       {esp.titulo}
@@ -453,7 +495,7 @@ export default function QuienesSomos() {
             {CON_QUIENES_TRABAJAMOS.redes.map((red) => (
               <div
                 key={red.categoria}
-                className="p-6 rounded-2xl bg-gray-50 border border-gray-200 flex flex-col justify-between"
+                className="graphic-card p-6 rounded-2xl bg-gray-50 border border-gray-200 flex flex-col justify-between"
               >
                 <div>
                   <h4 className="font-display font-bold text-base text-gray-900 mb-2">
@@ -473,32 +515,58 @@ export default function QuienesSomos() {
               Redes y plataformas afines en Cusco
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-              {ALIANZAS.map((a) => (
+              {ALIANZAS.map((a, index) => {
+                const palette = ALLIANCE_PALETTES[index % ALLIANCE_PALETTES.length]
+                return (
                 <div
                   key={a.id}
-                  className="p-4 rounded-xl border border-gray-200 bg-white text-center hover:border-gray-300 transition-colors"
+                  className={`group relative isolate flex min-h-36 flex-col justify-between overflow-hidden rounded-2xl border p-4 text-left shadow-sm transition-all hover:-translate-y-1 hover:shadow-md ${palette.card}`}
                 >
-                  <p className="font-bold text-xs text-gray-800 font-display">{a.nombre}</p>
-                  <p className="text-[10px] text-gray-500 mt-0.5">{a.tipo}</p>
+                  <span
+                    aria-hidden="true"
+                    className={`absolute -right-5 -top-6 h-20 w-20 rounded-full ${palette.shape}`}
+                  />
+                  <span
+                    aria-hidden="true"
+                    className={`absolute -bottom-8 -left-5 h-16 w-16 rotate-45 rounded-xl ${palette.shape}`}
+                  />
+                  <span className={`relative z-10 inline-flex w-fit rounded-full bg-white/70 px-2.5 py-1 text-[11px] font-black uppercase tracking-wider dark:bg-black/15 ${palette.mark}`}>
+                    {a.logoText}
+                  </span>
+                  <div className="relative z-10 mt-4">
+                    <p className="font-bold text-xs text-gray-800 font-display">{a.nombre}</p>
+                    <p className="text-[11px] text-gray-500 mt-0.5">{a.tipo}</p>
+                  </div>
                 </div>
-              ))}
+                )
+              })}
             </div>
           </div>
 
           {/* Llamado final a colaborar */}
-          <div className="mt-10 p-8 rounded-2xl bg-gray-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div>
-              <h3 className="text-xl font-bold font-display text-brand-yellowWarm">
-                ¿Deseas articular acciones o sumar tu proyecto?
-              </h3>
-              <p className="text-xs sm:text-sm text-gray-300 font-sans mt-1">
-                Escríbenos a nuestro correo oficial <span className="text-white underline">resistemarik@gmail.com</span> o comunícate a través de nuestras redes.
-              </p>
-            </div>
-            <div className="flex gap-3">
-              <Button href="/contacto" variant="primary" icon={<ArrowRight size={16} />}>
-                Contáctanos
-              </Button>
+          <div className="relative isolate mt-10 overflow-hidden rounded-3xl border border-brand-purple/20 shadow-lg">
+            <img
+              src="/images/taller de pañuelos 28s.jpg"
+              alt=""
+              aria-hidden="true"
+              loading="lazy"
+              className="absolute inset-0 h-full w-full object-cover opacity-60"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-gray-950/65 via-gray-950/45 to-brand-purple/45" />
+            <div className="relative z-10 m-3 flex flex-col items-center justify-between gap-6 rounded-2xl border border-white/20 bg-gray-950/65 p-6 text-center text-white shadow-xl backdrop-blur-md sm:m-5 sm:flex-row sm:p-8 sm:text-left">
+              <div>
+                <h3 className="text-xl font-bold font-display text-brand-yellowWarm">
+                  ¿Deseas articular acciones o sumar tu proyecto?
+                </h3>
+                <p className="text-xs sm:text-sm text-white/80 font-sans mt-1">
+                  Escríbenos a nuestro correo oficial <span className="text-white underline">resistemarik@gmail.com</span> o comunícate a través de nuestras redes.
+                </p>
+              </div>
+              <div className="flex gap-3">
+                <Button href="/contacto" variant="primary" icon={<ArrowRight size={16} />}>
+                  Contáctanos
+                </Button>
+              </div>
             </div>
           </div>
         </Container>

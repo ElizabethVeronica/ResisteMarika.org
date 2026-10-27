@@ -136,7 +136,7 @@ export default function Footer() {
                 Mensaje enviado. ¡Gracias por escribirnos!
               </div>
             ) : (
-              <form onSubmit={handleContactSubmit} className="flex flex-col gap-3" aria-label="Formulario de contacto rápido">
+              <form onSubmit={handleContactSubmit} className="graphic-card--stripe flex flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-5" aria-label="Formulario de contacto rápido">
                 <input type="text" name="_honey" className="hidden" tabIndex={-1} />
                 <input type="hidden" name="_captcha" value="false" />
                 <div>

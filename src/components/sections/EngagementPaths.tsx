@@ -7,42 +7,52 @@ import { ENGAGEMENT_PATHS } from '@/config/engagement'
 /** Tres caminos claros de acción (patrón Amnesty / ILGA) */
 export default function EngagementPaths() {
   return (
-    <section className="py-14 sm:py-20 bg-[#FAF9F6] border-b border-gray-200">
-      <Container>
-        <SectionHeader
-          align="center"
-          eyebrow="Cómo puedes involucrarte"
-          title="Acompáñanos"
-          subtitle="Organizamos con varias colectivas, animate a participar con nosotres y contactanos"
-          className="mb-10 max-w-2xl mx-auto"
-        />
+    <section className="relative isolate overflow-hidden border-b border-gray-200 py-14 sm:py-20">
+      <img
+        src="/images/3er Reencuentro Plurisexual en La Paz, Bolivia 2025.jpg"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        className="absolute inset-0 h-full w-full object-cover opacity-60"
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-white/65 via-white/50 to-brand-purpleLight/55 dark:from-[#17141f]/70 dark:via-[#17141f]/60 dark:to-[#34283f]/70" />
+      <Container className="relative z-10">
+        <div className="rounded-3xl border border-white/85 bg-white/85 p-5 shadow-xl backdrop-blur-md sm:p-8 dark:border-white/10 dark:bg-[#211d2a]/90">
+          <SectionHeader
+            align="center"
+            eyebrow="Cómo puedes involucrarte"
+            title="Acompáñanos"
+            subtitle="Nos organizamos con colectivas aliadas. Anímate a participar con nosotres y contáctanos."
+            className="mb-10 max-w-2xl mx-auto"
+          />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {ENGAGEMENT_PATHS.map((path, index) => (
-            <Link
-              key={path.id}
-              to={path.href}
-              className="group flex flex-col h-full rounded-2xl bg-white border border-gray-200 p-6 shadow-sm hover:border-brand-purple/40 hover:shadow-md transition-all"
-            >
-              <span className="text-xs font-black font-display text-gray-300 mb-3">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-              <h3 className="font-display font-bold text-lg text-gray-900 mb-2 group-hover:text-brand-purple transition-colors">
-                {path.titulo}
-              </h3>
-              <p className="text-sm text-gray-600 font-sans leading-relaxed flex-1">{path.descripcion}</p>
-              {path.tiempo && (
-                <p className="mt-4 flex items-center gap-1.5 text-[11px] text-gray-500 font-medium">
-                  <Clock size={12} aria-hidden />
-                  {path.tiempo}
-                </p>
-              )}
-              <span className="mt-5 inline-flex items-center gap-1 text-sm font-bold text-brand-purple">
-                {path.cta}
-                <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
-              </span>
-            </Link>
-          ))}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {ENGAGEMENT_PATHS.map((path, index) => (
+              <Link
+                key={path.id}
+                to={path.href}
+                className="graphic-card group flex flex-col h-full rounded-2xl bg-white/90 border border-gray-200 p-6 shadow-sm hover:border-brand-purple/40 hover:shadow-md transition-all dark:bg-[#211d2a]/90"
+              >
+                <span className="text-xs font-black font-display text-gray-300 mb-3">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <h3 className="font-display font-bold text-lg text-gray-900 mb-2 group-hover:text-brand-purple transition-colors">
+                  {path.titulo}
+                </h3>
+                <p className="text-sm text-gray-600 font-sans leading-relaxed flex-1">{path.descripcion}</p>
+                {path.tiempo && (
+                  <p className="mt-4 flex items-center gap-1.5 text-[11px] text-gray-500 font-medium">
+                    <Clock size={12} aria-hidden />
+                    {path.tiempo}
+                  </p>
+                )}
+                <span className="mt-5 inline-flex items-center gap-1 text-sm font-bold text-brand-purple">
+                  {path.cta}
+                  <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
+                </span>
+              </Link>
+            ))}
+          </div>
         </div>
       </Container>
     </section>

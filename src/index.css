@@ -75,7 +75,7 @@
 @layer base {
   html {
     @apply scroll-smooth antialiased;
-    font-size: 17.5px;
+    font-size: 18.5px;
   }
 
   body {
@@ -149,6 +149,35 @@
     position: sticky;
     top: calc(var(--site-header-height, 7rem) + 0.5rem);
   }
+
+  .graphic-card {
+    background-image:
+      linear-gradient(115deg, rgb(196 161 222 / 0.12), transparent 56%),
+      radial-gradient(circle at 100% 0, rgb(236 119 165 / 0.14) 0 4.5rem, transparent 4.6rem),
+      radial-gradient(circle at 0 100%, rgb(91 199 233 / 0.12) 0 2.8rem, transparent 2.9rem);
+    background-repeat: no-repeat;
+  }
+
+  .graphic-card--stripe {
+    background-image:
+      linear-gradient(90deg, #9b64bc 0%, #ed8eaf 50%, #5bc7e9 100%),
+      linear-gradient(115deg, rgb(196 161 222 / 0.12), transparent 56%),
+      radial-gradient(circle at 100% 0, rgb(236 119 165 / 0.14) 0 4.5rem, transparent 4.6rem),
+      radial-gradient(circle at 0 100%, rgb(91 199 233 / 0.12) 0 2.8rem, transparent 2.9rem);
+    background-position: top left, top left, top right, bottom left;
+    background-size: 100% 4px, auto, auto, auto;
+    background-repeat: no-repeat;
+  }
+
+  .page-art-backdrop {
+    background-image:
+      radial-gradient(ellipse at 8% 10%, rgb(155 100 188 / 0.13), transparent 26rem),
+      radial-gradient(ellipse at 92% 38%, rgb(91 199 233 / 0.11), transparent 24rem),
+      radial-gradient(ellipse at 18% 82%, rgb(237 142 175 / 0.12), transparent 28rem),
+      repeating-linear-gradient(135deg, transparent 0 48px, rgb(155 100 188 / 0.025) 49px 50px, transparent 51px 104px);
+    background-attachment: fixed;
+    background-repeat: no-repeat, no-repeat, no-repeat, repeat;
+  }
 }
 
 @media (min-width: 640px) {
@@ -166,6 +195,35 @@ html.dark {
   position: absolute;
   inset: 0;
   transition: opacity 360ms ease;
+}
+
+.home-hero-logo {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  right: -1rem;
+  width: min(58%, 22rem);
+  height: 90%;
+  object-fit: contain;
+  object-position: center;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.home-hero-logo--light {
+  opacity: 0.17;
+}
+
+.home-hero-logo--dark {
+  opacity: 0;
+}
+
+.dark .home-hero-logo--light {
+  opacity: 0;
+}
+
+.dark .home-hero-logo--dark {
+  opacity: 0.15;
 }
 
 .site-logo--dark {
@@ -373,6 +431,29 @@ html.dark {
   border-color: rgb(58 52 67 / 0.85);
 }
 
+.dark .graphic-card {
+  background-image:
+    linear-gradient(115deg, rgb(195 155 227 / 0.10), transparent 56%),
+    radial-gradient(circle at 100% 0, rgb(236 119 165 / 0.12) 0 4.5rem, transparent 4.6rem),
+    radial-gradient(circle at 0 100%, rgb(91 199 233 / 0.10) 0 2.8rem, transparent 2.9rem);
+}
+
+.dark .graphic-card--stripe {
+  background-image:
+    linear-gradient(90deg, #9b64bc 0%, #ed8eaf 50%, #5bc7e9 100%),
+    linear-gradient(115deg, rgb(195 155 227 / 0.10), transparent 56%),
+    radial-gradient(circle at 100% 0, rgb(236 119 165 / 0.12) 0 4.5rem, transparent 4.6rem),
+    radial-gradient(circle at 0 100%, rgb(91 199 233 / 0.10) 0 2.8rem, transparent 2.9rem);
+}
+
+.dark .page-art-backdrop {
+  background-image:
+    radial-gradient(ellipse at 8% 10%, rgb(195 155 227 / 0.13), transparent 26rem),
+    radial-gradient(ellipse at 92% 38%, rgb(91 199 233 / 0.09), transparent 24rem),
+    radial-gradient(ellipse at 18% 82%, rgb(237 142 175 / 0.10), transparent 28rem),
+    repeating-linear-gradient(135deg, transparent 0 48px, rgb(195 155 227 / 0.025) 49px 50px, transparent 51px 104px);
+}
+
 .dark input,
 .dark textarea,
 .dark select {
@@ -417,6 +498,15 @@ html.dark {
   text-decoration-color: rgb(210 184 240 / 0.65);
 }
 
+.home-network-cta__content {
+  padding: 2rem 1.5rem;
+  border: 1px solid rgb(255 255 255 / 0.9);
+  border-radius: 1.75rem;
+  background: rgb(255 255 255 / 0.84);
+  box-shadow: 0 24px 70px rgb(34 24 48 / 0.14);
+  backdrop-filter: blur(12px);
+}
+
 .theme-transition,
 .theme-transition * {
   transition-property: background-color, color, border-color, box-shadow, opacity;
@@ -432,6 +522,24 @@ html.dark {
 }
 
 @media (max-width: 639px) {
+  .home-hero-logo {
+    right: -0.5rem;
+    width: 52%;
+    height: 75%;
+  }
+
+  .home-hero-logo--light {
+    opacity: 0.08;
+  }
+
+  .dark .home-hero-logo--dark {
+    opacity: 0.08;
+  }
+
+  .home-network-cta__content {
+    padding: 1.75rem 1rem;
+  }
+
   .dark .home-network-cta__content {
     padding: 1.75rem 1rem;
   }

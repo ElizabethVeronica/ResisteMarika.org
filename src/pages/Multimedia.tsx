@@ -61,11 +61,18 @@ export default function Multimedia() {
   }, [])
 
   return (
-    <div className="bg-[#FAF9F6] text-gray-900 pb-20 sm:pb-28">
+    <div className="page-art-backdrop bg-[#FAF9F6] text-gray-900 pb-20 sm:pb-28">
       {/* ── ENCABEZADO DE PÁGINA ──────────────────────────── */}
-      <section className="bg-white border-b border-gray-200 pt-12 pb-8 sm:pt-16 sm:pb-10">
+      <section className="relative isolate overflow-hidden border-b border-gray-200 py-5 sm:py-7">
+        <img
+          src="/images/Marika Fest 2024 - Productos de conscientización.jpg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover opacity-45"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-skyLight/65 via-white/65 to-brand-pinkLight/65 dark:from-[#17141f]/75 dark:via-[#211d2a]/70 dark:to-[#34283f]/75" />
         <Container>
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="graphic-card--stripe relative z-10 max-w-4xl mx-auto rounded-3xl border border-white/85 bg-white/85 px-5 py-8 text-center shadow-xl backdrop-blur-md sm:px-8 sm:py-10 dark:border-white/10 dark:bg-[#211d2a]/90">
             <span className="inline-block px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-brand-purple bg-brand-purpleLight/70 rounded-full mb-3 font-display">
               Registro Vivo · Resiste Marika Cusco
             </span>
@@ -140,7 +147,7 @@ export default function Multimedia() {
                     initial={{ opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: Math.min(idx * 0.025, 0.3) }}
-                    className="group bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-300 flex flex-col justify-between h-full"
+                    className="graphic-card group bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-300 flex flex-col justify-between h-full"
                   >
                     <button
                       type="button"

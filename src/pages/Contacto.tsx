@@ -39,20 +39,29 @@ export default function Contacto() {
   }
 
   return (
-    <div className="bg-surface-light py-8 sm:py-10">
+    <div className="page-art-backdrop bg-surface-light py-8 sm:py-10">
       {/* ── ENCABEZADO ───────────────────────────────────── */}
-      <section className="mb-8 sm:mb-10">
+      <section className="relative isolate mb-8 overflow-hidden py-4 sm:mb-10 sm:py-6">
+        <img
+          src="/images/taller de batucada.jpg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover opacity-40"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-skyLight/70 via-white/65 to-brand-pinkLight/70 dark:from-[#17141f]/75 dark:via-[#211d2a]/70 dark:to-[#34283f]/75" />
         <Container>
           <Reveal>
-            <SectionHeader
-              title={
-                <>
-                  Ponte en contacto con <span className="text-gradient">nosotres</span>
-                </>
-              }
-              subtitle="Escríbenos para participar en nuestras ferias, coordinar talleres, proponer actividades colectivas."
-              className="max-w-3xl mx-auto text-center"
-            />
+            <div className="graphic-card relative z-10 mx-auto max-w-4xl rounded-3xl border border-white/85 bg-white/85 px-5 py-7 shadow-xl backdrop-blur-md sm:px-8 sm:py-9 dark:border-white/10 dark:bg-[#211d2a]/90">
+              <SectionHeader
+                title={
+                  <>
+                    Ponte en contacto con <span className="text-gradient">nosotres</span>
+                  </>
+                }
+                subtitle="Escríbenos para participar en nuestras ferias, coordinar talleres, proponer actividades colectivas."
+                className="max-w-3xl mx-auto text-center"
+              />
+            </div>
           </Reveal>
         </Container>
       </section>
@@ -64,7 +73,7 @@ export default function Contacto() {
             {/* Formulario */}
             <div className="lg:col-span-7">
               <Reveal direction="left">
-                <div className="bg-white rounded-3xl p-5 sm:p-7 border border-surface-border shadow-md">
+                <div className="graphic-card--stripe bg-white rounded-3xl p-5 sm:p-7 border border-surface-border shadow-md">
                   {state === 'success' ? (
                     <div className="flex flex-col items-center justify-center gap-4 py-12 text-center">
                       <div className="h-16 w-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center">
@@ -163,9 +172,17 @@ export default function Contacto() {
             </div>
 
             {/* Canales Directos & Info */}
-            <div className="lg:col-span-5 flex flex-col gap-6 justify-between">
+            <div className="relative isolate flex flex-col justify-between gap-6 lg:col-span-5">
+              <img
+                src="/images/Rezo a Chuquichinchay y Ritual de cosecha en Otoño.jpg"
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                className="absolute inset-2 h-[calc(100%-1rem)] w-[calc(100%-1rem)] rounded-[2rem] object-cover opacity-50"
+              />
+              <div className="absolute inset-2 rounded-[2rem] bg-gradient-to-br from-brand-purple/30 via-brand-pink/20 to-brand-sky/30 dark:from-gray-950/60 dark:via-gray-950/45 dark:to-brand-purple/40" />
               <Reveal direction="right" delay={0.1}>
-                <div className="bg-white rounded-3xl p-5 sm:p-7 border border-surface-border shadow-md flex flex-col gap-4">
+                <div className="relative z-10 rounded-3xl border border-white/80 bg-white/90 p-5 shadow-xl backdrop-blur-md flex flex-col gap-4 sm:p-7 dark:border-white/10 dark:bg-[#211d2a]/90">
                   <div>
                     <h3 className="font-display font-extrabold text-xl text-brand-dark mb-1">
                       Canales de Contacto
