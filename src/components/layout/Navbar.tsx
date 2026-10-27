@@ -88,7 +88,7 @@ export default function Navbar() {
                 className="site-logo--light w-full h-full object-contain object-bottom"
               />
               <img
-                src="/images/logo morado blanco.jpg"
+                src="/images/logo inverso.png"
                 alt=""
                 aria-hidden="true"
                 className="site-logo--dark w-full h-full object-contain object-bottom"
@@ -120,7 +120,7 @@ export default function Navbar() {
                   className="site-logo--light w-full h-full object-contain object-bottom"
                 />
                 <img
-                  src="/images/logo morado blanco.jpg"
+                  src="/images/logo inverso.png"
                   alt=""
                   aria-hidden="true"
                   className="site-logo--dark w-full h-full object-contain object-bottom"

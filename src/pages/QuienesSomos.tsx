@@ -112,9 +112,8 @@ export default function QuienesSomos() {
         ref={sectionMenuRef}
         aria-label="Secciones de quiénes somos"
         aria-hidden={nearPageBottom}
-        className={`sticky-section-nav z-[60] mx-auto mt-4 sm:mt-6 mb-4 w-full max-w-full px-4 transition-opacity duration-200 sm:w-fit sm:max-w-[calc(100%-2rem)] sm:px-0 ${
-          nearPageBottom ? 'pointer-events-none opacity-0' : 'opacity-100'
-        }`}
+        className={`sticky-section-nav z-[60] mx-auto mt-4 sm:mt-6 mb-4 w-full max-w-full px-4 transition-opacity duration-200 sm:w-fit sm:max-w-[calc(100%-2rem)] sm:px-0 ${nearPageBottom ? 'pointer-events-none opacity-0' : 'opacity-100'
+          }`}
       >
         <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:justify-center sm:gap-3">
           {SECTION_LINKS.map(({ id, label }) => {
@@ -125,11 +124,10 @@ export default function QuienesSomos() {
                 href={`#${id}`}
                 onClick={() => setActiveSection(id)}
                 aria-current={isActive ? 'location' : undefined}
-                className={`rounded-xl px-2 py-2 text-center text-[11px] sm:px-3 sm:py-1.5 sm:text-xs font-bold transition-all duration-200 ${
-                  isActive
+                className={`rounded-xl px-2 py-2 text-center text-[11px] sm:px-3 sm:py-1.5 sm:text-xs font-bold transition-all duration-200 ${isActive
                     ? 'bg-brand-purple text-white shadow-sm'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
+                  }`}
               >
                 {label}
               </a>
@@ -260,7 +258,7 @@ export default function QuienesSomos() {
           {/* Formas de Autogestión (4 formas) */}
           <div>
             <h3 className="text-xl sm:text-2xl font-bold font-display text-gray-900 mb-4">
-              Mecanismos reales de autogestión
+              Mecanismos de autogestión
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {FORMAS_AUTOGESTION.map((f) => (

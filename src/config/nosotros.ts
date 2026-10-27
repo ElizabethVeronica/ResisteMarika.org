@@ -26,8 +26,6 @@ export const DISCIPLINAS = [
   { nombre: 'Música & Batucada', descripcion: 'Compramos nuestros tambores para salir a marchar y performar en las calles del Cusco.' },
   { nombre: 'Ilustración & Artes Visuales', descripcion: 'Creamos gráfica disidente, zines y afiches para comunicar nuestras luchas.' },
   { nombre: 'Escritura & Poesía', descripcion: 'Escribimos textos, manifiestos y relatos desde nuestras vivencias marikas racializadas.' },
-  { nombre: 'Tejido & Arte Textil', descripcion: 'Tejemos con técnicas tradicionales como memoria y resistencia viva.' },
-  { nombre: 'Actuación, Escultura & Danza', descripcion: 'Usamos el cuerpo, el movimiento y la escena pública para cuestionar el racismo y el patriarcado.' },
   { nombre: 'Arteterapia', descripcion: 'Facilitamos espacios de cuidado, expresión y sanación colectiva entre nosotres.' },
 ]
 
@@ -37,11 +35,11 @@ export const MISION_VISION = {
     'Nuestra misión y visión se expresan directamente en los objetivos fundamentales que nos unen como colectiva en Cusco.',
   objetivosPrincipales: [
     'Buscamos la satisfacción de los derechos fundamentales de quienes integran la colectiva y de la comunidad, como la salud, el empleo, la educación y la recreación, junto con otras organizaciones afines.',
-    'Fortalecemos las capacidades de quienes integran la colectiva para aportar en la formulación de políticas públicas en favor de la comunidad.',
+    'Fortalecemos las capacidades de quienes son parte de la colectica y la comunidad para aportar en la formulación de políticas públicas en favor de la población',
     'Participamos en los procesos, espacios e instancias de vigilancia ciudadana, concertación y gestión participativa distritales existentes y en aquellos que se instituyan en adelante.',
     'Promovemos e impulsamos proyectos y programas de desarrollo integral con el fin de fortalecer las capacidades de quienes integran la colectiva y de la comunidad en general.',
-    'Reconocemos y valoramos el rol y los derechos de la población LGTBIQ+ y de las mujeres en las diferentes etapas del desarrollo de la vida, en la organización, en la comunidad y en la sociedad.',
-    'Impulsamos la creación, el fortalecimiento y coordinación permanente con organizaciones afines y superiores estatales y privadas de ámbito nacional e internacional.',
+    'Reconocemos y valoramos el rol y los derechos de la población LGTBIQ+ en las diferentes etapas de su vida, en la organización, en la comunidad y en la sociedad.',
+    'Impulsamos la creación, el fortalecimiento y coordinación permanente con organizaciones afines de ámbito nacional e internacional.',
   ],
 }
 
@@ -84,7 +82,7 @@ export const OBJETIVOS_ESTRATEGICOS = [
     titulo: 'Reconocimiento y Derechos',
     descripcion: MISION_VISION.objetivosPrincipales[4],
     icono: 'Users',
-    enfoque: 'Comunidad y Mujeres',
+    enfoque: 'Comunidad',
   },
   {
     id: 'articulacion',
@@ -105,12 +103,12 @@ export const FORMAS_AUTOGESTION = [
   {
     id: 'ferias',
     titulo: 'Ferias',
-    descripcion: 'Organizamos y participamos en ferias colectivas donde compartimos y comercializamos nuestras creaciones.',
+    descripcion: 'Organizamos y participamos en ferias colectivas donde compartimos y vendemos nuestras creaciones.',
   },
   {
     id: 'artivismo',
     titulo: 'Artivismo',
-    descripcion: 'El arte como trinchera y expresión política: fanzines, gráfica, música y performance en las calles.',
+    descripcion: 'El arte como expresión política y de cuidado: creacion de fanzines, pañuelos, mascaras, musica.',
   },
   {
     id: 'talleres',
@@ -236,6 +234,6 @@ export const ALIANZAS: Alianza[] = [
   { id: '1', nombre: 'Colectivos LGTBIQ+ de Cusco', tipo: 'Articulación Local', logoText: 'CUSCO' },
   { id: '2', nombre: 'Redes Colectivas', tipo: 'Autogestión', logoText: 'RED' },
   { id: '3', nombre: 'Organizaciones de Mujeres', tipo: 'Defensa de Derechos', logoText: 'MUJERES' },
-  { id: '4', nombre: 'Creadores y Artivistas', tipo: 'Artes Independientes', logoText: 'ARTE' },
+  { id: '4', nombre: 'Creadores y Artivistas', tipo: 'Artistas Independientes', logoText: 'ARTE' },
   { id: '5', nombre: 'Instancias de Vigilancia Ciudadana', tipo: 'Gestión Participativa', logoText: 'VIGILA' },
 ]
