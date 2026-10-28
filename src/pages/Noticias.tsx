@@ -149,10 +149,10 @@ export default function Noticias() {
                 alt=""
                 aria-hidden="true"
                 loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover opacity-60"
+                className="absolute inset-0 h-full w-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-purple/20 via-brand-pink/15 to-brand-sky/20 dark:from-gray-950/55 dark:via-[#211d2a]/45 dark:to-brand-purple/40" />
-              <div className="relative z-10 rounded-2xl border border-white/80 bg-white/90 px-5 py-8 shadow-xl backdrop-blur-md sm:px-8 sm:py-10 dark:border-white/10 dark:bg-[#211d2a]/90">
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-950/80 via-gray-900/65 to-brand-purple/55 dark:from-gray-950/88 dark:via-[#211d2a]/80 dark:to-brand-purple/60" />
+              <div className="relative z-10 rounded-2xl border border-white/20 bg-white/90 px-5 py-8 shadow-xl backdrop-blur-md sm:px-8 sm:py-10 dark:border-white/10 dark:bg-[#211d2a]/90">
                 <SectionHeader
                   title={
                     <>

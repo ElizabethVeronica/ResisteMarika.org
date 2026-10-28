@@ -16,7 +16,7 @@ export default function Proyectos() {
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover opacity-45"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-skyLight/65 via-white/65 to-brand-pinkLight/65 dark:from-[#17141f]/75 dark:via-[#211d2a]/70 dark:to-[#34283f]/75" />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-950/80 via-gray-900/65 to-brand-purple/50 dark:from-gray-950/88 dark:via-[#211d2a]/80 dark:to-brand-purple/60" />
         <Container>
           <Reveal>
             <div className="graphic-card--stripe relative z-10 mx-auto max-w-4xl rounded-3xl border border-white/85 bg-white/85 px-5 py-8 shadow-xl backdrop-blur-md sm:px-8 sm:py-10 dark:border-white/10 dark:bg-[#211d2a]/90">

@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { Link } from 'react-router-dom'
-import { Mail, Heart, Sparkles, MapPin, Send, CheckCircle } from 'lucide-react'
+import { Mail, Sparkles, MapPin, Send, CheckCircle } from 'lucide-react'
 import { FaInstagram } from 'react-icons/fa'
 import { FaTiktok } from 'react-icons/fa6'
 import Container from '@/components/ui/Container'
@@ -201,11 +201,8 @@ export default function Footer() {
         </div>
 
         {/* Barra Inferior */}
-        <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60 font-sans">
-          <p>© {year} Resiste Marika. Asociación Civil Sin Fines de Lucro.</p>
-          <p className="flex items-center gap-1.5 font-medium">
-            Colectividad, artivismo y ternura radical <Heart size={12} className="text-brand-pink fill-brand-pink" />
-          </p>
+        <div className="pt-6 sm:pt-8 flex items-center justify-center gap-4 text-xs text-white/60 font-sans">
+          <p>© {year} Resiste Marika.</p>
         </div>
       </Container>
     </footer>

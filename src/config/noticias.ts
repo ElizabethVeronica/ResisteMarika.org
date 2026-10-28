@@ -29,7 +29,7 @@ export const NOTICIAS: Noticia[] = [
     id: '3',
     titulo: 'Marika Fest 2024: Feria Colectiva y Autogestión LGTBIQ+ en Cusco',
     resumen:
-      'Espacio autogestionado de arte disidente, productos de concientización, talleres de cuidado y encuentro colectivo.',
+      'Espacio autogestionado de arte disidente, productos de concientización, talleres de cuidado y sanación colectiva.',
     imagen: '/images/Marika Fest 2024 - Feria de autogestión LGTBIQ.jpg',
     fecha: '2024',
     categoria: 'Autogestión',

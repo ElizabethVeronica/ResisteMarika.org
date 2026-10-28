@@ -14,11 +14,18 @@ export default function Home() {
   return (
     <div className="page-art-backdrop bg-[#FAF9F6] text-gray-900">
       {/* ── HERO AL ESTILO DERECHOS HUMANOS SIN FRONTERAS ───── */}
-      <section className="relative bg-white border-b border-gray-200 py-14 sm:py-20 lg:py-24">
-        <Container>
+      <section className="relative border-b border-gray-200 py-14 sm:py-20 lg:py-24 overflow-hidden">
+        <img
+          src="/images/Marika Fest 2024 - Feria de autogestión LGTBIQ.jpg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-950/80 via-gray-900/60 to-brand-purple/50" />
+        <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* Texto Principal */}
-            <div className="graphic-card relative isolate overflow-hidden rounded-3xl border border-white/85 bg-white/80 p-5 shadow-md backdrop-blur-sm sm:p-7 dark:border-white/10 dark:bg-[#211d2a]/85 lg:col-span-7">
+            <div className="relative isolate overflow-hidden rounded-3xl border border-white/20 bg-white/90 p-5 shadow-xl backdrop-blur-md sm:p-7 dark:border-white/10 dark:bg-[#211d2a]/90 lg:col-span-7">
               <img
                 src="/images/logo png.png"
                 alt=""
@@ -46,7 +53,7 @@ export default function Home() {
 
                 <div className="mb-8 max-w-2xl">
                   <p className="text-base sm:text-lg text-gray-700 font-sans leading-relaxed">
-                    Somos una colectiva autoorganizada en Cusco que impulsa espacios de encuentro, arte y defensa de derechos para la comunidad LGTBIQ+.
+                    Somos una colectiva autoorganizada en Cusco que impulsa espacios de sanación, arte y defensa de derechos para la comunidad LGTBIQ+.
                   </p>
                 </div>
 
@@ -63,7 +70,7 @@ export default function Home() {
 
             {/* Fotografía de la marcha */}
             <div className="lg:col-span-5">
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gray-200 shadow-sm group">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gray-900 shadow-2xl border border-white/20 group">
                 <img
                   src="/images/marcha 8M 2025.png"
                   alt="Marcha de Resiste Marika Cusco con tambores"
@@ -76,7 +83,7 @@ export default function Home() {
       </section>
 
       {/* ── NUESTROS PROYECTOS EN CUSCO ─────────────────────── */}
-      <section className="py-16 sm:py-24 bg-white border-b border-gray-200">
+      <section className="py-16 sm:py-24 bg-white border-b border-gray-200 relative">
         <Container>
           <Reveal>
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
@@ -174,26 +181,26 @@ export default function Home() {
       </section>
 
       {/* ── LLAMADO A ARTICULAR / CONTACTO ─────────────────── */}
-      <section className="home-network-cta relative isolate overflow-hidden border-y border-brand-pinkSoft/60 py-16 sm:py-20">
+      <section className="home-network-cta relative isolate overflow-hidden border-y border-white/10 py-16 sm:py-20">
         <img
           src="/images/Marika Fest 2024 - Productos de conscientización.jpg"
           alt=""
           aria-hidden="true"
           loading="lazy"
-          className="absolute inset-0 h-full w-full object-cover opacity-60"
+          className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-skyLight/60 via-white/45 to-brand-purpleLight/60 dark:from-[#17141f]/65 dark:via-[#211d2a]/55 dark:to-[#34283f]/70" />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-950/80 via-gray-950/65 to-brand-purple/55" />
         <Container className="relative z-10">
-          <div className="home-network-cta__content max-w-3xl mx-auto text-center">
-            <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display mb-2 block">
+          <div className="max-w-3xl mx-auto text-center">
+            <span className="text-xs font-bold uppercase tracking-wider text-brand-sky font-display mb-2 block">
               Red Colectiva en Cusco
             </span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-brand-dark leading-tight mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-white leading-tight mb-4">
               ¿Quieres sumarte, proponer un taller o articular con nosotres?
             </h2>
-            <p className="text-sm sm:text-base text-surface-muted font-sans leading-relaxed mb-8">
+            <p className="text-sm sm:text-base text-white/80 font-sans leading-relaxed mb-8">
               Escríbenos a nuestro correo oficial{' '}
-              <a href="mailto:resistemarik@gmail.com" className="text-brand-purple font-semibold underline">
+              <a href="mailto:resistemarik@gmail.com" className="text-brand-sky font-semibold underline">
                 resistemarik@gmail.com
               </a>{' '}
               o contáctanos por{' '}
@@ -201,7 +208,7 @@ export default function Home() {
                 href="https://www.instagram.com/resiste.marika.cusco"
                 target="_blank"
                 rel="noreferrer"
-                className="text-brand-purple font-semibold underline hover:text-brand-pink transition-colors"
+                className="text-brand-pink font-semibold underline hover:text-white transition-colors"
               >
                 Instagram
               </a>{' '}
@@ -210,7 +217,7 @@ export default function Home() {
                 href="https://www.tiktok.com/@resistemarik"
                 target="_blank"
                 rel="noreferrer"
-                className="text-brand-purple font-semibold underline hover:text-brand-pink transition-colors"
+                className="text-brand-pink font-semibold underline hover:text-white transition-colors"
               >
                 TikTok
               </a>.

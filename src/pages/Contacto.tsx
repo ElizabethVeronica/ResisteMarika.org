@@ -46,12 +46,12 @@ export default function Contacto() {
           src="/images/taller de batucada.jpg"
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover opacity-40"
+          className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-skyLight/70 via-white/65 to-brand-pinkLight/70 dark:from-[#17141f]/75 dark:via-[#211d2a]/70 dark:to-[#34283f]/75" />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-950/80 via-gray-900/65 to-brand-purple/55 dark:from-gray-950/88 dark:via-[#211d2a]/80 dark:to-brand-purple/60" />
         <Container>
           <Reveal>
-            <div className="graphic-card relative z-10 mx-auto max-w-4xl rounded-3xl border border-white/85 bg-white/85 px-5 py-7 shadow-xl backdrop-blur-md sm:px-8 sm:py-9 dark:border-white/10 dark:bg-[#211d2a]/90">
+            <div className="relative z-10 mx-auto max-w-4xl rounded-3xl border border-white/20 bg-white/90 px-5 py-7 shadow-xl backdrop-blur-md sm:px-8 sm:py-9 dark:border-white/10 dark:bg-[#211d2a]/90">
               <SectionHeader
                 title={
                   <>

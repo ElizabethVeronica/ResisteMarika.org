@@ -13,11 +13,11 @@ export default function EngagementPaths() {
         alt=""
         aria-hidden="true"
         loading="lazy"
-        className="absolute inset-0 h-full w-full object-cover opacity-60"
+        className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-white/65 via-white/50 to-brand-purpleLight/55 dark:from-[#17141f]/70 dark:via-[#17141f]/60 dark:to-[#34283f]/70" />
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-950/80 via-gray-900/65 to-brand-purple/55 dark:from-gray-950/88 dark:via-[#211d2a]/80 dark:to-brand-purple/60" />
       <Container className="relative z-10">
-        <div className="rounded-3xl border border-white/85 bg-white/85 p-5 shadow-xl backdrop-blur-md sm:p-8 dark:border-white/10 dark:bg-[#211d2a]/90">
+        <div className="rounded-3xl border border-white/20 bg-white/90 p-5 shadow-xl backdrop-blur-md sm:p-8 dark:border-white/10 dark:bg-[#211d2a]/90">
           <SectionHeader
             align="center"
             eyebrow="Cómo puedes involucrarte"

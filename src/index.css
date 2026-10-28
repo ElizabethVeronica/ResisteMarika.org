@@ -152,31 +152,26 @@
 
   .graphic-card {
     background-image:
-      linear-gradient(115deg, rgb(196 161 222 / 0.12), transparent 56%),
-      radial-gradient(circle at 100% 0, rgb(236 119 165 / 0.14) 0 4.5rem, transparent 4.6rem),
-      radial-gradient(circle at 0 100%, rgb(91 199 233 / 0.12) 0 2.8rem, transparent 2.9rem);
+      linear-gradient(135deg, rgb(196 161 222 / 0.08) 0%, transparent 50%);
     background-repeat: no-repeat;
   }
 
   .graphic-card--stripe {
     background-image:
       linear-gradient(90deg, #9b64bc 0%, #ed8eaf 50%, #5bc7e9 100%),
-      linear-gradient(115deg, rgb(196 161 222 / 0.12), transparent 56%),
-      radial-gradient(circle at 100% 0, rgb(236 119 165 / 0.14) 0 4.5rem, transparent 4.6rem),
-      radial-gradient(circle at 0 100%, rgb(91 199 233 / 0.12) 0 2.8rem, transparent 2.9rem);
-    background-position: top left, top left, top right, bottom left;
-    background-size: 100% 4px, auto, auto, auto;
+      linear-gradient(135deg, rgb(196 161 222 / 0.06) 0%, transparent 50%);
+    background-position: top left, top left;
+    background-size: 100% 3px, auto;
     background-repeat: no-repeat;
   }
 
   .page-art-backdrop {
     background-image:
-      radial-gradient(ellipse at 8% 10%, rgb(155 100 188 / 0.13), transparent 26rem),
-      radial-gradient(ellipse at 92% 38%, rgb(91 199 233 / 0.11), transparent 24rem),
-      radial-gradient(ellipse at 18% 82%, rgb(237 142 175 / 0.12), transparent 28rem),
-      repeating-linear-gradient(135deg, transparent 0 48px, rgb(155 100 188 / 0.025) 49px 50px, transparent 51px 104px);
+      radial-gradient(ellipse at 10% 8%, rgb(155 100 188 / 0.07), transparent 28rem),
+      radial-gradient(ellipse at 90% 35%, rgb(91 199 233 / 0.06), transparent 26rem),
+      radial-gradient(ellipse at 20% 80%, rgb(237 142 175 / 0.06), transparent 30rem);
     background-attachment: fixed;
-    background-repeat: no-repeat, no-repeat, no-repeat, repeat;
+    background-repeat: no-repeat;
   }
 }
 
@@ -433,25 +428,24 @@ html.dark {
 
 .dark .graphic-card {
   background-image:
-    linear-gradient(115deg, rgb(195 155 227 / 0.10), transparent 56%),
-    radial-gradient(circle at 100% 0, rgb(236 119 165 / 0.12) 0 4.5rem, transparent 4.6rem),
-    radial-gradient(circle at 0 100%, rgb(91 199 233 / 0.10) 0 2.8rem, transparent 2.9rem);
+    linear-gradient(135deg, rgb(195 155 227 / 0.06) 0%, transparent 50%);
 }
 
 .dark .graphic-card--stripe {
   background-image:
     linear-gradient(90deg, #9b64bc 0%, #ed8eaf 50%, #5bc7e9 100%),
-    linear-gradient(115deg, rgb(195 155 227 / 0.10), transparent 56%),
-    radial-gradient(circle at 100% 0, rgb(236 119 165 / 0.12) 0 4.5rem, transparent 4.6rem),
-    radial-gradient(circle at 0 100%, rgb(91 199 233 / 0.10) 0 2.8rem, transparent 2.9rem);
+    linear-gradient(135deg, rgb(195 155 227 / 0.05) 0%, transparent 50%);
+  background-position: top left, top left;
+  background-size: 100% 3px, auto;
 }
 
 .dark .page-art-backdrop {
   background-image:
-    radial-gradient(ellipse at 8% 10%, rgb(195 155 227 / 0.13), transparent 26rem),
-    radial-gradient(ellipse at 92% 38%, rgb(91 199 233 / 0.09), transparent 24rem),
-    radial-gradient(ellipse at 18% 82%, rgb(237 142 175 / 0.10), transparent 28rem),
-    repeating-linear-gradient(135deg, transparent 0 48px, rgb(195 155 227 / 0.025) 49px 50px, transparent 51px 104px);
+    radial-gradient(ellipse at 10% 8%, rgb(195 155 227 / 0.08), transparent 28rem),
+    radial-gradient(ellipse at 90% 35%, rgb(91 199 233 / 0.06), transparent 26rem),
+    radial-gradient(ellipse at 20% 80%, rgb(237 142 175 / 0.06), transparent 30rem);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 .dark input,
