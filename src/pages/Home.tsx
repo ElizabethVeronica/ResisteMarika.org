@@ -13,68 +13,73 @@ export default function Home() {
 
   return (
     <div className="page-art-backdrop bg-[#FAF9F6] text-gray-900">
-      {/* ── HERO INSTITUCIONAL ───── */}
-      <section className="relative pt-8 sm:pt-12 pb-10 sm:pb-14 overflow-hidden">
-        <Container className="relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            {/* Texto Principal */}
-            <div className="relative isolate overflow-hidden rounded-3xl border border-gray-200/80 bg-white/95 p-5 shadow-sm sm:p-7 dark:border-white/10 dark:bg-[#211d2a]/95 lg:col-span-7">
-              <img
-                src="/images/logo png.png"
-                alt=""
-                aria-hidden="true"
-                className="home-hero-logo home-hero-logo--light"
-              />
-              <img
-                src="/images/logo inverso.png"
-                alt=""
-                aria-hidden="true"
-                className="home-hero-logo home-hero-logo--dark"
-              />
-              <div className="relative z-10 flex flex-col items-start">
-                <span className="inline-block px-3.5 py-1.5 rounded-md bg-brand-purpleLight/60 text-brand-purple text-xs sm:text-sm font-bold uppercase tracking-wider mb-4 font-display dark:bg-brand-purple/20 dark:text-purple-300">
-                  Cusco, Perú · Fundada el {HISTORIA_RESUMEN.fundacion}
-                </span>
-
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black font-display text-gray-900 leading-tight tracking-tight mb-5">
-                  Resiste Marika
-                </h1>
-
-                <p className="text-xl sm:text-2xl font-bold font-display text-brand-purple leading-snug mb-6 border-l-4 border-brand-purple pl-4">
-                  {HISTORIA_RESUMEN.sublema}
-                </p>
-
-                <div className="mb-8 max-w-2xl">
-                  <p className="text-base sm:text-lg text-gray-700 font-sans leading-relaxed">
-                    Somos una colectiva autoorganizada en Cusco que impulsa espacios de sanación, arte y defensa de derechos para la comunidad LGTBIQ+.
-                  </p>
-                </div>
-
-                <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:gap-3.5">
-                  <Button href="/quienes-somos" size="lg" variant="primary" className="w-full sm:w-auto" icon={<ArrowRight size={18} />}>
-                    Quiénes somos y qué hacemos
-                  </Button>
-                  <Button href="/multimedia" size="lg" variant="outline" className="w-full sm:w-auto">
-                    Ver fotos y multimedia
-                  </Button>
-                </div>
-              </div>
-            </div>
-
-            {/* Fotografía de la marcha */}
-            <div className="lg:col-span-5">
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 shadow-md border border-gray-200 group">
+      {/* ── HERO INSTITUCIONAL A PANTALLA COMPLETA ───── */}
+      <section className="relative min-h-[calc(100vh-6.75rem)] sm:min-h-[calc(100vh-7.25rem)] flex flex-col justify-between overflow-hidden">
+        {/* Contenedor centralizado vertical y horizontalmente */}
+        <div className="my-auto w-full py-6 sm:py-10">
+          <Container className="relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              {/* Texto Principal */}
+              <div className="relative isolate overflow-hidden rounded-3xl border border-gray-200/80 bg-white/95 p-5 shadow-sm sm:p-7 dark:border-white/10 dark:bg-[#211d2a]/95 lg:col-span-7">
                 <img
-                  src="/images/marcha 8M 2025.png"
-                  alt="Marcha de Resiste Marika Cusco con tambores"
-                  className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
+                  src="/images/logo png.png"
+                  alt=""
+                  aria-hidden="true"
+                  className="home-hero-logo home-hero-logo--light"
                 />
+                <img
+                  src="/images/logo inverso.png"
+                  alt=""
+                  aria-hidden="true"
+                  className="home-hero-logo home-hero-logo--dark"
+                />
+                <div className="relative z-10 flex flex-col items-start">
+                  <span className="inline-block px-3.5 py-1.5 rounded-md bg-brand-purpleLight/60 text-brand-purple text-xs sm:text-sm font-bold uppercase tracking-wider mb-4 font-display dark:bg-brand-purple/20 dark:text-purple-300">
+                    Cusco, Perú · Fundada el {HISTORIA_RESUMEN.fundacion}
+                  </span>
+
+                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black font-display text-gray-900 leading-tight tracking-tight mb-5">
+                    Resiste Marika
+                  </h1>
+
+                  <p className="text-xl sm:text-2xl font-bold font-display text-brand-purple leading-snug mb-6 border-l-4 border-brand-purple pl-4">
+                    {HISTORIA_RESUMEN.sublema}
+                  </p>
+
+                  <div className="mb-8 max-w-2xl">
+                    <p className="text-base sm:text-lg text-gray-700 font-sans leading-relaxed">
+                      Somos una colectiva autoorganizada en Cusco que impulsa espacios de sanación, arte y defensa de derechos para la comunidad LGTBIQ+.
+                    </p>
+                  </div>
+
+                  <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:gap-3.5">
+                    <Button href="/quienes-somos" size="lg" variant="primary" className="w-full sm:w-auto" icon={<ArrowRight size={18} />}>
+                      Quiénes somos y qué hacemos
+                    </Button>
+                    <Button href="/multimedia" size="lg" variant="outline" className="w-full sm:w-auto">
+                      Ver fotos y multimedia
+                    </Button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Fotografía de la marcha */}
+              <div className="lg:col-span-5">
+                <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 shadow-md border border-gray-200 group">
+                  <img
+                    src="/images/marcha 8M 2025.png"
+                    alt="Marcha de Resiste Marika Cusco con tambores"
+                    className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
+                  />
+                </div>
               </div>
             </div>
-          </div>
+          </Container>
+        </div>
 
-          {/* Separación decorativa elegante y sutil hacia la siguiente sección */}
-          <div className="mt-12 sm:mt-16 flex items-center justify-center gap-4 max-w-3xl mx-auto px-4" aria-hidden="true">
+        {/* Separación decorativa ubicada justo al final del primer viewport */}
+        <div className="w-full pb-3 sm:pb-4" aria-hidden="true">
+          <div className="flex items-center justify-center gap-4 max-w-3xl mx-auto px-4">
             <div className="h-0.5 flex-1 rounded-full bg-gradient-to-r from-transparent via-brand-purple/20 to-brand-purple/50 dark:via-purple-500/20 dark:to-purple-500/50" />
             <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-brand-purple/25 bg-white/90 dark:bg-[#211d2a] shadow-xs">
               <span className="h-2 w-2 rounded-full bg-brand-sky" />
@@ -83,7 +88,7 @@ export default function Home() {
             </div>
             <div className="h-0.5 flex-1 rounded-full bg-gradient-to-l from-transparent via-brand-purple/20 to-brand-purple/50 dark:via-purple-500/20 dark:to-purple-500/50" />
           </div>
-        </Container>
+        </div>
       </section>
 
       {/* ── NUESTROS PROYECTOS EN CUSCO ─────────────────────── */}
@@ -193,7 +198,7 @@ export default function Home() {
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/80" />
+        <div className="absolute inset-0 bg-black/65" />
         <Container className="relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <span className="text-xs font-bold uppercase tracking-wider text-brand-sky font-display mb-2 block">

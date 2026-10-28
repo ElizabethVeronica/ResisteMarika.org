@@ -48,7 +48,7 @@ export default function Contacto() {
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/80" />
+        <div className="absolute inset-0 bg-black/65" />
         <Container>
           <Reveal>
             <div className="relative z-10 mx-auto max-w-4xl rounded-3xl border border-white/20 bg-white/90 px-5 py-7 shadow-xl backdrop-blur-md sm:px-8 sm:py-9 dark:border-white/10 dark:bg-[#211d2a]/90">
@@ -180,7 +180,7 @@ export default function Contacto() {
                 loading="lazy"
                 className="absolute inset-2 h-[calc(100%-1rem)] w-[calc(100%-1rem)] rounded-[2rem] object-cover opacity-50"
               />
-              <div className="absolute inset-2 rounded-[2rem] bg-black/80" />
+              <div className="absolute inset-2 rounded-[2rem] bg-black/65" />
               <Reveal direction="right" delay={0.1}>
                 <div className="relative z-10 rounded-3xl border border-white/80 bg-white/90 p-5 shadow-xl backdrop-blur-md flex flex-col gap-4 sm:p-7 dark:border-white/10 dark:bg-[#211d2a]/90">
                   <div>

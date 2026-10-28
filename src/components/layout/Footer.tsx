@@ -49,8 +49,8 @@ export default function Footer() {
         <span className="flex-1 bg-brand-charcoal" />
       </div>
 
-      <Container className="pt-10 pb-8 sm:pt-14 sm:pb-12">
-        <div className="grid grid-cols-1 gap-8 border-b border-white/10 pb-10 sm:grid-cols-2 sm:gap-10 sm:pb-12 lg:grid-cols-12">
+      <Container className="pt-8 pb-3 sm:pt-10 sm:pb-3.5">
+        <div className="grid grid-cols-1 gap-8 border-b border-white/10 pb-6 sm:grid-cols-2 sm:gap-10 sm:pb-8 lg:grid-cols-12">
           {/* Columna 1: Identidad y Origen */}
           <div className="lg:col-span-5 flex flex-col gap-4">
             <Link to="/" className="flex items-center gap-3 w-fit">
@@ -201,7 +201,7 @@ export default function Footer() {
         </div>
 
         {/* Barra Inferior */}
-        <div className="pt-6 sm:pt-8 flex items-center justify-center gap-4 text-xs text-white/60 font-sans">
+        <div className="pt-3 sm:pt-4 flex items-center justify-center text-xs text-white/60 font-sans">
           <p>© {year} Resiste Marika.</p>
         </div>
       </Container>

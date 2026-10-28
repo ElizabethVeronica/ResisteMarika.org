@@ -151,7 +151,7 @@ export default function Noticias() {
                 loading="lazy"
                 className="absolute inset-0 h-full w-full object-cover"
               />
-              <div className="absolute inset-0 bg-black/80" />
+              <div className="absolute inset-0 bg-black/65" />
               <div className="relative z-10 rounded-2xl border border-white/20 bg-white/90 px-5 py-8 shadow-xl backdrop-blur-md sm:px-8 sm:py-10 dark:border-white/10 dark:bg-[#211d2a]/90">
                 <SectionHeader
                   title={

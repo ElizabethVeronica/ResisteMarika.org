@@ -15,7 +15,7 @@ export default function EngagementPaths() {
         loading="lazy"
         className="absolute inset-0 h-full w-full object-cover"
       />
-      <div className="absolute inset-0 bg-black/80" />
+      <div className="absolute inset-0 bg-black/65" />
       <Container className="relative z-10">
         <div className="rounded-3xl border border-white/20 bg-white/90 p-5 shadow-xl backdrop-blur-md sm:p-8 dark:border-white/10 dark:bg-[#211d2a]/90">
           <SectionHeader
