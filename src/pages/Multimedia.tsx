@@ -5,6 +5,8 @@ import { useLocation } from 'react-router-dom'
 import Container from '@/components/ui/Container'
 import { MULTIMEDIA_ITEMS, CATEGORIAS_MULTIMEDIA, type MultimediaItem } from '@/config/multimedia'
 import { Calendar, MapPin, X, ZoomIn } from 'lucide-react'
+import SectionHeader from '@/components/ui/SectionHeader'
+import Reveal from '@/components/ui/Reveal'
 
 function isDateLabel(value: string) {
   return /\b(?:19|20)\d{2}\b|(?:enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)\b/i.test(
@@ -61,9 +63,9 @@ export default function Multimedia() {
   }, [])
 
   return (
-    <div className="page-art-backdrop bg-[#FAF9F6] text-gray-900 pb-20 sm:pb-28">
+    <div className="page-art-backdrop bg-[#FAF9F6] text-gray-900 py-12 sm:py-20">
       {/* ── ENCABEZADO DE PÁGINA ──────────────────────────── */}
-      <section className="relative isolate overflow-hidden border-b border-gray-200 py-5 sm:py-7">
+      <section className="relative isolate mb-16 overflow-hidden py-5 sm:mb-24 sm:py-7">
         <img
           src="/images/Marika Fest 2024 - Productos de conscientización.jpg"
           alt=""
@@ -72,20 +74,16 @@ export default function Multimedia() {
         />
         <div className="absolute inset-0 bg-black/65" />
         <Container>
-          <div className="relative z-10 max-w-4xl mx-auto rounded-3xl border border-white/20 bg-white/90 px-5 py-8 text-center shadow-xl backdrop-blur-md sm:px-8 sm:py-10 dark:border-white/10 dark:bg-[#211d2a]/90">
-            <span className="inline-block px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-brand-purple bg-brand-purpleLight/70 rounded-full mb-3 font-display">
-              Registro Vivo · Resiste Marika Cusco
-            </span>
-
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black font-display text-gray-900 leading-tight mb-4">
-              Archivo Multimedia
-            </h1>
-
-            <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-sans max-w-2xl mx-auto">
-              Memoria fotográfica de nuestras marchas con batucada, ferias colectivas, talleres formativos y encuentros en el Cusco.
-            </p>
-
-          </div>
+          <Reveal>
+            <div className="relative z-10 mx-auto max-w-4xl rounded-3xl border border-white/20 bg-white/90 px-5 py-8 shadow-xl backdrop-blur-md sm:px-8 sm:py-10 dark:border-white/10 dark:bg-[#211d2a]/90">
+              <SectionHeader
+                pill="Archivo Multimedia"
+                title="Registro Vivo · Resiste Marika Cusco"
+                subtitle="Memoria fotográfica de nuestras marchas con batucada, ferias colectivas, talleres formativos y encuentros en el Cusco."
+                className="max-w-3xl mx-auto text-center"
+              />
+            </div>
+          </Reveal>
         </Container>
       </section>
 

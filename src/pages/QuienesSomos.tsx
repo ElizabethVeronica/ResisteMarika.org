@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Container from '@/components/ui/Container'
 import Reveal from '@/components/ui/Reveal'
+import SectionHeader from '@/components/ui/SectionHeader'
 import Button from '@/components/ui/Button'
 import {
   HISTORIA_RESUMEN,
@@ -120,9 +121,9 @@ export default function QuienesSomos() {
   }, [])
 
   return (
-    <div className="page-art-backdrop bg-[#FAF9F6] text-gray-900">
+    <div className="page-art-backdrop bg-[#FAF9F6] text-gray-900 py-12 sm:py-20">
       {/* ── ENCABEZADO INSTITUCIONAL ───────────────────────── */}
-      <section className="relative isolate mb-6 overflow-hidden border-b border-gray-200 py-5 sm:mb-8 sm:py-7">
+      <section className="relative isolate mb-16 overflow-hidden py-5 sm:mb-24 sm:py-7">
         <img
           src="/images/Presentacion Fanzine colaborativo Manifiesto Marika Vol1 y Vol2.jpg"
           alt=""
@@ -131,19 +132,16 @@ export default function QuienesSomos() {
         />
         <div className="absolute inset-0 bg-black/65" />
         <Container>
-          <div className="relative z-10 mx-auto max-w-4xl rounded-3xl border border-white/20 bg-white/90 px-5 py-8 text-center shadow-xl backdrop-blur-md sm:px-8 sm:py-10 dark:border-white/10 dark:bg-[#211d2a]/90">
-            <span className="inline-block px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-brand-purple bg-brand-purpleLight/70 rounded-full mb-4 font-display">
-              Asociación Civil Sin Fines de Lucro · Cusco, Perú
-            </span>
-
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black font-display text-gray-900 leading-tight mb-5">
-              ¿Quiénes somos?
-            </h1>
-
-            <p className="text-lg sm:text-xl text-gray-700 leading-relaxed font-sans max-w-3xl mx-auto font-medium">
-              {HISTORIA_RESUMEN.sublema}
-            </p>
-          </div>
+          <Reveal>
+            <div className="relative z-10 mx-auto max-w-4xl rounded-3xl border border-white/20 bg-white/90 px-5 py-8 shadow-xl backdrop-blur-md sm:px-8 sm:py-10 dark:border-white/10 dark:bg-[#211d2a]/90">
+              <SectionHeader
+                pill="Nuestra Identidad"
+                title="¿Quiénes somos?"
+                subtitle={HISTORIA_RESUMEN.sublema}
+                className="max-w-3xl mx-auto text-center"
+              />
+            </div>
+          </Reveal>
         </Container>
       </section>
 
@@ -160,19 +158,32 @@ export default function QuienesSomos() {
           {SECTION_LINKS.map(({ id, label }) => {
             const isActive = activeSection === id
             return (
-              <a
+              <button
                 key={id}
-                href={`#${id}`}
-                onClick={() => setActiveSection(id)}
+                type="button"
+                onClick={(e) => {
+                  e.preventDefault()
+                  setActiveSection(id)
+                  const element = document.getElementById(id)
+                  if (element) {
+                    const navHeight = 90
+                    const elementPosition =
+                      element.getBoundingClientRect().top + window.scrollY
+                    window.scrollTo({
+                      top: elementPosition - navHeight,
+                      behavior: 'smooth',
+                    })
+                  }
+                }}
                 aria-current={isActive ? 'location' : undefined}
-                className={`rounded-xl px-2 py-2 text-center text-[11px] sm:px-3 sm:py-1.5 sm:text-xs font-bold transition-all duration-200 ${
+                className={`rounded-xl px-2 py-2 text-center text-[11px] sm:px-3 sm:py-1.5 sm:text-xs font-bold transition-colors duration-200 ${
                   isActive
                     ? 'bg-brand-purple text-white shadow-sm'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
                 {label}
-              </a>
+              </button>
             )
           })}
         </div>

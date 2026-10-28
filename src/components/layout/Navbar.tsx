@@ -67,8 +67,8 @@ export default function Navbar() {
         className={cn(
           'w-full transition-all duration-300',
           scrolled
-            ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-200/80 py-2.5 sm:py-3 dark:bg-[#17141f]/90 dark:border-white/10'
-            : 'bg-white shadow-none border-b border-gray-200/60 py-3 sm:py-4 dark:bg-[#17141f] dark:border-white/10'
+            ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200/80 py-2.5 sm:py-3 dark:bg-[#17141f]/95 dark:border-white/5'
+            : 'bg-white/95 shadow-none border-b border-gray-200/60 py-3 sm:py-4 dark:bg-[#17141f]/95 dark:border-white/5'
         )}
       >
         <Container className="flex items-center justify-between">

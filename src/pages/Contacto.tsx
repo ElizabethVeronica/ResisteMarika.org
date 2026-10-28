@@ -39,9 +39,9 @@ export default function Contacto() {
   }
 
   return (
-    <div className="page-art-backdrop bg-surface-light py-8 sm:py-10">
+    <div className="page-art-backdrop bg-surface-light py-12 sm:py-20">
       {/* ── ENCABEZADO ───────────────────────────────────── */}
-      <section className="relative isolate mb-8 overflow-hidden py-4 sm:mb-10 sm:py-6">
+      <section className="relative isolate mb-16 overflow-hidden py-5 sm:mb-24 sm:py-7">
         <img
           src="/images/taller de batucada.jpg"
           alt=""
@@ -51,13 +51,10 @@ export default function Contacto() {
         <div className="absolute inset-0 bg-black/65" />
         <Container>
           <Reveal>
-            <div className="relative z-10 mx-auto max-w-4xl rounded-3xl border border-white/20 bg-white/90 px-5 py-7 shadow-xl backdrop-blur-md sm:px-8 sm:py-9 dark:border-white/10 dark:bg-[#211d2a]/90">
+            <div className="relative z-10 mx-auto max-w-4xl rounded-3xl border border-white/20 bg-white/90 px-5 py-8 shadow-xl backdrop-blur-md sm:px-8 sm:py-10 dark:border-white/10 dark:bg-[#211d2a]/90">
               <SectionHeader
-                title={
-                  <>
-                    Ponte en contacto con <span className="text-gradient">nosotres</span>
-                  </>
-                }
+                pill="Ponte en contacto"
+                title="Ponte en contacto con nosotres"
                 subtitle="Escríbenos para participar en nuestras ferias, coordinar talleres, proponer actividades colectivas."
                 className="max-w-3xl mx-auto text-center"
               />
@@ -190,6 +187,28 @@ export default function Contacto() {
                     <p className="text-xs text-surface-muted font-sans">
                       Respuesta atenta y con respeto a la confidencialidad.
                     </p>
+
+                    {/* Redes sociales — a la izquierda, junto al título */}
+                    <div className="mt-4 flex flex-row gap-3 flex-wrap items-start">
+                      <a
+                        href="https://www.instagram.com/resiste.marika.cusco"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-gradient-to-r from-brand-pink to-brand-purple text-white font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-opacity shadow-sm font-sans"
+                      >
+                        <FaInstagram size={16} />
+                        Síguenos en Instagram
+                      </a>
+                      <a
+                        href="https://www.tiktok.com/@resistemarik"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-brand-dark text-white font-bold text-xs uppercase tracking-wider hover:bg-brand-dark/80 transition-colors shadow-sm font-sans"
+                      >
+                        <FaTiktok size={15} />
+                        Síguenos en TikTok
+                      </a>
+                    </div>
                   </div>
 
                   <div className="flex flex-col gap-3 text-sm font-sans">
@@ -232,28 +251,6 @@ export default function Contacto() {
                         <p className="text-brand-dark font-semibold">Ferias itinerantes y encuentros presenciales</p>
                       </div>
                     </div>
-                  </div>
-
-                  <div className="pt-3 border-t border-gray-100 flex flex-col gap-2.5">
-                    <a
-                      href="https://www.instagram.com/resiste.marika.cusco"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-gradient-to-r from-brand-pink to-brand-purple text-white font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-opacity shadow-sm font-sans"
-                    >
-                      <FaInstagram size={16} />
-                      Síguenos en Instagram
-                    </a>
-
-                    <a
-                      href="https://www.tiktok.com/@resistemarik"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl bg-brand-dark text-white font-bold text-xs uppercase tracking-wider hover:bg-brand-dark/80 transition-colors shadow-sm font-sans"
-                    >
-                      <FaTiktok size={15} />
-                      Síguenos en TikTok
-                    </a>
                   </div>
                 </div>
               </Reveal>

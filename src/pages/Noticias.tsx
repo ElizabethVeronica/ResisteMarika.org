@@ -140,29 +140,24 @@ export default function Noticias() {
 
   return (
     <div className="page-art-backdrop bg-surface-light py-12 sm:py-20">
-      <section className="mb-14 sm:mb-16">
+      <section className="relative isolate mb-16 overflow-hidden py-5 sm:mb-24 sm:py-7">
+        <img
+          src="/images/Piquete Informativo de ETS y Sensibilización Dia Mundial del SIDA.jpg"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/65" />
         <Container>
           <Reveal>
-            <div className="relative isolate overflow-hidden rounded-3xl border border-brand-purple/15 p-3 shadow-lg sm:p-5">
-              <img
-                src="/images/Piquete Informativo de ETS y Sensibilización Dia Mundial del SIDA.jpg"
-                alt=""
-                aria-hidden="true"
-                loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover"
+            <div className="relative z-10 mx-auto max-w-4xl rounded-3xl border border-white/20 bg-white/90 px-5 py-8 shadow-xl backdrop-blur-md sm:px-8 sm:py-10 dark:border-white/10 dark:bg-[#211d2a]/90">
+              <SectionHeader
+                pill="Noticias y Comunicados"
+                title="Noticias y comunicados"
+                subtitle="Sigue las publicaciones recientes y novedades de Resiste Marika Cusco."
+                className="max-w-3xl mx-auto text-center"
               />
-              <div className="absolute inset-0 bg-black/65" />
-              <div className="relative z-10 rounded-2xl border border-white/20 bg-white/90 px-5 py-8 shadow-xl backdrop-blur-md sm:px-8 sm:py-10 dark:border-white/10 dark:bg-[#211d2a]/90">
-                <SectionHeader
-                  title={
-                    <>
-                      Noticias y <span className="text-gradient">comunicados</span>
-                    </>
-                  }
-                  subtitle="Sigue las publicaciones recientes y novedades de Resiste Marika Cusco."
-                  className="mx-auto max-w-3xl text-center"
-                />
-              </div>
             </div>
           </Reveal>
         </Container>
@@ -196,23 +191,27 @@ export default function Noticias() {
       <section className="mb-16 sm:mb-20">
         <Container>
           <Reveal>
-            <div className="mb-7 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-              <SectionHeader
-                eyebrow="Instagram"
-                title="Últimas publicaciones"
-                subtitle="Memoria, actividades y momentos compartidos desde nuestra cuenta."
-                align="left"
-              />
-              <a
-                href={SOCIAL_PROFILES.instagram}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-xl border border-brand-purple/20 bg-white px-4 text-sm font-bold text-brand-purple transition-colors hover:bg-brand-purpleLight/50"
-              >
-                <FaInstagram size={16} aria-hidden="true" />
-                Ver Instagram
-                <ExternalLink size={14} aria-hidden="true" />
-              </a>
+            <div className="mb-7 flex flex-col gap-4">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:gap-6">
+                <div className="flex-1">
+                  <SectionHeader
+                    eyebrow="Instagram"
+                    title="Últimas publicaciones"
+                    subtitle="Memoria, actividades y momentos compartidos desde nuestra cuenta."
+                    align="left"
+                  />
+                </div>
+                <a
+                  href={SOCIAL_PROFILES.instagram}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-xl border border-brand-purple/20 bg-white px-4 text-sm font-bold text-brand-purple transition-colors hover:bg-brand-purpleLight/50"
+                >
+                  <FaInstagram size={16} aria-hidden="true" />
+                  Ver Instagram
+                  <ExternalLink size={14} aria-hidden="true" />
+                </a>
+              </div>
             </div>
           </Reveal>
 
@@ -237,23 +236,27 @@ export default function Noticias() {
       <section className="mb-16 sm:mb-20">
         <Container>
           <Reveal>
-            <div className="mb-7 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-              <SectionHeader
-                eyebrow="TikTok"
-                title="Últimos videos"
-                subtitle="Videos y registros breves de nuestras acciones y encuentros."
-                align="left"
-              />
-              <a
-                href={SOCIAL_PROFILES.tiktok}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-xl border border-brand-purple/20 bg-white px-4 text-sm font-bold text-brand-purple transition-colors hover:bg-brand-purpleLight/50"
-              >
-                <FaTiktok size={16} aria-hidden="true" />
-                Ver TikTok
-                <ExternalLink size={14} aria-hidden="true" />
-              </a>
+            <div className="mb-7 flex flex-col gap-4">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:gap-6">
+                <div className="flex-1">
+                  <SectionHeader
+                    eyebrow="TikTok"
+                    title="Últimos videos"
+                    subtitle="Videos y registros breves de nuestras acciones y encuentros."
+                    align="left"
+                  />
+                </div>
+                <a
+                  href={SOCIAL_PROFILES.tiktok}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex h-10 shrink-0 items-center justify-center gap-2 rounded-xl border border-brand-purple/20 bg-white px-4 text-sm font-bold text-brand-purple transition-colors hover:bg-brand-purpleLight/50"
+                >
+                  <FaTiktok size={16} aria-hidden="true" />
+                  Ver TikTok
+                  <ExternalLink size={14} aria-hidden="true" />
+                </a>
+              </div>
             </div>
           </Reveal>
 
