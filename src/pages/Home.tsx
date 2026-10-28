@@ -13,15 +13,32 @@ export default function Home() {
 
   return (
     <div className="page-art-backdrop bg-[#FAF9F6] text-gray-900">
-      {/* ── HERO AL ESTILO DERECHOS HUMANOS SIN FRONTERAS ───── */}
-      <section className="relative border-b border-gray-200 py-14 sm:py-20 lg:py-24 overflow-hidden">
-        <img
-          src="/images/Marika Fest 2024 - Feria de autogestión LGTBIQ.jpg"
-          alt=""
+      {/* ── HERO CON FONDO GRÁFICO ANDINO Y ARTIVISTA OSCURO ───── */}
+      <section className="relative border-b border-black/40 py-14 sm:py-20 lg:py-24 overflow-hidden bg-[#0e0b17]">
+        {/* Elemento gráfico vectorial andino */}
+        <div
+          className="absolute inset-0 opacity-20 pointer-events-none"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='96' height='96' viewBox='0 0 96 96' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%239b64bc' stroke-width='1.2'%3E%3Cpath d='M48 0L96 48L48 96L0 48Z'/%3E%3Cpath d='M48 14L82 48L48 82L14 48Z' stroke='%235bc7e9'/%3E%3Cpath d='M48 28L68 48L48 68L28 48Z' stroke='%23ed8eaf'/%3E%3Cpath d='M0 0L24 24M96 0L72 24M96 96L72 72M0 96L24 72'/%3E%3Crect x='43' y='43' width='10' height='10' fill='%23f5b731' stroke='none'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundRepeat: 'repeat',
+          }}
           aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-950/80 via-gray-900/60 to-brand-purple/50" />
+        {/* Halos ambientales oscuros y profundos (sin degradado hacia blanco) */}
+        <div
+          className="absolute -top-28 -left-28 w-96 h-96 rounded-full bg-brand-purple/20 blur-3xl pointer-events-none"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute top-1/2 -right-20 w-80 h-80 rounded-full bg-brand-sky/15 blur-3xl pointer-events-none"
+          aria-hidden="true"
+        />
+        <div
+          className="absolute -bottom-24 left-1/3 w-96 h-96 rounded-full bg-brand-pink/15 blur-3xl pointer-events-none"
+          aria-hidden="true"
+        />
+        {/* Capa de opacidad oscura profunda */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#090710]/95 via-[#130f20]/90 to-[#0a0812]/96" />
         <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* Texto Principal */}
@@ -83,7 +100,7 @@ export default function Home() {
       </section>
 
       {/* ── NUESTROS PROYECTOS EN CUSCO ─────────────────────── */}
-      <section className="py-16 sm:py-24 bg-white border-b border-gray-200 relative">
+      <section className="py-16 sm:py-24 bg-white/75 backdrop-blur-xs border-b border-gray-200 relative dark:bg-[#1a1624]/75">
         <Container>
           <Reveal>
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
@@ -102,7 +119,7 @@ export default function Home() {
             {proyectosPreview.map((prog) => (
               <div
                 key={prog.id}
-                className="graphic-card group flex flex-col rounded-2xl bg-[#FAF9F6] border border-gray-200 overflow-hidden shadow-sm"
+                className="graphic-card group flex flex-col rounded-2xl bg-white/90 border border-gray-200 overflow-hidden shadow-sm dark:bg-[#211d2a]/90"
               >
                 <div className="aspect-[16/10] overflow-hidden bg-gray-200">
                   <img
@@ -136,7 +153,7 @@ export default function Home() {
       <EngagementPaths />
 
       {/* ── ACTIVIDADES Y NOTICIAS RECIENTES ──────────────── */}
-      <section className="py-16 sm:py-24 bg-[#FAF9F6] border-b border-gray-200">
+      <section className="py-16 sm:py-24 bg-transparent border-b border-gray-200">
         <Container>
           <Reveal>
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
@@ -158,7 +175,7 @@ export default function Home() {
             {noticiasPreview.map((n) => (
               <article
                 key={n.id}
-                className="graphic-card flex flex-col rounded-2xl bg-white border border-gray-200 overflow-hidden shadow-sm"
+                className="graphic-card flex flex-col rounded-2xl bg-white/95 border border-gray-200 overflow-hidden shadow-sm dark:bg-[#211d2a]/95"
               >
                 <div className="aspect-[16/10] overflow-hidden bg-gray-200">
                   <img src={n.imagen} alt={n.titulo} className="w-full h-full object-cover" />
@@ -189,7 +206,7 @@ export default function Home() {
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-950/80 via-gray-950/65 to-brand-purple/55" />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-950/95 via-gray-950/90 to-[#1e1330]/92" />
         <Container className="relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <span className="text-xs font-bold uppercase tracking-wider text-brand-sky font-display mb-2 block">

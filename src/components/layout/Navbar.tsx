@@ -10,7 +10,7 @@ import { NAV_LINKS } from '@/config/navigation'
 import { cn } from '@/utils/cn'
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(() => window.scrollY > 20)
+  const [scrolled, setScrolled] = useState(() => window.scrollY > 15)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [desktopDropdownOpen, setDesktopDropdownOpen] = useState<string | null>(null)
   const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState<string | null>(null)
@@ -30,7 +30,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
+      setScrolled(window.scrollY > 15)
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
     window.addEventListener('resize', handleScroll)
@@ -65,11 +65,10 @@ export default function Navbar() {
     <>
       <header
         className={cn(
-          'transition-all duration-200',
-          location.pathname === '/quienes-somos' ? 'sticky top-0 z-50' : 'relative',
+          'w-full transition-all duration-300',
           scrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200/80 pt-3'
-            : 'bg-white/90 backdrop-blur-sm pt-4 sm:pt-5 border-b border-gray-100'
+            ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-200/80 py-2.5 sm:py-3 dark:bg-[#17141f]/90 dark:border-white/10'
+            : 'bg-white shadow-none border-b border-gray-200/60 py-3 sm:py-4 dark:bg-[#17141f] dark:border-white/10'
         )}
       >
         <Container className="flex items-center justify-between">

@@ -14,12 +14,12 @@ export default function Proyectos() {
           src="/images/marcha del orgullo 2025.png"
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover opacity-45"
+          className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-950/80 via-gray-900/65 to-brand-purple/50 dark:from-gray-950/88 dark:via-[#211d2a]/80 dark:to-brand-purple/60" />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-950/94 via-gray-950/88 to-[#1e1330]/90 dark:from-gray-950/96 dark:via-[#161220]/94 dark:to-brand-purple/80" />
         <Container>
           <Reveal>
-            <div className="graphic-card--stripe relative z-10 mx-auto max-w-4xl rounded-3xl border border-white/85 bg-white/85 px-5 py-8 shadow-xl backdrop-blur-md sm:px-8 sm:py-10 dark:border-white/10 dark:bg-[#211d2a]/90">
+            <div className="relative z-10 mx-auto max-w-4xl rounded-3xl border border-white/20 bg-white/90 px-5 py-8 shadow-xl backdrop-blur-md sm:px-8 sm:py-10 dark:border-white/10 dark:bg-[#211d2a]/90">
               <SectionHeader
                 pill="Nuestras Acciones en Cusco"
                 title={
@@ -115,8 +115,8 @@ export default function Proyectos() {
                 loading="lazy"
                 className="absolute inset-0 h-full w-full object-cover opacity-60"
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-950/60 via-gray-950/40 to-brand-purple/45" />
-              <div className="relative z-10 m-3 rounded-2xl border border-white/20 bg-gray-950/60 p-6 text-center text-white shadow-xl backdrop-blur-md sm:m-5 sm:p-12">
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-950/94 via-gray-950/88 to-[#1e1330]/90" />
+              <div className="relative z-10 m-3 rounded-2xl border border-white/20 bg-gray-950/80 p-6 text-center text-white shadow-xl backdrop-blur-md sm:m-5 sm:p-12">
                 <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-pink text-brand-dark mb-4 shadow-sm">
                   <Heart size={24} fill="currentColor" />
                 </div>
