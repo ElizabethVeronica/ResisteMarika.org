@@ -36,7 +36,7 @@ export default function Reveal({
   duration = 0.6,
 }: RevealProps) {
   const ref    = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-80px' })
+  const inView = useInView(ref, { once: true, margin: '-100px' })
   const vtActive = useViewTransition()
   const offset = directionMap[direction]
 

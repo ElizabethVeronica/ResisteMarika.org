@@ -7,18 +7,22 @@
 @keyframes page-transition-in {
   from {
     opacity: 0;
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
 @keyframes page-transition-out {
   from {
     opacity: 1;
+    transform: translateY(0);
   }
   to {
     opacity: 0;
+    transform: translateY(-8px);
   }
 }
 
@@ -44,11 +48,11 @@
 }
 
 ::view-transition-old(page-content) {
-  animation: page-transition-out 380ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  animation: page-transition-out 300ms cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
 ::view-transition-new(page-content) {
-  animation: page-transition-in 560ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: page-transition-in 400ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .page-transition {
@@ -72,11 +76,18 @@
   html {
     @apply scroll-smooth antialiased;
     font-size: 18.5px;
+    scroll-behavior: smooth;
   }
 
   body {
     @apply bg-surface-light text-brand-dark font-sans selection:bg-brand-pink selection:text-brand-dark leading-relaxed;
   }
+
+  html,
+  body {
+    scroll-padding-top: 7rem;
+  }
+}
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-display text-brand-dark tracking-tight font-bold;
