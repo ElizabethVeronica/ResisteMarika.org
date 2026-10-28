@@ -129,7 +129,7 @@ export default function QuienesSomos() {
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-950/94 via-gray-950/88 to-[#1e1330]/90 dark:from-gray-950/96 dark:via-[#161220]/94 dark:to-brand-purple/80" />
+        <div className="absolute inset-0 bg-black/80" />
         <Container>
           <div className="relative z-10 mx-auto max-w-4xl rounded-3xl border border-white/20 bg-white/90 px-5 py-8 text-center shadow-xl backdrop-blur-md sm:px-8 sm:py-10 dark:border-white/10 dark:bg-[#211d2a]/90">
             <span className="inline-block px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-brand-purple bg-brand-purpleLight/70 rounded-full mb-4 font-display">
@@ -552,7 +552,7 @@ export default function QuienesSomos() {
               loading="lazy"
               className="absolute inset-0 h-full w-full object-cover opacity-60"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-gray-950/92 via-gray-950/85 to-[#1c122c]/88" />
+            <div className="absolute inset-0 bg-black/80" />
             <div className="relative z-10 m-3 flex flex-col items-center justify-between gap-6 rounded-2xl border border-white/20 bg-gray-950/65 p-6 text-center text-white shadow-xl backdrop-blur-md sm:m-5 sm:flex-row sm:p-8 sm:text-left">
               <div>
                 <h3 className="text-xl font-bold font-display text-brand-yellowWarm">

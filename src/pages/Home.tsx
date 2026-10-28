@@ -13,36 +13,12 @@ export default function Home() {
 
   return (
     <div className="page-art-backdrop bg-[#FAF9F6] text-gray-900">
-      {/* ── HERO CON FONDO GRÁFICO ANDINO Y ARTIVISTA OSCURO ───── */}
-      <section className="relative border-b border-black/40 py-14 sm:py-20 lg:py-24 overflow-hidden bg-[#0e0b17]">
-        {/* Elemento gráfico vectorial andino */}
-        <div
-          className="absolute inset-0 opacity-20 pointer-events-none"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='96' height='96' viewBox='0 0 96 96' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%239b64bc' stroke-width='1.2'%3E%3Cpath d='M48 0L96 48L48 96L0 48Z'/%3E%3Cpath d='M48 14L82 48L48 82L14 48Z' stroke='%235bc7e9'/%3E%3Cpath d='M48 28L68 48L48 68L28 48Z' stroke='%23ed8eaf'/%3E%3Cpath d='M0 0L24 24M96 0L72 24M96 96L72 72M0 96L24 72'/%3E%3Crect x='43' y='43' width='10' height='10' fill='%23f5b731' stroke='none'/%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-          }}
-          aria-hidden="true"
-        />
-        {/* Halos ambientales oscuros y profundos (sin degradado hacia blanco) */}
-        <div
-          className="absolute -top-28 -left-28 w-96 h-96 rounded-full bg-brand-purple/20 blur-3xl pointer-events-none"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute top-1/2 -right-20 w-80 h-80 rounded-full bg-brand-sky/15 blur-3xl pointer-events-none"
-          aria-hidden="true"
-        />
-        <div
-          className="absolute -bottom-24 left-1/3 w-96 h-96 rounded-full bg-brand-pink/15 blur-3xl pointer-events-none"
-          aria-hidden="true"
-        />
-        {/* Capa de opacidad oscura profunda */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#090710]/95 via-[#130f20]/90 to-[#0a0812]/96" />
+      {/* ── HERO INSTITUCIONAL ───── */}
+      <section className="relative pt-8 sm:pt-12 pb-10 sm:pb-14 overflow-hidden">
         <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* Texto Principal */}
-            <div className="relative isolate overflow-hidden rounded-3xl border border-white/20 bg-white/90 p-5 shadow-xl backdrop-blur-md sm:p-7 dark:border-white/10 dark:bg-[#211d2a]/90 lg:col-span-7">
+            <div className="relative isolate overflow-hidden rounded-3xl border border-gray-200/80 bg-white/95 p-5 shadow-sm sm:p-7 dark:border-white/10 dark:bg-[#211d2a]/95 lg:col-span-7">
               <img
                 src="/images/logo png.png"
                 alt=""
@@ -56,7 +32,7 @@ export default function Home() {
                 className="home-hero-logo home-hero-logo--dark"
               />
               <div className="relative z-10 flex flex-col items-start">
-                <span className="inline-block px-3.5 py-1.5 rounded-md bg-gray-100 text-gray-800 text-xs sm:text-sm font-bold uppercase tracking-wider mb-4 font-display dark:bg-gray-800 dark:text-gray-100">
+                <span className="inline-block px-3.5 py-1.5 rounded-md bg-brand-purpleLight/60 text-brand-purple text-xs sm:text-sm font-bold uppercase tracking-wider mb-4 font-display dark:bg-brand-purple/20 dark:text-purple-300">
                   Cusco, Perú · Fundada el {HISTORIA_RESUMEN.fundacion}
                 </span>
 
@@ -87,7 +63,7 @@ export default function Home() {
 
             {/* Fotografía de la marcha */}
             <div className="lg:col-span-5">
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gray-900 shadow-2xl border border-white/20 group">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 shadow-md border border-gray-200 group">
                 <img
                   src="/images/marcha 8M 2025.png"
                   alt="Marcha de Resiste Marika Cusco con tambores"
@@ -95,6 +71,17 @@ export default function Home() {
                 />
               </div>
             </div>
+          </div>
+
+          {/* Separación decorativa elegante y sutil hacia la siguiente sección */}
+          <div className="mt-12 sm:mt-16 flex items-center justify-center gap-4 max-w-3xl mx-auto px-4" aria-hidden="true">
+            <div className="h-0.5 flex-1 rounded-full bg-gradient-to-r from-transparent via-brand-purple/20 to-brand-purple/50 dark:via-purple-500/20 dark:to-purple-500/50" />
+            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-brand-purple/25 bg-white/90 dark:bg-[#211d2a] shadow-xs">
+              <span className="h-2 w-2 rounded-full bg-brand-sky" />
+              <span className="h-2 w-2 rounded-full bg-brand-pink" />
+              <span className="h-2 w-2 rounded-full bg-brand-purple" />
+            </div>
+            <div className="h-0.5 flex-1 rounded-full bg-gradient-to-l from-transparent via-brand-purple/20 to-brand-purple/50 dark:via-purple-500/20 dark:to-purple-500/50" />
           </div>
         </Container>
       </section>
@@ -206,7 +193,7 @@ export default function Home() {
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-950/95 via-gray-950/90 to-[#1e1330]/92" />
+        <div className="absolute inset-0 bg-black/80" />
         <Container className="relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <span className="text-xs font-bold uppercase tracking-wider text-brand-sky font-display mb-2 block">
