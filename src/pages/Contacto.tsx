@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react'
-import { Send, CheckCircle, Mail, MapPin, Heart } from 'lucide-react'
+import { Send, CheckCircle, Mail, MapPin } from 'lucide-react'
 import { FaInstagram } from 'react-icons/fa'
 import { FaTiktok } from 'react-icons/fa6'
 import Container from '@/components/ui/Container'
@@ -237,17 +237,6 @@ export default function Contacto() {
                       </div>
                     </div>
 
-                    <div className="flex items-start gap-3">
-                      <div className="h-10 w-10 rounded-2xl bg-brand-pinkLight text-brand-dark flex items-center justify-center shrink-0">
-                        <Heart size={18} className="text-brand-pink fill-brand-pink" />
-                      </div>
-                      <div>
-                        <p className="text-xs font-bold text-surface-muted uppercase tracking-wider font-display">
-                          Espacio Colectivo
-                        </p>
-                        <p className="text-brand-dark font-semibold">Ferias itinerantes y encuentros presenciales</p>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </Reveal>
