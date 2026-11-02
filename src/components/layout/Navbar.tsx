@@ -5,7 +5,6 @@ import { FaInstagram } from 'react-icons/fa'
 import { FaTiktok } from 'react-icons/fa6'
 import { motion, AnimatePresence } from 'framer-motion'
 import Container from '@/components/ui/Container'
-import Button from '@/components/ui/Button'
 import { NAV_LINKS } from '@/config/navigation'
 import { cn } from '@/utils/cn'
 
@@ -104,7 +103,7 @@ export default function Navbar() {
             </div>
           </Link>
 
-          <div className="hidden lg:flex flex-1 items-center justify-center gap-3 xl:gap-5">
+          <div className="hidden lg:flex flex-1 items-center justify-center gap-2 xl:gap-4">
             <Link
               to="/"
               viewTransition
@@ -136,7 +135,7 @@ export default function Navbar() {
             </Link>
 
             {/* Navegación Desktop */}
-            <nav className="flex items-center gap-0 xl:gap-1" aria-label="Navegación principal">
+            <nav className="flex items-center gap-0.5 xl:gap-1.5" aria-label="Navegación principal">
               {NAV_LINKS.map((link, index) => {
                 if (link.children && link.children.length > 0) {
                   const isCurrentPage = location.pathname === link.href
@@ -173,8 +172,8 @@ export default function Navbar() {
                           }}
                           className={cn(
                             cn(
-                              'py-2 text-sm font-bold transition-colors flex items-center whitespace-nowrap',
-                              isCurrentPage ? 'px-4 rounded-xl' : 'pl-4 pr-1.5 rounded-l-xl'
+                              'py-2.5 text-base font-bold transition-colors flex items-center whitespace-nowrap',
+                              isCurrentPage ? 'px-3 rounded-xl' : 'pl-3 pr-1.5 rounded-l-xl'
                             ),
                             isChildActive
                               ? 'text-brand-purple bg-brand-purpleLight/60'
@@ -194,7 +193,7 @@ export default function Navbar() {
                             aria-expanded={desktopDropdownOpen === link.label}
                             aria-label={`Desplegar menú de ${link.label}`}
                             className={cn(
-                              'pr-3 pl-1 py-2 rounded-r-xl text-sm font-bold transition-colors text-gray-700 hover:text-brand-purple',
+                              'pr-2.5 pl-1 py-2.5 rounded-r-xl text-base font-bold transition-colors text-gray-700 hover:text-brand-purple',
                               isChildActive && 'bg-brand-purpleLight/60 text-brand-purple'
                             )}
                           >
@@ -253,7 +252,7 @@ export default function Navbar() {
                     }}
                     className={({ isActive }) =>
                       cn(
-                        'px-4 py-2 rounded-xl text-sm font-bold whitespace-nowrap transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple focus-visible:ring-offset-2',
+                        'px-3 py-2.5 rounded-xl text-base font-bold whitespace-nowrap transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-purple focus-visible:ring-offset-2',
                         link.href === '/quienes-somos'
                           ? 'text-brand-purple bg-brand-purpleLight/70 border border-brand-purple/20 shadow-sm hover:-translate-y-0.5 hover:bg-brand-purpleLight hover:shadow-md'
                           : isActive
@@ -268,9 +267,9 @@ export default function Navbar() {
               })}
             </nav>
 
-            {/* Redes Sociales Oficiales + Botón Contacto */}
-            <div className="flex items-center gap-2 xl:gap-3">
-              <div className="flex items-center gap-2 pr-3 border-r border-gray-200 text-gray-600">
+            {/* Redes Sociales Oficiales */}
+            <div className="flex items-center">
+              <div className="flex items-center gap-2 text-gray-600">
                 <a
                   href="https://www.instagram.com/resiste.marika.cusco"
                   target="_blank"
@@ -291,14 +290,6 @@ export default function Navbar() {
                 </a>
               </div>
 
-              <Button
-                href="/contacto"
-                variant="primary"
-                size="sm"
-                onClick={() => scrollToTopIfCurrentPage('/contacto')}
-              >
-                Contáctanos
-              </Button>
             </div>
           </div>
 
@@ -368,7 +359,7 @@ export default function Navbar() {
                               setMobileOpen(false)
                               scrollToTopIfCurrentPage(link.href)
                             }}
-                            className="flex-1 px-3 py-3 text-sm font-bold text-gray-900 hover:text-brand-purple"
+                            className="flex-1 px-3 py-3 text-base font-bold text-gray-900 hover:text-brand-purple"
                           >
                             {link.label}
                           </NavLink>
@@ -400,7 +391,7 @@ export default function Navbar() {
                                 to={sublink.href}
                                 viewTransition
                                 onClick={() => setMobileOpen(false)}
-                                className="px-3 py-2.5 rounded-lg text-xs font-semibold text-gray-600 hover:text-brand-purple hover:bg-white transition-colors"
+                                className="px-3 py-2.5 rounded-lg text-sm font-semibold text-gray-600 hover:text-brand-purple hover:bg-white transition-colors"
                               >
                                 {sublink.label}
                               </Link>
@@ -422,7 +413,7 @@ export default function Navbar() {
                       }}
                       className={({ isActive }) =>
                         cn(
-                          'px-4 py-3 rounded-xl text-sm font-bold transition-colors',
+                          'px-4 py-3 rounded-xl text-base font-bold transition-colors',
                           isActive
                             ? 'text-brand-purple bg-brand-purpleLight/60'
                             : 'text-gray-800 hover:text-brand-purple hover:bg-gray-50'
@@ -436,19 +427,6 @@ export default function Navbar() {
               </div>
 
               <div className="mt-auto pt-6 border-t border-gray-200 flex flex-col gap-3">
-                <Button
-                  href="/contacto"
-                  variant="primary"
-                  size="md"
-                  className="w-full"
-                  onClick={() => {
-                    setMobileOpen(false)
-                    scrollToTopIfCurrentPage('/contacto')
-                  }}
-                >
-                  Contáctanos
-                </Button>
-
                 <div className="flex justify-center gap-4 text-gray-600 pt-2">
                   <a
                     href="https://www.instagram.com/resiste.marika.cusco"

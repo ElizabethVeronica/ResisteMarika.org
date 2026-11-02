@@ -231,9 +231,9 @@ export const EQUIPO: TeamMember[] = [
 ]
 
 export const ALIANZAS: Alianza[] = [
-  { id: '1', nombre: 'Colectivos LGTBIQ+ de Cusco', tipo: 'Articulación Local', logoText: 'CUSCO' },
-  { id: '2', nombre: 'Redes Colectivas', tipo: 'Autogestión', logoText: 'RED' },
-  { id: '3', nombre: 'Comunidad', tipo: 'Defensa de Derechos', logoText: 'COMUNIDAD' },
-  { id: '4', nombre: 'Creadores y Artivistas', tipo: 'Artistas Independientes', logoText: 'ARTE' },
-  { id: '5', nombre: 'Instancias de Vigilancia Ciudadana', tipo: 'Gestión Participativa', logoText: 'VIGILA' },
+  { id: '1', nombre: 'Colectivos LGTBIQ+ de Cusco', tipo: 'Articulación Local' },
+  { id: '2', nombre: 'Redes Colectivas', tipo: 'Autogestión' },
+  { id: '3', nombre: 'Comunidad', tipo: 'Defensa de Derechos' },
+  { id: '4', nombre: 'Creadores y Artivistas', tipo: 'Artistas Independientes' },
+  { id: '5', nombre: 'Instancias de Vigilancia Ciudadana', tipo: 'Gestión Participativa' },
 ]

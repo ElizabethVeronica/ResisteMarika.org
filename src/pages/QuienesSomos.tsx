@@ -37,39 +37,6 @@ const SECTION_LINKS = [
   { id: 'con-quienes-trabajamos', label: 'Con quiénes trabajamos' },
 ]
 
-const ALLIANCE_PALETTES = [
-  {
-    card: 'border-brand-purpleSoft/40 bg-brand-purpleLight/50 dark:bg-[#34283f]',
-    mark: 'text-brand-purple',
-    shape: 'bg-brand-purple/15',
-    stripe: 'bg-brand-purple',
-  },
-  {
-    card: 'border-brand-pink/30 bg-brand-pinkLight/50 dark:bg-[#3c2b35]',
-    mark: 'text-rose-700 dark:text-rose-300',
-    shape: 'bg-brand-pink/20',
-    stripe: 'bg-brand-pink',
-  },
-  {
-    card: 'border-brand-sky/40 bg-brand-skyLight/60 dark:bg-[#263846]',
-    mark: 'text-sky-800 dark:text-sky-200',
-    shape: 'bg-brand-sky/20',
-    stripe: 'bg-brand-sky',
-  },
-  {
-    card: 'border-brand-yellowWarm/50 bg-amber-50/80 dark:bg-[#3b3426]',
-    mark: 'text-amber-800 dark:text-amber-200',
-    shape: 'bg-brand-yellowWarm/25',
-    stripe: 'bg-brand-yellowWarm',
-  },
-  {
-    card: 'border-brand-purpleSoft/40 bg-brand-purpleLight/50 dark:bg-[#34283f]',
-    mark: 'text-brand-purple',
-    shape: 'bg-brand-purple/15',
-    stripe: 'bg-brand-purple',
-  },
-]
-
 export default function QuienesSomos() {
   const sectionMenuRef = useRef<HTMLElement>(null)
   const [activeSection, setActiveSection] = useState('nosotros')
@@ -493,27 +460,15 @@ export default function QuienesSomos() {
               Redes y plataformas afines en Cusco
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-              {ALIANZAS.map((a, index) => {
-                const palette = ALLIANCE_PALETTES[index % ALLIANCE_PALETTES.length]
+              {ALIANZAS.map((a) => {
                 return (
                 <div
                   key={a.id}
-                  className={`group relative isolate flex min-h-36 flex-col justify-between overflow-hidden rounded-2xl border p-4 text-left shadow-sm transition-all hover:-translate-y-1 hover:shadow-md ${palette.card}`}
+                  className="graphic-card flex min-h-36 flex-col justify-between rounded-2xl border border-gray-200 bg-white p-5 text-left shadow-sm transition-shadow hover:shadow-md"
                 >
-                  <span
-                    aria-hidden="true"
-                    className={`absolute -right-5 -top-6 h-20 w-20 rounded-full ${palette.shape}`}
-                  />
-                  <span
-                    aria-hidden="true"
-                    className={`absolute -bottom-8 -left-5 h-16 w-16 rotate-45 rounded-xl ${palette.shape}`}
-                  />
-                  <span className={`relative z-10 inline-flex w-fit rounded-full bg-white/70 px-2.5 py-1 text-[11px] font-black uppercase tracking-wider dark:bg-black/15 ${palette.mark}`}>
-                    {a.logoText}
-                  </span>
-                  <div className="relative z-10 mt-4">
-                    <p className="font-bold text-xs text-gray-800 font-display">{a.nombre}</p>
-                    <p className="text-[11px] text-gray-500 mt-0.5">{a.tipo}</p>
+                  <div>
+                    <p className="font-display text-base font-bold text-gray-900">{a.nombre}</p>
+                    <p className="mt-1 text-sm text-gray-600">{a.tipo}</p>
                   </div>
                 </div>
                 )

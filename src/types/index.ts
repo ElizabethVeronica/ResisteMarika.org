@@ -51,7 +51,6 @@ export interface Alianza {
   id: string
   nombre: string
   tipo: string
-  logoText: string
 }
 
 // ── Noticia / Comunicado ────────────────────────────────────

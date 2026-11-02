@@ -43,7 +43,7 @@ export default function Proyectos() {
               const isEven = idx % 2 === 0
               return (
                 <Reveal key={prog.id} delay={0.1}>
-                  <div className="graphic-card--stripe grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-white rounded-3xl p-6 sm:p-10 border border-surface-border shadow-sm hover:shadow-xl hover:border-brand-purpleSoft/40 transition-all duration-300">
+                  <div className="graphic-card grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-white rounded-3xl p-6 sm:p-10 border border-surface-border shadow-sm hover:shadow-xl hover:border-brand-purpleSoft/40 transition-all duration-300">
                     {/* Imagen del proyecto */}
                     <div className={`lg:col-span-5 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
                       <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group shadow-md bg-white">

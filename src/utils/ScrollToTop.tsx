@@ -9,6 +9,10 @@ export default function ScrollToTop() {
   const { pathname, hash } = useLocation()
 
   useLayoutEffect(() => {
+    const behavior: ScrollBehavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      ? 'instant'
+      : 'smooth'
+
     if (hash) {
       const id = hash.replace('#', '')
       const element = document.getElementById(id)
@@ -18,14 +22,14 @@ export default function ScrollToTop() {
           const elementPosition = element.getBoundingClientRect().top + window.scrollY
           window.scrollTo({
             top: elementPosition - navHeight,
-            behavior: 'smooth',
+            behavior,
           })
         }, 80)
         return () => window.clearTimeout(timeoutId)
       }
     }
 
-    window.scrollTo({ top: 0, behavior: 'instant' })
+    window.scrollTo({ top: 0, behavior })
   }, [pathname, hash])
 
   return null
