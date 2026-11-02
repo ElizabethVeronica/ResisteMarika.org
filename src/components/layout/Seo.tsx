@@ -73,7 +73,7 @@ export default function Seo() {
       const canonicalPath = `${import.meta.env.BASE_URL}${pathname.replace(/^\/+/, '')}`
       const canonicalUrl = new URL(canonicalPath, siteUrl.origin).toString()
       const socialImageUrl = new URL(
-        `${import.meta.env.BASE_URL}images/logo png.png`,
+        `${import.meta.env.BASE_URL}images/logo.jpg`,
         siteUrl.origin,
       ).toString()
       setMeta('property', 'og:url', canonicalUrl)

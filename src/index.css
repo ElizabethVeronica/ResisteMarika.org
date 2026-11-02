@@ -323,8 +323,7 @@ html.dark {
   color-scheme: dark;
 }
 
-.site-logo--light,
-.site-logo--dark {
+.site-logo--light {
   position: absolute;
   inset: 0;
   transition: opacity 360ms ease;
@@ -357,18 +356,6 @@ html.dark {
 
 .dark .home-hero-logo--dark {
   opacity: 0.15;
-}
-
-.site-logo--dark {
-  opacity: 0;
-}
-
-.dark .site-logo--light {
-  opacity: 0;
-}
-
-.dark .site-logo--dark {
-  opacity: 1;
 }
 
 .site-logo--light {
