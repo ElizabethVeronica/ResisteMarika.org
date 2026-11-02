@@ -24,7 +24,7 @@ export const HISTORIA_RESUMEN = {
 
 export const DISCIPLINAS = [
   { nombre: 'Música & Batucada', descripcion: 'Compramos nuestros tambores para salir a marchar y performar en las calles del Cusco.' },
-  { nombre: 'Ilustración & Artes Visuales', descripcion: 'Creamos gráfica disidente, zines y afiches para comunicar nuestras luchas.' },
+  { nombre: 'Ilustración & Artes Visuales', descripcion: 'Creamos gráfica disidente como fanzines y pañuelos para comunicar nuestra lucha.' },
   { nombre: 'Escritura & Poesía', descripcion: 'Escribimos textos, manifiestos y relatos desde nuestras vivencias marikas racializadas.' },
   { nombre: 'Arteterapia', descripcion: 'Facilitamos espacios de cuidado, expresión y sanación colectiva entre nosotres.' },
 ]

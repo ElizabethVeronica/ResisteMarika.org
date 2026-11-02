@@ -36,7 +36,7 @@ export default function Reveal({
   duration = 0.6,
 }: RevealProps) {
   const ref    = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-100px' })
+  const inView = useInView(ref, { once: false, margin: '-100px' })
   const reduceMotion = useReducedMotion()
   const vtActive = useViewTransition()
   const offset = directionMap[direction]
@@ -44,15 +44,20 @@ export default function Reveal({
   // Skip initial animation when element is already in view AND a
   // view transition is active — the page-transition CSS handles the fade.
   const skipInitial = inView && vtActive
-  const shouldAnimate = inView && !vtActive
+  const visible = { opacity: 1, x: 0, y: 0, scale: 1 }
+  const hidden = { opacity: 0, ...offset, scale: 0.97 }
 
   return (
     <motion.div
       ref={ref}
       className={className}
-      initial={skipInitial || reduceMotion ? { opacity: 1, x: 0, y: 0, scale: 1 } : { opacity: 0, ...offset, scale: 0.97 }}
-      animate={reduceMotion || shouldAnimate ? { opacity: 1, x: 0, y: 0, scale: 1 } : {}}
-      transition={{ duration: reduceMotion ? 0 : duration, delay: reduceMotion ? 0 : delay, ease: [0.25, 0.46, 0.45, 0.94] }}
+      initial={skipInitial || reduceMotion ? visible : hidden}
+      animate={reduceMotion || inView ? visible : hidden}
+      transition={{
+        duration: reduceMotion ? 0 : inView ? duration : Math.min(duration * 0.45, 0.25),
+        delay: reduceMotion || !inView ? 0 : delay,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      }}
     >
       {children}
     </motion.div>

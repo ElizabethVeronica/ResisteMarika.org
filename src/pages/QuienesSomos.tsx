@@ -16,7 +16,7 @@ import {
 } from 'lucide-react'
 
 const SECTION_LINKS = [
-  { id: 'nosotros', label: 'Nosotros' },
+  { id: 'nosotros', label: 'Nosotres' },
   { id: 'artes', label: 'Artes y artivismo' },
   { id: 'autogestion', label: 'Autogestión' },
   { id: 'mision-vision', label: 'Misión y Visión' },
@@ -130,34 +130,31 @@ export default function QuienesSomos() {
       {/* ── 1. SECCIÓN: NOSOTROS ───────────────────────────── */}
       <section id="nosotros" className="page-section scroll-mt-24 py-8 sm:py-10">
         <Container>
-          <Reveal>
-            <div className="max-w-3xl mb-4">
-              <h2 className="mt-1 mb-2 font-display text-2xl font-extrabold text-gray-900 sm:text-3xl lg:text-4xl">
-                Nosotros
-              </h2>
-              <div className="h-1 w-16 bg-brand-purple rounded-full" />
-            </div>
-          </Reveal>
-
           {/* Identidad y origen */}
           <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-7">
             <Reveal className="lg:col-span-6">
-              <div className="space-y-3 font-sans text-base leading-relaxed text-gray-700">
-                <p className="font-semibold text-gray-900">
-                  {HISTORIA_RESUMEN.declaracionInicial}
-                </p>
-                <p>{HISTORIA_RESUMEN.parrafo1}</p>
-
-                <div className="text-sm leading-relaxed text-gray-700">
-                  <p className="font-bold text-gray-900">
-                    Nuestra postura frente a la dependencia externa:
+              <div>
+                <h2 className="mt-1 mb-2 font-display text-2xl font-extrabold text-gray-900 sm:text-3xl lg:text-4xl">
+                  Nosotres
+                </h2>
+                <div className="mb-4 h-1 w-16 rounded-full bg-brand-purple" />
+                <div className="space-y-3 font-sans text-base leading-relaxed text-gray-700">
+                  <p className="font-semibold text-gray-900">
+                    {HISTORIA_RESUMEN.declaracionInicial}
                   </p>
-                  <p>{HISTORIA_RESUMEN.parrafo2}</p>
-                </div>
+                  <p>{HISTORIA_RESUMEN.parrafo1}</p>
 
-                <p className="font-medium text-gray-900">
-                  {HISTORIA_RESUMEN.parrafo3}
-                </p>
+                  <div className="text-sm leading-relaxed text-gray-700">
+                    <p className="font-bold text-gray-900">
+                      Nuestra postura frente a la dependencia externa:
+                    </p>
+                    <p>{HISTORIA_RESUMEN.parrafo2}</p>
+                  </div>
+
+                  <p className="font-medium text-gray-900">
+                    {HISTORIA_RESUMEN.parrafo3}
+                  </p>
+                </div>
               </div>
             </Reveal>
 
