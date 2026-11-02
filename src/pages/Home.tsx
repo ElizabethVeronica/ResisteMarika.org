@@ -13,13 +13,10 @@ export default function Home() {
 
   return (
     <div className="page-art-backdrop bg-[#FAF9F6] text-gray-900">
-      {/* ── HERO INSTITUCIONAL A PANTALLA COMPLETA ───── */}
       <section className="page-section relative flex flex-col justify-between overflow-hidden">
-        {/* Contenedor centralizado vertical y horizontalmente */}
         <div className="my-auto w-full py-6 sm:py-10">
           <Container className="relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-              {/* Texto Principal */}
               <Reveal className="lg:col-span-7">
                 <div className="relative isolate overflow-hidden rounded-3xl border border-gray-200/80 bg-white/95 p-5 shadow-sm sm:p-7 dark:border-white/10 dark:bg-[#211d2a]/95">
                   <img
@@ -65,7 +62,6 @@ export default function Home() {
                 </div>
               </Reveal>
 
-              {/* Fotografía de la marcha */}
               <Reveal className="lg:col-span-5" delay={0.1}>
                 <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 shadow-md border border-gray-200 group">
                   <img
@@ -79,7 +75,6 @@ export default function Home() {
           </Container>
         </div>
 
-        {/* Separación decorativa ubicada justo al final del primer viewport */}
         <div className="w-full pb-3 sm:pb-4" aria-hidden="true">
           <Reveal>
             <div className="flex items-center justify-center gap-4 max-w-3xl mx-auto px-4">
@@ -95,7 +90,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── NUESTROS PROYECTOS EN CUSCO ─────────────────────── */}
       <section className="page-section py-16 sm:py-24 bg-white/75 backdrop-blur-xs border-b border-gray-200 relative dark:bg-[#1a1624]/75">
         <Container>
           <Reveal>
@@ -146,7 +140,6 @@ export default function Home() {
 
       <EngagementPaths />
 
-      {/* ── ACTIVIDADES Y NOTICIAS RECIENTES ──────────────── */}
       <section className="page-section py-16 sm:py-24 bg-transparent border-b border-gray-200">
         <Container>
           <Reveal>
@@ -187,7 +180,6 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* ── LLAMADO A ARTICULAR / CONTACTO ─────────────────── */}
       <section className="page-section page-section--photo home-network-cta relative isolate overflow-hidden border-y border-white/10 py-16 sm:py-20">
         <img
           src="/images/Marika Fest 2024 - Productos de conscientización.jpg"

@@ -61,7 +61,6 @@ export default function QuienesSomos() {
 
   return (
     <div className="page-art-backdrop bg-[#FAF9F6] text-gray-900">
-      {/* ── ENCABEZADO INSTITUCIONAL ───────────────────────── */}
       <section className="page-hero">
         <img
           src="/images/Presentacion Fanzine colaborativo Manifiesto Marika Vol1 y Vol2.jpg"
@@ -127,10 +126,8 @@ export default function QuienesSomos() {
         </div>
       </nav>
 
-      {/* ── 1. SECCIÓN: NOSOTROS ───────────────────────────── */}
       <section id="nosotros" className="page-section scroll-mt-24 py-8 sm:py-10">
         <Container>
-          {/* Identidad y origen */}
           <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-7">
             <Reveal className="lg:col-span-6">
               <div>
@@ -279,7 +276,6 @@ export default function QuienesSomos() {
         </Container>
       </section>
 
-      {/* ── 2. SECCIÓN: MISIÓN Y VISIÓN ────────────────────── */}
       <section id="mision-vision" className="page-section flex items-center scroll-mt-24 bg-white/80 py-10 backdrop-blur-xs border-y border-gray-200 dark:bg-[#1a1624]/80 sm:py-12">
         <Container className="w-full max-w-6xl">
           <Reveal>
@@ -291,7 +287,6 @@ export default function QuienesSomos() {
             </div>
           </Reveal>
 
-          {/* Los 6 Objetivos Estratégicos */}
           <div>
             <Reveal className="mb-4">
               <h3 className="text-xl sm:text-2xl font-bold font-display text-gray-900">
@@ -322,7 +317,6 @@ export default function QuienesSomos() {
         </Container>
       </section>
 
-      {/* ── 3. SECCIÓN: DÓNDE TRABAJAMOS ───────────────────── */}
       <section id="donde-trabajamos" className="page-section pt-16 sm:pt-24 pb-16">
         <Container>
           <Reveal>
@@ -381,7 +375,6 @@ export default function QuienesSomos() {
         </Container>
       </section>
 
-      {/* ── 4. SECCIÓN: CON QUIÉNES TRABAJAMOS ─────────────── */}
       <section id="con-quienes-trabajamos" className="page-section flex scroll-mt-24 items-center bg-white/80 py-12 backdrop-blur-xs border-t border-gray-200 dark:bg-[#1a1624]/80 sm:py-16">
         <Container className="w-full max-w-6xl">
           <Reveal>

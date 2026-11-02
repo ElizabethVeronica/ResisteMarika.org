@@ -2,7 +2,6 @@ import { useRef, useState } from 'react'
 import { Moon, Sun } from 'lucide-react'
 import Container from '@/components/ui/Container'
 
-/** Barra superior tipo MSF / Amnesty: contexto institucional sin distraer */
 export default function TopBar() {
   const [darkMode, setDarkMode] = useState(
     () => document.documentElement.classList.contains('dark')

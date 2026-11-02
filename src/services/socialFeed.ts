@@ -12,8 +12,8 @@ export interface SocialFeed {
   tiktok: SocialPost[]
 }
 
-// The API returns newest-first arrays using this shape. The page displays at most 6
-// Instagram posts and 3 TikTok videos.
+// El endpoint devuelve las publicaciones más recientes primero; Noticias muestra hasta
+// seis publicaciones de Instagram y tres videos de TikTok.
 export const SOCIAL_PROFILES = {
   instagram: 'https://www.instagram.com/resiste.marika.cusco/',
   tiktok: 'https://www.tiktok.com/@resistemarik',

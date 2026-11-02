@@ -2,13 +2,13 @@ import { useState, type FormEvent } from 'react'
 import { Send, CheckCircle, Mail, MapPin } from 'lucide-react'
 import { FaInstagram } from 'react-icons/fa'
 import { FaTiktok } from 'react-icons/fa6'
+import { Link } from 'react-router-dom'
 import Container from '@/components/ui/Container'
 import Reveal from '@/components/ui/Reveal'
 import Button from '@/components/ui/Button'
+import { submitContactForm } from '@/services/contactForm'
 
 type FormState = 'idle' | 'loading' | 'success' | 'error'
-
-const FORMSUBMIT_EMAIL = 'resistemarik@gmail.com'
 
 export default function Contacto() {
   const [state, setState] = useState<FormState>('idle')
@@ -18,20 +18,11 @@ export default function Contacto() {
     setState('loading')
 
     const form = e.currentTarget
-    const data = new FormData(form)
 
     try {
-      const res = await fetch(`https://formsubmit.co/ajax/${FORMSUBMIT_EMAIL}`, {
-        method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: data,
-      })
-      if (res.ok) {
-        setState('success')
-        form.reset()
-      } else {
-        setState('error')
-      }
+      await submitContactForm(form)
+      setState('success')
+      form.reset()
     } catch {
       setState('error')
     }
@@ -39,7 +30,6 @@ export default function Contacto() {
 
   return (
     <div className="page-art-backdrop bg-surface-light pb-10">
-      {/* ── ENCABEZADO ───────────────────────────────────── */}
       <section className="page-hero">
         <img
           src="/images/taller de batucada.jpg"
@@ -60,11 +50,9 @@ export default function Contacto() {
         </Container>
       </section>
 
-      {/* ── FORMULARIO Y CANALES ─────────────────────────── */}
       <section className="page-section mb-10 flex items-center py-12 sm:py-16">
         <Container className="w-full">
           <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-7 lg:grid-cols-12 lg:gap-10">
-            {/* Formulario */}
             <div className="w-full lg:col-span-7">
               <Reveal direction="left">
                 <div className="graphic-card--stripe bg-white rounded-3xl p-5 sm:p-7 border border-surface-border shadow-md">
@@ -88,8 +76,8 @@ export default function Contacto() {
                     </div>
                   ) : (
                     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                      <input type="text" name="_honey" className="hidden" />
-                      <input type="hidden" name="_captcha" value="false" />
+                      <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" />
+                      <input type="hidden" name="_subject" value="Nuevo mensaje desde el sitio web" />
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
@@ -104,6 +92,7 @@ export default function Contacto() {
                             name="nombre"
                             type="text"
                             required
+                            maxLength={100}
                             placeholder="Tu nombre"
                             className="w-full rounded-2xl border border-gray-200 bg-surface-light px-4 py-2.5 text-sm text-brand-dark placeholder:text-gray-400 focus:border-brand-purple focus:outline-none transition-colors font-sans"
                           />
@@ -121,6 +110,7 @@ export default function Contacto() {
                             name="email"
                             type="email"
                             required
+                            maxLength={254}
                             placeholder="tu@correo.com"
                             className="w-full rounded-2xl border border-gray-200 bg-surface-light px-4 py-2.5 text-sm text-brand-dark placeholder:text-gray-400 focus:border-brand-purple focus:outline-none transition-colors font-sans"
                           />
@@ -139,13 +129,32 @@ export default function Contacto() {
                           name="mensaje"
                           required
                           rows={4}
+                          maxLength={2000}
                           placeholder="Cuéntanos sobre tu iniciativa o propuesta"
                           className="w-full rounded-2xl border border-gray-200 bg-surface-light px-4 py-2.5 text-sm text-brand-dark placeholder:text-gray-400 focus:border-brand-purple focus:outline-none transition-colors resize-none font-sans"
                         />
                       </div>
 
+                      <label className="flex items-start gap-2 text-xs leading-relaxed text-surface-muted font-sans">
+                        <input
+                          type="checkbox"
+                          required
+                          className="mt-0.5 accent-brand-purple"
+                        />
+                        <span>
+                          He leído el{' '}
+                          <Link
+                            to="/privacidad"
+                            className="font-semibold text-brand-purple underline underline-offset-2"
+                          >
+                            aviso de privacidad
+                          </Link>{' '}
+                          y entiendo que mis datos se enviarán a Resiste Marika mediante FormSubmit.
+                        </span>
+                      </label>
+
                       {state === 'error' && (
-                        <p className="text-xs text-rose-600 bg-rose-50 p-3 rounded-2xl border border-rose-200 font-sans">
+                        <p role="alert" className="text-xs text-rose-600 bg-rose-50 p-3 rounded-2xl border border-rose-200 font-sans">
                           Ocurrió un error al enviar el formulario. Por favor inténtalo de nuevo o escríbenos directamente a nuestro Instagram o TikTok.
                         </p>
                       )}
@@ -165,7 +174,6 @@ export default function Contacto() {
               </Reveal>
             </div>
 
-            {/* Canales Directos & Info */}
             <div className="flex w-full flex-col justify-center gap-6 lg:col-span-5">
               <Reveal direction="right" delay={0.1}>
                 <div className="relative z-10 rounded-3xl border border-white/80 bg-white/90 p-5 shadow-xl backdrop-blur-md flex flex-col gap-4 sm:p-7 dark:border-white/10 dark:bg-[#211d2a]/90">
@@ -177,7 +185,6 @@ export default function Contacto() {
                       Respuesta atenta y con respeto a la confidencialidad.
                     </p>
 
-                    {/* Redes sociales — a la izquierda, junto al título */}
                     <div className="mt-4 flex flex-row gap-3 flex-wrap items-start">
                       <a
                         href="https://www.instagram.com/resiste.marika.cusco"

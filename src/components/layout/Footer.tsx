@@ -6,6 +6,7 @@ import { FaTiktok } from 'react-icons/fa6'
 import Container from '@/components/ui/Container'
 import Reveal from '@/components/ui/Reveal'
 import { NAV_LINKS } from '@/config/navigation'
+import { submitContactForm } from '@/services/contactForm'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -17,17 +18,9 @@ export default function Footer() {
 
     const form = event.currentTarget
     try {
-      const response = await fetch('https://formsubmit.co/ajax/resistemarik@gmail.com', {
-        method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: new FormData(form),
-      })
-      if (response.ok) {
-        form.reset()
-        setContactState('success')
-      } else {
-        setContactState('error')
-      }
+      await submitContactForm(form)
+      form.reset()
+      setContactState('success')
     } catch {
       setContactState('error')
     }
@@ -35,15 +28,12 @@ export default function Footer() {
 
   return (
     <footer className="bg-brand-dark text-white relative overflow-hidden">
-      {/* Franja superior con la bandera Trans y No Binaria */}
       <div className="h-2 w-full flex">
-        {/* Bandera Trans */}
         <span className="flex-1 bg-brand-sky" />
         <span className="flex-1 bg-brand-pink" />
         <span className="flex-1 bg-white" />
         <span className="flex-1 bg-brand-pink" />
         <span className="flex-1 bg-brand-sky" />
-        {/* Bandera No Binaria */}
         <span className="flex-1 bg-brand-yellowWarm" />
         <span className="flex-1 bg-white" />
         <span className="flex-1 bg-brand-purple" />
@@ -52,7 +42,6 @@ export default function Footer() {
 
       <Container className="pt-8 pb-3 sm:pt-10 sm:pb-3.5">
         <div className="grid grid-cols-1 gap-8 border-b border-white/10 pb-6 sm:grid-cols-2 sm:gap-10 sm:pb-8 lg:grid-cols-12">
-          {/* Columna 1: Identidad y Origen */}
           <Reveal className="lg:col-span-5">
             <div className="flex flex-col gap-4">
               <Link to="/" className="flex items-center gap-3 w-fit">
@@ -112,7 +101,6 @@ export default function Footer() {
             </div>
           </Reveal>
 
-          {/* Columna 2: Páginas */}
           <Reveal className="lg:col-span-3" delay={0.08}>
             <div>
               <h3 className="text-xs font-bold text-brand-sky uppercase tracking-widest mb-4 font-display">
@@ -133,7 +121,6 @@ export default function Footer() {
             </div>
           </Reveal>
 
-          {/* Columna 3: Formulario de contacto */}
           <Reveal className="sm:col-span-2 lg:col-span-4" delay={0.16}>
             <div className="flex flex-col gap-3">
               {contactState === 'success' ? (
@@ -143,8 +130,8 @@ export default function Footer() {
                 </div>
               ) : (
                 <form onSubmit={handleContactSubmit} className="graphic-card--stripe flex flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-4 sm:p-5" aria-label="Formulario de contacto rápido">
-                  <input type="text" name="_honey" className="hidden" tabIndex={-1} />
-                  <input type="hidden" name="_captcha" value="false" />
+                  <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" />
+                  <input type="hidden" name="_subject" value="Nuevo mensaje desde el sitio web" />
                   <div>
                     <label htmlFor="footer-nombre" className="mb-1.5 block text-xs font-bold text-white/90">
                       Nombre *
@@ -154,6 +141,7 @@ export default function Footer() {
                       name="nombre"
                       type="text"
                       required
+                      maxLength={100}
                       placeholder="Tu nombre"
                       className="w-full rounded-xl border border-white/15 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/45 focus:border-brand-purple focus:outline-none"
                     />
@@ -167,6 +155,7 @@ export default function Footer() {
                       name="email"
                       type="email"
                       required
+                      maxLength={254}
                       placeholder="tu@correo.com"
                       className="w-full rounded-xl border border-white/15 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/45 focus:border-brand-purple focus:outline-none"
                     />
@@ -180,10 +169,21 @@ export default function Footer() {
                       name="mensaje"
                       required
                       rows={3}
+                      maxLength={2000}
                       placeholder="¿Cómo podemos ayudarte?"
                       className="w-full resize-y rounded-xl border border-white/15 bg-white/5 px-3 py-2 text-sm text-white placeholder:text-white/45 focus:border-brand-purple focus:outline-none"
                     />
                   </div>
+                  <label className="flex items-start gap-2 text-xs leading-relaxed text-white/75">
+                    <input type="checkbox" required className="mt-0.5 accent-brand-purple" />
+                    <span>
+                      He leído el{' '}
+                      <Link to="/privacidad" className="font-semibold text-brand-pink underline underline-offset-2">
+                        aviso de privacidad
+                      </Link>
+                      .
+                    </span>
+                  </label>
                   {contactState === 'error' && (
                     <p className="text-xs text-rose-300" role="alert">
                       No se pudo enviar. Inténtalo de nuevo o escríbenos por correo.
@@ -207,9 +207,11 @@ export default function Footer() {
           </Reveal>
         </div>
 
-        {/* Barra Inferior */}
-        <div className="pt-3 sm:pt-4 flex items-center justify-center text-xs text-white/60 font-sans">
+        <div className="pt-3 sm:pt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-white/60 font-sans">
           <p>© {year} Resiste Marika.</p>
+          <Link to="/privacidad" className="underline underline-offset-2 hover:text-white">
+            Aviso de privacidad
+          </Link>
         </div>
       </Container>
     </footer>

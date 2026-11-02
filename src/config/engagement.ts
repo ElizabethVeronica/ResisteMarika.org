@@ -1,4 +1,3 @@
-/** Rutas de participación inspiradas en portales tipo Amnesty / Frida Fund */
 export interface EngagementPath {
   id: string
   titulo: string

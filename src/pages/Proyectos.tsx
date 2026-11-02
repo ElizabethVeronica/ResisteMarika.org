@@ -7,7 +7,6 @@ import { CheckCircle2, ArrowRight } from 'lucide-react'
 export default function Proyectos() {
   return (
     <div className="page-art-backdrop bg-surface-light">
-      {/* ── ENCABEZADO ───────────────────────────────────── */}
       <section className="page-hero">
         <img
           src="/images/marcha del orgullo 2025.png"
@@ -30,7 +29,6 @@ export default function Proyectos() {
         </Container>
       </section>
 
-      {/* ── LISTADO DE PROYECTOS ─────────────────────────── */}
       <section className="page-section mb-20 pt-12 sm:mb-28 sm:pt-16">
         <Container>
           <div className="flex flex-col gap-14 sm:gap-20">
@@ -39,7 +37,6 @@ export default function Proyectos() {
               return (
                 <Reveal key={prog.id} delay={Math.min(index % 3 * 0.08, 0.16)}>
                   <div className="graphic-card grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-white rounded-3xl p-6 sm:p-10 border border-surface-border shadow-sm hover:shadow-xl hover:border-brand-purpleSoft/40 transition-all duration-300">
-                    {/* Imagen del proyecto */}
                     <div className={`lg:col-span-5 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
                       <div className="aspect-[4/3] rounded-2xl overflow-hidden relative group shadow-md bg-white">
                         <img
@@ -50,7 +47,6 @@ export default function Proyectos() {
                       </div>
                     </div>
 
-                    {/* Contenido */}
                     <div className={`lg:col-span-7 flex flex-col gap-4 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
                       <div>
                         <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-brand-dark leading-tight">
@@ -98,7 +94,6 @@ export default function Proyectos() {
         </Container>
       </section>
 
-      {/* ── BANNER APOYO MUTUO ───────────────────────────── */}
       <section className="page-section page-section--photo relative isolate overflow-hidden border-y border-white/10 py-14 sm:py-20">
         <img
           src="/images/Feria Informativa LGTBIQ CuidArte en el Colegio San Francisco de Borja.jpg"

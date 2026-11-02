@@ -4,7 +4,6 @@ import Container from '@/components/ui/Container'
 import Reveal from '@/components/ui/Reveal'
 import { ENGAGEMENT_PATHS } from '@/config/engagement'
 
-/** Tres caminos claros de acción (patrón Amnesty / ILGA) */
 export default function EngagementPaths() {
   return (
     <section className="page-section page-section--photo relative isolate overflow-hidden border-b border-gray-200 py-14 sm:py-20">

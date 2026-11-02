@@ -1,5 +1,3 @@
-import type { TeamMember, ValorInstitucional } from '@/types'
-
 export const HISTORIA_RESUMEN = {
   fundacion: '7 de agosto de 2023',
   ciudad: 'Cusco, Perú',
@@ -167,65 +165,3 @@ export const CON_QUIENES_TRABAJAMOS = {
     },
   ],
 }
-
-export const VALORES: ValorInstitucional[] = [
-  {
-    id: 'autogestion',
-    titulo: 'Autogestión',
-    descripcion: 'Nos sostenemos de manera autónoma con rifas, ferias, artivismo y talleres.',
-    icono: 'Sparkles',
-  },
-  {
-    id: 'solidaridad',
-    titulo: 'Autonomía y Ternura',
-    descripcion: 'Nuestra fortaleza radica en reconocernos, cuidarnos y sostenernos colectivamente.',
-    icono: 'HeartHandshake',
-  },
-  {
-    id: 'artivismo',
-    titulo: 'Arte como Activismo',
-    descripcion: 'Las artes nos han devuelto el poder para existir como marikas racializadas y resistir en Cusco.',
-    icono: 'Palette',
-  },
-  {
-    id: 'derechos',
-    titulo: 'Defensa de Derechos',
-    descripcion: 'Buscamos la satisfacción de derechos fundamentales y aportamos en políticas públicas.',
-    icono: 'ShieldCheck',
-  },
-]
-
-export const EQUIPO: TeamMember[] = [
-  {
-    id: '1',
-    nombre: 'Coordinación Colectiva',
-    rol: 'Resiste Marika Cusco',
-    bio: 'Articulación de actividades, batucada y talleres multidisciplinarios desde la autogestión en Cusco.',
-    foto: '/images/marcha 8M 2025.png',
-    redes: { instagram: 'https://www.instagram.com/resiste.marika.cusco' },
-  },
-  {
-    id: '2',
-    nombre: 'Ferias Colectivas',
-    rol: 'Autogestión Colectiva',
-    bio: 'Organización de ferias donde compartimos nuestras artes y creaciones desde la autogestión.',
-    foto: '/images/Marika Fest 2024 - Feria de autogestión LGTBIQ.jpg',
-    redes: { instagram: 'https://www.instagram.com/resiste.marika.cusco' },
-  },
-  {
-    id: '3',
-    nombre: 'Batucada y Talleres',
-    rol: 'Música y Artivismo',
-    bio: 'Nuestros tambores en las calles del Cusco y talleres de activismo antipatriarcal, decolonial y antirracista.',
-    foto: '/images/taller de batucada.jpg',
-    redes: { instagram: 'https://www.instagram.com/resiste.marika.cusco' },
-  },
-  {
-    id: '4',
-    nombre: 'Incidencia y Vigilancia',
-    rol: 'Políticas Públicas',
-    bio: 'Participación en vigilancia ciudadana y formulación de políticas públicas en favor de la comunidad.',
-    foto: '/images/planton 25N.jpg',
-    redes: { instagram: 'https://www.instagram.com/resiste.marika.cusco' },
-  },
-]

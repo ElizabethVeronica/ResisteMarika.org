@@ -71,14 +71,12 @@ export default function Navbar() {
         )}
       >
         <Container className="flex items-center justify-between">
-          {/* Logo institucional de Resiste Marika */}
           <Link
             to="/"
             viewTransition
             className="flex items-center gap-2 group"
             onClick={handleLogoClick}
           >
-            {/* Logo oficial de Resiste Marika */}
             <div className="relative h-[4.5rem] w-[4.5rem] shrink-0 overflow-hidden transition-transform group-hover:scale-105 sm:h-20 sm:w-20">
               <img
                 src="/images/logo png.png"
@@ -104,7 +102,6 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden flex-1 items-center justify-end gap-2 lg:flex xl:gap-4">
-            {/* Navegación Desktop */}
             <nav className="flex items-center gap-0.5 xl:gap-1.5" aria-label="Navegación principal">
               {NAV_LINKS.map((link, index) => {
                 if (link.children && link.children.length > 0) {
@@ -178,7 +175,6 @@ export default function Navbar() {
                         )}
                       </div>
 
-                      {/* Dropdown flotante */}
                       {desktopDropdownOpen === link.label && !sectionDropdownsDisabled && (
                         <motion.div
                           initial={{ opacity: 0, y: 8, scale: 0.98 }}
@@ -237,7 +233,6 @@ export default function Navbar() {
               })}
             </nav>
 
-            {/* Redes Sociales Oficiales */}
             <div className="flex items-center">
               <div className="flex items-center gap-2 text-gray-600">
                 <a
@@ -263,7 +258,6 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Botón Menú Móvil */}
           <div className="lg:hidden">
             <button
               type="button"
@@ -279,7 +273,6 @@ export default function Navbar() {
         </Container>
       </header>
 
-      {/* Menú Lateral Móvil */}
       <AnimatePresence>
         {mobileOpen && (
           <>

@@ -1,61 +1,80 @@
-# 🏳️‍🌈 Resiste Marika (.org)
+# Resiste Marika
 
-Sitio web oficial de la organización **Resiste Marika**, asociación civil sin fines de lucro enfocada en la defensa de derechos, dignidad, bienestar integral y visibilidad de la comunidad LGBTIQ+.
+Sitio web oficial de Resiste Marika, colectiva autoorganizada en Cusco que impulsa espacios de autogestión, arte, activismo y defensa de derechos para la comunidad LGTBIQ+.
 
----
+## Stack tecnológico
 
-## 🛠️ Stack Tecnológico
+- React 19 y TypeScript
+- Vite
+- Tailwind CSS
+- Framer Motion
+- React Router DOM v7
+- FormSubmit para el formulario de contacto
 
-- **React 19** + **TypeScript** — Base moderna de componentes y tipado estático
-- **Vite** — Entorno de desarrollo rápido y bundler
-- **Tailwind CSS** — Estilos y diseño responsivo con paleta de identidad personalizada
-- **Framer Motion** — Animaciones fluidas e interacciones dinámicas
-- **React Router DOM v7** — Navegación tipo SPA (Single Page Application)
-- **FormSubmit** — Gestión de envíos del formulario de contacto sin backend propio
-
----
-
-## 📁 Estructura del Proyecto
+## Estructura del proyecto
 
 ```
 resiste-marika/
-├── public/                 # Archivos estáticos e iconos
-├── src/
-│   ├── components/
-│   │   ├── layout/         # AppLayout, Navbar, Footer, MobileMenu
-│   │   └── ui/             # Botones, contenedores, animaciones (Reveal, Container, etc.)
-│   ├── config/             # Configuración y datos de navegación, impacto y programas
-│   ├── hooks/              # Custom hooks (animación de contadores, etc.)
-│   ├── pages/              # Home, Nosotros, Programas, Noticias, Colabora, Contacto
-│   ├── router/             # Definición de rutas y redirecciones
-│   ├── types/              # Interfaces y contratos de tipos globales
-│   ├── utils/              # Funciones utilitarias (cn, ScrollToTop)
-│   ├── App.tsx             # Componente raíz
-│   ├── main.tsx            # Punto de entrada
-│   └── index.css           # Estilos globales y tipografías
+├── public/
+│   ├── images/             # Fotografías e identidad visual
+│   ├── favicon.svg
+│   └── icons.svg
+└── src/
+    ├── components/
+    │   ├── layout/         # Navegación, encabezado y pie de página
+    │   ├── sections/       # Secciones reutilizables de Inicio
+    │   └── ui/             # Componentes visuales compartidos
+    ├── config/             # Contenido de la organización y navegación
+    ├── pages/              # Inicio, Quiénes somos, Proyectos, Multimedia,
+    │                       # Noticias y Contacto
+    ├── router/             # Rutas de la aplicación
+    ├── services/           # Integraciones opcionales
+    ├── types/              # Tipos compartidos
+    ├── utils/              # Utilidades
+    ├── App.tsx
+    ├── main.tsx
+    └── index.css
 ```
 
----
-
-## 🚀 Inicio Rápido en Desarrollo
+## Desarrollo local
 
 ```bash
-# 1. Instalar dependencias
 npm install
-
-# 2. Iniciar servidor local de desarrollo
 npm run dev
-
-# 3. Compilar para producción
 npm run build
+npm run lint
 ```
 
----
+## Formularios, privacidad y publicación
 
-## 🎯 Fases de Desarrollo
+Los formularios de contacto usan FormSubmit mediante AJAX; el correo de destino se configura con
+`VITE_FORMSUBMIT_EMAIL` (el valor por defecto es `resistemarik@gmail.com`). La dirección y el
+endpoint son públicos porque el envío ocurre desde el navegador: no guardes credenciales ni claves
+secretas en variables `VITE_*`.
 
-- [x] **Fase 1: Esqueleto Base** — Configuración del stack, routing, layouts, utilidades y prototipo funcional.
-- [ ] **Fase 2: Identidad Visual y Home** — Pulido visual de la portada, secciones, hero e interactividad.
-- [ ] **Fase 3: Páginas Internas** — Nosotros, Programas y Colabora con contenido detallado.
-- [ ] **Fase 4: Noticias y Contacto** — Sección de novedades/blog y activación final del formulario.
-- [ ] **Fase 5: Despliegue y Optimización** — SEO, accesibilidad, performance y deploy a producción.
+Antes de publicar:
+
+1. Configura el correo de destino en el entorno de despliegue. Después del primer envío real,
+   confirma la dirección siguiendo el mensaje de activación que envía FormSubmit.
+2. Prueba los formularios principal y del pie de página y confirma la recepción. No uses datos
+   personales reales para pruebas.
+3. La protección incluida mantiene reCAPTCHA de FormSubmit activo y añade su campo honeypot y
+   límites de longitud en el navegador. Esto reduce spam, pero no ofrece rate limiting propio del
+   sitio; si el volumen de abuso lo requiere, habrá que incorporar un endpoint de servidor con
+   limitación de solicitudes.
+4. Revisa `/privacidad`. La página informa del envío a FormSubmit y de su archivo de 30 días según
+   la documentación del proveedor; antes de publicar, la organización aún debe confirmar quién
+   responde por los datos, cuánto tiempo conserva los correos y cómo atender solicitudes sobre ellos.
+5. Configura `VITE_SITE_URL` con la URL HTTPS definitiva del sitio. Sin ella no se generan URL
+   canonical ni `og:url`; no se ha inventado un dominio ni un sitemap.
+
+El envío de formularios no se ha activado con un envío de prueba. FormSubmit puede solicitar la
+confirmación del destinatario al recibir el primer mensaje.
+
+## Fases del proyecto
+
+- [x] **Fase 1: Esqueleto base** — Stack, rutas, layouts, utilidades y prototipo funcional.
+- [x] **Fase 2: Identidad visual e Inicio** — Sistema visual, portada, diseño adaptable e interacciones.
+- [x] **Fase 3: Páginas internas** — Quiénes somos, proyectos y multimedia.
+- [x] **Fase 4: Noticias y contacto** — Noticias, canales de contacto y formulario.
+- [ ] **Fase 5: Revisión para publicación** — Revisión final de accesibilidad, SEO, rendimiento y despliegue.

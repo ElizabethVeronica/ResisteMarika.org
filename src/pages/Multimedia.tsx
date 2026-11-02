@@ -64,7 +64,6 @@ export default function Multimedia() {
 
   return (
     <div className="page-art-backdrop bg-[#FAF9F6] text-gray-900">
-      {/* ── ENCABEZADO DE PÁGINA ──────────────────────────── */}
       <section className="page-hero">
         <img
           src="/images/Marika Fest 2024 - Productos de conscientización.jpg"
@@ -85,7 +84,6 @@ export default function Multimedia() {
         </Container>
       </section>
 
-      {/* ── GALERÍA DE FOTOS ──────────────────────────────── */}
       <section ref={galleryRef} className="page-section pb-12 pt-12 sm:pb-16 sm:pt-16">
         <Container>
           <div
@@ -199,7 +197,6 @@ export default function Multimedia() {
         </Container>
       </section>
 
-      {/* ── MODAL LIGHTBOX ─────────────────────────────────── */}
       {createPortal(
         <AnimatePresence>
           {selectedItem && (

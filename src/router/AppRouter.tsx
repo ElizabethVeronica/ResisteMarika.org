@@ -6,6 +6,7 @@ import Proyectos from '@/pages/Proyectos'
 import Multimedia from '@/pages/Multimedia'
 import Noticias from '@/pages/Noticias'
 import Contacto from '@/pages/Contacto'
+import Privacidad from '@/pages/Privacidad'
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
       { path: '/multimedia', element: <Multimedia /> },
       { path: '/noticias', element: <Noticias /> },
       { path: '/contacto', element: <Contacto /> },
+      { path: '/privacidad', element: <Privacidad /> },
 
       // Redirecciones de compatibilidad
       { path: '/nosotros', element: <Navigate to="/quienes-somos" replace /> },
