@@ -1,6 +1,7 @@
 import { cn } from '@/utils/cn'
 import { type ReactNode, type ButtonHTMLAttributes, type MouseEventHandler } from 'react'
 import { Link } from 'react-router-dom'
+import { shouldUseViewTransition } from '@/utils/viewTransitions'
 
 type ButtonVariant = 'primary' | 'secondary' | 'accent' | 'yellow' | 'dark' | 'outline' | 'ghost'
 type ButtonSize    = 'sm' | 'md' | 'lg'
@@ -81,7 +82,12 @@ export default function Button({
   if ('href' in props && props.href != null) {
     const { href, onClick } = props
     return (
-      <Link to={href} viewTransition className={baseClass} onClick={onClick}>
+      <Link
+        to={href}
+        viewTransition={shouldUseViewTransition()}
+        className={baseClass}
+        onClick={onClick}
+      >
         {content}
       </Link>
     )

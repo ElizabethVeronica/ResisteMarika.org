@@ -3,10 +3,10 @@ import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Menu, X, ChevronDown } from 'lucide-react'
 import { FaInstagram } from 'react-icons/fa'
 import { FaTiktok } from 'react-icons/fa6'
-import { motion, AnimatePresence } from 'framer-motion'
 import Container from '@/components/ui/Container'
 import { NAV_LINKS } from '@/config/navigation'
 import { cn } from '@/utils/cn'
+import { shouldUseViewTransition } from '@/utils/viewTransitions'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(() => window.scrollY > 15)
@@ -15,10 +15,15 @@ export default function Navbar() {
   const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState<string | null>(null)
   const location = useLocation()
   const dropdownRefs = useRef<(HTMLDivElement | null)[]>([])
+  const scrolledRef = useRef(scrolled)
+  const enableViewTransitions = shouldUseViewTransition()
 
   const scrollToTopIfCurrentPage = (href: string) => {
     if (location.pathname === href) {
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+      window.scrollTo({
+        top: 0,
+        behavior: enableViewTransitions ? 'smooth' : 'instant',
+      })
     }
   }
 
@@ -29,7 +34,11 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 15)
+      const nextScrolled = window.scrollY > 15
+      if (scrolledRef.current === nextScrolled) return
+
+      scrolledRef.current = nextScrolled
+      setScrolled(nextScrolled)
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
     window.addEventListener('resize', handleScroll)
@@ -73,7 +82,7 @@ export default function Navbar() {
         <Container className="flex items-center justify-between">
           <Link
             to="/"
-            viewTransition
+            viewTransition={enableViewTransitions}
             className="flex items-center gap-2 group"
             onClick={handleLogoClick}
           >
@@ -128,7 +137,7 @@ export default function Navbar() {
                       <div className="flex items-center">
                         <NavLink
                           to={link.href}
-                          viewTransition
+                          viewTransition={enableViewTransitions}
                           onPointerDown={() => {
                             setDesktopDropdownOpen(null)
                             scrollToTopIfCurrentPage(link.href)
@@ -176,18 +185,15 @@ export default function Navbar() {
                       </div>
 
                       {desktopDropdownOpen === link.label && !sectionDropdownsDisabled && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 8, scale: 0.98 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          transition={{ duration: 0.15 }}
-                          className="absolute top-full left-0 mt-1 w-60 rounded-2xl bg-white shadow-xl border border-gray-200/90 py-1.5 z-50 overflow-hidden"
+                        <div
+                          className="nav-dropdown absolute top-full left-0 mt-1 w-60 rounded-2xl bg-white shadow-xl border border-gray-200/90 py-1.5 z-50 overflow-hidden"
                         >
                           <div className="p-1 flex flex-col gap-0.5">
                             {link.children.map((sublink) => (
                               <Link
                                 key={sublink.href}
                                 to={sublink.href}
-                                viewTransition
+                                viewTransition={enableViewTransitions}
                                 onClick={() => setDesktopDropdownOpen(null)}
                                 className="group/item flex flex-col px-2.5 py-2 rounded-xl hover:bg-brand-purpleLight/40 transition-colors"
                               >
@@ -197,7 +203,7 @@ export default function Navbar() {
                               </Link>
                             ))}
                           </div>
-                        </motion.div>
+                        </div>
                       )}
                     </div>
                   )
@@ -207,7 +213,7 @@ export default function Navbar() {
                   <NavLink
                     key={link.href}
                     to={link.href}
-                    viewTransition
+                    viewTransition={enableViewTransitions}
                     onPointerDown={() => {
                       setDesktopDropdownOpen(null)
                       scrollToTopIfCurrentPage(link.href)
@@ -273,24 +279,16 @@ export default function Navbar() {
         </Container>
       </header>
 
-      <AnimatePresence>
-        {mobileOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-40 bg-gray-950/40 backdrop-blur-sm lg:hidden"
+      {mobileOpen && (
+        <>
+            <div
+              className="mobile-nav-backdrop fixed inset-0 z-40 bg-gray-950/40 lg:hidden"
               onClick={() => setMobileOpen(false)}
             />
-            <motion.nav
+            <nav
               id="mobile-navigation"
               aria-label="Navegación móvil"
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', stiffness: 320, damping: 32 }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-80 max-w-[85vw] bg-white flex flex-col pt-16 pb-8 px-5 shadow-2xl lg:hidden border-l border-gray-200 overflow-y-auto"
+              className="mobile-nav-panel fixed top-0 right-0 bottom-0 z-50 w-80 max-w-[85vw] bg-white flex flex-col pt-16 pb-8 px-5 shadow-2xl lg:hidden border-l border-gray-200 overflow-y-auto"
             >
               <div className="flex items-center justify-between pb-4 mb-4 border-b border-gray-100">
                 <span className="font-display font-extrabold text-base text-gray-900">
@@ -317,7 +315,7 @@ export default function Navbar() {
                         <div className="flex items-center justify-between">
                           <NavLink
                             to={link.href}
-                            viewTransition
+                            viewTransition={enableViewTransitions}
                             onClick={() => {
                               setMobileOpen(false)
                               scrollToTopIfCurrentPage(link.href)
@@ -352,7 +350,7 @@ export default function Navbar() {
                               <Link
                                 key={sublink.href}
                                 to={sublink.href}
-                                viewTransition
+                                viewTransition={enableViewTransitions}
                                 onClick={() => setMobileOpen(false)}
                                 className="px-3 py-2.5 rounded-lg text-sm font-semibold text-gray-600 hover:text-brand-purple hover:bg-white transition-colors"
                               >
@@ -369,7 +367,7 @@ export default function Navbar() {
                     <NavLink
                       key={link.href}
                       to={link.href}
-                      viewTransition
+                      viewTransition={enableViewTransitions}
                       onClick={() => {
                         setMobileOpen(false)
                         scrollToTopIfCurrentPage(link.href)
@@ -414,10 +412,9 @@ export default function Navbar() {
                   Cusco · Fundada el 7 de agosto de 2023
                 </p>
               </div>
-            </motion.nav>
-          </>
-        )}
-      </AnimatePresence>
+            </nav>
+        </>
+      )}
     </>
   )
 }

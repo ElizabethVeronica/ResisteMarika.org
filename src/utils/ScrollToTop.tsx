@@ -9,9 +9,10 @@ export default function ScrollToTop() {
   const { pathname, hash } = useLocation()
 
   useLayoutEffect(() => {
-    const behavior: ScrollBehavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-      ? 'instant'
-      : 'smooth'
+    const shouldScrollInstantly =
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      window.matchMedia('(pointer: coarse)').matches
+    const behavior: ScrollBehavior = shouldScrollInstantly ? 'instant' : 'smooth'
 
     if (hash) {
       const id = hash.replace('#', '')

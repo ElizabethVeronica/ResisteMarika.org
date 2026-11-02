@@ -118,6 +118,37 @@
   transition: color 220ms ease;
 }
 
+.reveal-item {
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal-item:not([data-visible='true']) {
+  opacity: 0;
+  transform: translateY(28px) scale(0.97);
+}
+
+.reveal-item[data-direction='down']:not([data-visible='true']) {
+  transform: translateY(-28px) scale(0.97);
+}
+
+.reveal-item[data-direction='left']:not([data-visible='true']) {
+  transform: translateX(28px) scale(0.97);
+}
+
+.reveal-item[data-direction='right']:not([data-visible='true']) {
+  transform: translateX(-28px) scale(0.97);
+}
+
+.reveal-item[data-direction='none']:not([data-visible='true']) {
+  transform: scale(0.97);
+}
+
+.reveal-item[data-visible='true'] {
+  opacity: 1;
+  transform: translate(0) scale(1);
+}
+
 .interactive-card,
 .graphic-card {
   transition:
@@ -162,6 +193,70 @@
   .page-section {
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
+  }
+}
+
+@media (pointer: coarse) {
+  .site-header > header,
+  [class*='backdrop-blur'] {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  .site-header > header {
+    transition: none;
+  }
+
+  ::view-transition-old(page-content),
+  ::view-transition-new(page-content) {
+    animation: none !important;
+  }
+
+  .reveal-item,
+  .reveal-item:not([data-visible='true']),
+  .reveal-item[data-direction='none']:not([data-visible='true']),
+  .reveal-item[data-direction='down']:not([data-visible='true']),
+  .reveal-item[data-direction='left']:not([data-visible='true']),
+  .reveal-item[data-direction='right']:not([data-visible='true']) {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .interactive-card,
+  .graphic-card,
+  .photo-section__item-title {
+    transition: none;
+  }
+}
+
+.nav-dropdown {
+  animation: page-transition-in 150ms ease-out both;
+}
+
+.mobile-nav-backdrop {
+  animation: mobile-nav-fade-in 120ms ease-out both;
+}
+
+.mobile-nav-panel {
+  animation: mobile-nav-slide-in 160ms ease-out both;
+}
+
+@keyframes mobile-nav-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes mobile-nav-slide-in {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce), (pointer: coarse) {
+  .mobile-nav-backdrop,
+  .mobile-nav-panel,
+  .nav-dropdown {
+    animation-duration: 0.01ms;
   }
 }
 

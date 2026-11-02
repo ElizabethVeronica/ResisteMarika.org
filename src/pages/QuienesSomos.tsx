@@ -14,6 +14,7 @@ import {
   ArrowRight,
   MapPin,
 } from 'lucide-react'
+import { shouldUseViewTransition } from '@/utils/viewTransitions'
 
 const SECTION_LINKS = [
   { id: 'nosotros', label: 'Nosotres' },
@@ -126,7 +127,7 @@ export default function QuienesSomos() {
                       element.getBoundingClientRect().top + window.scrollY
                     window.scrollTo({
                       top: elementPosition - headerHeight - navHeight - 12,
-                      behavior: 'smooth',
+                      behavior: shouldUseViewTransition() ? 'smooth' : 'instant',
                     })
                   }
                 }}
