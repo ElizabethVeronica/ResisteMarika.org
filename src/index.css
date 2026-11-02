@@ -87,11 +87,12 @@
   overflow: hidden;
 }
 
-.page-hero__overlay {
+.page-hero__overlay,
+.photo-section__overlay {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: rgb(0 0 0 / 0.7);
+  background: rgb(0 0 0 / 0.65);
 }
 
 .page-hero__content {

@@ -133,9 +133,6 @@ export default function QuienesSomos() {
         <Container>
           <Reveal>
             <div className="max-w-3xl mb-4">
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display">
-                Nuestra Identidad y Origen
-              </span>
               <h2 className="mt-1 mb-2 font-display text-2xl font-extrabold text-gray-900 sm:text-3xl lg:text-4xl">
                 Nosotros
               </h2>
@@ -253,7 +250,7 @@ export default function QuienesSomos() {
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/65" />
+        <div className="photo-section__overlay" />
         <Container className="relative z-10 w-full">
           <Reveal>
             <div className="mb-6 max-w-2xl text-white">
@@ -279,9 +276,6 @@ export default function QuienesSomos() {
         <Container>
           <Reveal>
             <div className="max-w-3xl mb-7">
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display">
-                Horizonte y Marco Estratégico
-              </span>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-gray-900 mt-2 mb-4">
                 Misión y Visión
               </h2>
@@ -328,9 +322,6 @@ export default function QuienesSomos() {
         <Container>
           <Reveal>
             <div className="max-w-3xl mb-8">
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display">
-                Territorio y Ámbito de Acción
-              </span>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-gray-900 mt-2 mb-4">
                 Dónde trabajamos
               </h2>
@@ -399,30 +390,27 @@ export default function QuienesSomos() {
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
             {CON_QUIENES_TRABAJAMOS.redes.map((red) => (
               <div
                 key={red.categoria}
-                className="graphic-card rounded-2xl border border-gray-200 bg-white p-5 shadow-sm dark:bg-[#211d2a]"
+                className="border-b border-gray-200 py-5 dark:border-white/10"
               >
-                <div>
-                  <h4 className="mb-2 font-display text-base font-bold text-brand-purple">
-                    {red.categoria}
-                  </h4>
-                  <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-sans">
-                    {red.descripcion}
-                  </p>
-                </div>
+                <h3 className="font-display text-base font-bold text-gray-900">
+                  {red.categoria}
+                </h3>
+                <p className="mt-2 font-sans text-xs leading-relaxed text-gray-600 sm:text-sm">
+                  {red.descripcion}
+                </p>
               </div>
             ))}
             {ALIANZAS.map((a) => (
               <div
                 key={a.id}
-                className="graphic-card rounded-2xl border border-gray-200 bg-white p-5 text-left shadow-sm transition-shadow hover:shadow-md dark:bg-[#211d2a]"
+                className="border-b border-gray-200 py-5 dark:border-white/10"
               >
                 <div>
-                  <p className="font-display text-base font-bold text-gray-900">{a.nombre}</p>
-                  <p className="mt-1 text-sm text-brand-purple">{a.tipo}</p>
+                  <h3 className="font-display text-base font-bold text-gray-900">{a.nombre}</h3>
                 </div>
               </div>
             ))}
@@ -438,7 +426,7 @@ export default function QuienesSomos() {
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/65" />
+        <div className="photo-section__overlay" />
         <Container className="relative z-10 w-full">
           <Reveal>
             <div className="max-w-3xl py-8 text-white">

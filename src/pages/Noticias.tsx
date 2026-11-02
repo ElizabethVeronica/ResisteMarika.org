@@ -193,7 +193,6 @@ export default function Noticias() {
               <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:gap-6">
                 <div className="flex-1">
                   <SectionHeader
-                    eyebrow="Instagram"
                     title="Últimas publicaciones"
                     subtitle="Memoria, actividades y momentos compartidos desde nuestra cuenta."
                     align="left"
@@ -238,7 +237,6 @@ export default function Noticias() {
               <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:gap-6">
                 <div className="flex-1">
                   <SectionHeader
-                    eyebrow="TikTok"
                     title="Últimos videos"
                     subtitle="Videos y registros breves de nuestras acciones y encuentros."
                     align="left"
@@ -280,7 +278,6 @@ export default function Noticias() {
         <Container>
           <Reveal>
             <SectionHeader
-              eyebrow="Archivo"
               title={
                 <>
                   Noticias y <span className="text-gradient">comunicados</span>

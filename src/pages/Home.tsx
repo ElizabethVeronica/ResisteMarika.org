@@ -97,9 +97,6 @@ export default function Home() {
           <Reveal>
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display block mb-1">
-                  En el Cusco
-                </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-gray-900">
                   Nuestros proyectos
                 </h2>
@@ -150,9 +147,6 @@ export default function Home() {
           <Reveal>
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display block mb-1">
-                  Registro Colectivo
-                </span>
                 <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-gray-900">
                   Actividades y Noticias
                 </h2>
@@ -198,12 +192,9 @@ export default function Home() {
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/65" />
+        <div className="photo-section__overlay" />
         <Container className="relative z-10">
           <div className="max-w-3xl mx-auto text-center">
-            <span className="text-xs font-bold uppercase tracking-wider text-brand-sky font-display mb-2 block">
-              Red Colectiva en Cusco
-            </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-white leading-tight mb-4">
               ¿Quieres sumarte, proponer un taller o articular con nosotres?
             </h2>

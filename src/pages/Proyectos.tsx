@@ -107,7 +107,7 @@ export default function Proyectos() {
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="page-hero__overlay" />
+        <div className="photo-section__overlay" />
         <Container className="relative z-10 w-full">
           <Reveal>
             <div className="max-w-3xl py-8 text-white">
