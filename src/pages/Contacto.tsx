@@ -61,11 +61,11 @@ export default function Contacto() {
       </section>
 
       {/* ── FORMULARIO Y CANALES ─────────────────────────── */}
-      <section className="page-section mb-10 pt-12 sm:pt-16">
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-10">
+      <section className="page-section mb-10 flex items-center py-12 sm:py-16">
+        <Container className="w-full">
+          <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-7 lg:grid-cols-12 lg:gap-10">
             {/* Formulario */}
-            <div className="lg:col-span-7">
+            <div className="w-full lg:col-span-7">
               <Reveal direction="left">
                 <div className="graphic-card--stripe bg-white rounded-3xl p-5 sm:p-7 border border-surface-border shadow-md">
                   {state === 'success' ? (
@@ -166,15 +166,7 @@ export default function Contacto() {
             </div>
 
             {/* Canales Directos & Info */}
-            <div className="relative isolate flex flex-col justify-between gap-6 lg:col-span-5">
-              <img
-                src="/images/Rezo a Chuquichinchay y Ritual de cosecha en Otoño.jpg"
-                alt=""
-                aria-hidden="true"
-                loading="lazy"
-                className="absolute inset-2 h-[calc(100%-1rem)] w-[calc(100%-1rem)] rounded-[2rem] object-cover opacity-50"
-              />
-              <div className="absolute inset-2 rounded-[2rem] bg-black/65" />
+            <div className="flex w-full flex-col justify-center gap-6 lg:col-span-5">
               <Reveal direction="right" delay={0.1}>
                 <div className="relative z-10 rounded-3xl border border-white/80 bg-white/90 p-5 shadow-xl backdrop-blur-md flex flex-col gap-4 sm:p-7 dark:border-white/10 dark:bg-[#211d2a]/90">
                   <div>

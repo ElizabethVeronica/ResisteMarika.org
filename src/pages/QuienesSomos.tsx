@@ -280,8 +280,8 @@ export default function QuienesSomos() {
       </section>
 
       {/* ── 2. SECCIÓN: MISIÓN Y VISIÓN ────────────────────── */}
-      <section id="mision-vision" className="page-section pt-10 sm:pt-12 pb-10 bg-white/80 backdrop-blur-xs border-y border-gray-200 dark:bg-[#1a1624]/80">
-        <Container>
+      <section id="mision-vision" className="page-section flex items-center scroll-mt-24 bg-white/80 py-10 backdrop-blur-xs border-y border-gray-200 dark:bg-[#1a1624]/80 sm:py-12">
+        <Container className="w-full max-w-6xl">
           <Reveal>
             <div className="max-w-3xl mb-7">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-gray-900 mt-2 mb-4">
