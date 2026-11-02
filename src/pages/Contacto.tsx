@@ -61,7 +61,7 @@ export default function Contacto() {
       </section>
 
       {/* ── FORMULARIO Y CANALES ─────────────────────────── */}
-      <section className="mb-10 pt-12 sm:pt-16">
+      <section className="page-section mb-10 pt-12 sm:pt-16">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-10">
             {/* Formulario */}

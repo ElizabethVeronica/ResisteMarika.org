@@ -125,7 +125,7 @@ export default function QuienesSomos() {
       </nav>
 
       {/* ── 1. SECCIÓN: NOSOTROS ───────────────────────────── */}
-      <section id="nosotros" className="scroll-mt-24 pt-0 pb-12 sm:pb-16">
+      <section id="nosotros" className="page-section pt-0 pb-12 sm:pb-16">
         <Container>
           <Reveal>
             <div className="max-w-3xl mb-8">
@@ -267,7 +267,7 @@ export default function QuienesSomos() {
       </section>
 
       {/* ── 2. SECCIÓN: MISIÓN Y VISIÓN ────────────────────── */}
-      <section id="mision-vision" className="scroll-mt-24 pt-16 sm:pt-24 pb-16 bg-white/80 backdrop-blur-xs border-y border-gray-200 dark:bg-[#1a1624]/80">
+      <section id="mision-vision" className="page-section pt-16 sm:pt-24 pb-16 bg-white/80 backdrop-blur-xs border-y border-gray-200 dark:bg-[#1a1624]/80">
         <Container>
           <Reveal>
             <div className="max-w-3xl mb-12">
@@ -335,7 +335,7 @@ export default function QuienesSomos() {
       </section>
 
       {/* ── 3. SECCIÓN: DÓNDE TRABAJAMOS ───────────────────── */}
-      <section id="donde-trabajamos" className="scroll-mt-24 pt-16 sm:pt-24 pb-16">
+      <section id="donde-trabajamos" className="page-section pt-16 sm:pt-24 pb-16">
         <Container>
           <Reveal>
             <div className="max-w-3xl mb-8">
@@ -396,7 +396,7 @@ export default function QuienesSomos() {
       </section>
 
       {/* ── 4. SECCIÓN: CON QUIÉNES TRABAJAMOS ─────────────── */}
-      <section id="con-quienes-trabajamos" className="scroll-mt-24 pt-16 sm:pt-24 pb-16 bg-white/80 backdrop-blur-xs border-t border-gray-200 dark:bg-[#1a1624]/80">
+      <section id="con-quienes-trabajamos" className="page-section pt-16 sm:pt-24 pb-16 bg-white/80 backdrop-blur-xs border-t border-gray-200 dark:bg-[#1a1624]/80">
         <Container>
           <Reveal>
             <div className="max-w-3xl mb-12">

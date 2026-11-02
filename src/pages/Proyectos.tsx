@@ -2,7 +2,7 @@ import Container from '@/components/ui/Container'
 import Reveal from '@/components/ui/Reveal'
 import Button from '@/components/ui/Button'
 import { PROGRAMAS } from '@/config/programas'
-import { CheckCircle2, ArrowRight, Heart } from 'lucide-react'
+import { CheckCircle2, ArrowRight } from 'lucide-react'
 
 export default function Proyectos() {
   return (
@@ -31,7 +31,7 @@ export default function Proyectos() {
       </section>
 
       {/* ── LISTADO DE PROYECTOS ─────────────────────────── */}
-      <section className="mb-20 pt-12 sm:mb-28 sm:pt-16">
+      <section className="page-section mb-20 pt-12 sm:mb-28 sm:pt-16">
         <Container>
           <div className="flex flex-col gap-14 sm:gap-20">
             {PROGRAMAS.map((prog, idx) => {
@@ -99,32 +99,27 @@ export default function Proyectos() {
       </section>
 
       {/* ── BANNER APOYO MUTUO ───────────────────────────── */}
-      <section className="mb-16">
-        <Container>
+      <section className="page-section page-section--photo relative isolate mb-16 overflow-hidden border-y border-white/10 py-14 sm:py-20">
+        <img
+          src="/images/Feria Informativa LGTBIQ CuidArte en el Colegio San Francisco de Borja.jpg"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover opacity-60"
+        />
+        <div className="page-hero__overlay" />
+        <Container className="relative z-10 w-full">
           <Reveal>
-            <div className="relative isolate overflow-hidden rounded-3xl border border-brand-yellowWarm/50 shadow-xl">
-              <img
-                src="/images/Feria Informativa LGTBIQ CuidArte en el Colegio San Francisco de Borja.jpg"
-                alt=""
-                aria-hidden="true"
-                loading="lazy"
-                className="absolute inset-0 h-full w-full object-cover opacity-60"
-              />
-              <div className="absolute inset-0 bg-black/65" />
-              <div className="relative z-10 m-3 rounded-2xl border border-white/20 bg-gray-950/80 p-6 text-center text-white shadow-xl backdrop-blur-md sm:m-5 sm:p-12">
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-pink text-brand-dark mb-4 shadow-sm">
-                  <Heart size={24} fill="currentColor" />
-                </div>
-                <h3 className="text-2xl sm:text-3xl text-brand-pink font-extrabold font-display mb-3">
+            <div className="max-w-3xl py-8 text-white">
+                <h2 className="mb-3 font-display text-3xl font-extrabold leading-tight text-white drop-shadow-lg sm:text-4xl">
                   ¿Tienes alguna iniciativa o proyecto en mente?
-                </h3>
-                <p className="text-sm sm:text-base text-white/85 max-w-2xl mx-auto mb-6 leading-relaxed font-sans">
+                </h2>
+                <p className="mb-6 max-w-2xl font-sans text-base leading-relaxed text-white/95 drop-shadow-md">
                   Nuestros proyectos y actividades están abiertos a personas de la comunidad LGTBIQ+ que deseen compartir sus artes, oficios y propuestas desde la autoorganización y la colectividad.
                 </p>
                 <Button href="/contacto" size="lg" variant="yellow">
                   Escríbenos para participar
                 </Button>
-              </div>
             </div>
           </Reveal>
         </Container>

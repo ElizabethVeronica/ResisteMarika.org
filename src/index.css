@@ -67,6 +67,16 @@
   padding-top: var(--site-header-height, 9.5rem);
 }
 
+.page-section {
+  min-height: calc(100vh - var(--site-header-height, 9.5rem));
+  min-height: calc(100svh - var(--site-header-height, 9.5rem));
+}
+
+.page-section--photo {
+  display: flex;
+  align-items: center;
+}
+
 .page-hero {
   position: relative;
   isolation: isolate;
@@ -137,7 +147,7 @@
 
   html,
   body {
-    scroll-padding-top: 7rem;
+    scroll-padding-top: var(--site-header-height, 9.5rem);
   }
 
   h1, h2, h3, h4, h5, h6 {

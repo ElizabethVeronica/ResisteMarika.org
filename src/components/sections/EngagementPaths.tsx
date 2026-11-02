@@ -7,7 +7,7 @@ import { ENGAGEMENT_PATHS } from '@/config/engagement'
 /** Tres caminos claros de acción (patrón Amnesty / ILGA) */
 export default function EngagementPaths() {
   return (
-    <section className="relative isolate overflow-hidden border-b border-gray-200 py-14 sm:py-20">
+    <section className="page-section page-section--photo relative isolate overflow-hidden border-b border-gray-200 py-14 sm:py-20">
       <img
         src="/images/3er Reencuentro Plurisexual en La Paz, Bolivia 2025.jpg"
         alt=""

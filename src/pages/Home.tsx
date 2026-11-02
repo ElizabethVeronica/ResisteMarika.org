@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <div className="page-art-backdrop bg-[#FAF9F6] text-gray-900">
       {/* ── HERO INSTITUCIONAL A PANTALLA COMPLETA ───── */}
-      <section className="relative min-h-[calc(100vh-6.75rem)] sm:min-h-[calc(100vh-7.25rem)] flex flex-col justify-between overflow-hidden">
+      <section className="page-section relative flex flex-col justify-between overflow-hidden">
         {/* Contenedor centralizado vertical y horizontalmente */}
         <div className="my-auto w-full py-6 sm:py-10">
           <Container className="relative z-10">
@@ -92,7 +92,7 @@ export default function Home() {
       </section>
 
       {/* ── NUESTROS PROYECTOS EN CUSCO ─────────────────────── */}
-      <section className="py-16 sm:py-24 bg-white/75 backdrop-blur-xs border-b border-gray-200 relative dark:bg-[#1a1624]/75">
+      <section className="page-section py-16 sm:py-24 bg-white/75 backdrop-blur-xs border-b border-gray-200 relative dark:bg-[#1a1624]/75">
         <Container>
           <Reveal>
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
@@ -145,7 +145,7 @@ export default function Home() {
       <EngagementPaths />
 
       {/* ── ACTIVIDADES Y NOTICIAS RECIENTES ──────────────── */}
-      <section className="py-16 sm:py-24 bg-transparent border-b border-gray-200">
+      <section className="page-section py-16 sm:py-24 bg-transparent border-b border-gray-200">
         <Container>
           <Reveal>
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
@@ -190,7 +190,7 @@ export default function Home() {
       </section>
 
       {/* ── LLAMADO A ARTICULAR / CONTACTO ─────────────────── */}
-      <section className="home-network-cta relative isolate overflow-hidden border-y border-white/10 py-16 sm:py-20">
+      <section className="page-section page-section--photo home-network-cta relative isolate overflow-hidden border-y border-white/10 py-16 sm:py-20">
         <img
           src="/images/Marika Fest 2024 - Productos de conscientización.jpg"
           alt=""

@@ -162,7 +162,7 @@ export default function Noticias() {
       </section>
 
       {status === 'error' && (
-        <section className="mb-10">
+        <section className="page-section mb-10">
           <Container>
             <div
               role="alert"
@@ -186,7 +186,7 @@ export default function Noticias() {
         </section>
       )}
 
-      <section className="mb-16 pt-12 sm:mb-20 sm:pt-16">
+      <section className="page-section mb-16 pt-12 sm:mb-20 sm:pt-16">
         <Container>
           <Reveal>
             <div className="mb-7 flex flex-col gap-4">
@@ -231,7 +231,7 @@ export default function Noticias() {
         </Container>
       </section>
 
-      <section className="mb-16 sm:mb-20">
+      <section className="page-section mb-16 sm:mb-20">
         <Container>
           <Reveal>
             <div className="mb-7 flex flex-col gap-4">
@@ -276,7 +276,7 @@ export default function Noticias() {
         </Container>
       </section>
 
-      <section>
+      <section className="page-section">
         <Container>
           <Reveal>
             <SectionHeader
