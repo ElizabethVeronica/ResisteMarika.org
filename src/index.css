@@ -91,7 +91,7 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: linear-gradient(110deg, rgb(15 12 20 / 0.78), rgb(15 12 20 / 0.45) 58%, rgb(15 12 20 / 0.3));
+  background: rgb(0 0 0 / 0.58);
 }
 
 .page-hero__content {

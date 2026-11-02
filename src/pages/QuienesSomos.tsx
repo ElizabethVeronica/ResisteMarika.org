@@ -19,6 +19,8 @@ import {
 
 const SECTION_LINKS = [
   { id: 'nosotros', label: 'Nosotros' },
+  { id: 'artes', label: 'Artes y artivismo' },
+  { id: 'autogestion', label: 'Autogestión' },
   { id: 'mision-vision', label: 'Misión y Visión' },
   { id: 'donde-trabajamos', label: 'Dónde trabajamos' },
   { id: 'con-quienes-trabajamos', label: 'Con quiénes trabajamos' },
@@ -101,11 +103,14 @@ export default function QuienesSomos() {
                   setActiveSection(id)
                   const element = document.getElementById(id)
                   if (element) {
-                    const navHeight = 90
+                    const headerHeight = Number.parseFloat(
+                      getComputedStyle(document.documentElement).getPropertyValue('--site-header-height'),
+                    )
+                    const navHeight = sectionMenuRef.current?.getBoundingClientRect().height ?? 0
                     const elementPosition =
                       element.getBoundingClientRect().top + window.scrollY
                     window.scrollTo({
-                      top: elementPosition - navHeight,
+                      top: elementPosition - headerHeight - navHeight - 12,
                       behavior: 'smooth',
                     })
                   }
@@ -125,10 +130,10 @@ export default function QuienesSomos() {
       </nav>
 
       {/* ── 1. SECCIÓN: NOSOTROS ───────────────────────────── */}
-      <section id="nosotros" className="page-section pt-0 pb-12 sm:pb-16">
+      <section id="nosotros" className="page-section scroll-mt-24 py-8 sm:py-10">
         <Container>
           <Reveal>
-            <div className="max-w-3xl mb-8">
+            <div className="max-w-3xl mb-6">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display">
                 Nuestra Identidad y Origen
               </span>
@@ -140,27 +145,27 @@ export default function QuienesSomos() {
           </Reveal>
 
           {/* Identidad y origen */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start mb-12">
-            <div className="lg:col-span-7 space-y-4 text-base text-gray-700 font-sans leading-relaxed">
-              <p className="graphic-card rounded-2xl border-l-4 border-brand-purple bg-brand-purpleLight/40 px-5 py-4 font-semibold text-gray-900">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+            <div className="lg:col-span-7 space-y-3 text-base text-gray-700 font-sans leading-relaxed">
+              <p className="font-semibold text-gray-900">
                 {HISTORIA_RESUMEN.declaracionInicial}
               </p>
               <p>{HISTORIA_RESUMEN.parrafo1}</p>
 
-              <div className="p-4 sm:p-5 rounded-2xl bg-amber-50/80 border border-amber-200 text-gray-800 text-sm leading-relaxed">
-                <p className="font-bold text-amber-900 mb-1">
+              <div className="text-sm leading-relaxed text-gray-700">
+                <p className="font-bold text-gray-900">
                   Nuestra postura frente a la dependencia externa:
                 </p>
                 <p>{HISTORIA_RESUMEN.parrafo2}</p>
               </div>
 
-              <p className="graphic-card rounded-2xl bg-white border border-gray-200 px-5 py-4 font-medium text-gray-900">
+              <p className="font-medium text-gray-900">
                 {HISTORIA_RESUMEN.parrafo3}
               </p>
             </div>
 
-            <div className="lg:col-span-5 flex flex-col gap-4">
-              <div className="aspect-[16/10] rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-gray-100">
+            <div className="lg:col-span-5 flex flex-col gap-3">
+              <div className="aspect-[16/8] rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-gray-100">
                 <img
                   src="/images/Ceremonia de Agradecimiento a la Pachamama y Compartir Marika 2024.jpg"
                   alt="Ceremonia y compartir colectivo en Cusco"
@@ -168,32 +173,32 @@ export default function QuienesSomos() {
                 />
               </div>
 
-              <div className="graphic-card bg-white p-5 rounded-2xl border border-gray-200 shadow-sm">
-                <h3 className="font-display font-extrabold text-base sm:text-lg text-gray-900 mb-3 pb-2 border-b border-gray-100">
+              <div className="graphic-card bg-white p-4 rounded-2xl border border-gray-200 shadow-sm">
+                <h3 className="font-display font-extrabold text-base text-gray-900 mb-2 pb-2 border-b border-gray-100">
                   Ficha de la Organización
                 </h3>
-                <dl className="grid grid-cols-2 gap-x-4 gap-y-3 font-sans">
+                <dl className="grid grid-cols-2 gap-x-3 gap-y-2 font-sans">
                   <div className="min-w-0">
-                    <dt className="text-xs text-gray-500 font-medium">Nombre oficial</dt>
-                    <dd className="text-sm font-bold text-gray-900">Resiste Marika Cusco</dd>
+                    <dt className="text-[11px] text-gray-500 font-medium">Nombre oficial</dt>
+                    <dd className="text-xs font-bold text-gray-900">Resiste Marika Cusco</dd>
                   </div>
                   <div className="min-w-0">
-                    <dt className="text-xs text-gray-500 font-medium">Fecha de fundación</dt>
-                    <dd className="text-sm font-semibold text-gray-800">{HISTORIA_RESUMEN.fundacion}</dd>
+                    <dt className="text-[11px] text-gray-500 font-medium">Fecha de fundación</dt>
+                    <dd className="text-xs font-semibold text-gray-800">{HISTORIA_RESUMEN.fundacion}</dd>
                   </div>
                   <div className="min-w-0">
-                    <dt className="text-xs text-gray-500 font-medium">Ámbito territorial</dt>
-                    <dd className="text-sm font-semibold text-gray-800">{HISTORIA_RESUMEN.ciudad}</dd>
+                    <dt className="text-[11px] text-gray-500 font-medium">Ámbito territorial</dt>
+                    <dd className="text-xs font-semibold text-gray-800">{HISTORIA_RESUMEN.ciudad}</dd>
                   </div>
                   <div className="col-span-2 min-w-0">
-                    <dt className="text-xs text-gray-500 font-medium">Naturaleza</dt>
-                    <dd className="text-sm font-semibold text-gray-800">
+                    <dt className="text-[11px] text-gray-500 font-medium">Naturaleza</dt>
+                    <dd className="text-xs font-semibold text-gray-800">
                       Asociación civil, colectiva autoorganizada
                     </dd>
                   </div>
                   <div className="col-span-2 min-w-0">
-                    <dt className="text-xs text-gray-500 font-medium">Enfoques</dt>
-                    <dd className="text-sm font-semibold text-gray-800">
+                    <dt className="text-[11px] text-gray-500 font-medium">Enfoques</dt>
+                    <dd className="text-xs font-semibold text-gray-800">
                       LGTBIQ+, racializado, antipatriarcal, decolonial y antirracista
                     </dd>
                   </div>
@@ -201,76 +206,79 @@ export default function QuienesSomos() {
               </div>
             </div>
           </div>
+        </Container>
+      </section>
 
-          {/* El arte y la batucada */}
-          <div className="graphic-card--stripe bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 mb-12 shadow-sm">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-8">
-              <div className="lg:col-span-7">
-                <h3 className="text-xl sm:text-2xl font-bold font-display text-gray-900 mb-4">
+      <section id="artes" className="page-section scroll-mt-24 flex items-center bg-white/80 py-10 sm:py-12 backdrop-blur-xs dark:bg-[#1a1624]/80">
+        <Container>
+          <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12">
+            <div className="lg:col-span-5">
+              <Reveal>
+                <h2 className="mb-4 font-display text-2xl font-extrabold text-gray-900 sm:text-3xl">
                   El uso de las artes para hacer activismo
-                </h3>
-                <p className="text-gray-700 font-sans text-base leading-relaxed mb-4">
+                </h2>
+                <p className="mb-4 font-sans text-sm leading-relaxed text-gray-700 sm:text-base">
                   {HISTORIA_RESUMEN.pilarArtes}
                 </p>
-                <p className="text-gray-700 font-sans text-sm leading-relaxed mb-4">
-                  {HISTORIA_RESUMEN.disciplinasArtisticas}
-                </p>
-                <p className="text-gray-700 font-sans text-sm leading-relaxed font-semibold text-brand-purple">
+                <p className="font-sans text-sm leading-relaxed text-gray-700">
                   {HISTORIA_RESUMEN.talleresMultidisciplinarios}
                 </p>
-              </div>
-
-              <div className="lg:col-span-5 rounded-2xl overflow-hidden border border-gray-200 aspect-[4/3] bg-gray-100 shadow-sm">
+              </Reveal>
+            </div>
+            <div className="lg:col-span-7">
+              <div className="mb-5 aspect-[16/7] overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
                 <img
                   src="/images/marcha del 8M 2024.jpg"
                   alt="Marcha 8M con tambores y batucada en Cusco"
-                  className="w-full h-full object-cover"
+                  className="h-full w-full object-cover"
                 />
               </div>
-            </div>
-
-            {/* Cuadrícula de disciplinas */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-6 border-t border-gray-100">
-              {DISCIPLINAS.map((d) => (
-                <div key={d.nombre} className="graphic-card p-4 rounded-xl bg-gray-50 border border-gray-200/80">
-                  <h4 className="font-bold text-sm text-gray-900 font-display">{d.nombre}</h4>
-                  <p className="text-sm text-gray-600 mt-1 font-sans leading-relaxed">{d.descripcion}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Formas de Autogestión (4 formas) */}
-          <div>
-            <h3 className="text-xl sm:text-2xl font-bold font-display text-gray-900 mb-4">
-              Mecanismos de autogestión
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {FORMAS_AUTOGESTION.map((f) => (
-                <div
-                  key={f.id}
-                  className="graphic-card p-5 rounded-2xl bg-white border border-gray-200 flex flex-col justify-between shadow-sm"
-                >
-                  <div>
-                    <h4 className="font-display font-bold text-base text-gray-900 mb-2">
-                      {f.titulo}
-                    </h4>
-                    <p className="text-sm text-gray-600 leading-relaxed font-sans">
-                      {f.descripcion}
-                    </p>
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {DISCIPLINAS.map((d) => (
+                  <div key={d.nombre} className="rounded-xl border border-gray-200 bg-white p-3 dark:border-white/10 dark:bg-[#211d2a]">
+                    <h3 className="font-display text-sm font-bold text-gray-900">{d.nombre}</h3>
+                    <p className="mt-1 font-sans text-xs leading-relaxed text-gray-600">{d.descripcion}</p>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </Container>
       </section>
 
+      <section id="autogestion" className="page-section page-section--photo relative isolate scroll-mt-24 overflow-hidden py-10 sm:py-12">
+        <img
+          src="/images/Marika Fest 2024 - Feria de autogestión LGTBIQ.jpg"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/65" />
+        <Container className="relative z-10 w-full">
+          <Reveal>
+            <div className="mb-6 max-w-2xl text-white">
+              <h2 className="font-display text-2xl font-extrabold text-white sm:text-3xl">
+                Mecanismos de autogestión
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {FORMAS_AUTOGESTION.map((f) => (
+                <div key={f.id} className="rounded-2xl border border-white/40 bg-white/95 p-4 shadow-sm">
+                  <h3 className="font-display text-base font-bold text-gray-900">{f.titulo}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-700">{f.descripcion}</p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </Container>
+      </section>
+
       {/* ── 2. SECCIÓN: MISIÓN Y VISIÓN ────────────────────── */}
-      <section id="mision-vision" className="page-section pt-16 sm:pt-24 pb-16 bg-white/80 backdrop-blur-xs border-y border-gray-200 dark:bg-[#1a1624]/80">
+      <section id="mision-vision" className="page-section pt-10 sm:pt-12 pb-10 bg-white/80 backdrop-blur-xs border-y border-gray-200 dark:bg-[#1a1624]/80">
         <Container>
           <Reveal>
-            <div className="max-w-3xl mb-12">
+            <div className="max-w-3xl mb-7">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display">
                 Horizonte y Marco Estratégico
               </span>
@@ -281,28 +289,18 @@ export default function QuienesSomos() {
             </div>
           </Reveal>
 
-          {/* Bloque Central de Misión y Visión */}
-          <div className="graphic-card--stripe p-8 sm:p-10 rounded-2xl bg-gray-50 border border-gray-200 mb-14">
-            <span className="inline-block px-3 py-1 rounded-md bg-gray-900 text-white text-xs font-bold uppercase tracking-wider mb-4 font-display">
-              Nuestra Misión y Visión
-            </span>
-            <h3 className="text-xl sm:text-2xl font-bold font-display text-gray-900 mb-6">
+          <div className="mb-8 max-w-3xl">
+            <h3 className="text-xl font-bold font-display text-gray-900">
               Qué buscamos, defendemos y construimos como colectiva
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm sm:text-base text-gray-700 font-sans leading-relaxed">
-              {MISION_VISION.objetivosPrincipales.map((item, index) => (
-                <div key={index} className="graphic-card p-4 rounded-xl bg-white border border-gray-200/80 flex items-start gap-3 shadow-sm">
-                  <p className="text-xs sm:text-sm text-gray-800 leading-relaxed font-sans">
-                    {item}
-                  </p>
-                </div>
-              ))}
-            </div>
+            <p className="mt-2 text-sm leading-relaxed text-gray-700">
+              {MISION_VISION.descripcion}
+            </p>
           </div>
 
           {/* Los 6 Objetivos Estratégicos */}
           <div>
-            <div className="mb-8">
+            <div className="mb-4">
               <h3 className="text-xl sm:text-2xl font-bold font-display text-gray-900">
                 Objetivos institucionales
               </h3>
@@ -311,18 +309,18 @@ export default function QuienesSomos() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
               {OBJETIVOS_ESTRATEGICOS.map((obj) => {
                 return (
                   <div
                     key={obj.id}
-                    className="graphic-card p-6 rounded-2xl bg-white border border-gray-200 hover:border-gray-400 transition-colors flex flex-col justify-between shadow-sm"
+                    className="graphic-card flex flex-col justify-between rounded-2xl border border-gray-200 bg-white p-4 shadow-sm transition-colors hover:border-gray-400"
                   >
                     <div>
-                      <h4 className="font-display font-bold text-base text-gray-900 mt-1 mb-2">
+                      <h4 className="mt-1 mb-2 font-display text-sm font-bold text-gray-900">
                         {obj.titulo}
                       </h4>
-                      <p className="text-sm text-gray-600 leading-relaxed font-sans">
+                      <p className="font-sans text-xs leading-snug text-gray-600">
                         {obj.descripcion}
                       </p>
                     </div>
@@ -396,13 +394,10 @@ export default function QuienesSomos() {
       </section>
 
       {/* ── 4. SECCIÓN: CON QUIÉNES TRABAJAMOS ─────────────── */}
-      <section id="con-quienes-trabajamos" className="page-section pt-16 sm:pt-24 pb-16 bg-white/80 backdrop-blur-xs border-t border-gray-200 dark:bg-[#1a1624]/80">
+      <section id="con-quienes-trabajamos" className="page-section scroll-mt-24 pt-12 pb-12 sm:pt-16 bg-white/80 backdrop-blur-xs border-t border-gray-200 dark:bg-[#1a1624]/80">
         <Container>
           <Reveal>
-            <div className="max-w-3xl mb-12">
-              <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display">
-                Alianzas y Articulación
-              </span>
+            <div className="max-w-3xl mb-8">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-gray-900 mt-2 mb-4">
                 Con quiénes trabajamos
               </h2>
@@ -413,11 +408,11 @@ export default function QuienesSomos() {
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {CON_QUIENES_TRABAJAMOS.redes.map((red) => (
               <div
                 key={red.categoria}
-                className="graphic-card p-6 rounded-2xl bg-gray-50 border border-gray-200 flex flex-col justify-between"
+                className="graphic-card rounded-2xl border border-gray-200 bg-gray-50 p-4"
               >
                 <div>
                   <h4 className="font-display font-bold text-base text-gray-900 mb-2">
@@ -429,56 +424,48 @@ export default function QuienesSomos() {
                 </div>
               </div>
             ))}
-          </div>
-
-          {/* Bloques de articulación institucional */}
-          <div className="border-t border-gray-100 pt-8">
-            <p className="text-xs font-bold uppercase tracking-wider text-gray-400 font-display mb-4">
-              Redes y plataformas afines en Cusco
-            </p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-              {ALIANZAS.map((a) => {
-                return (
-                <div
-                  key={a.id}
-                  className="graphic-card flex min-h-36 flex-col justify-between rounded-2xl border border-gray-200 bg-white p-5 text-left shadow-sm transition-shadow hover:shadow-md"
-                >
-                  <div>
-                    <p className="font-display text-base font-bold text-gray-900">{a.nombre}</p>
-                    <p className="mt-1 text-sm text-gray-600">{a.tipo}</p>
-                  </div>
+            {ALIANZAS.map((a) => (
+              <div
+                key={a.id}
+                className="graphic-card rounded-2xl border border-gray-200 bg-white p-4 text-left shadow-sm transition-shadow hover:shadow-md"
+              >
+                <div>
+                  <p className="font-display text-base font-bold text-gray-900">{a.nombre}</p>
+                  <p className="mt-1 text-sm text-gray-600">{a.tipo}</p>
                 </div>
-                )
-              })}
-            </div>
+              </div>
+            ))}
           </div>
+        </Container>
+      </section>
 
-          {/* Llamado final a colaborar */}
-          <div className="relative isolate mt-10 overflow-hidden rounded-3xl border border-brand-purple/20 shadow-lg">
-            <img
-              src="/images/taller de pañuelos 28s.jpg"
-              alt=""
-              aria-hidden="true"
-              loading="lazy"
-              className="absolute inset-0 h-full w-full object-cover opacity-60"
-            />
-            <div className="absolute inset-0 bg-black/65" />
-            <div className="relative z-10 m-3 flex flex-col items-center justify-between gap-6 rounded-2xl border border-white/20 bg-gray-950/65 p-6 text-center text-white shadow-xl backdrop-blur-md sm:m-5 sm:flex-row sm:p-8 sm:text-left">
-              <div>
-                <h3 className="text-xl font-bold font-display text-brand-yellowWarm">
-                  ¿Deseas articular acciones o sumar tu proyecto?
-                </h3>
-                <p className="text-xs sm:text-sm text-white/80 font-sans mt-1">
-                  Escríbenos a nuestro correo oficial <span className="text-white underline">resistemarik@gmail.com</span> o comunícate a través de nuestras redes.
-                </p>
-              </div>
-              <div className="flex gap-3">
-                <Button href="/contacto" variant="primary" icon={<ArrowRight size={16} />}>
-                  Contáctanos
-                </Button>
-              </div>
+      <section className="page-section page-section--photo relative isolate overflow-hidden py-12 sm:py-16">
+        <img
+          src="/images/taller de pañuelos 28s.jpg"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/65" />
+        <Container className="relative z-10 w-full">
+          <Reveal>
+            <div className="max-w-3xl py-8 text-white">
+              <h2 className="mb-4 font-display text-3xl font-extrabold text-white drop-shadow-lg sm:text-4xl">
+                ¿Deseas articular acciones o sumar tu proyecto?
+              </h2>
+              <p className="mb-6 font-sans text-base leading-relaxed text-white/95 drop-shadow-md">
+                Escríbenos a nuestro correo oficial{' '}
+                <a className="font-semibold text-white underline" href="mailto:resistemarik@gmail.com">
+                  resistemarik@gmail.com
+                </a>{' '}
+                o comunícate a través de nuestras redes.
+              </p>
+              <Button href="/contacto" variant="primary" icon={<ArrowRight size={16} />}>
+                Contáctanos
+              </Button>
             </div>
-          </div>
+          </Reveal>
         </Container>
       </section>
     </div>
