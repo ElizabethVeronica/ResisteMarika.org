@@ -103,7 +103,7 @@ export default function QuienesSomos() {
         ref={sectionMenuRef}
         aria-label="Secciones de quiénes somos"
         aria-hidden={nearPageBottom}
-        className={`sticky-section-nav z-[60] mx-auto mt-4 sm:mt-6 mb-4 w-full max-w-full px-4 transition-opacity duration-200 sm:w-fit sm:max-w-[calc(100%-2rem)] sm:px-0 ${
+        className={`sticky-section-nav z-[60] mx-auto mt-4 mb-4 hidden w-full max-w-full px-4 transition-opacity duration-200 sm:mt-6 sm:block sm:w-fit sm:max-w-[calc(100%-2rem)] sm:px-0 ${
           nearPageBottom ? 'pointer-events-none opacity-0' : 'opacity-100'
         }`}
       >
