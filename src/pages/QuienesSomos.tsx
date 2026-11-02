@@ -385,8 +385,8 @@ export default function QuienesSomos() {
       </section>
 
       {/* ── 4. SECCIÓN: CON QUIÉNES TRABAJAMOS ─────────────── */}
-      <section id="con-quienes-trabajamos" className="page-section scroll-mt-24 pt-12 pb-12 sm:pt-16 bg-white/80 backdrop-blur-xs border-t border-gray-200 dark:bg-[#1a1624]/80">
-        <Container>
+      <section id="con-quienes-trabajamos" className="page-section flex scroll-mt-24 items-center bg-white/80 py-12 backdrop-blur-xs border-t border-gray-200 dark:bg-[#1a1624]/80 sm:py-16">
+        <Container className="w-full max-w-6xl">
           <Reveal>
             <div className="max-w-3xl mb-8">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-gray-900 mt-2 mb-4">
