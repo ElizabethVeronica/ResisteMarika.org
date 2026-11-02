@@ -14,13 +14,7 @@ import {
   ALIANZAS,
 } from '@/config/nosotros'
 import {
-  ShieldCheck,
-  Heart,
-  FileText,
   Eye,
-  Sparkles,
-  Users,
-  Network,
   ArrowRight,
   MapPin,
   Drum,
@@ -28,15 +22,6 @@ import {
   Palette,
   type LucideIcon,
 } from 'lucide-react'
-
-const ICON_MAP: Record<string, LucideIcon> = {
-  Heart,
-  FileText,
-  Eye,
-  Sparkles,
-  Users,
-  Network,
-}
 
 const ESPACIO_ICON_MAP: Record<string, LucideIcon> = {
   'En las calles y plazas del Cusco': Drum,
@@ -195,7 +180,7 @@ export default function QuienesSomos() {
           <Reveal>
             <div className="max-w-3xl mb-8">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display">
-                01. Nuestra Identidad y Origen
+                Nuestra Identidad y Origen
               </span>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-gray-900 mt-2 mb-4">
                 Nosotros
@@ -271,11 +256,8 @@ export default function QuienesSomos() {
           <div className="graphic-card--stripe bg-white rounded-2xl border border-gray-200 p-6 sm:p-8 mb-12 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-8">
               <div className="lg:col-span-7">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-skyLight text-gray-800 text-xs font-bold mb-3 font-display">
-                  El arte y la batucada
-                </span>
                 <h3 className="text-xl sm:text-2xl font-bold font-display text-gray-900 mb-4">
-                  El uso de las artes para hacer activismo y la batucada LGTBIQ+
+                  El uso de las artes para hacer activismo
                 </h3>
                 <p className="text-gray-700 font-sans text-base leading-relaxed mb-4">
                   {HISTORIA_RESUMEN.pilarArtes}
@@ -340,7 +322,7 @@ export default function QuienesSomos() {
           <Reveal>
             <div className="max-w-3xl mb-12">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display">
-                02. Horizonte y Marco Estratégico
+                Horizonte y Marco Estratégico
               </span>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-gray-900 mt-2 mb-4">
                 Misión y Visión
@@ -358,11 +340,8 @@ export default function QuienesSomos() {
               Qué buscamos, defendemos y construimos como colectiva
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm sm:text-base text-gray-700 font-sans leading-relaxed">
-              {MISION_VISION.objetivosPrincipales.map((item, idx) => (
-                <div key={idx} className="graphic-card p-4 rounded-xl bg-white border border-gray-200/80 flex items-start gap-3 shadow-sm">
-                  <span className="font-display font-black text-brand-purple text-base shrink-0">
-                    0{idx + 1}.
-                  </span>
+              {MISION_VISION.objetivosPrincipales.map((item, index) => (
+                <div key={index} className="graphic-card p-4 rounded-xl bg-white border border-gray-200/80 flex items-start gap-3 shadow-sm">
                   <p className="text-xs sm:text-sm text-gray-800 leading-relaxed font-sans">
                     {item}
                   </p>
@@ -384,24 +363,12 @@ export default function QuienesSomos() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {OBJETIVOS_ESTRATEGICOS.map((obj) => {
-                const IconComp = ICON_MAP[obj.icono] || ShieldCheck
                 return (
                   <div
                     key={obj.id}
                     className="graphic-card p-6 rounded-2xl bg-white border border-gray-200 hover:border-gray-400 transition-colors flex flex-col justify-between shadow-sm"
                   >
                     <div>
-                      <div className="flex items-center justify-between mb-4">
-                        <span className="font-display font-black text-2xl text-gray-300">
-                          {obj.numero}
-                        </span>
-                        <div className="h-8 w-8 rounded-lg bg-gray-100 text-gray-700 flex items-center justify-center">
-                          <IconComp size={16} />
-                        </div>
-                      </div>
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-brand-purple font-display">
-                        {obj.enfoque}
-                      </span>
                       <h4 className="font-display font-bold text-base text-gray-900 mt-1 mb-2">
                         {obj.titulo}
                       </h4>
@@ -423,7 +390,7 @@ export default function QuienesSomos() {
           <Reveal>
             <div className="max-w-3xl mb-8">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display">
-                03. Territorio y Ámbito de Acción
+                Territorio y Ámbito de Acción
               </span>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-gray-900 mt-2 mb-4">
                 Dónde trabajamos
@@ -490,7 +457,7 @@ export default function QuienesSomos() {
           <Reveal>
             <div className="max-w-3xl mb-12">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display">
-                04. Alianzas y Articulación
+                Alianzas y Articulación
               </span>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-gray-900 mt-2 mb-4">
                 Con quiénes trabajamos

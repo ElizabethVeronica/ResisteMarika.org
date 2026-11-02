@@ -5,7 +5,6 @@ export interface EngagementPath {
   descripcion: string
   href: string
   cta: string
-  tiempo?: string
 }
 
 export const ENGAGEMENT_PATHS: EngagementPath[] = [
@@ -16,7 +15,6 @@ export const ENGAGEMENT_PATHS: EngagementPath[] = [
       'Historia, misión, autogestión y el rol del arte en nuestro activismo en las calles del Cusco.',
     href: '/quienes-somos',
     cta: 'Quiénes somos',
-    tiempo: '~5 min de lectura',
   },
   {
     id: 'participar',
@@ -25,7 +23,6 @@ export const ENGAGEMENT_PATHS: EngagementPath[] = [
       'Iniciativas de arte y formación, espacios de apoyo colectivo y acciones de autoorganización.',
     href: '/proyectos',
     cta: 'Ver proyectos',
-    tiempo: 'Explorar actividades',
   },
   {
     id: 'accion',
@@ -34,6 +31,5 @@ export const ENGAGEMENT_PATHS: EngagementPath[] = [
       'Si quieres sumarte, proponer un taller o colaborar en un proyecto, escríbenos directamente.',
     href: '/contacto',
     cta: 'Escríbenos',
-    tiempo: 'Respuesta por correo o redes',
   },
 ]
