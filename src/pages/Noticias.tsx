@@ -142,7 +142,7 @@ export default function Noticias() {
     <div className="page-art-backdrop bg-surface-light">
       <section className="page-hero">
         <img
-          src="/images/Piquete Informativo de ETS y Sensibilización Dia Mundial del SIDA.jpg"
+          src="/images/planton 25N.jpg"
           alt=""
           aria-hidden="true"
           loading="lazy"
@@ -154,7 +154,7 @@ export default function Noticias() {
             <div className="page-hero__content ml-auto text-left lg:text-right">
               <h1 className="page-hero__title">Noticias y comunicados</h1>
               <p className="page-hero__subtitle lg:ml-auto">
-                Sigue las publicaciones recientes y novedades de Resiste Marika Cusco.
+                Sigue las publicaciones recientes y novedades de Resiste Marika.
               </p>
             </div>
           </Reveal>
@@ -164,6 +164,7 @@ export default function Noticias() {
       {status === 'error' && (
         <section className="page-section mb-10">
           <Container>
+            <Reveal>
             <div
               role="alert"
               className="flex flex-col items-center justify-between gap-3 rounded-2xl border border-red-200 bg-red-50 p-4 text-center sm:flex-row sm:text-left"
@@ -182,6 +183,7 @@ export default function Noticias() {
                 Intentar de nuevo
               </button>
             </div>
+            </Reveal>
           </Container>
         </section>
       )}
@@ -225,7 +227,7 @@ export default function Noticias() {
               ))}
             </div>
           ) : (
-            <SocialEmptyState configured={feedConfigured} />
+            <Reveal><SocialEmptyState configured={feedConfigured} /></Reveal>
           )}
         </Container>
       </section>
@@ -269,7 +271,7 @@ export default function Noticias() {
               ))}
             </div>
           ) : (
-            <SocialEmptyState configured={feedConfigured} />
+            <Reveal><SocialEmptyState configured={feedConfigured} /></Reveal>
           )}
         </Container>
       </section>

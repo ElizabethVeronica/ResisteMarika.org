@@ -1,4 +1,4 @@
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { useRef, type ReactNode } from 'react'
 import { useViewTransition } from '@/hooks/useViewTransition'
 
@@ -37,6 +37,7 @@ export default function Reveal({
 }: RevealProps) {
   const ref    = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-100px' })
+  const reduceMotion = useReducedMotion()
   const vtActive = useViewTransition()
   const offset = directionMap[direction]
 
@@ -49,9 +50,9 @@ export default function Reveal({
     <motion.div
       ref={ref}
       className={className}
-      initial={skipInitial ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, ...offset }}
-      animate={shouldAnimate ? { opacity: 1, x: 0, y: 0 } : {}}
-      transition={{ duration, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
+      initial={skipInitial || reduceMotion ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, ...offset }}
+      animate={reduceMotion || shouldAnimate ? { opacity: 1, x: 0, y: 0 } : {}}
+      transition={{ duration: reduceMotion ? 0 : duration, delay: reduceMotion ? 0 : delay, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       {children}
     </motion.div>

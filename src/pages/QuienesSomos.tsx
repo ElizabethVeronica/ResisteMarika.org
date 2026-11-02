@@ -142,25 +142,28 @@ export default function QuienesSomos() {
 
           {/* Identidad y origen */}
           <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-7">
-            <div className="space-y-3 font-sans text-base leading-relaxed text-gray-700 lg:col-span-6">
-              <p className="font-semibold text-gray-900">
-                {HISTORIA_RESUMEN.declaracionInicial}
-              </p>
-              <p>{HISTORIA_RESUMEN.parrafo1}</p>
-
-              <div className="text-sm leading-relaxed text-gray-700">
-                <p className="font-bold text-gray-900">
-                  Nuestra postura frente a la dependencia externa:
+            <Reveal className="lg:col-span-6">
+              <div className="space-y-3 font-sans text-base leading-relaxed text-gray-700">
+                <p className="font-semibold text-gray-900">
+                  {HISTORIA_RESUMEN.declaracionInicial}
                 </p>
-                <p>{HISTORIA_RESUMEN.parrafo2}</p>
+                <p>{HISTORIA_RESUMEN.parrafo1}</p>
+
+                <div className="text-sm leading-relaxed text-gray-700">
+                  <p className="font-bold text-gray-900">
+                    Nuestra postura frente a la dependencia externa:
+                  </p>
+                  <p>{HISTORIA_RESUMEN.parrafo2}</p>
+                </div>
+
+                <p className="font-medium text-gray-900">
+                  {HISTORIA_RESUMEN.parrafo3}
+                </p>
               </div>
+            </Reveal>
 
-              <p className="font-medium text-gray-900">
-                {HISTORIA_RESUMEN.parrafo3}
-              </p>
-            </div>
-
-            <div className="flex flex-col gap-3 lg:col-span-6">
+            <Reveal className="lg:col-span-6" delay={0.1}>
+              <div className="flex flex-col gap-3">
               <div className="aspect-[16/8] rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-gray-100">
                 <img
                   src="/images/Ceremonia de Agradecimiento a la Pachamama y Compartir Marika 2024.jpg"
@@ -200,7 +203,8 @@ export default function QuienesSomos() {
                   </div>
                 </dl>
               </div>
-            </div>
+              </div>
+            </Reveal>
           </div>
         </Container>
       </section>
@@ -213,6 +217,7 @@ export default function QuienesSomos() {
                 <h2 className="mb-4 font-display text-2xl font-extrabold text-gray-900 sm:text-3xl">
                   El uso de las artes para hacer activismo
                 </h2>
+                <div className="mb-5 h-1 w-16 rounded-full bg-brand-purple" />
                 <p className="mb-4 font-sans text-sm leading-relaxed text-gray-700 sm:text-base">
                   {HISTORIA_RESUMEN.pilarArtes}
                 </p>
@@ -222,19 +227,23 @@ export default function QuienesSomos() {
               </Reveal>
             </div>
             <div className="lg:col-span-7">
-              <div className="mb-5 aspect-[16/7] overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
-                <img
-                  src="/images/marcha del 8M 2024.jpg"
-                  alt="Marcha 8M con tambores y batucada en Cusco"
-                  className="h-full w-full object-cover"
-                />
-              </div>
+              <Reveal className="mb-5">
+                <div className="aspect-[16/7] overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
+                  <img
+                    src="/images/marcha del 8M 2024.jpg"
+                    alt="Marcha 8M con tambores y batucada en Cusco"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              </Reveal>
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {DISCIPLINAS.map((d) => (
-                  <div key={d.nombre} className="rounded-xl border border-gray-200 bg-white p-3 dark:border-white/10 dark:bg-[#211d2a]">
-                    <h3 className="font-display text-sm font-bold text-gray-900">{d.nombre}</h3>
-                    <p className="mt-1 font-sans text-xs leading-relaxed text-gray-600">{d.descripcion}</p>
-                  </div>
+                  <Reveal key={d.nombre} className="h-full">
+                    <div className="interactive-card h-full rounded-xl border border-gray-200 bg-white p-3 dark:border-white/10 dark:bg-[#211d2a]">
+                      <h3 className="font-display text-sm font-bold text-brand-purple">{d.nombre}</h3>
+                      <p className="mt-1 font-sans text-xs leading-relaxed text-gray-600 dark:text-gray-300">{d.descripcion}</p>
+                    </div>
+                  </Reveal>
                 ))}
               </div>
             </div>
@@ -257,17 +266,20 @@ export default function QuienesSomos() {
               <h2 className="font-display text-2xl font-extrabold text-white sm:text-3xl">
                 Mecanismos de autogestión
               </h2>
-            </div>
-            <div className="grid grid-cols-1 divide-y divide-white/25 sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4">
-              {FORMAS_AUTOGESTION.map((f) => (
-                <div key={f.id} className="py-5 sm:px-4 sm:py-2 lg:px-5">
-                  <div className="photo-section__item-accent" />
-                  <h3 className="photo-section__item-title--accent font-display text-lg font-bold">{f.titulo}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/90">{f.descripcion}</p>
-                </div>
-              ))}
+              <div className="mt-4 h-1 w-16 rounded-full bg-brand-pink" />
             </div>
           </Reveal>
+          <div className="grid grid-cols-1 divide-y divide-white/25 sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4">
+            {FORMAS_AUTOGESTION.map((f, index) => (
+              <Reveal key={f.id} className="h-full" delay={Math.min(index * 0.08, 0.24)}>
+                <div className="photo-section__item group py-5 sm:px-4 sm:py-2 lg:px-5">
+                  <div className="photo-section__item-accent" />
+                  <h3 className="photo-section__item-title mb-2 font-display text-lg font-bold">{f.titulo}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-white/90">{f.descripcion}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </Container>
       </section>
 
@@ -285,33 +297,30 @@ export default function QuienesSomos() {
 
           {/* Los 6 Objetivos Estratégicos */}
           <div>
-            <div className="mb-4">
+            <Reveal className="mb-4">
               <h3 className="text-xl sm:text-2xl font-bold font-display text-gray-900">
                 Objetivos institucionales
               </h3>
               <p className="text-sm text-gray-600 mt-1 font-sans">
                 Líneas de acción que guían nuestra labor en el ámbito distrital, regional y nacional.
               </p>
-            </div>
+            </Reveal>
 
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {OBJETIVOS_ESTRATEGICOS.map((obj) => {
-                return (
-                  <div
-                    key={obj.id}
-                    className="graphic-card flex flex-col justify-between rounded-2xl border border-gray-200 bg-white p-4 shadow-sm transition-colors hover:border-gray-400"
-                  >
+              {OBJETIVOS_ESTRATEGICOS.map((obj, index) => (
+                <Reveal key={obj.id} className="h-full" delay={Math.min(index % 3 * 0.07, 0.14)}>
+                  <div className="interactive-card graphic-card flex h-full flex-col justify-between rounded-2xl border border-gray-200 bg-white p-4 shadow-sm transition-colors hover:border-gray-400 dark:border-white/10 dark:bg-[#211d2a]">
                     <div>
-                      <h4 className="mt-1 mb-2 font-display text-sm font-bold text-gray-900">
+                      <h4 className="mt-1 mb-2 font-display text-sm font-bold text-brand-purple dark:text-brand-pink">
                         {obj.titulo}
                       </h4>
-                      <p className="font-sans text-xs leading-snug text-gray-600">
+                      <p className="font-sans text-xs leading-snug text-gray-600 dark:text-gray-300">
                         {obj.descripcion}
                       </p>
                     </div>
                   </div>
-                )
-              })}
+                </Reveal>
+              ))}
             </div>
           </div>
         </Container>
@@ -330,7 +339,8 @@ export default function QuienesSomos() {
           </Reveal>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
-            <div className="graphic-card--stripe lg:col-span-5 bg-white p-5 sm:p-6 rounded-2xl border border-gray-200 shadow-sm space-y-4">
+            <Reveal className="lg:col-span-5">
+              <div className="interactive-card graphic-card--stripe bg-white p-5 sm:p-6 rounded-2xl border border-gray-200 shadow-sm space-y-4 dark:border-white/10 dark:bg-[#211d2a]">
               <div className="aspect-[16/9] rounded-xl overflow-hidden bg-gray-100 border border-gray-200">
                 <img
                   src="/images/marcha del orgullo 2025.png"
@@ -344,31 +354,31 @@ export default function QuienesSomos() {
                   <MapPin size={20} className="text-brand-purple" />
                 </div>
                 <div>
-                  <h3 className="font-display font-bold text-lg text-gray-900">
+                  <h3 className="font-display font-bold text-lg text-brand-purple">
                     Región Cusco
                   </h3>
                   <p className="text-xs text-gray-500">Ámbito urbano y colectivo</p>
                 </div>
               </div>
 
-              <p className="text-sm text-gray-700 leading-relaxed font-sans">
+              <p className="text-sm text-gray-700 leading-relaxed font-sans dark:text-gray-300">
                 Nuestra presencia se despliega activamente en la ciudad del Cusco, sus distritos y espacios públicos: calles, plazas históricas, ferias vecinales y espacios de participación ciudadana.
               </p>
-            </div>
+              </div>
+            </Reveal>
 
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 auto-rows-fr gap-4">
-              {DONDE_TRABAJAMOS.espacios.map((esp) => (
-                <div
-                  key={esp.titulo}
-                  className="h-full p-5 rounded-2xl bg-white border border-gray-200 flex flex-col shadow-sm"
-                >
-                  <h4 className="font-display font-bold text-base text-gray-900 mb-2">
-                    {esp.titulo}
-                  </h4>
-                  <p className="text-sm text-gray-600 leading-relaxed font-sans">
-                    {esp.descripcion}
-                  </p>
-                </div>
+              {DONDE_TRABAJAMOS.espacios.map((esp, index) => (
+                <Reveal key={esp.titulo} className="h-full" delay={Math.min(index % 2 * 0.08, 0.08)}>
+                  <div className="interactive-card h-full rounded-2xl border border-gray-200 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-[#211d2a]">
+                    <h4 className="mb-2 font-display text-base font-bold text-brand-purple dark:text-brand-pink">
+                      {esp.titulo}
+                    </h4>
+                    <p className="font-sans text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                      {esp.descripcion}
+                    </p>
+                  </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -392,26 +402,26 @@ export default function QuienesSomos() {
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {CON_QUIENES_TRABAJAMOS.redes.map((red) => (
-              <div
-                key={red.categoria}
-                className="rounded-2xl border border-gray-200 bg-white/80 p-5 shadow-sm dark:border-white/10 dark:bg-[#211d2a]/80"
-              >
-                <h3 className="mb-2 font-display text-base font-bold text-brand-purple">
-                  {red.categoria}
-                </h3>
-                <p className="mt-2 font-sans text-xs leading-relaxed text-gray-600 sm:text-sm">
-                  {red.descripcion}
-                </p>
-              </div>
+              <Reveal key={red.categoria} className="h-full">
+                <div className="interactive-card h-full rounded-2xl border border-gray-200 bg-white/80 p-5 shadow-sm dark:border-white/10 dark:bg-[#211d2a]/80">
+                  <h3 className="mb-2 font-display text-base font-bold text-brand-purple dark:text-brand-pink">
+                    {red.categoria}
+                  </h3>
+                  <p className="mt-2 font-sans text-xs leading-relaxed text-gray-600 sm:text-sm">
+                    {red.descripcion}
+                  </p>
+                </div>
+              </Reveal>
             ))}
           </div>
           <div className="mt-8 border-t border-gray-200 pt-6 dark:border-white/10">
-            <h3 className="mb-4 font-display text-lg font-bold text-gray-900">Redes y espacios aliados</h3>
-            <div className="grid grid-cols-1 gap-x-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {ALIANZAS.map((a) => (
-                <div key={a.id} className="border-b border-gray-200 py-4 dark:border-white/10">
-                  <h4 className="font-display text-sm font-semibold text-gray-800">{a.nombre}</h4>
-                </div>
+                <Reveal key={a.id}>
+                  <div className="interactive-card border-b border-gray-200 py-4 dark:border-white/10">
+                    <h4 className="font-display text-sm font-semibold text-brand-purple dark:text-brand-pink">{a.nombre}</h4>
+                  </div>
+                </Reveal>
               ))}
             </div>
           </div>

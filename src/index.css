@@ -105,6 +105,44 @@
   color: #f3a5cf;
 }
 
+.photo-section__item:hover .photo-section__item-title {
+  color: #f3a5cf;
+}
+
+.photo-section__item-title {
+  transition: color 220ms ease;
+}
+
+.interactive-card,
+.graphic-card {
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+
+.interactive-card:hover,
+.graphic-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 26px rgb(34 24 48 / 0.12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .interactive-card,
+  .graphic-card {
+    transition: none;
+  }
+
+  .interactive-card:hover,
+  .graphic-card:hover {
+    transform: none;
+  }
+
+  .photo-section__item-title {
+    transition: none;
+  }
+}
+
 .page-hero {
   position: relative;
   isolation: isolate;

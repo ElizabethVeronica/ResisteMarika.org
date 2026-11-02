@@ -20,51 +20,53 @@ export default function Home() {
           <Container className="relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               {/* Texto Principal */}
-              <div className="relative isolate overflow-hidden rounded-3xl border border-gray-200/80 bg-white/95 p-5 shadow-sm sm:p-7 dark:border-white/10 dark:bg-[#211d2a]/95 lg:col-span-7">
-                <img
-                  src="/images/logo png.png"
-                  alt=""
-                  aria-hidden="true"
-                  className="home-hero-logo home-hero-logo--light"
-                />
-                <img
-                  src="/images/logo inverso.png"
-                  alt=""
-                  aria-hidden="true"
-                  className="home-hero-logo home-hero-logo--dark"
-                />
-                <div className="relative z-10 flex flex-col items-start">
-                  <span className="inline-block px-3.5 py-1.5 rounded-md bg-brand-purpleLight/60 text-brand-purple text-xs sm:text-sm font-bold uppercase tracking-wider mb-4 font-display dark:bg-brand-purple/20 dark:text-purple-300">
-                    Cusco, Perú · Fundada el {HISTORIA_RESUMEN.fundacion}
-                  </span>
+              <Reveal className="lg:col-span-7">
+                <div className="relative isolate overflow-hidden rounded-3xl border border-gray-200/80 bg-white/95 p-5 shadow-sm sm:p-7 dark:border-white/10 dark:bg-[#211d2a]/95">
+                  <img
+                    src="/images/logo png.png"
+                    alt=""
+                    aria-hidden="true"
+                    className="home-hero-logo home-hero-logo--light"
+                  />
+                  <img
+                    src="/images/logo inverso.png"
+                    alt=""
+                    aria-hidden="true"
+                    className="home-hero-logo home-hero-logo--dark"
+                  />
+                  <div className="relative z-10 flex flex-col items-start">
+                    <span className="inline-block px-3.5 py-1.5 rounded-md bg-brand-purpleLight/60 text-brand-purple text-xs sm:text-sm font-bold uppercase tracking-wider mb-4 font-display dark:bg-brand-purple/20 dark:text-purple-300">
+                      Cusco, Perú · Fundada el {HISTORIA_RESUMEN.fundacion}
+                    </span>
 
-                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black font-display text-gray-900 leading-tight tracking-tight mb-5">
-                    Resiste Marika
-                  </h1>
+                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black font-display text-gray-900 leading-tight tracking-tight mb-5">
+                      Resiste Marika
+                    </h1>
 
-                  <p className="text-xl sm:text-2xl font-bold font-display text-brand-purple leading-snug mb-6 border-l-4 border-brand-purple pl-4">
-                    {HISTORIA_RESUMEN.sublema}
-                  </p>
-
-                  <div className="mb-8 max-w-2xl">
-                    <p className="text-base sm:text-lg text-gray-700 font-sans leading-relaxed">
-                      Somos una colectiva autoorganizada en Cusco que impulsa espacios de sanación, arte y defensa de derechos para la comunidad LGTBIQ+.
+                    <p className="text-xl sm:text-2xl font-bold font-display text-brand-purple leading-snug mb-6 border-l-4 border-brand-purple pl-4">
+                      {HISTORIA_RESUMEN.sublema}
                     </p>
-                  </div>
 
-                  <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:gap-3.5">
-                    <Button href="/quienes-somos" size="lg" variant="primary" className="w-full sm:w-auto" icon={<ArrowRight size={18} />}>
-                      Quiénes somos y qué hacemos
-                    </Button>
-                    <Button href="/multimedia" size="lg" variant="outline" className="w-full sm:w-auto">
-                      Ver fotos y multimedia
-                    </Button>
+                    <div className="mb-8 max-w-2xl">
+                      <p className="text-base sm:text-lg text-gray-700 font-sans leading-relaxed">
+                        Somos una colectiva autoorganizada en Cusco que impulsa espacios de sanación, arte y defensa de derechos para la comunidad LGTBIQ+.
+                      </p>
+                    </div>
+
+                    <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:gap-3.5">
+                      <Button href="/quienes-somos" size="lg" variant="primary" className="w-full sm:w-auto" icon={<ArrowRight size={18} />}>
+                        Quiénes somos y qué hacemos
+                      </Button>
+                      <Button href="/multimedia" size="lg" variant="outline" className="w-full sm:w-auto">
+                        Ver fotos y multimedia
+                      </Button>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Reveal>
 
               {/* Fotografía de la marcha */}
-              <div className="lg:col-span-5">
+              <Reveal className="lg:col-span-5" delay={0.1}>
                 <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 shadow-md border border-gray-200 group">
                   <img
                     src="/images/marcha 8M 2025.png"
@@ -72,7 +74,7 @@ export default function Home() {
                     className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
                   />
                 </div>
-              </div>
+              </Reveal>
             </div>
           </Container>
         </div>
@@ -105,30 +107,29 @@ export default function Home() {
           </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {proyectosPreview.map((prog) => (
-              <div
-                key={prog.id}
-                className="graphic-card group flex flex-col rounded-2xl bg-white/90 border border-gray-200 overflow-hidden shadow-sm dark:bg-[#211d2a]/90"
-              >
-                <div className="aspect-[16/10] overflow-hidden bg-gray-200">
-                  <img
-                    src={prog.imagen}
-                    alt={prog.titulo}
-                    className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
-                  />
+            {proyectosPreview.map((prog, index) => (
+              <Reveal key={prog.id} className="h-full" delay={Math.min(index * 0.08, 0.24)}>
+                <div className="graphic-card group flex h-full flex-col rounded-2xl border border-gray-200 bg-white/90 shadow-sm dark:bg-[#211d2a]/90">
+                  <div className="aspect-[16/10] overflow-hidden bg-gray-200">
+                    <img
+                      src={prog.imagen}
+                      alt={prog.titulo}
+                      className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
+                    />
+                  </div>
+                  <div className="p-6 flex flex-col flex-1">
+                    <span className="text-[11px] font-bold uppercase tracking-wider text-brand-purple mb-1 font-display">
+                      {prog.categoria}
+                    </span>
+                    <h3 className="font-display font-bold text-base text-gray-900 mb-2">
+                      {prog.titulo}
+                    </h3>
+                    <p className="text-sm text-gray-600 leading-relaxed font-sans flex-1">
+                      {prog.descripcion}
+                    </p>
+                  </div>
                 </div>
-                <div className="p-6 flex flex-col flex-1">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-brand-purple mb-1 font-display">
-                    {prog.categoria}
-                  </span>
-                  <h3 className="font-display font-bold text-base text-gray-900 mb-2">
-                    {prog.titulo}
-                  </h3>
-                  <p className="text-sm text-gray-600 leading-relaxed font-sans flex-1">
-                    {prog.descripcion}
-                  </p>
-                </div>
-              </div>
+              </Reveal>
             ))}
           </div>
           <div className="mt-10 flex justify-center">
@@ -158,26 +159,25 @@ export default function Home() {
           </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {noticiasPreview.map((n) => (
-              <article
-                key={n.id}
-                className="graphic-card flex flex-col rounded-2xl bg-white/95 border border-gray-200 overflow-hidden shadow-sm dark:bg-[#211d2a]/95"
-              >
-                <div className="aspect-[16/10] overflow-hidden bg-gray-200">
-                  <img src={n.imagen} alt={n.titulo} className="w-full h-full object-cover" />
-                </div>
-                <div className="p-6 flex flex-col flex-1 gap-2">
-                  <span className="text-xs text-gray-500 flex items-center gap-1.5 font-sans">
-                    <Calendar size={13} /> {n.fecha}
-                  </span>
-                  <h3 className="font-display font-bold text-base text-gray-900 line-clamp-2">
-                    {n.titulo}
-                  </h3>
-                  <p className="text-sm text-gray-600 leading-relaxed font-sans flex-1 line-clamp-3">
-                    {n.resumen}
-                  </p>
-                </div>
-              </article>
+            {noticiasPreview.map((n, index) => (
+              <Reveal key={n.id} className="h-full" delay={Math.min(index * 0.08, 0.24)}>
+                <article className="graphic-card flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white/95 shadow-sm dark:bg-[#211d2a]/95">
+                  <div className="aspect-[16/10] overflow-hidden bg-gray-200">
+                    <img src={n.imagen} alt={n.titulo} className="h-full w-full object-cover" />
+                  </div>
+                  <div className="p-6 flex flex-1 flex-col gap-2">
+                    <span className="flex items-center gap-1.5 font-sans text-xs text-gray-500">
+                      <Calendar size={13} /> {n.fecha}
+                    </span>
+                    <h3 className="line-clamp-2 font-display text-base font-bold text-gray-900">
+                      {n.titulo}
+                    </h3>
+                    <p className="line-clamp-3 flex-1 font-sans text-sm leading-relaxed text-gray-600">
+                      {n.resumen}
+                    </p>
+                  </div>
+                </article>
+              </Reveal>
             ))}
           </div>
         </Container>
@@ -194,43 +194,45 @@ export default function Home() {
         />
         <div className="photo-section__overlay" />
         <Container>
-          <div className="photo-section__content mx-auto max-w-3xl text-center">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-white leading-tight mb-4">
-              ¿Quieres sumarte, proponer un taller o articular con nosotres?
-            </h2>
-            <p className="text-sm sm:text-base text-white/90 font-sans leading-relaxed mb-8">
-              Escríbenos a nuestro correo oficial{' '}
-              <a href="mailto:resistemarik@gmail.com" className="text-brand-sky font-semibold underline">
-                resistemarik@gmail.com
-              </a>{' '}
-              o contáctanos por{' '}
-              <a
-                href="https://www.instagram.com/resiste.marika.cusco"
-                target="_blank"
-                rel="noreferrer"
-                className="text-brand-pink font-semibold underline hover:text-white transition-colors"
-              >
-                Instagram
-              </a>{' '}
-              y{' '}
-              <a
-                href="https://www.tiktok.com/@resistemarik"
-                target="_blank"
-                rel="noreferrer"
-                className="text-brand-pink font-semibold underline hover:text-white transition-colors"
-              >
-                TikTok
-              </a>.
-            </p>
-            <div className="flex flex-wrap justify-center gap-3.5">
-              <Button href="/contacto" size="lg" variant="primary">
-                Escríbenos un mensaje
-              </Button>
-              <Button href="/multimedia" size="lg" variant="secondary">
-                Ver archivo multimedia
-              </Button>
+          <Reveal>
+            <div className="photo-section__content mx-auto max-w-3xl text-center">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-white leading-tight mb-4">
+                ¿Quieres sumarte, proponer un taller o articular con nosotres?
+              </h2>
+              <p className="text-sm sm:text-base text-white/90 font-sans leading-relaxed mb-8">
+                Escríbenos a nuestro correo oficial{' '}
+                <a href="mailto:resistemarik@gmail.com" className="text-brand-sky font-semibold underline">
+                  resistemarik@gmail.com
+                </a>{' '}
+                o contáctanos por{' '}
+                <a
+                  href="https://www.instagram.com/resiste.marika.cusco"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-brand-pink font-semibold underline hover:text-white transition-colors"
+                >
+                  Instagram
+                </a>{' '}
+                y{' '}
+                <a
+                  href="https://www.tiktok.com/@resistemarik"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-brand-pink font-semibold underline hover:text-white transition-colors"
+                >
+                  TikTok
+                </a>.
+              </p>
+              <div className="flex flex-wrap justify-center gap-3.5">
+                <Button href="/contacto" size="lg" variant="primary">
+                  Escríbenos un mensaje
+                </Button>
+                <Button href="/multimedia" size="lg" variant="secondary">
+                  Ver archivo multimedia
+                </Button>
+              </div>
             </div>
-          </div>
+          </Reveal>
         </Container>
       </section>
     </div>

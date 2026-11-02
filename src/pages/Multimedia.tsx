@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { createPortal } from 'react-dom'
 import { useLocation } from 'react-router-dom'
 import Container from '@/components/ui/Container'
@@ -14,6 +14,7 @@ function isDateLabel(value: string) {
 }
 
 export default function Multimedia() {
+  const reduceMotion = useReducedMotion()
   const [activeCategory, setActiveCategory] = useState<string>('Todas')
   const [selectedItem, setSelectedItem] = useState<MultimediaItem | null>(null)
   const [nearPageBottom, setNearPageBottom] = useState(false)
@@ -126,22 +127,22 @@ export default function Multimedia() {
             </div>
           </div>
 
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="wait" initial={!reduceMotion}>
             {filteredItems.length > 0 ? (
               <motion.div
                 key={activeCategory}
-                initial={{ opacity: 0, y: 12 }}
+                initial={reduceMotion ? false : { opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.25, ease: 'easeInOut' }}
+                exit={reduceMotion ? { opacity: 1 } : { opacity: 0, y: -8 }}
+                transition={{ duration: reduceMotion ? 0 : 0.25, ease: 'easeInOut' }}
                 className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
               >
                 {filteredItems.map((item, idx) => (
                   <motion.article
                     key={item.id}
-                    initial={{ opacity: 0, y: 12 }}
+                    initial={reduceMotion ? false : { opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: Math.min(idx * 0.025, 0.3) }}
+                    transition={{ duration: reduceMotion ? 0 : 0.3, delay: reduceMotion ? 0 : Math.min(idx * 0.025, 0.3) }}
                     className="graphic-card group bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-300 flex flex-col justify-between h-full"
                   >
                     <button
@@ -187,9 +188,9 @@ export default function Multimedia() {
             ) : (
               <motion.div
                 key={activeCategory}
-                initial={{ opacity: 0 }}
+                initial={reduceMotion ? false : { opacity: 0 }}
                 animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
+                exit={reduceMotion ? { opacity: 1 } : { opacity: 0 }}
                 className="text-center py-16 text-gray-500 font-sans"
               >
                 No hay imágenes en esta categoría actualmente.
@@ -204,10 +205,10 @@ export default function Multimedia() {
         <AnimatePresence>
           {selectedItem && (
             <motion.div
-              initial={{ opacity: 0 }}
+              initial={reduceMotion ? false : { opacity: 0 }}
               animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
+              exit={reduceMotion ? { opacity: 1 } : { opacity: 0 }}
+              transition={{ duration: reduceMotion ? 0 : 0.2 }}
               className="fixed inset-0 z-[100] flex items-center justify-center bg-gray-950/90 p-3 backdrop-blur-md sm:p-6"
               onClick={() => setSelectedItem(null)}
             >
@@ -215,10 +216,10 @@ export default function Multimedia() {
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby="multimedia-lightbox-title"
-                initial={{ opacity: 0, y: 12, scale: 0.98 }}
+                initial={reduceMotion ? false : { opacity: 0, y: 12, scale: 0.98 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 8, scale: 0.98 }}
-                transition={{ duration: 0.2 }}
+                exit={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 8, scale: 0.98 }}
+                transition={{ duration: reduceMotion ? 0 : 0.2 }}
                 className="flex max-h-[94vh] w-full max-w-6xl flex-col overflow-hidden rounded-2xl border border-white/10 bg-gray-950 shadow-2xl sm:rounded-3xl"
                 onClick={(event) => event.stopPropagation()}
               >
