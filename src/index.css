@@ -120,22 +120,18 @@
 
 @keyframes hero-gallery-slide-next {
   from {
-    opacity: 0.85;
-    transform: translate3d(0.75rem, 0, 0);
+    transform: translate3d(0.5rem, 0, 0);
   }
   to {
-    opacity: 1;
     transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes hero-gallery-slide-previous {
   from {
-    opacity: 0.85;
-    transform: translate3d(-0.75rem, 0, 0);
+    transform: translate3d(-0.5rem, 0, 0);
   }
   to {
-    opacity: 1;
     transform: translate3d(0, 0, 0);
   }
 }
@@ -215,7 +211,7 @@
 @media (pointer: coarse), (max-width: 767px) {
   .home-hero-gallery__image--next,
   .home-hero-gallery__image--previous {
-    animation-duration: 150ms;
+    animation-duration: 120ms;
   }
 }
 
