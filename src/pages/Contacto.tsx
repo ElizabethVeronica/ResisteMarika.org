@@ -3,7 +3,6 @@ import { Send, CheckCircle, Mail, MapPin, Heart } from 'lucide-react'
 import { FaInstagram } from 'react-icons/fa'
 import { FaTiktok } from 'react-icons/fa6'
 import Container from '@/components/ui/Container'
-import SectionHeader from '@/components/ui/SectionHeader'
 import Reveal from '@/components/ui/Reveal'
 import Button from '@/components/ui/Button'
 
@@ -39,32 +38,30 @@ export default function Contacto() {
   }
 
   return (
-    <div className="page-art-backdrop bg-surface-light py-12 sm:py-20">
+    <div className="page-art-backdrop bg-surface-light pb-10">
       {/* ── ENCABEZADO ───────────────────────────────────── */}
-      <section className="relative isolate mb-16 overflow-hidden py-5 sm:mb-24 sm:py-7">
+      <section className="page-hero">
         <img
           src="/images/taller de batucada.jpg"
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-black/65" />
-        <Container>
-          <Reveal>
-            <div className="relative z-10 mx-auto max-w-4xl rounded-3xl border border-white/20 bg-white/90 px-5 py-8 shadow-xl backdrop-blur-md sm:px-8 sm:py-10 dark:border-white/10 dark:bg-[#211d2a]/90">
-              <SectionHeader
-                pill="Ponte en contacto"
-                title="Ponte en contacto con nosotres"
-                subtitle="Escríbenos para participar en nuestras ferias, coordinar talleres, proponer actividades colectivas."
-                className="max-w-3xl mx-auto text-center"
-              />
+        <div className="page-hero__overlay" />
+        <Container className="relative z-10 flex items-center justify-end">
+          <Reveal className="w-full">
+            <div className="page-hero__content ml-auto text-left lg:text-right">
+              <h1 className="page-hero__title">Ponte en contacto con nosotres</h1>
+              <p className="page-hero__subtitle lg:ml-auto">
+                Escríbenos para participar en nuestras ferias, coordinar talleres y proponer actividades colectivas.
+              </p>
             </div>
           </Reveal>
         </Container>
       </section>
 
       {/* ── FORMULARIO Y CANALES ─────────────────────────── */}
-      <section className="mb-10">
+      <section className="mb-10 pt-12 sm:pt-16">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-10">
             {/* Formulario */}

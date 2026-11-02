@@ -1,5 +1,4 @@
 import Container from '@/components/ui/Container'
-import SectionHeader from '@/components/ui/SectionHeader'
 import Reveal from '@/components/ui/Reveal'
 import Button from '@/components/ui/Button'
 import { PROGRAMAS } from '@/config/programas'
@@ -7,36 +6,32 @@ import { CheckCircle2, ArrowRight, Heart } from 'lucide-react'
 
 export default function Proyectos() {
   return (
-    <div className="page-art-backdrop py-12 sm:py-20 bg-surface-light">
+    <div className="page-art-backdrop bg-surface-light">
       {/* ── ENCABEZADO ───────────────────────────────────── */}
-      <section className="relative isolate mb-16 overflow-hidden py-5 sm:mb-24 sm:py-7">
+      <section className="page-hero">
         <img
           src="/images/marcha del orgullo 2025.png"
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-black/65" />
-        <Container>
-          <Reveal>
-            <div className="relative z-10 mx-auto max-w-4xl rounded-3xl border border-white/20 bg-white/90 px-5 py-8 shadow-xl backdrop-blur-md sm:px-8 sm:py-10 dark:border-white/10 dark:bg-[#211d2a]/90">
-              <SectionHeader
-                pill="Nuestras Acciones en Cusco"
-                title={
-                  <>
-                    Artivismo y <span className="text-gradient">proyectos colectivos</span>
-                  </>
-                }
-                subtitle="Espacios de autogestión en colectividad, arte y vigilancia ciudadana para la comunidad LGTBIQ+."
-                className="max-w-3xl mx-auto text-center"
-              />
+        <div className="page-hero__overlay" />
+        <Container className="relative z-10 flex items-center">
+          <Reveal className="w-full">
+            <div className="page-hero__content">
+              <h1 className="page-hero__title">
+                Artivismo y proyectos colectivos
+              </h1>
+              <p className="page-hero__subtitle">
+                Espacios de autogestión en colectividad, arte y vigilancia ciudadana para la comunidad LGTBIQ+.
+              </p>
             </div>
           </Reveal>
         </Container>
       </section>
 
       {/* ── LISTADO DE PROYECTOS ─────────────────────────── */}
-      <section className="mb-20 sm:mb-28">
+      <section className="mb-20 pt-12 sm:mb-28 sm:pt-16">
         <Container>
           <div className="flex flex-col gap-14 sm:gap-20">
             {PROGRAMAS.map((prog, idx) => {

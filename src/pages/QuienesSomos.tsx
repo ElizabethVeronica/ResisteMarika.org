@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import Container from '@/components/ui/Container'
 import Reveal from '@/components/ui/Reveal'
-import SectionHeader from '@/components/ui/SectionHeader'
 import Button from '@/components/ui/Button'
 import {
   HISTORIA_RESUMEN,
@@ -14,21 +13,9 @@ import {
   ALIANZAS,
 } from '@/config/nosotros'
 import {
-  Eye,
   ArrowRight,
   MapPin,
-  Drum,
-  Store,
-  Palette,
-  type LucideIcon,
 } from 'lucide-react'
-
-const ESPACIO_ICON_MAP: Record<string, LucideIcon> = {
-  'En las calles y plazas del Cusco': Drum,
-  'En ferias y espacios autogestionados': Store,
-  'En talleres artísticos colectivos': Palette,
-  'En instancias de vigilancia ciudadana': Eye,
-}
 
 const SECTION_LINKS = [
   { id: 'nosotros', label: 'Nosotros' },
@@ -73,25 +60,21 @@ export default function QuienesSomos() {
   }, [])
 
   return (
-    <div className="page-art-backdrop bg-[#FAF9F6] text-gray-900 py-12 sm:py-20">
+    <div className="page-art-backdrop bg-[#FAF9F6] text-gray-900">
       {/* ── ENCABEZADO INSTITUCIONAL ───────────────────────── */}
-      <section className="relative isolate mb-16 overflow-hidden py-5 sm:mb-24 sm:py-7">
+      <section className="page-hero">
         <img
           src="/images/Presentacion Fanzine colaborativo Manifiesto Marika Vol1 y Vol2.jpg"
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-black/65" />
-        <Container>
-          <Reveal>
-            <div className="relative z-10 mx-auto max-w-4xl rounded-3xl border border-white/20 bg-white/90 px-5 py-8 shadow-xl backdrop-blur-md sm:px-8 sm:py-10 dark:border-white/10 dark:bg-[#211d2a]/90">
-              <SectionHeader
-                pill="Nuestra Identidad"
-                title="¿Quiénes somos?"
-                subtitle={HISTORIA_RESUMEN.sublema}
-                className="max-w-3xl mx-auto text-center"
-              />
+        <div className="page-hero__overlay" />
+        <Container className="relative z-10 flex items-center">
+          <Reveal className="w-full">
+            <div className="page-hero__content">
+              <h1 className="page-hero__title">¿Quiénes somos?</h1>
+              <p className="page-hero__subtitle">{HISTORIA_RESUMEN.sublema}</p>
             </div>
           </Reveal>
         </Container>
@@ -394,25 +377,19 @@ export default function QuienesSomos() {
             </div>
 
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 auto-rows-fr gap-4">
-              {DONDE_TRABAJAMOS.espacios.map((esp) => {
-                const Icon = ESPACIO_ICON_MAP[esp.titulo]
-                return (
-                  <div
-                    key={esp.titulo}
-                    className="graphic-card h-full p-5 rounded-2xl bg-white border border-gray-200 flex flex-col shadow-sm"
-                  >
-                    <h4 className="font-display font-bold text-base text-gray-900 mb-2">
-                      {esp.titulo}
-                    </h4>
-                    <p className="text-sm text-gray-600 leading-relaxed font-sans">
-                      {esp.descripcion}
-                    </p>
-                    <div className="mt-4 flex justify-center text-brand-purple" aria-hidden="true">
-                      <Icon size={24} />
-                    </div>
-                  </div>
-                )
-              })}
+              {DONDE_TRABAJAMOS.espacios.map((esp) => (
+                <div
+                  key={esp.titulo}
+                  className="h-full p-5 rounded-2xl bg-white border border-gray-200 flex flex-col shadow-sm"
+                >
+                  <h4 className="font-display font-bold text-base text-gray-900 mb-2">
+                    {esp.titulo}
+                  </h4>
+                  <p className="text-sm text-gray-600 leading-relaxed font-sans">
+                    {esp.descripcion}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </Container>

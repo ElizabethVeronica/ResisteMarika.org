@@ -5,7 +5,6 @@ import { useLocation } from 'react-router-dom'
 import Container from '@/components/ui/Container'
 import { MULTIMEDIA_ITEMS, CATEGORIAS_MULTIMEDIA, type MultimediaItem } from '@/config/multimedia'
 import { Calendar, MapPin, X, ZoomIn } from 'lucide-react'
-import SectionHeader from '@/components/ui/SectionHeader'
 import Reveal from '@/components/ui/Reveal'
 
 function isDateLabel(value: string) {
@@ -63,32 +62,30 @@ export default function Multimedia() {
   }, [])
 
   return (
-    <div className="page-art-backdrop bg-[#FAF9F6] text-gray-900 py-12 sm:py-20">
+    <div className="page-art-backdrop bg-[#FAF9F6] text-gray-900">
       {/* ── ENCABEZADO DE PÁGINA ──────────────────────────── */}
-      <section className="relative isolate mb-16 overflow-hidden py-5 sm:mb-24 sm:py-7">
+      <section className="page-hero">
         <img
           src="/images/Marika Fest 2024 - Productos de conscientización.jpg"
           alt=""
           aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-black/65" />
-        <Container>
-          <Reveal>
-            <div className="relative z-10 mx-auto max-w-4xl rounded-3xl border border-white/20 bg-white/90 px-5 py-8 shadow-xl backdrop-blur-md sm:px-8 sm:py-10 dark:border-white/10 dark:bg-[#211d2a]/90">
-              <SectionHeader
-                pill="Archivo Multimedia"
-                title="Registro Vivo · Resiste Marika Cusco"
-                subtitle="Memoria fotográfica de nuestras marchas con batucada, ferias colectivas, talleres formativos y encuentros en el Cusco."
-                className="max-w-3xl mx-auto text-center"
-              />
+        <div className="page-hero__overlay" />
+        <Container className="relative z-10 flex items-center">
+          <Reveal className="w-full">
+            <div className="page-hero__content">
+              <h1 className="page-hero__title">Archivo Multimedia</h1>
+              <p className="page-hero__subtitle">
+                Memoria fotográfica de nuestras marchas con batucada, ferias colectivas, talleres formativos y encuentros en el Cusco.
+              </p>
             </div>
           </Reveal>
         </Container>
       </section>
 
       {/* ── GALERÍA DE FOTOS ──────────────────────────────── */}
-      <section ref={galleryRef} className="scroll-mt-[7.5rem] pt-4 sm:pt-6">
+      <section ref={galleryRef} className="scroll-mt-[7.5rem] pt-12 sm:pt-16">
         <Container>
           <div
             aria-hidden={nearPageBottom || selectedItem !== null}

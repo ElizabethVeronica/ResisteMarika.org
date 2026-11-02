@@ -139,25 +139,23 @@ export default function Noticias() {
   const isLoading = feedConfigured && (status === 'idle' || status === 'loading')
 
   return (
-    <div className="page-art-backdrop bg-surface-light py-12 sm:py-20">
-      <section className="relative isolate mb-16 overflow-hidden py-5 sm:mb-24 sm:py-7">
+    <div className="page-art-backdrop bg-surface-light">
+      <section className="page-hero">
         <img
           src="/images/Piquete Informativo de ETS y Sensibilización Dia Mundial del SIDA.jpg"
           alt=""
           aria-hidden="true"
           loading="lazy"
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-black/65" />
-        <Container>
-          <Reveal>
-            <div className="relative z-10 mx-auto max-w-4xl rounded-3xl border border-white/20 bg-white/90 px-5 py-8 shadow-xl backdrop-blur-md sm:px-8 sm:py-10 dark:border-white/10 dark:bg-[#211d2a]/90">
-              <SectionHeader
-                pill="Noticias y Comunicados"
-                title="Noticias y comunicados"
-                subtitle="Sigue las publicaciones recientes y novedades de Resiste Marika Cusco."
-                className="max-w-3xl mx-auto text-center"
-              />
+        <div className="page-hero__overlay" />
+        <Container className="relative z-10 flex items-center justify-end">
+          <Reveal className="w-full">
+            <div className="page-hero__content ml-auto text-left lg:text-right">
+              <h1 className="page-hero__title">Noticias y comunicados</h1>
+              <p className="page-hero__subtitle lg:ml-auto">
+                Sigue las publicaciones recientes y novedades de Resiste Marika Cusco.
+              </p>
             </div>
           </Reveal>
         </Container>
@@ -188,7 +186,7 @@ export default function Noticias() {
         </section>
       )}
 
-      <section className="mb-16 sm:mb-20">
+      <section className="mb-16 pt-12 sm:mb-20 sm:pt-16">
         <Container>
           <Reveal>
             <div className="mb-7 flex flex-col gap-4">
