@@ -9,7 +9,6 @@ import {
   FORMAS_AUTOGESTION,
   DONDE_TRABAJAMOS,
   CON_QUIENES_TRABAJAMOS,
-  ALIANZAS,
 } from '@/config/nosotros'
 import {
   ArrowRight,
@@ -413,17 +412,6 @@ export default function QuienesSomos() {
                 </div>
               </Reveal>
             ))}
-          </div>
-          <div className="mt-8 border-t border-gray-200 pt-6 dark:border-white/10">
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              {ALIANZAS.map((a) => (
-                <Reveal key={a.id}>
-                  <div className="interactive-card border-b border-gray-200 py-4 dark:border-white/10">
-                    <h4 className="font-display text-sm font-semibold text-brand-purple dark:text-brand-pink">{a.nombre}</h4>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
           </div>
         </Container>
       </section>

@@ -34,10 +34,10 @@ export default function Proyectos() {
       <section className="page-section mb-20 pt-12 sm:mb-28 sm:pt-16">
         <Container>
           <div className="flex flex-col gap-14 sm:gap-20">
-            {PROGRAMAS.map((prog, idx) => {
-              const isEven = idx % 2 === 0
+            {PROGRAMAS.map((prog, index) => {
+              const isEven = index % 2 === 0
               return (
-                <Reveal key={prog.id} delay={0.1}>
+                <Reveal key={prog.id} delay={Math.min(index % 3 * 0.08, 0.16)}>
                   <div className="graphic-card grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-white rounded-3xl p-6 sm:p-10 border border-surface-border shadow-sm hover:shadow-xl hover:border-brand-purpleSoft/40 transition-all duration-300">
                     {/* Imagen del proyecto */}
                     <div className={`lg:col-span-5 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>

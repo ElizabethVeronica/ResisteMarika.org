@@ -131,58 +131,57 @@ export default function Multimedia() {
             {filteredItems.length > 0 ? (
               <motion.div
                 key={activeCategory}
-                initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={reduceMotion ? false : { opacity: 0, y: 12, scale: 0.97 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={reduceMotion ? { opacity: 1 } : { opacity: 0, y: -8 }}
                 transition={{ duration: reduceMotion ? 0 : 0.25, ease: 'easeInOut' }}
                 className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
               >
                 {filteredItems.map((item, idx) => (
-                  <motion.article
-                    key={item.id}
-                    initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: reduceMotion ? 0 : 0.3, delay: reduceMotion ? 0 : Math.min(idx * 0.025, 0.3) }}
-                    className="graphic-card group bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-300 flex flex-col justify-between h-full"
-                  >
-                    <button
-                      type="button"
-                      onClick={() => setSelectedItem(item)}
-                      aria-label={`Ver imagen: ${item.titulo}`}
-                      className="block w-full text-left"
+                  <Reveal key={item.id} className="h-full" delay={Math.min(idx * 0.025, 0.3)}>
+                    <motion.article
+                      initial={false}
+                      className="graphic-card group bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md hover:border-gray-300 transition-all duration-300 flex flex-col justify-between h-full"
                     >
-                      <div className="aspect-[4/3] overflow-hidden bg-gray-100 relative">
-                        <img
-                          src={item.archivo}
-                          alt={item.titulo}
-                          loading="lazy"
-                          className="w-full h-full object-cover group-hover:scale-104 transition-transform duration-400"
-                        />
-                        <div className="absolute inset-0 bg-gray-950/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                          <span className="p-2.5 rounded-full bg-white/90 text-gray-900 shadow-md">
-                            <ZoomIn size={18} />
-                          </span>
+                      <button
+                        type="button"
+                        onClick={() => setSelectedItem(item)}
+                        aria-label={`Ver imagen: ${item.titulo}`}
+                        className="block w-full text-left"
+                      >
+                        <div className="aspect-[4/3] overflow-hidden bg-gray-100 relative">
+                          <img
+                            src={item.archivo}
+                            alt={item.titulo}
+                            loading="lazy"
+                            className="w-full h-full object-cover group-hover:scale-104 transition-transform duration-400"
+                          />
+                          <div className="absolute inset-0 bg-gray-950/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                            <span className="p-2.5 rounded-full bg-white/90 text-gray-900 shadow-md">
+                              <ZoomIn size={18} />
+                            </span>
+                          </div>
+                          {activeCategory === 'Todas' && (
+                            <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-white/95 text-brand-purple text-[11px] font-bold shadow-sm font-display">
+                              {item.categoria}
+                            </span>
+                          )}
                         </div>
-                        {activeCategory === 'Todas' && (
-                          <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-white/95 text-brand-purple text-[11px] font-bold shadow-sm font-display">
-                            {item.categoria}
-                          </span>
-                        )}
-                      </div>
-                    </button>
+                      </button>
 
-                    <div className="p-5 flex flex-col flex-1 justify-between">
-                      <div>
-                        <div className="flex items-center gap-1.5 text-xs text-gray-500 mb-1.5 font-sans">
-                          {isDateLabel(item.fecha) ? <Calendar size={13} /> : <MapPin size={13} />}
-                          <span>{item.fecha}</span>
+                      <div className="p-5 flex flex-col flex-1 justify-between">
+                        <div>
+                          <div className="flex items-center gap-1.5 text-xs text-gray-500 mb-1.5 font-sans">
+                            {isDateLabel(item.fecha) ? <Calendar size={13} /> : <MapPin size={13} />}
+                            <span>{item.fecha}</span>
+                          </div>
+                          <h3 className="font-display font-bold text-base text-gray-900 leading-snug group-hover:text-brand-purple transition-colors">
+                            {item.titulo}
+                          </h3>
                         </div>
-                        <h3 className="font-display font-bold text-base text-gray-900 leading-snug group-hover:text-brand-purple transition-colors">
-                          {item.titulo}
-                        </h3>
                       </div>
-                    </div>
-                  </motion.article>
+                    </motion.article>
+                  </Reveal>
                 ))}
               </motion.div>
             ) : (

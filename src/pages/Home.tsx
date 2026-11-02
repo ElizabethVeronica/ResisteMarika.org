@@ -81,15 +81,17 @@ export default function Home() {
 
         {/* Separación decorativa ubicada justo al final del primer viewport */}
         <div className="w-full pb-3 sm:pb-4" aria-hidden="true">
-          <div className="flex items-center justify-center gap-4 max-w-3xl mx-auto px-4">
-            <div className="h-0.5 flex-1 rounded-full bg-gradient-to-r from-transparent via-brand-purple/20 to-brand-purple/50 dark:via-purple-500/20 dark:to-purple-500/50" />
-            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-brand-purple/25 bg-white/90 dark:bg-[#211d2a] shadow-xs">
-              <span className="h-2 w-2 rounded-full bg-brand-sky" />
-              <span className="h-2 w-2 rounded-full bg-brand-pink" />
-              <span className="h-2 w-2 rounded-full bg-brand-purple" />
+          <Reveal>
+            <div className="flex items-center justify-center gap-4 max-w-3xl mx-auto px-4">
+              <div className="h-0.5 flex-1 rounded-full bg-gradient-to-r from-transparent via-brand-purple/20 to-brand-purple/50 dark:via-purple-500/20 dark:to-purple-500/50" />
+              <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-brand-purple/25 bg-white/90 dark:bg-[#211d2a] shadow-xs">
+                <span className="h-2 w-2 rounded-full bg-brand-sky" />
+                <span className="h-2 w-2 rounded-full bg-brand-pink" />
+                <span className="h-2 w-2 rounded-full bg-brand-purple" />
+              </div>
+              <div className="h-0.5 flex-1 rounded-full bg-gradient-to-l from-transparent via-brand-purple/20 to-brand-purple/50 dark:via-purple-500/20 dark:to-purple-500/50" />
             </div>
-            <div className="h-0.5 flex-1 rounded-full bg-gradient-to-l from-transparent via-brand-purple/20 to-brand-purple/50 dark:via-purple-500/20 dark:to-purple-500/50" />
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -132,11 +134,13 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
-          <div className="mt-10 flex justify-center">
-            <Button href="/proyectos" variant="primary" size="lg" icon={<ArrowRight size={18} />}>
-              Ver todos los proyectos
-            </Button>
-          </div>
+          <Reveal>
+            <div className="mt-10 flex justify-center">
+              <Button href="/proyectos" variant="primary" size="lg" icon={<ArrowRight size={18} />}>
+                Ver todos los proyectos
+              </Button>
+            </div>
+          </Reveal>
         </Container>
       </section>
 

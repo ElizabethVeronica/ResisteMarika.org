@@ -1,4 +1,4 @@
-import type { TeamMember, ValorInstitucional, Alianza } from '@/types'
+import type { TeamMember, ValorInstitucional } from '@/types'
 
 export const HISTORIA_RESUMEN = {
   fundacion: '7 de agosto de 2023',
@@ -228,11 +228,4 @@ export const EQUIPO: TeamMember[] = [
     foto: '/images/planton 25N.jpg',
     redes: { instagram: 'https://www.instagram.com/resiste.marika.cusco' },
   },
-]
-
-export const ALIANZAS: Alianza[] = [
-  { id: '1', nombre: 'Colectivos LGTBIQ+ de Cusco', tipo: 'Articulación Local' },
-  { id: '2', nombre: 'Redes Colectivas', tipo: 'Autogestión' },
-  { id: '4', nombre: 'Creadores y Artivistas', tipo: 'Artistas Independientes' },
-  { id: '5', nombre: 'Instancias de Vigilancia Ciudadana', tipo: 'Gestión Participativa' },
 ]

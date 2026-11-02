@@ -50,8 +50,8 @@ export default function Reveal({
     <motion.div
       ref={ref}
       className={className}
-      initial={skipInitial || reduceMotion ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, ...offset }}
-      animate={reduceMotion || shouldAnimate ? { opacity: 1, x: 0, y: 0 } : {}}
+      initial={skipInitial || reduceMotion ? { opacity: 1, x: 0, y: 0, scale: 1 } : { opacity: 0, ...offset, scale: 0.97 }}
+      animate={reduceMotion || shouldAnimate ? { opacity: 1, x: 0, y: 0, scale: 1 } : {}}
       transition={{ duration: reduceMotion ? 0 : duration, delay: reduceMotion ? 0 : delay, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       {children}

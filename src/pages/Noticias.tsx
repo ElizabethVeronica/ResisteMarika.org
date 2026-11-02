@@ -215,9 +215,11 @@ export default function Noticias() {
           </Reveal>
 
           {isLoading ? (
-            <p className="rounded-2xl bg-white px-6 py-8 text-center text-sm text-surface-muted">
-              Cargando publicaciones…
-            </p>
+            <Reveal>
+              <p className="rounded-2xl bg-white px-6 py-8 text-center text-sm text-surface-muted">
+                Cargando publicaciones…
+              </p>
+            </Reveal>
           ) : instagramPosts.length > 0 ? (
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {instagramPosts.map((post) => (
@@ -259,9 +261,11 @@ export default function Noticias() {
           </Reveal>
 
           {isLoading ? (
-            <p className="rounded-2xl bg-white px-6 py-8 text-center text-sm text-surface-muted">
-              Cargando videos…
-            </p>
+            <Reveal>
+              <p className="rounded-2xl bg-white px-6 py-8 text-center text-sm text-surface-muted">
+                Cargando videos…
+              </p>
+            </Reveal>
           ) : tiktokPosts.length > 0 ? (
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {tiktokPosts.map((post) => (

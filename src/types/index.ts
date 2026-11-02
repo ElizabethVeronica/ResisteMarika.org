@@ -46,13 +46,6 @@ export interface ValorInstitucional {
   icono: string
 }
 
-// ── Alianza / Partner ───────────────────────────────────────
-export interface Alianza {
-  id: string
-  nombre: string
-  tipo: string
-}
-
 // ── Noticia / Comunicado ────────────────────────────────────
 export interface Noticia {
   id: string
