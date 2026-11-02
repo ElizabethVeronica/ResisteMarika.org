@@ -37,7 +37,9 @@ export default function Reveal({
 }: RevealProps) {
   const ref    = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-100px' })
-  const reduceMotion = useReducedMotion()
+  const reduceMotion =
+    useReducedMotion() ||
+    (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches)
   const vtActive = useViewTransition()
   const offset = directionMap[direction]
 

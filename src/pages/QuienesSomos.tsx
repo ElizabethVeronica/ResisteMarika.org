@@ -30,32 +30,46 @@ export default function QuienesSomos() {
   const [nearPageBottom, setNearPageBottom] = useState(false)
 
   useEffect(() => {
+    let updateFrame = 0
+
     const updateSectionMenu = () => {
-      if (!sectionMenuRef.current) return
+      if (updateFrame) return
 
-      const remainingPageHeight =
-        document.documentElement.scrollHeight - window.scrollY - window.innerHeight
-      const isNearPageBottom = remainingPageHeight <= 320
-      setNearPageBottom((current) => current === isNearPageBottom ? current : isNearPageBottom)
+      updateFrame = window.requestAnimationFrame(() => {
+        updateFrame = 0
+        if (!sectionMenuRef.current) return
 
-      const activeLine = sectionMenuRef.current.getBoundingClientRect().bottom + 12
-      const currentSection = [...SECTION_LINKS]
-        .reverse()
-        .find(({ id }) => {
-          const section = document.getElementById(id)
-          return section && section.getBoundingClientRect().top <= activeLine
-        })
-      if (currentSection) {
-        setActiveSection((current) => current === currentSection.id ? current : currentSection.id)
-      } else if (window.scrollY < 180) {
-        setActiveSection((current) => current === SECTION_LINKS[0].id ? current : SECTION_LINKS[0].id)
-      }
+        const remainingPageHeight =
+          document.documentElement.scrollHeight - window.scrollY - window.innerHeight
+        const isNearPageBottom = remainingPageHeight <= 320
+        setNearPageBottom((current) =>
+          current === isNearPageBottom ? current : isNearPageBottom,
+        )
+
+        const activeLine = sectionMenuRef.current.getBoundingClientRect().bottom + 12
+        const currentSection = [...SECTION_LINKS]
+          .reverse()
+          .find(({ id }) => {
+            const section = document.getElementById(id)
+            return section && section.getBoundingClientRect().top <= activeLine
+          })
+        if (currentSection) {
+          setActiveSection((current) =>
+            current === currentSection.id ? current : currentSection.id,
+          )
+        } else if (window.scrollY < 180) {
+          setActiveSection((current) =>
+            current === SECTION_LINKS[0].id ? current : SECTION_LINKS[0].id,
+          )
+        }
+      })
     }
 
     updateSectionMenu()
     window.addEventListener('scroll', updateSectionMenu, { passive: true })
     window.addEventListener('resize', updateSectionMenu)
     return () => {
+      window.cancelAnimationFrame(updateFrame)
       window.removeEventListener('scroll', updateSectionMenu)
       window.removeEventListener('resize', updateSectionMenu)
     }
@@ -117,10 +131,10 @@ export default function QuienesSomos() {
                   }
                 }}
                 aria-current={isActive ? 'location' : undefined}
-                className={`rounded-xl px-2 py-2 text-center text-[11px] sm:px-3 sm:py-1.5 sm:text-xs font-bold transition-colors duration-200 ${
+                className={`section-nav-button rounded-xl px-2 py-2 text-center text-[11px] sm:px-3 sm:py-1.5 sm:text-xs font-bold transition-colors duration-200 ${
                   isActive
                     ? 'bg-brand-purple text-white shadow-sm'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    : 'bg-gray-100 text-gray-700 dark:bg-[#302a3b] dark:text-gray-200'
                 }`}
               >
                 {label}
