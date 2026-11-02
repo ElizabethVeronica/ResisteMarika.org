@@ -158,18 +158,23 @@
 }
 
 .home-hero-gallery__indicator {
+  min-height: 2rem;
+}
+
+.home-hero-gallery__dot-slot {
   display: flex;
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: 0 0 1.25rem;
   align-items: center;
   justify-content: center;
 }
 
 .home-hero-gallery__dot {
-  display: flex;
   width: 0.625rem;
   height: 0.625rem;
   border-radius: 9999px;
-  background-color: currentColor;
-  box-shadow: 0 0 0 3px rgb(142 93 181 / 0.2), 0 0 12px currentColor;
+  box-shadow: 0 0 0 3px rgb(142 93 181 / 0.2);
 }
 
 .home-hero-gallery__arrow:focus-visible {

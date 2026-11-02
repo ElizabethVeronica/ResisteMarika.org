@@ -21,14 +21,6 @@ const HERO_PHOTOS = [
     src: `${import.meta.env.BASE_URL}images/marcha del orgullo 2025.webp`,
     alt: 'Integrantes de Resiste Marika en la Marcha del Orgullo de Cusco en 2025',
   },
-  {
-    src: `${import.meta.env.BASE_URL}images/marcha dle orgullo 2024.webp`,
-    alt: 'Integrantes de Resiste Marika en la Marcha del Orgullo de Cusco en 2024',
-  },
-  {
-    src: `${import.meta.env.BASE_URL}images/planton 25N.webp`,
-    alt: 'Integrantes de Resiste Marika en una movilización por el 25N en Cusco',
-  },
 ]
 
 export default function Home() {
@@ -157,13 +149,21 @@ export default function Home() {
             <div className="mx-auto flex max-w-3xl items-center justify-center gap-4 px-4">
               <div className="h-0.5 flex-1 rounded-full bg-gradient-to-r from-transparent via-brand-purple/20 to-brand-purple/50 dark:via-purple-500/20 dark:to-purple-500/50" />
               <div
-                className={`home-hero-gallery__indicator rounded-full border border-brand-purple/25 bg-white/90 px-3.5 py-1.5 shadow-xs dark:bg-[#211d2a] ${
-                  ['text-brand-sky', 'text-brand-pink', 'text-brand-purple'][activeHeroPhoto % 3]
-                }`}
+                className="home-hero-gallery__indicator flex items-center gap-1 rounded-full border border-brand-purple/25 bg-white/90 px-2.5 py-1.5 shadow-xs dark:bg-[#211d2a]"
                 role="img"
                 aria-label={`Fotografía ${activeHeroPhoto + 1} de ${HERO_PHOTOS.length}`}
               >
-                <span className="home-hero-gallery__dot" aria-hidden="true" />
+                {HERO_PHOTOS.map((photo, index) => (
+                  <span key={photo.src} className="home-hero-gallery__dot-slot" aria-hidden="true">
+                    {activeHeroPhoto === index && (
+                      <span
+                        className={`home-hero-gallery__dot ${
+                          ['bg-brand-sky', 'bg-brand-pink', 'bg-brand-purple'][index]
+                        }`}
+                      />
+                    )}
+                  </span>
+                ))}
               </div>
               <div className="h-0.5 flex-1 rounded-full bg-gradient-to-l from-transparent via-brand-purple/20 to-brand-purple/50 dark:via-purple-500/20 dark:to-purple-500/50" />
             </div>
