@@ -77,11 +77,17 @@ export default function Navbar() {
             className="flex items-center gap-2 group"
             onClick={handleLogoClick}
           >
-            <div className="relative h-[4.5rem] w-[4.5rem] shrink-0 overflow-hidden rounded-xl bg-white transition-transform group-hover:scale-105 sm:h-20 sm:w-20">
+            <div className="relative h-[4.5rem] w-[4.5rem] shrink-0 overflow-hidden transition-transform group-hover:scale-105 sm:h-20 sm:w-20">
               <img
-                src={`${import.meta.env.BASE_URL}images/logo.jpg`}
+                src={`${import.meta.env.BASE_URL}images/logo png.png`}
                 alt="Logo de Resiste Marika"
-                className="site-logo--light h-full w-full object-contain object-bottom"
+                className="site-logo--light w-full h-full object-contain object-bottom"
+              />
+              <img
+                src={`${import.meta.env.BASE_URL}images/logo inverso.png`}
+                alt=""
+                aria-hidden="true"
+                className="site-logo--dark w-full h-full object-contain object-bottom"
               />
             </div>
 
