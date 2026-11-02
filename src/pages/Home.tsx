@@ -1,4 +1,5 @@
-import { ArrowRight, Calendar } from 'lucide-react'
+import { useRef, useState } from 'react'
+import { ArrowLeft, ArrowRight, Calendar } from 'lucide-react'
 import Container from '@/components/ui/Container'
 import Button from '@/components/ui/Button'
 import Reveal from '@/components/ui/Reveal'
@@ -7,9 +8,42 @@ import { NOTICIAS } from '@/config/noticias'
 import { HISTORIA_RESUMEN } from '@/config/nosotros'
 import EngagementPaths from '@/components/sections/EngagementPaths'
 
+const HERO_PHOTOS = [
+  {
+    src: `${import.meta.env.BASE_URL}images/marcha 8M 2025.webp`,
+    alt: 'Integrantes de Resiste Marika en la marcha del 8M de 2025 en Cusco',
+  },
+  {
+    src: `${import.meta.env.BASE_URL}images/marcha del 8M 2024.webp`,
+    alt: 'Integrantes de Resiste Marika marchando con tambores en Cusco en 2024',
+  },
+  {
+    src: `${import.meta.env.BASE_URL}images/marcha del orgullo 2025.webp`,
+    alt: 'Integrantes de Resiste Marika en la Marcha del Orgullo de Cusco en 2025',
+  },
+  {
+    src: `${import.meta.env.BASE_URL}images/marcha dle orgullo 2024.webp`,
+    alt: 'Integrantes de Resiste Marika en la Marcha del Orgullo de Cusco en 2024',
+  },
+  {
+    src: `${import.meta.env.BASE_URL}images/planton 25N.webp`,
+    alt: 'Integrantes de Resiste Marika en una movilización por el 25N en Cusco',
+  },
+]
+
 export default function Home() {
   const noticiasPreview = NOTICIAS.slice(0, 3)
   const proyectosPreview = PROGRAMAS.slice(0, 3)
+  const [activeHeroPhoto, setActiveHeroPhoto] = useState(0)
+  const touchStartX = useRef<number | null>(null)
+
+  const showNextHeroPhoto = () => {
+    setActiveHeroPhoto((current) => Math.min(current + 1, HERO_PHOTOS.length - 1))
+  }
+
+  const showPreviousHeroPhoto = () => {
+    setActiveHeroPhoto((current) => Math.max(current - 1, 0))
+  }
 
   return (
     <div className="page-art-backdrop bg-[#FAF9F6] text-gray-900">
@@ -63,28 +97,73 @@ export default function Home() {
               </Reveal>
 
               <Reveal className="lg:col-span-5" delay={0.1}>
-                <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 shadow-md border border-gray-200 group">
+                <div
+                  className="home-hero-gallery group relative aspect-[4/3] touch-pan-y overflow-hidden rounded-2xl border border-gray-200 bg-gray-100 shadow-md"
+                  role="region"
+                  aria-label="Fotografías de las marchas de Resiste Marika"
+                  aria-roledescription="carrusel"
+                  onPointerDown={(event) => {
+                    if (event.pointerType === 'touch') touchStartX.current = event.clientX
+                  }}
+                  onPointerUp={(event) => {
+                    if (touchStartX.current === null) return
+
+                    const swipeDistance = event.clientX - touchStartX.current
+                    touchStartX.current = null
+                    if (swipeDistance > 50) showNextHeroPhoto()
+                    else if (swipeDistance < -50) showPreviousHeroPhoto()
+                  }}
+                  onPointerCancel={() => {
+                    touchStartX.current = null
+                  }}
+                >
                   <img
-                    src={`${import.meta.env.BASE_URL}images/marcha 8M 2025.webp`}
-                    alt="Marcha de Resiste Marika Cusco con tambores"
-                    fetchPriority="high"
+                    key={HERO_PHOTOS[activeHeroPhoto].src}
+                    src={HERO_PHOTOS[activeHeroPhoto].src}
+                    alt={HERO_PHOTOS[activeHeroPhoto].alt}
+                    fetchPriority={activeHeroPhoto === 0 ? 'high' : 'auto'}
                     decoding="async"
-                    className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
+                    className="h-full w-full object-cover"
                   />
+                  <button
+                    type="button"
+                    onClick={showPreviousHeroPhoto}
+                    disabled={activeHeroPhoto === 0}
+                    aria-label="Ver fotografía anterior"
+                    className="home-hero-gallery__arrow home-hero-gallery__arrow--previous"
+                  >
+                    <ArrowLeft size={20} aria-hidden="true" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={showNextHeroPhoto}
+                    disabled={activeHeroPhoto === HERO_PHOTOS.length - 1}
+                    aria-label="Ver fotografía siguiente"
+                    className="home-hero-gallery__arrow home-hero-gallery__arrow--next"
+                  >
+                    <ArrowRight size={20} aria-hidden="true" />
+                  </button>
+                  <span className="sr-only" aria-live="polite" aria-atomic="true">
+                    Fotografía {activeHeroPhoto + 1} de {HERO_PHOTOS.length}
+                  </span>
                 </div>
               </Reveal>
             </div>
           </Container>
         </div>
 
-        <div className="w-full pb-3 sm:pb-4" aria-hidden="true">
+        <div className="w-full pb-3 sm:pb-4">
           <Reveal>
-            <div className="flex items-center justify-center gap-4 max-w-3xl mx-auto px-4">
+            <div className="mx-auto flex max-w-3xl items-center justify-center gap-4 px-4">
               <div className="h-0.5 flex-1 rounded-full bg-gradient-to-r from-transparent via-brand-purple/20 to-brand-purple/50 dark:via-purple-500/20 dark:to-purple-500/50" />
-              <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-brand-purple/25 bg-white/90 dark:bg-[#211d2a] shadow-xs">
-                <span className="h-2 w-2 rounded-full bg-brand-sky" />
-                <span className="h-2 w-2 rounded-full bg-brand-pink" />
-                <span className="h-2 w-2 rounded-full bg-brand-purple" />
+              <div
+                className={`home-hero-gallery__indicator rounded-full border border-brand-purple/25 bg-white/90 px-3.5 py-1.5 shadow-xs dark:bg-[#211d2a] ${
+                  ['text-brand-sky', 'text-brand-pink', 'text-brand-purple'][activeHeroPhoto % 3]
+                }`}
+                role="img"
+                aria-label={`Fotografía ${activeHeroPhoto + 1} de ${HERO_PHOTOS.length}`}
+              >
+                <span className="home-hero-gallery__dot" aria-hidden="true" />
               </div>
               <div className="h-0.5 flex-1 rounded-full bg-gradient-to-l from-transparent via-brand-purple/20 to-brand-purple/50 dark:via-purple-500/20 dark:to-purple-500/50" />
             </div>
