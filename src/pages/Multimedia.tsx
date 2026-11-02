@@ -85,7 +85,7 @@ export default function Multimedia() {
       </section>
 
       {/* ── GALERÍA DE FOTOS ──────────────────────────────── */}
-      <section ref={galleryRef} className="page-section pt-12 sm:pt-16">
+      <section ref={galleryRef} className="page-section pb-12 pt-12 sm:pb-16 sm:pt-16">
         <Container>
           <div
             aria-hidden={nearPageBottom || selectedItem !== null}

@@ -5,7 +5,6 @@ import Button from '@/components/ui/Button'
 import {
   HISTORIA_RESUMEN,
   DISCIPLINAS,
-  MISION_VISION,
   OBJETIVOS_ESTRATEGICOS,
   FORMAS_AUTOGESTION,
   DONDE_TRABAJAMOS,
@@ -133,11 +132,11 @@ export default function QuienesSomos() {
       <section id="nosotros" className="page-section scroll-mt-24 py-8 sm:py-10">
         <Container>
           <Reveal>
-            <div className="max-w-3xl mb-6">
+            <div className="max-w-3xl mb-4">
               <span className="text-xs font-bold uppercase tracking-wider text-brand-purple font-display">
                 Nuestra Identidad y Origen
               </span>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-gray-900 mt-2 mb-4">
+              <h2 className="mt-1 mb-2 font-display text-2xl font-extrabold text-gray-900 sm:text-3xl lg:text-4xl">
                 Nosotros
               </h2>
               <div className="h-1 w-16 bg-brand-purple rounded-full" />
@@ -145,8 +144,8 @@ export default function QuienesSomos() {
           </Reveal>
 
           {/* Identidad y origen */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
-            <div className="lg:col-span-7 space-y-3 text-base text-gray-700 font-sans leading-relaxed">
+          <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-7">
+            <div className="space-y-3 font-sans text-base leading-relaxed text-gray-700 lg:col-span-6">
               <p className="font-semibold text-gray-900">
                 {HISTORIA_RESUMEN.declaracionInicial}
               </p>
@@ -164,7 +163,7 @@ export default function QuienesSomos() {
               </p>
             </div>
 
-            <div className="lg:col-span-5 flex flex-col gap-3">
+            <div className="flex flex-col gap-3 lg:col-span-6">
               <div className="aspect-[16/8] rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-gray-100">
                 <img
                   src="/images/Ceremonia de Agradecimiento a la Pachamama y Compartir Marika 2024.jpg"
@@ -262,11 +261,12 @@ export default function QuienesSomos() {
                 Mecanismos de autogestión
               </h2>
             </div>
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-1 divide-y divide-white/25 sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4">
               {FORMAS_AUTOGESTION.map((f) => (
-                <div key={f.id} className="rounded-2xl border border-white/40 bg-white/95 p-4 shadow-sm">
-                  <h3 className="font-display text-base font-bold text-gray-900">{f.titulo}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-gray-700">{f.descripcion}</p>
+                <div key={f.id} className="py-5 sm:px-4 sm:py-2 lg:px-5">
+                  <div className="mb-3 h-1 w-9 rounded-full bg-brand-pink" />
+                  <h3 className="font-display text-lg font-bold text-white">{f.titulo}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-white/90">{f.descripcion}</p>
                 </div>
               ))}
             </div>
@@ -288,15 +288,6 @@ export default function QuienesSomos() {
               <div className="h-1 w-16 bg-brand-purple rounded-full" />
             </div>
           </Reveal>
-
-          <div className="mb-8 max-w-3xl">
-            <h3 className="text-xl font-bold font-display text-gray-900">
-              Qué buscamos, defendemos y construimos como colectiva
-            </h3>
-            <p className="mt-2 text-sm leading-relaxed text-gray-700">
-              {MISION_VISION.descripcion}
-            </p>
-          </div>
 
           {/* Los 6 Objetivos Estratégicos */}
           <div>
@@ -408,14 +399,14 @@ export default function QuienesSomos() {
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {CON_QUIENES_TRABAJAMOS.redes.map((red) => (
               <div
                 key={red.categoria}
-                className="graphic-card rounded-2xl border border-gray-200 bg-gray-50 p-4"
+                className="graphic-card rounded-2xl border border-gray-200 bg-white p-5 shadow-sm dark:bg-[#211d2a]"
               >
                 <div>
-                  <h4 className="font-display font-bold text-base text-gray-900 mb-2">
+                  <h4 className="mb-2 font-display text-base font-bold text-brand-purple">
                     {red.categoria}
                   </h4>
                   <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-sans">
@@ -427,11 +418,11 @@ export default function QuienesSomos() {
             {ALIANZAS.map((a) => (
               <div
                 key={a.id}
-                className="graphic-card rounded-2xl border border-gray-200 bg-white p-4 text-left shadow-sm transition-shadow hover:shadow-md"
+                className="graphic-card rounded-2xl border border-gray-200 bg-white p-5 text-left shadow-sm transition-shadow hover:shadow-md dark:bg-[#211d2a]"
               >
                 <div>
                   <p className="font-display text-base font-bold text-gray-900">{a.nombre}</p>
-                  <p className="mt-1 text-sm text-gray-600">{a.tipo}</p>
+                  <p className="mt-1 text-sm text-brand-purple">{a.tipo}</p>
                 </div>
               </div>
             ))}

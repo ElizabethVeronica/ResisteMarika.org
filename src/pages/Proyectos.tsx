@@ -99,13 +99,13 @@ export default function Proyectos() {
       </section>
 
       {/* ── BANNER APOYO MUTUO ───────────────────────────── */}
-      <section className="page-section page-section--photo relative isolate mb-16 overflow-hidden border-y border-white/10 py-14 sm:py-20">
+      <section className="page-section page-section--photo relative isolate overflow-hidden border-y border-white/10 py-14 sm:py-20">
         <img
           src="/images/Feria Informativa LGTBIQ CuidArte en el Colegio San Francisco de Borja.jpg"
           alt=""
           aria-hidden="true"
           loading="lazy"
-          className="absolute inset-0 h-full w-full object-cover opacity-60"
+          className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="page-hero__overlay" />
         <Container className="relative z-10 w-full">
