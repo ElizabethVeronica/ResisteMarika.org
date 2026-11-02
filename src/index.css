@@ -773,6 +773,19 @@ html.dark {
   }
 }
 
+@media (pointer: coarse), (max-width: 767px) {
+  .page-art-backdrop {
+    background-image: none !important;
+    background-attachment: scroll !important;
+  }
+
+  .home-network-cta__content,
+  .dark .home-network-cta__content {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
 @media (max-width: 639px) {
   .home-hero-logo {
     right: -0.5rem;
