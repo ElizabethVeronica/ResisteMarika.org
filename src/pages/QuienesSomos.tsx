@@ -63,7 +63,7 @@ export default function QuienesSomos() {
     <div className="page-art-backdrop bg-[#FAF9F6] text-gray-900">
       <section className="page-hero">
         <img
-          src="/images/Presentacion Fanzine colaborativo Manifiesto Marika Vol1 y Vol2.jpg"
+          src={`${import.meta.env.BASE_URL}images/Presentacion Fanzine colaborativo Manifiesto Marika Vol1 y Vol2.jpg`}
           alt=""
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover object-center"
@@ -159,7 +159,7 @@ export default function QuienesSomos() {
               <div className="flex flex-col gap-3">
               <div className="aspect-[16/8] rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-gray-100">
                 <img
-                  src="/images/Ceremonia de Agradecimiento a la Pachamama y Compartir Marika 2024.jpg"
+                  src={`${import.meta.env.BASE_URL}images/Ceremonia de Agradecimiento a la Pachamama y Compartir Marika 2024.jpg`}
                   alt="Ceremonia y compartir colectivo en Cusco"
                   className="w-full h-full object-cover"
                 />
@@ -223,7 +223,7 @@ export default function QuienesSomos() {
               <Reveal className="mb-5">
                 <div className="aspect-[16/7] overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
                   <img
-                    src="/images/marcha del 8M 2024.jpg"
+                    src={`${import.meta.env.BASE_URL}images/marcha del 8M 2024.jpg`}
                     alt="Marcha 8M con tambores y batucada en Cusco"
                     className="h-full w-full object-cover"
                   />
@@ -246,7 +246,7 @@ export default function QuienesSomos() {
 
       <section id="autogestion" className="page-section page-section--photo relative isolate scroll-mt-24 overflow-hidden py-10 sm:py-12">
         <img
-          src="/images/Marika Fest 2024 - Feria de autogestión LGTBIQ.jpg"
+          src={`${import.meta.env.BASE_URL}images/Marika Fest 2024 - Feria de autogestión LGTBIQ.jpg`}
           alt=""
           aria-hidden="true"
           loading="lazy"
@@ -333,7 +333,7 @@ export default function QuienesSomos() {
               <div className="interactive-card graphic-card--stripe bg-white p-5 sm:p-6 rounded-2xl border border-gray-200 shadow-sm space-y-4 dark:border-white/10 dark:bg-[#211d2a]">
               <div className="aspect-[16/9] rounded-xl overflow-hidden bg-gray-100 border border-gray-200">
                 <img
-                  src="/images/marcha del orgullo 2025.png"
+                  src={`${import.meta.env.BASE_URL}images/marcha del orgullo 2025.png`}
                   alt="Marcha de Resiste Marika en Cusco"
                   className="w-full h-full object-cover"
                 />
@@ -408,7 +408,7 @@ export default function QuienesSomos() {
 
       <section className="page-section page-section--photo relative isolate overflow-hidden py-12 sm:py-16">
         <img
-          src="/images/taller de pañuelos 28s.jpg"
+          src={`${import.meta.env.BASE_URL}images/taller de pañuelos 28s.jpg`}
           alt=""
           aria-hidden="true"
           loading="lazy"

@@ -71,6 +71,15 @@ Antes de publicar:
 El envío de formularios no se ha activado con un envío de prueba. FormSubmit puede solicitar la
 confirmación del destinatario al recibir el primer mensaje.
 
+## Publicación temporal en GitHub Pages
+
+El workflow `.github/workflows/deploy-pages.yml` compila y publica la rama
+`diseno/referencias-ongs-comunitarias` en GitHub Pages al recibir cambios. En el repositorio,
+selecciona **Settings → Pages → Build and deployment → GitHub Actions**. La URL temporal será
+`https://elizabethveronica.github.io/ResisteMarika.org/`. El workflow configura esa URL para
+canonical y metadatos sociales durante la compilación, y genera una página de respaldo para que
+las rutas funcionen al recargarlas.
+
 ## Fases del proyecto
 
 - [x] **Fase 1: Esqueleto base** — Stack, rutas, layouts, utilidades y prototipo funcional.

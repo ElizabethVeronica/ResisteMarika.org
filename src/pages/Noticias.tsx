@@ -142,7 +142,7 @@ export default function Noticias() {
     <div className="page-art-backdrop bg-surface-light">
       <section className="page-hero">
         <img
-          src="/images/Taller de Memoria con el Archivo Marika del Perú 2025.png"
+          src={`${import.meta.env.BASE_URL}images/Taller de Memoria con el Archivo Marika del Perú 2025.png`}
           alt=""
           aria-hidden="true"
           loading="lazy"

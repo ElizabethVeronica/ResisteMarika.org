@@ -21,7 +21,7 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
     titulo: 'Marcha 8M - 2025',
     categoria: 'Batucada y Marchas',
     fecha: '8 de marzo de 2025',
-    archivo: '/images/marcha 8M 2025.png',
+    archivo: `${import.meta.env.BASE_URL}images/marcha 8M 2025.png`,
     descripcion: 'Nuestra batucada LGTBIQ+ marchando y performando en las calles del Cusco con tambores propios.',
   },
   {
@@ -29,7 +29,7 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
     titulo: 'Marcha 8M - 2024',
     categoria: 'Batucada y Marchas',
     fecha: '8 de marzo de 2024',
-    archivo: '/images/marcha del 8M 2024.jpg',
+    archivo: `${import.meta.env.BASE_URL}images/marcha del 8M 2024.jpg`,
     descripcion: 'Ocupación de las calles del Cusco con nuestros tambores en el Día Internacional de la Mujer Trabajadora.',
   },
   {
@@ -37,7 +37,7 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
     titulo: 'Ensayo y Taller de Batucada',
     categoria: 'Batucada y Marchas',
     fecha: 'Cusco',
-    archivo: '/images/taller de batucada.jpg',
+    archivo: `${import.meta.env.BASE_URL}images/taller de batucada.jpg`,
     descripcion: 'Práctica rítmica colectiva, ensamble de tambores y formación musical entre integrantes de la red.',
   },
   {
@@ -45,7 +45,7 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
     titulo: 'Marcha del Orgullo Cusco 2025',
     categoria: 'Batucada y Marchas',
     fecha: 'Julio de 2025',
-    archivo: '/images/marcha del orgullo 2025.png',
+    archivo: `${import.meta.env.BASE_URL}images/marcha del orgullo 2025.png`,
     descripcion: 'Visibilidad política, memoria y exigencia de derechos fundamentales en la Marcha del Orgullo en Cusco.',
   },
   {
@@ -53,7 +53,7 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
     titulo: 'Marcha del Orgullo LGTBIQ+ Cusco 2024',
     categoria: 'Batucada y Marchas',
     fecha: 'Julio de 2024',
-    archivo: '/images/marcha dle orgullo 2024.jpg',
+    archivo: `${import.meta.env.BASE_URL}images/marcha dle orgullo 2024.jpg`,
     descripcion: 'Presencia colectiva de Resiste Marika Cusco con pancartas y demandas colectivas.',
   },
   {
@@ -61,7 +61,7 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
     titulo: '25N - Día Internacional de la Eliminación de la Violencia contra la Mujer',
     categoria: 'Batucada y Marchas',
     fecha: '25 de noviembre',
-    archivo: '/images/planton 25N.jpg',
+    archivo: `${import.meta.env.BASE_URL}images/planton 25N.jpg`,
     descripcion: 'Acción y pronunciamiento colectivo en Cusco en el Día de la Eliminación de la Violencia contra las Mujeres.',
   },
   {
@@ -69,7 +69,7 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
     titulo: '31M - Día de la Visibilidad Trans',
     categoria: 'Batucada y Marchas',
     fecha: '31 de marzo',
-    archivo: '/images/dia de la visibilidad trans 31M.jpg',
+    archivo: `${import.meta.env.BASE_URL}images/dia de la visibilidad trans 31M.jpg`,
     descripcion: 'Acción de memoria, visibilidad y exigencia de derechos para las personas trans en Cusco.',
   },
   {
@@ -77,7 +77,7 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
     titulo: '5.º Encuentro de Mujeres y Disidencias en el Tambor',
     categoria: 'Batucada y Marchas',
     fecha: 'Lima, 2023',
-    archivo: '/images/5to encuentro de mujeres y disidencias en el tambor - Lima 2023.jpg',
+    archivo: `${import.meta.env.BASE_URL}images/5to encuentro de mujeres y disidencias en el tambor - Lima 2023.jpg`,
     descripcion: 'Articulación de tambores disidentes y aprendizaje colectivo previo a la consolidación de nuestra batucada.',
   },
   {
@@ -85,7 +85,7 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
     titulo: 'Marika Fest 2024 - Feria de Autogestión LGTBIQ+',
     categoria: 'Ferias y Artivismo',
     fecha: 'Cusco, 2024',
-    archivo: '/images/Marika Fest 2024 - Feria de autogestión LGTBIQ.jpg',
+    archivo: `${import.meta.env.BASE_URL}images/Marika Fest 2024 - Feria de autogestión LGTBIQ.jpg`,
     descripcion: 'Espacio colectivo autogestionado donde compartimos y comercializamos artes y creaciones desde la ternura y la autonomía.',
   },
   {
@@ -93,7 +93,7 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
     titulo: 'Marika Fest 2024',
     categoria: 'Ferias y Artivismo',
     fecha: 'Cusco, 2024',
-    archivo: '/images/Marika Fest 2024 - Productos de conscientización.jpg',
+    archivo: `${import.meta.env.BASE_URL}images/Marika Fest 2024 - Productos de conscientización.jpg`,
     descripcion: 'Muestra de afiches, fanzines, stickers y artivismo gráfico de la colectiva.',
   },
   {
@@ -101,7 +101,7 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
     titulo: 'Fanzine Manifiesto Marika Vol. 1 y 2',
     categoria: 'Ferias y Artivismo',
     fecha: 'Cusco',
-    archivo: '/images/Presentacion Fanzine colaborativo Manifiesto Marika Vol1 y Vol2.jpg',
+    archivo: `${import.meta.env.BASE_URL}images/Presentacion Fanzine colaborativo Manifiesto Marika Vol1 y Vol2.jpg`,
     descripcion: 'Publicación impresa colaborativa con relatos, gráfica y poesía de miembres de la red.',
   },
   {
@@ -109,7 +109,7 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
     titulo: 'CuidArte - Feria Informativa',
     categoria: 'Ferias y Artivismo',
     fecha: 'Colegio San Francisco de Borja',
-    archivo: '/images/Feria Informativa LGTBIQ CuidArte en el Colegio San Francisco de Borja.jpg',
+    archivo: `${import.meta.env.BASE_URL}images/Feria Informativa LGTBIQ CuidArte en el Colegio San Francisco de Borja.jpg`,
     descripcion: 'Acción informativa y de sensibilización contra la discriminación y el acoso escolar.',
   },
   {
@@ -117,7 +117,7 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
     titulo: 'Piquete Informativo de Salud y Sensibilización',
     categoria: 'Ferias y Artivismo',
     fecha: 'Universidad Andina',
-    archivo: '/images/Piquete Informativo de ETS y Sensibilización Dia Mundial del SIDA.jpg',
+    archivo: `${import.meta.env.BASE_URL}images/Piquete Informativo de ETS y Sensibilización Dia Mundial del SIDA.jpg`,
     descripcion: 'Entrega de material educativo, prevención de ITS y exigibilidad de salud integral en Cusco.',
   },
   {
@@ -125,7 +125,7 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
     titulo: 'Memoria con el Archivo Marika del Perú',
     categoria: 'Talleres y Saberes',
     fecha: '2025',
-    archivo: '/images/Taller de Memoria con el Archivo Marika del Perú 2025.png',
+    archivo: `${import.meta.env.BASE_URL}images/Taller de Memoria con el Archivo Marika del Perú 2025.png`,
     descripcion: 'Recuperación de la memoria histórica disidente andina y preservación colectiva de archivos marikas.',
   },
   {
@@ -133,7 +133,7 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
     titulo: 'Taller de Collage: Ancestralidad Qhariwarmi',
     categoria: 'Talleres y Saberes',
     fecha: 'Cusco',
-    archivo: '/images/Taller de collage - Ancestralidad Qhariwarmi.jpg',
+    archivo: `${import.meta.env.BASE_URL}images/Taller de collage - Ancestralidad Qhariwarmi.jpg`,
     descripcion: 'Exploración artística de identidades de género ancestrales andinas y memoria viva.',
   },
   {
@@ -141,7 +141,7 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
     titulo: 'Rimanakuy Marika 2025: Memoria Andina LGTBIQ+',
     categoria: 'Talleres y Saberes',
     fecha: '2025',
-    archivo: '/images/Rimanakuy Marika 2025  - Investigaciones sobre la Memoria Andina LGTBIQ.png',
+    archivo: `${import.meta.env.BASE_URL}images/Rimanakuy Marika 2025  - Investigaciones sobre la Memoria Andina LGTBIQ.png`,
     descripcion: 'Círculo de diálogo e investigaciones colectivas sobre identidades disidentes en los Andes.',
   },
   {
@@ -149,7 +149,7 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
     titulo: 'Taller de Máscaras Performance 8M',
     categoria: 'Talleres y Saberes',
     fecha: 'Cusco',
-    archivo: '/images/taller de mascaras - performance 8M.jpg',
+    archivo: `${import.meta.env.BASE_URL}images/taller de mascaras - performance 8M.jpg`,
     descripcion: 'Confección de máscaras y utilería disidente para la performance y marchas en las calles.',
   },
   {
@@ -157,7 +157,7 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
     titulo: 'Taller de Pañuelos 28S',
     categoria: 'Talleres y Saberes',
     fecha: '28 de septiembre de 2024',
-    archivo: '/images/taller de pañuelos 28s.jpg',
+    archivo: `${import.meta.env.BASE_URL}images/taller de pañuelos 28s.jpg`,
     descripcion: 'Estampado y serigrafía de pañuelos por los derechos sexuales y reproductivos.',
   },
   {
@@ -165,7 +165,7 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
     titulo: 'Agradecimiento a la Pachamama y Compartir Marika',
     categoria: 'Rituales y Encuentros',
     fecha: 'Cusco, 2024',
-    archivo: '/images/Ceremonia de Agradecimiento a la Pachamama y Compartir Marika 2024.jpg',
+    archivo: `${import.meta.env.BASE_URL}images/Ceremonia de Agradecimiento a la Pachamama y Compartir Marika 2024.jpg`,
     descripcion: 'Pago a la tierra, agradecimiento y encuentro colectivo entre integrantes de la red.',
   },
   {
@@ -173,7 +173,7 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
     titulo: 'Rezo a Chuquichinchay y Ritual de Cosecha en Otoño',
     categoria: 'Rituales y Encuentros',
     fecha: 'Cusco',
-    archivo: '/images/Rezo a Chuquichinchay y Ritual de cosecha en Otoño.jpg',
+    archivo: `${import.meta.env.BASE_URL}images/Rezo a Chuquichinchay y Ritual de cosecha en Otoño.jpg`,
     descripcion: 'Reivindicación de Chuquichinchay, deidad felina andina protectora de las identidades no binarias y de doble género.',
   },
   {
@@ -181,7 +181,7 @@ export const MULTIMEDIA_ITEMS: MultimediaItem[] = [
     titulo: '3.er Reencuentro Plurisexual en La Paz, Bolivia',
     categoria: 'Rituales y Encuentros',
     fecha: 'La Paz, Bolivia, 2025',
-    archivo: '/images/3er Reencuentro Plurisexual en La Paz, Bolivia 2025.jpg',
+    archivo: `${import.meta.env.BASE_URL}images/3er Reencuentro Plurisexual en La Paz, Bolivia 2025.jpg`,
     descripcion: 'Articulación regional e internacional de Resiste Marika en el Reencuentro Plurisexual.',
   },
 ]

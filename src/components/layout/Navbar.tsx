@@ -79,12 +79,12 @@ export default function Navbar() {
           >
             <div className="relative h-[4.5rem] w-[4.5rem] shrink-0 overflow-hidden transition-transform group-hover:scale-105 sm:h-20 sm:w-20">
               <img
-                src="/images/logo png.png"
+                src={`${import.meta.env.BASE_URL}images/logo png.png`}
                 alt="Logo de Resiste Marika"
                 className="site-logo--light w-full h-full object-contain object-bottom"
               />
               <img
-                src="/images/logo inverso.png"
+                src={`${import.meta.env.BASE_URL}images/logo inverso.png`}
                 alt=""
                 aria-hidden="true"
                 className="site-logo--dark w-full h-full object-contain object-bottom"

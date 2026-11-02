@@ -20,13 +20,13 @@ export default function Home() {
               <Reveal className="lg:col-span-7">
                 <div className="relative isolate overflow-hidden rounded-3xl border border-gray-200/80 bg-white/95 p-5 shadow-sm sm:p-7 dark:border-white/10 dark:bg-[#211d2a]/95">
                   <img
-                    src="/images/logo png.png"
+                    src={`${import.meta.env.BASE_URL}images/logo png.png`}
                     alt=""
                     aria-hidden="true"
                     className="home-hero-logo home-hero-logo--light"
                   />
                   <img
-                    src="/images/logo inverso.png"
+                    src={`${import.meta.env.BASE_URL}images/logo inverso.png`}
                     alt=""
                     aria-hidden="true"
                     className="home-hero-logo home-hero-logo--dark"
@@ -65,7 +65,7 @@ export default function Home() {
               <Reveal className="lg:col-span-5" delay={0.1}>
                 <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 shadow-md border border-gray-200 group">
                   <img
-                    src="/images/marcha 8M 2025.png"
+                    src={`${import.meta.env.BASE_URL}images/marcha 8M 2025.png`}
                     alt="Marcha de Resiste Marika Cusco con tambores"
                     className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
                   />
@@ -182,7 +182,7 @@ export default function Home() {
 
       <section className="page-section page-section--photo home-network-cta relative isolate overflow-hidden border-y border-white/10 py-16 sm:py-20">
         <img
-          src="/images/Marika Fest 2024 - Productos de conscientización.jpg"
+          src={`${import.meta.env.BASE_URL}images/Marika Fest 2024 - Productos de conscientización.jpg`}
           alt=""
           aria-hidden="true"
           loading="lazy"

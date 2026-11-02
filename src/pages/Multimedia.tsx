@@ -66,7 +66,7 @@ export default function Multimedia() {
     <div className="page-art-backdrop bg-[#FAF9F6] text-gray-900">
       <section className="page-hero">
         <img
-          src="/images/Marika Fest 2024 - Productos de conscientización.jpg"
+          src={`${import.meta.env.BASE_URL}images/Marika Fest 2024 - Productos de conscientización.jpg`}
           alt=""
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover object-center"

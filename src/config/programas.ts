@@ -12,7 +12,7 @@ export const PROGRAMAS: Programa[] = [
       'Visibilidad para las creaciones de personas de la comunidad.',
       'Espacios seguros fomentando la autogestión.',
     ],
-    imagen: '/images/Marika Fest 2024 - Feria de autogestión LGTBIQ.jpg',
+    imagen: `${import.meta.env.BASE_URL}images/Marika Fest 2024 - Feria de autogestión LGTBIQ.jpg`,
     categoria: 'Autogestión',
   },
   {
@@ -22,7 +22,7 @@ export const PROGRAMAS: Programa[] = [
       'Desarrollamos artivismo (prints, fanzines, stickers, serigrafía, música y poesía) donde mostramos nuestra resistencia como personas de la comunidad.',
     objetivo: 'Disputar las narrativas públicas a través de la creatividad, el arte y la memoria.',
     detalles: ['Producción artística mostrando nuestra expresión como personas de la comunidad.'],
-    imagen: '/images/Presentacion Fanzine colaborativo Manifiesto Marika Vol1 y Vol2.jpg',
+    imagen: `${import.meta.env.BASE_URL}images/Presentacion Fanzine colaborativo Manifiesto Marika Vol1 y Vol2.jpg`,
     categoria: 'Artivismo',
   },
   {
@@ -35,7 +35,7 @@ export const PROGRAMAS: Programa[] = [
       'Talleres presenciales y círculos de formación entre pares.',
       'Espacios de cuidado y salud integral para personas LGTBIQ+.',
     ],
-    imagen: '/images/Taller de collage - Ancestralidad Qhariwarmi.jpg',
+    imagen: `${import.meta.env.BASE_URL}images/Taller de collage - Ancestralidad Qhariwarmi.jpg`,
     categoria: 'Talleres',
   },
   {
@@ -48,7 +48,7 @@ export const PROGRAMAS: Programa[] = [
       'Articulación permanente con organizaciones afines locales, nacionales e internacionales.',
       'Movilización e incidencia política mediante el arte y la percusión.',
     ],
-    imagen: '/images/planton 25N.jpg',
+    imagen: `${import.meta.env.BASE_URL}images/planton 25N.jpg`,
     categoria: 'Incidencia',
   },
 ]

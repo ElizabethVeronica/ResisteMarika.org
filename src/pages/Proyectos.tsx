@@ -9,7 +9,7 @@ export default function Proyectos() {
     <div className="page-art-backdrop bg-surface-light">
       <section className="page-hero">
         <img
-          src="/images/marcha del orgullo 2025.png"
+          src={`${import.meta.env.BASE_URL}images/marcha del orgullo 2025.png`}
           alt=""
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover object-center"
@@ -96,7 +96,7 @@ export default function Proyectos() {
 
       <section className="page-section page-section--photo relative isolate overflow-hidden border-y border-white/10 py-14 sm:py-20">
         <img
-          src="/images/Feria Informativa LGTBIQ CuidArte en el Colegio San Francisco de Borja.jpg"
+          src={`${import.meta.env.BASE_URL}images/Feria Informativa LGTBIQ CuidArte en el Colegio San Francisco de Borja.jpg`}
           alt=""
           aria-hidden="true"
           loading="lazy"

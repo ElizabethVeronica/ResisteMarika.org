@@ -32,7 +32,7 @@ export default function Contacto() {
     <div className="page-art-backdrop bg-surface-light pb-10">
       <section className="page-hero">
         <img
-          src="/images/taller de batucada.jpg"
+          src={`${import.meta.env.BASE_URL}images/taller de batucada.jpg`}
           alt=""
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover object-center"

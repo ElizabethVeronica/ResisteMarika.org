@@ -70,8 +70,12 @@ export default function Seo() {
     setMeta('name', 'twitter:description', page.description)
 
     if (siteUrl) {
-      const canonicalUrl = new URL(pathname, siteUrl.origin).toString()
-      const socialImageUrl = new URL('/images/logo png.png', siteUrl.origin).toString()
+      const canonicalPath = `${import.meta.env.BASE_URL}${pathname.replace(/^\/+/, '')}`
+      const canonicalUrl = new URL(canonicalPath, siteUrl.origin).toString()
+      const socialImageUrl = new URL(
+        `${import.meta.env.BASE_URL}images/logo png.png`,
+        siteUrl.origin,
+      ).toString()
       setMeta('property', 'og:url', canonicalUrl)
       setMeta('property', 'og:image', socialImageUrl)
       setMeta('name', 'twitter:image', socialImageUrl)
