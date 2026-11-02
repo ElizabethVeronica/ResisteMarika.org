@@ -20,13 +20,13 @@ export default function Home() {
               <Reveal className="lg:col-span-7">
                 <div className="relative isolate overflow-hidden rounded-3xl border border-gray-200/80 bg-white/95 p-5 shadow-sm sm:p-7 dark:border-white/10 dark:bg-[#211d2a]/95">
                   <img
-                    src={`${import.meta.env.BASE_URL}images/logo png.png`}
+                    src={`${import.meta.env.BASE_URL}images/logo png.webp`}
                     alt=""
                     aria-hidden="true"
                     className="home-hero-logo home-hero-logo--light"
                   />
                   <img
-                    src={`${import.meta.env.BASE_URL}images/logo inverso.png`}
+                    src={`${import.meta.env.BASE_URL}images/logo inverso.webp`}
                     alt=""
                     aria-hidden="true"
                     className="home-hero-logo home-hero-logo--dark"
@@ -65,8 +65,10 @@ export default function Home() {
               <Reveal className="lg:col-span-5" delay={0.1}>
                 <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 shadow-md border border-gray-200 group">
                   <img
-                    src={`${import.meta.env.BASE_URL}images/marcha 8M 2025.png`}
+                    src={`${import.meta.env.BASE_URL}images/marcha 8M 2025.webp`}
                     alt="Marcha de Resiste Marika Cusco con tambores"
+                    fetchPriority="high"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
                   />
                 </div>
@@ -110,6 +112,8 @@ export default function Home() {
                     <img
                       src={prog.imagen}
                       alt={prog.titulo}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
                     />
                   </div>
@@ -160,7 +164,13 @@ export default function Home() {
               <Reveal key={n.id} className="h-full" delay={Math.min(index * 0.08, 0.24)}>
                 <article className="graphic-card flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white/95 shadow-sm dark:bg-[#211d2a]/95">
                   <div className="aspect-[16/10] overflow-hidden bg-gray-200">
-                    <img src={n.imagen} alt={n.titulo} className="h-full w-full object-cover" />
+                    <img
+                      src={n.imagen}
+                      alt={n.titulo}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover"
+                    />
                   </div>
                   <div className="p-6 flex flex-1 flex-col gap-2">
                     <span className="flex items-center gap-1.5 font-sans text-xs text-gray-500">
@@ -182,10 +192,11 @@ export default function Home() {
 
       <section className="page-section page-section--photo home-network-cta relative isolate overflow-hidden border-y border-white/10 py-16 sm:py-20">
         <img
-          src={`${import.meta.env.BASE_URL}images/Marika Fest 2024 - Productos de conscientización.jpg`}
+          src={`${import.meta.env.BASE_URL}images/Marika Fest 2024 - Productos de conscientización.webp`}
           alt=""
           aria-hidden="true"
           loading="lazy"
+          decoding="async"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="photo-section__overlay" />

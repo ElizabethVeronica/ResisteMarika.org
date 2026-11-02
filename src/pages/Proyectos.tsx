@@ -9,9 +9,11 @@ export default function Proyectos() {
     <div className="page-art-backdrop bg-surface-light">
       <section className="page-hero">
         <img
-          src={`${import.meta.env.BASE_URL}images/marcha del orgullo 2025.png`}
+          src={`${import.meta.env.BASE_URL}images/marcha del orgullo 2025.webp`}
           alt=""
           aria-hidden="true"
+          fetchPriority="high"
+          decoding="async"
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
         <div className="page-hero__overlay" />
@@ -42,6 +44,8 @@ export default function Proyectos() {
                         <img
                           src={prog.imagen}
                           alt={prog.titulo}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                       </div>
@@ -96,10 +100,11 @@ export default function Proyectos() {
 
       <section className="page-section page-section--photo relative isolate overflow-hidden border-y border-white/10 py-14 sm:py-20">
         <img
-          src={`${import.meta.env.BASE_URL}images/Feria Informativa LGTBIQ CuidArte en el Colegio San Francisco de Borja.jpg`}
+          src={`${import.meta.env.BASE_URL}images/Feria Informativa LGTBIQ CuidArte en el Colegio San Francisco de Borja.webp`}
           alt=""
           aria-hidden="true"
           loading="lazy"
+          decoding="async"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="photo-section__overlay" />

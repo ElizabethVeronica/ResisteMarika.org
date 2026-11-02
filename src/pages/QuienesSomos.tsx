@@ -35,18 +35,20 @@ export default function QuienesSomos() {
 
       const remainingPageHeight =
         document.documentElement.scrollHeight - window.scrollY - window.innerHeight
-      setNearPageBottom(remainingPageHeight <= 320)
+      const isNearPageBottom = remainingPageHeight <= 320
+      setNearPageBottom((current) => current === isNearPageBottom ? current : isNearPageBottom)
 
+      const activeLine = sectionMenuRef.current.getBoundingClientRect().bottom + 12
       const currentSection = [...SECTION_LINKS]
         .reverse()
         .find(({ id }) => {
           const section = document.getElementById(id)
-          return section && section.getBoundingClientRect().top <= 180
+          return section && section.getBoundingClientRect().top <= activeLine
         })
       if (currentSection) {
-        setActiveSection(currentSection.id)
+        setActiveSection((current) => current === currentSection.id ? current : currentSection.id)
       } else if (window.scrollY < 180) {
-        setActiveSection(SECTION_LINKS[0].id)
+        setActiveSection((current) => current === SECTION_LINKS[0].id ? current : SECTION_LINKS[0].id)
       }
     }
 
@@ -63,9 +65,11 @@ export default function QuienesSomos() {
     <div className="page-art-backdrop bg-[#FAF9F6] text-gray-900">
       <section className="page-hero">
         <img
-          src={`${import.meta.env.BASE_URL}images/Presentacion Fanzine colaborativo Manifiesto Marika Vol1 y Vol2.jpg`}
+          src={`${import.meta.env.BASE_URL}images/Presentacion Fanzine colaborativo Manifiesto Marika Vol1 y Vol2.webp`}
           alt=""
           aria-hidden="true"
+          fetchPriority="high"
+          decoding="async"
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
         <div className="page-hero__overlay" />
@@ -159,8 +163,10 @@ export default function QuienesSomos() {
               <div className="flex flex-col gap-3">
               <div className="aspect-[16/8] rounded-2xl overflow-hidden border border-gray-200 shadow-sm bg-gray-100">
                 <img
-                  src={`${import.meta.env.BASE_URL}images/Ceremonia de Agradecimiento a la Pachamama y Compartir Marika 2024.jpg`}
+                  src={`${import.meta.env.BASE_URL}images/Ceremonia de Agradecimiento a la Pachamama y Compartir Marika 2024.webp`}
                   alt="Ceremonia y compartir colectivo en Cusco"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -223,8 +229,10 @@ export default function QuienesSomos() {
               <Reveal className="mb-5">
                 <div className="aspect-[16/7] overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
                   <img
-                    src={`${import.meta.env.BASE_URL}images/marcha del 8M 2024.jpg`}
+                    src={`${import.meta.env.BASE_URL}images/marcha del 8M 2024.webp`}
                     alt="Marcha 8M con tambores y batucada en Cusco"
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover"
                   />
                 </div>
@@ -246,10 +254,11 @@ export default function QuienesSomos() {
 
       <section id="autogestion" className="page-section page-section--photo relative isolate scroll-mt-24 overflow-hidden py-10 sm:py-12">
         <img
-          src={`${import.meta.env.BASE_URL}images/Marika Fest 2024 - Feria de autogestión LGTBIQ.jpg`}
+          src={`${import.meta.env.BASE_URL}images/Marika Fest 2024 - Feria de autogestión LGTBIQ.webp`}
           alt=""
           aria-hidden="true"
           loading="lazy"
+          decoding="async"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="photo-section__overlay" />
@@ -333,8 +342,10 @@ export default function QuienesSomos() {
               <div className="interactive-card graphic-card--stripe bg-white p-5 sm:p-6 rounded-2xl border border-gray-200 shadow-sm space-y-4 dark:border-white/10 dark:bg-[#211d2a]">
               <div className="aspect-[16/9] rounded-xl overflow-hidden bg-gray-100 border border-gray-200">
                 <img
-                  src={`${import.meta.env.BASE_URL}images/marcha del orgullo 2025.png`}
+                  src={`${import.meta.env.BASE_URL}images/marcha del orgullo 2025.webp`}
                   alt="Marcha de Resiste Marika en Cusco"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -408,10 +419,11 @@ export default function QuienesSomos() {
 
       <section className="page-section page-section--photo relative isolate overflow-hidden py-12 sm:py-16">
         <img
-          src={`${import.meta.env.BASE_URL}images/taller de pañuelos 28s.jpg`}
+          src={`${import.meta.env.BASE_URL}images/taller de pañuelos 28s.webp`}
           alt=""
           aria-hidden="true"
           loading="lazy"
+          decoding="async"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="photo-section__overlay" />

@@ -33,10 +33,10 @@ export default function Reveal({
   className,
   delay = 0,
   direction = 'up',
-  duration = 0.6,
+  duration = 0.45,
 }: RevealProps) {
   const ref    = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: false, margin: '-100px' })
+  const inView = useInView(ref, { once: true, margin: '-100px' })
   const reduceMotion = useReducedMotion()
   const vtActive = useViewTransition()
   const offset = directionMap[direction]

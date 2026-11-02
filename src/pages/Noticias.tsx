@@ -43,6 +43,7 @@ function SocialPostCard({ post, platform }: { post: SocialPost; platform: 'Insta
             src={post.thumbnailUrl}
             alt={title ? `Publicación de ${platform}: ${title}` : `Publicación reciente de ${platform}`}
             loading="lazy"
+            decoding="async"
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
@@ -142,10 +143,11 @@ export default function Noticias() {
     <div className="page-art-backdrop bg-surface-light">
       <section className="page-hero">
         <img
-          src={`${import.meta.env.BASE_URL}images/Taller de Memoria con el Archivo Marika del Perú 2025.png`}
+          src={`${import.meta.env.BASE_URL}images/Taller de Memoria con el Archivo Marika del Perú 2025.webp`}
           alt=""
           aria-hidden="true"
-          loading="lazy"
+          fetchPriority="high"
+          decoding="async"
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
         <div className="page-hero__overlay" />

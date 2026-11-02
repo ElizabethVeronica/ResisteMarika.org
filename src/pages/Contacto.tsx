@@ -32,9 +32,11 @@ export default function Contacto() {
     <div className="page-art-backdrop bg-surface-light pb-10">
       <section className="page-hero">
         <img
-          src={`${import.meta.env.BASE_URL}images/taller de batucada.jpg`}
+          src={`${import.meta.env.BASE_URL}images/taller de batucada.webp`}
           alt=""
           aria-hidden="true"
+          fetchPriority="high"
+          decoding="async"
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
         <div className="page-hero__overlay" />

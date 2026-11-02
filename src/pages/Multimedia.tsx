@@ -66,9 +66,11 @@ export default function Multimedia() {
     <div className="page-art-backdrop bg-[#FAF9F6] text-gray-900">
       <section className="page-hero">
         <img
-          src={`${import.meta.env.BASE_URL}images/Marika Fest 2024 - Productos de conscientización.jpg`}
+          src={`${import.meta.env.BASE_URL}images/Marika Fest 2024 - Productos de conscientización.webp`}
           alt=""
           aria-hidden="true"
+          fetchPriority="high"
+          decoding="async"
           className="absolute inset-0 h-full w-full object-cover object-center"
         />
         <div className="page-hero__overlay" />
@@ -152,6 +154,7 @@ export default function Multimedia() {
                             src={item.archivo}
                             alt={item.titulo}
                             loading="lazy"
+                            decoding="async"
                             className="w-full h-full object-cover group-hover:scale-104 transition-transform duration-400"
                           />
                           <div className="absolute inset-0 bg-gray-950/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
@@ -245,6 +248,7 @@ export default function Multimedia() {
                   <img
                     src={selectedItem.archivo}
                     alt={selectedItem.titulo}
+                    decoding="async"
                     className="max-h-[72vh] max-w-full rounded-lg object-contain sm:rounded-xl"
                   />
                 </div>

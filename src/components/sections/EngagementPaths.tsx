@@ -8,10 +8,11 @@ export default function EngagementPaths() {
   return (
     <section className="page-section page-section--photo relative isolate overflow-hidden border-b border-gray-200 py-14 sm:py-20">
       <img
-        src={`${import.meta.env.BASE_URL}images/3er Reencuentro Plurisexual en La Paz, Bolivia 2025.jpg`}
+        src={`${import.meta.env.BASE_URL}images/3er Reencuentro Plurisexual en La Paz, Bolivia 2025.webp`}
         alt=""
         aria-hidden="true"
         loading="lazy"
+        decoding="async"
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="photo-section__overlay" />

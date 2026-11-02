@@ -47,8 +47,10 @@ export default function Footer() {
               <Link to="/" className="flex items-center gap-3 w-fit">
                 <div className="site-logo-frame h-[4.5rem] w-[4.5rem] rounded-2xl bg-white flex items-center justify-center overflow-hidden shadow-sm">
                   <img
-                    src={`${import.meta.env.BASE_URL}images/logo png.png`}
+                    src={`${import.meta.env.BASE_URL}images/logo png.webp`}
                     alt="Logo de Resiste Marika"
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-contain"
                   />
                 </div>
