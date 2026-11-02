@@ -27,13 +27,16 @@ export default function Home() {
   const noticiasPreview = NOTICIAS.slice(0, 3)
   const proyectosPreview = PROGRAMAS.slice(0, 3)
   const [activeHeroPhoto, setActiveHeroPhoto] = useState(0)
+  const [heroPhotoDirection, setHeroPhotoDirection] = useState<'next' | 'previous'>('next')
   const touchStartX = useRef<number | null>(null)
 
   const showNextHeroPhoto = () => {
+    setHeroPhotoDirection('next')
     setActiveHeroPhoto((current) => Math.min(current + 1, HERO_PHOTOS.length - 1))
   }
 
   const showPreviousHeroPhoto = () => {
+    setHeroPhotoDirection('previous')
     setActiveHeroPhoto((current) => Math.max(current - 1, 0))
   }
 
@@ -102,8 +105,8 @@ export default function Home() {
 
                     const swipeDistance = event.clientX - touchStartX.current
                     touchStartX.current = null
-                    if (swipeDistance > 50) showNextHeroPhoto()
-                    else if (swipeDistance < -50) showPreviousHeroPhoto()
+                    if (swipeDistance > 50) showPreviousHeroPhoto()
+                    else if (swipeDistance < -50) showNextHeroPhoto()
                   }}
                   onPointerCancel={() => {
                     touchStartX.current = null
@@ -115,7 +118,7 @@ export default function Home() {
                     alt={HERO_PHOTOS[activeHeroPhoto].alt}
                     fetchPriority={activeHeroPhoto === 0 ? 'high' : 'auto'}
                     decoding="async"
-                    className="h-full w-full object-cover"
+                    className={`h-full w-full object-cover home-hero-gallery__image--${heroPhotoDirection}`}
                   />
                   <button
                     type="button"
