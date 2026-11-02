@@ -108,9 +108,9 @@ export default function Proyectos() {
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="photo-section__overlay" />
-        <Container className="relative z-10 w-full">
+        <Container className="w-full">
           <Reveal>
-            <div className="max-w-3xl py-8 text-white">
+            <div className="photo-section__content max-w-3xl">
                 <h2 className="mb-3 font-display text-3xl font-extrabold leading-tight text-white drop-shadow-lg sm:text-4xl">
                   ¿Tienes alguna iniciativa o proyecto en mente?
                 </h2>

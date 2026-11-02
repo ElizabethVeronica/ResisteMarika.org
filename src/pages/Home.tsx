@@ -193,12 +193,12 @@ export default function Home() {
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="photo-section__overlay" />
-        <Container className="relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
+        <Container>
+          <div className="photo-section__content mx-auto max-w-3xl text-center">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-display text-white leading-tight mb-4">
               ¿Quieres sumarte, proponer un taller o articular con nosotres?
             </h2>
-            <p className="text-sm sm:text-base text-white/80 font-sans leading-relaxed mb-8">
+            <p className="text-sm sm:text-base text-white/90 font-sans leading-relaxed mb-8">
               Escríbenos a nuestro correo oficial{' '}
               <a href="mailto:resistemarik@gmail.com" className="text-brand-sky font-semibold underline">
                 resistemarik@gmail.com

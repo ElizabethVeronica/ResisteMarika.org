@@ -77,6 +77,34 @@
   align-items: center;
 }
 
+.photo-section__content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-block: 2rem;
+  color: #fff;
+}
+
+.photo-section__item-accent {
+  width: 2.25rem;
+  height: 0.25rem;
+  margin-bottom: 0.75rem;
+  border-radius: 9999px;
+  background-color: #f3a5cf;
+}
+
+.photo-section__item-title {
+  color: #fff;
+}
+
+.photo-section__item-title--accent {
+  color: #f3a5cf;
+}
+
+.photo-section__item-link:hover .photo-section__item-title {
+  color: #f3a5cf;
+}
+
 .page-hero {
   position: relative;
   isolation: isolate;

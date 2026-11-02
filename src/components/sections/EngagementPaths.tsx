@@ -15,8 +15,8 @@ export default function EngagementPaths() {
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="photo-section__overlay" />
-      <Container className="relative z-10">
-        <div className="mx-auto max-w-5xl py-8 text-white">
+      <Container>
+        <div className="photo-section__content mx-auto max-w-5xl">
           <div className="mb-10 max-w-3xl">
             <h2 className="font-display text-3xl font-extrabold text-white sm:text-4xl">
               Acompáñanos
@@ -26,14 +26,15 @@ export default function EngagementPaths() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 divide-y divide-white/30 border-y border-white/30 md:grid-cols-3 md:divide-x md:divide-y-0">
+          <div className="grid grid-cols-1 divide-y divide-white/30 md:grid-cols-3 md:divide-x md:divide-y-0">
             {ENGAGEMENT_PATHS.map((path) => (
               <Link
                 key={path.id}
                 to={path.href}
-                className="group flex h-full flex-col py-6 md:px-6 md:first:pl-0 md:last:pr-0"
+                className="photo-section__item-link group flex h-full flex-col py-6 md:px-6 md:first:pl-0 md:last:pr-0"
               >
-                <h3 className="mb-2 font-display text-lg font-bold text-white transition-colors group-hover:text-brand-pink">
+                <div className="photo-section__item-accent" />
+                <h3 className="photo-section__item-title mb-2 font-display text-lg font-bold transition-colors">
                   {path.titulo}
                 </h3>
                 <p className="flex-1 font-sans text-sm leading-relaxed text-white/80">{path.descripcion}</p>

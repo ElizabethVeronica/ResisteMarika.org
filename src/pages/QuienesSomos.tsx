@@ -261,8 +261,8 @@ export default function QuienesSomos() {
             <div className="grid grid-cols-1 divide-y divide-white/25 sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4">
               {FORMAS_AUTOGESTION.map((f) => (
                 <div key={f.id} className="py-5 sm:px-4 sm:py-2 lg:px-5">
-                  <div className="mb-3 h-1 w-9 rounded-full bg-brand-pink" />
-                  <h3 className="font-display text-lg font-bold text-white">{f.titulo}</h3>
+                  <div className="photo-section__item-accent" />
+                  <h3 className="photo-section__item-title--accent font-display text-lg font-bold">{f.titulo}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-white/90">{f.descripcion}</p>
                 </div>
               ))}
@@ -390,13 +390,13 @@ export default function QuienesSomos() {
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-1 gap-x-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {CON_QUIENES_TRABAJAMOS.redes.map((red) => (
               <div
                 key={red.categoria}
-                className="border-b border-gray-200 py-5 dark:border-white/10"
+                className="rounded-2xl border border-gray-200 bg-white/80 p-5 shadow-sm dark:border-white/10 dark:bg-[#211d2a]/80"
               >
-                <h3 className="font-display text-base font-bold text-gray-900">
+                <h3 className="mb-2 font-display text-base font-bold text-brand-purple">
                   {red.categoria}
                 </h3>
                 <p className="mt-2 font-sans text-xs leading-relaxed text-gray-600 sm:text-sm">
@@ -404,16 +404,16 @@ export default function QuienesSomos() {
                 </p>
               </div>
             ))}
-            {ALIANZAS.map((a) => (
-              <div
-                key={a.id}
-                className="border-b border-gray-200 py-5 dark:border-white/10"
-              >
-                <div>
-                  <h3 className="font-display text-base font-bold text-gray-900">{a.nombre}</h3>
+          </div>
+          <div className="mt-8 border-t border-gray-200 pt-6 dark:border-white/10">
+            <h3 className="mb-4 font-display text-lg font-bold text-gray-900">Redes y espacios aliados</h3>
+            <div className="grid grid-cols-1 gap-x-8 sm:grid-cols-2 lg:grid-cols-4">
+              {ALIANZAS.map((a) => (
+                <div key={a.id} className="border-b border-gray-200 py-4 dark:border-white/10">
+                  <h4 className="font-display text-sm font-semibold text-gray-800">{a.nombre}</h4>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </Container>
       </section>
@@ -427,9 +427,9 @@ export default function QuienesSomos() {
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="photo-section__overlay" />
-        <Container className="relative z-10 w-full">
+        <Container className="w-full">
           <Reveal>
-            <div className="max-w-3xl py-8 text-white">
+            <div className="photo-section__content max-w-3xl">
               <h2 className="mb-4 font-display text-3xl font-extrabold text-white drop-shadow-lg sm:text-4xl">
                 ¿Deseas articular acciones o sumar tu proyecto?
               </h2>
