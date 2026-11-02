@@ -75,11 +75,11 @@ export default function Navbar() {
           <Link
             to="/"
             viewTransition
-            className="flex items-center gap-2 group lg:hidden"
+            className="flex items-center gap-2 group"
             onClick={handleLogoClick}
           >
             {/* Logo oficial de Resiste Marika */}
-            <div className="relative h-[4.5rem] w-[4.5rem] sm:h-20 sm:w-20 shrink-0 overflow-hidden transition-transform group-hover:scale-105">
+            <div className="relative h-[4.5rem] w-[4.5rem] shrink-0 overflow-hidden transition-transform group-hover:scale-105 sm:h-20 sm:w-20">
               <img
                 src="/images/logo png.png"
                 alt="Logo de Resiste Marika"
@@ -94,7 +94,7 @@ export default function Navbar() {
             </div>
 
             <div className="flex flex-col">
-              <span className="font-display font-extrabold text-lg sm:text-xl tracking-tight text-brand-dark leading-none">
+              <span className="font-display font-extrabold text-lg tracking-tight text-brand-dark leading-none sm:text-xl lg:text-lg">
                 Resiste <span className="text-brand-purple">Marika</span>
               </span>
               <span className="text-[11px] font-semibold text-gray-500 tracking-wider uppercase mt-1">
@@ -103,37 +103,7 @@ export default function Navbar() {
             </div>
           </Link>
 
-          <div className="hidden lg:flex flex-1 items-center justify-center gap-2 xl:gap-4">
-            <Link
-              to="/"
-              viewTransition
-              onClick={handleLogoClick}
-              className="flex items-center gap-2 shrink-0 group"
-              aria-label="Resiste Marika - Inicio"
-            >
-              <div className="relative h-20 w-20 shrink-0 overflow-hidden transition-transform group-hover:scale-105">
-                <img
-                  src="/images/logo png.png"
-                  alt=""
-                  className="site-logo--light w-full h-full object-contain object-bottom"
-                />
-                <img
-                  src="/images/logo inverso.png"
-                  alt=""
-                  aria-hidden="true"
-                  className="site-logo--dark w-full h-full object-contain object-bottom"
-                />
-              </div>
-              <span className="flex flex-col">
-                <span className="font-display font-extrabold text-lg tracking-tight text-brand-dark leading-none">
-                  Resiste <span className="text-brand-purple">Marika</span>
-                </span>
-                <span className="text-[10px] font-semibold text-gray-500 tracking-wider uppercase mt-1">
-                  Autogestión y Arte
-                </span>
-              </span>
-            </Link>
-
+          <div className="hidden flex-1 items-center justify-end gap-2 lg:flex xl:gap-4">
             {/* Navegación Desktop */}
             <nav className="flex items-center gap-0.5 xl:gap-1.5" aria-label="Navegación principal">
               {NAV_LINKS.map((link, index) => {
