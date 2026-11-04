@@ -141,36 +141,33 @@ export default function Home() {
                   <span className="sr-only" aria-live="polite" aria-atomic="true">
                     Fotografía {activeHeroPhoto + 1} de {HERO_PHOTOS.length}
                   </span>
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] bg-gradient-to-t from-black/25 to-transparent px-4 pb-2 pt-6">
+                    <div className="mx-auto flex max-w-3xl items-center justify-center gap-4">
+                      <div className="h-0.5 flex-1 rounded-full bg-gradient-to-r from-transparent via-brand-purple/40 to-brand-purple/70" />
+                      <div
+                        className="home-hero-gallery__indicator flex items-center gap-1 rounded-full border border-brand-purple/25 bg-white/95 px-2.5 py-1.5 shadow-xs dark:bg-[#211d2a]"
+                        role="img"
+                        aria-label={`Fotografía ${activeHeroPhoto + 1} de ${HERO_PHOTOS.length}`}
+                      >
+                        {HERO_PHOTOS.map((photo, index) => (
+                          <span key={photo.src} className="home-hero-gallery__dot-slot" aria-hidden="true">
+                            {activeHeroPhoto === index && (
+                              <span
+                                className={`home-hero-gallery__dot ${
+                                  ['bg-brand-sky', 'bg-brand-pink', 'bg-brand-purple'][index]
+                                }`}
+                              />
+                            )}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="h-0.5 flex-1 rounded-full bg-gradient-to-l from-transparent via-brand-purple/40 to-brand-purple/70" />
+                    </div>
+                  </div>
                 </div>
               </Reveal>
             </div>
           </Container>
-        </div>
-
-        <div className="w-full pb-3 sm:pb-4">
-          <Reveal>
-            <div className="mx-auto flex max-w-3xl items-center justify-center gap-4 px-4">
-              <div className="h-0.5 flex-1 rounded-full bg-gradient-to-r from-transparent via-brand-purple/20 to-brand-purple/50 dark:via-purple-500/20 dark:to-purple-500/50" />
-              <div
-                className="home-hero-gallery__indicator flex items-center gap-1 rounded-full border border-brand-purple/25 bg-white/90 px-2.5 py-1.5 shadow-xs dark:bg-[#211d2a]"
-                role="img"
-                aria-label={`Fotografía ${activeHeroPhoto + 1} de ${HERO_PHOTOS.length}`}
-              >
-                {HERO_PHOTOS.map((photo, index) => (
-                  <span key={photo.src} className="home-hero-gallery__dot-slot" aria-hidden="true">
-                    {activeHeroPhoto === index && (
-                      <span
-                        className={`home-hero-gallery__dot ${
-                          ['bg-brand-sky', 'bg-brand-pink', 'bg-brand-purple'][index]
-                        }`}
-                      />
-                    )}
-                  </span>
-                ))}
-              </div>
-              <div className="h-0.5 flex-1 rounded-full bg-gradient-to-l from-transparent via-brand-purple/20 to-brand-purple/50 dark:via-purple-500/20 dark:to-purple-500/50" />
-            </div>
-          </Reveal>
         </div>
       </section>
 
