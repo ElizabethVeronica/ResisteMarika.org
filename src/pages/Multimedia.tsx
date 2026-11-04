@@ -18,6 +18,9 @@ export default function Multimedia() {
   const [activeCategory, setActiveCategory] = useState<string>('Todas')
   const [selectedItem, setSelectedItem] = useState<MultimediaItem | null>(null)
   const [nearPageBottom, setNearPageBottom] = useState(false)
+  const [mobileNavVisible, setMobileNavVisible] = useState(
+    () => window.matchMedia('(min-width: 640px)').matches,
+  )
   const galleryRef = useRef<HTMLElement>(null)
   const location = useLocation()
 
@@ -42,6 +45,17 @@ export default function Multimedia() {
       const remainingPageHeight =
         document.documentElement.scrollHeight - window.scrollY - window.innerHeight
       setNearPageBottom(remainingPageHeight <= 320)
+
+      const isMobileViewport = window.matchMedia('(max-width: 639px)').matches
+      const headerHeight = Number.parseFloat(
+        getComputedStyle(document.documentElement).getPropertyValue('--site-header-height'),
+      ) || 0
+      const galleryTop = galleryRef.current?.getBoundingClientRect().top ?? Infinity
+      const shouldShowMobileNav =
+        !isMobileViewport || galleryTop <= headerHeight + 96
+      setMobileNavVisible((current) =>
+        current === shouldShowMobileNav ? current : shouldShowMobileNav,
+      )
     }
 
     updateBottomVisibility()
@@ -89,9 +103,11 @@ export default function Multimedia() {
       <section ref={galleryRef} className="page-section pb-12 pt-12 sm:pb-16 sm:pt-16">
         <Container>
           <div
-            aria-hidden={nearPageBottom || selectedItem !== null}
-            className={`sticky-section-nav z-30 mb-4 transition-opacity duration-200 sm:z-[60] ${
-              nearPageBottom || selectedItem ? 'pointer-events-none opacity-0' : 'opacity-100'
+            aria-hidden={nearPageBottom || selectedItem !== null || !mobileNavVisible}
+            className={`sticky-section-nav mobile-fixed-section-nav z-30 mb-4 transition-opacity duration-200 sm:z-[60] ${
+              nearPageBottom || selectedItem !== null || !mobileNavVisible
+                ? 'pointer-events-none opacity-0'
+                : 'opacity-100'
             }`}
           >
             <div className="mobile-scrollbar-hidden -mx-4 flex w-[calc(100%+2rem)] flex-nowrap justify-start gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:w-auto sm:flex-wrap sm:justify-center sm:gap-3 sm:overflow-visible sm:px-0 sm:pb-0">
