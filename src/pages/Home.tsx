@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { ArrowLeft, ArrowRight, Calendar } from 'lucide-react'
 import Container from '@/components/ui/Container'
 import Button from '@/components/ui/Button'
@@ -29,6 +29,14 @@ export default function Home() {
   const [activeHeroPhoto, setActiveHeroPhoto] = useState(0)
   const [heroPhotoDirection, setHeroPhotoDirection] = useState<'next' | 'previous'>('next')
   const touchStartX = useRef<number | null>(null)
+
+  useEffect(() => {
+    HERO_PHOTOS.slice(1).forEach(({ src }) => {
+      const image = new Image()
+      image.decoding = 'async'
+      image.src = src
+    })
+  }, [])
 
   const showNextHeroPhoto = () => {
     setHeroPhotoDirection('next')
