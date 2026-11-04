@@ -110,11 +110,11 @@ export default function QuienesSomos() {
         ref={sectionMenuRef}
         aria-label="Secciones de quiénes somos"
         aria-hidden={nearPageBottom}
-        className={`sticky-section-nav mobile-section-nav z-30 mx-auto mt-4 mb-4 block w-full max-w-full px-4 transition-opacity duration-200 sm:z-[60] sm:mt-6 sm:w-fit sm:max-w-[calc(100%-2rem)] sm:px-0 ${
+        className={`sticky-section-nav mobile-section-nav mobile-section-nav--quienes z-30 mx-auto mt-4 mb-4 w-full max-w-full px-4 transition-opacity duration-200 sm:z-[60] sm:mt-6 sm:w-fit sm:max-w-[calc(100%-2rem)] sm:px-0 ${
           nearPageBottom ? 'pointer-events-none opacity-0' : 'opacity-100'
         }`}
       >
-        <div className="mobile-scrollbar-hidden -mx-4 flex w-[calc(100%+2rem)] flex-nowrap justify-start gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:w-auto sm:flex-wrap sm:justify-center sm:gap-3 sm:overflow-visible sm:px-0 sm:pb-0">
+        <div className="mobile-section-nav__items grid w-full max-w-[34rem] grid-cols-2 justify-center gap-2 sm:flex sm:w-auto sm:max-w-none sm:flex-wrap sm:justify-center sm:gap-3">
           {SECTION_LINKS.map(({ id, label }) => {
             const isActive = activeSection === id
             return (
@@ -139,10 +139,10 @@ export default function QuienesSomos() {
                   }
                 }}
                 aria-current={isActive ? 'location' : undefined}
-                className={`section-nav-button shrink-0 rounded-xl px-2 py-2 text-center text-[11px] font-bold transition-colors duration-200 sm:px-3 sm:py-1.5 sm:text-xs ${
+                className={`section-nav-button rounded-xl bg-gray-100 px-2 py-2 text-center text-[11px] font-bold text-gray-700 transition-colors duration-200 dark:bg-[#302a3b] dark:text-gray-200 sm:px-3 sm:py-1.5 sm:text-xs ${
                   isActive
-                    ? 'bg-brand-purple text-white shadow-sm'
-                    : 'bg-gray-100 text-gray-700 dark:bg-[#302a3b] dark:text-gray-200'
+                    ? 'sm:bg-brand-purple sm:text-white sm:shadow-sm'
+                    : 'sm:bg-gray-100 sm:text-gray-700 sm:dark:bg-[#302a3b] sm:dark:text-gray-200'
                 }`}
               >
                 {label}

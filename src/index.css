@@ -307,6 +307,29 @@
 
   .mobile-section-nav {
     position: static;
+    display: flex;
+    min-height: 11rem;
+    align-items: center;
+    justify-content: center;
+    margin-block: 0;
+  }
+
+  .mobile-section-nav__items {
+    justify-items: stretch;
+  }
+
+  .mobile-section-nav--quienes .mobile-section-nav__items {
+    transform: translateY(0.5rem);
+  }
+
+  .mobile-section-nav__items > button {
+    min-height: 2.5rem;
+  }
+
+  .mobile-section-nav__items > button:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 0.25rem);
   }
 }
 

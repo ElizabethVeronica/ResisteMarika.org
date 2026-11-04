@@ -88,7 +88,7 @@ export default function Multimedia() {
         </Container>
       </section>
 
-      <section ref={galleryRef} className="page-section pb-12 pt-12 sm:pb-16 sm:pt-16">
+      <section ref={galleryRef} className="page-section pb-12 pt-0 sm:pb-16 sm:pt-16">
         <Container>
           <div
             aria-hidden={nearPageBottom || selectedItem !== null}
@@ -98,7 +98,7 @@ export default function Multimedia() {
                 : 'opacity-100'
             }`}
           >
-            <div className="mobile-scrollbar-hidden -mx-4 flex w-[calc(100%+2rem)] flex-nowrap justify-start gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:w-auto sm:flex-wrap sm:justify-center sm:gap-3 sm:overflow-visible sm:px-0 sm:pb-0">
+            <div className="mobile-section-nav__items grid w-full max-w-[34rem] grid-cols-2 justify-center gap-2 sm:flex sm:w-auto sm:max-w-none sm:flex-wrap sm:justify-center sm:gap-3">
               {CATEGORIAS_MULTIMEDIA.map((cat) => {
                 const count =
                   cat === 'Todas'
@@ -111,16 +111,18 @@ export default function Multimedia() {
                     key={cat}
                     type="button"
                     onClick={() => selectCategory(cat)}
-                    className={`shrink-0 px-3 py-1.5 rounded-xl text-[11px] sm:text-xs font-bold transition-all duration-200 flex items-center gap-1.5 ${
+                    className={`flex items-center justify-center gap-1.5 rounded-xl bg-gray-100 px-2 py-1.5 text-center text-[11px] font-bold text-gray-700 transition-all duration-200 dark:bg-[#302a3b] dark:text-gray-200 sm:px-3 sm:text-xs ${
                       isActive
-                        ? 'bg-brand-purple text-white shadow-sm'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        ? 'sm:bg-brand-purple sm:text-white sm:shadow-sm'
+                        : 'sm:bg-gray-100 sm:text-gray-700 sm:hover:bg-gray-200 sm:dark:bg-[#302a3b] sm:dark:text-gray-200'
                     }`}
                   >
                     <span>{cat}</span>
                     <span
-                      className={`text-[9px] px-1 py-0.5 rounded-full ${
-                        isActive ? 'bg-white/20 text-white' : 'bg-gray-200 text-gray-600'
+                      className={`rounded-full bg-gray-200 px-1 py-0.5 text-[9px] text-gray-600 dark:bg-[#40384d] dark:text-gray-300 ${
+                        isActive
+                          ? 'sm:bg-white/20 sm:text-white'
+                          : 'sm:bg-gray-200 sm:text-gray-600 sm:dark:bg-[#40384d] sm:dark:text-gray-300'
                       }`}
                     >
                       {count}
