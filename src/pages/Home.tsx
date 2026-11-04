@@ -29,23 +29,47 @@ export default function Home() {
   const [activeHeroPhoto, setActiveHeroPhoto] = useState(0)
   const [heroPhotoDirection, setHeroPhotoDirection] = useState<'next' | 'previous'>('next')
   const touchStartX = useRef<number | null>(null)
+  const heroPhotoImages = useRef(new Map<number, HTMLImageElement>())
+  const activeHeroPhotoRef = useRef(0)
 
   useEffect(() => {
-    HERO_PHOTOS.slice(1).forEach(({ src }) => {
+    HERO_PHOTOS.forEach(({ src }, index) => {
       const image = new Image()
       image.decoding = 'async'
+      image.fetchPriority = index === 0 ? 'high' : 'low'
       image.src = src
+      heroPhotoImages.current.set(index, image)
     })
   }, [])
 
-  const showNextHeroPhoto = () => {
-    setHeroPhotoDirection('next')
-    setActiveHeroPhoto((current) => Math.min(current + 1, HERO_PHOTOS.length - 1))
+  const showHeroPhoto = (photoIndex: number, direction: 'next' | 'previous') => {
+    if (photoIndex === activeHeroPhotoRef.current) return
+
+    let image = heroPhotoImages.current.get(photoIndex)
+    if (!image) {
+      image = new Image()
+      image.decoding = 'async'
+      image.src = HERO_PHOTOS[photoIndex].src
+      heroPhotoImages.current.set(photoIndex, image)
+    }
+
+    void image.decode().then(
+      () => {
+        activeHeroPhotoRef.current = photoIndex
+        setHeroPhotoDirection(direction)
+        setActiveHeroPhoto(photoIndex)
+      },
+      (error: unknown) => {
+        console.error(`No se pudo decodificar la fotografía ${photoIndex + 1} de la galería.`, error)
+      },
+    )
   }
 
+  const showNextHeroPhoto = () =>
+    showHeroPhoto(Math.min(activeHeroPhotoRef.current + 1, HERO_PHOTOS.length - 1), 'next')
+
   const showPreviousHeroPhoto = () => {
-    setHeroPhotoDirection('previous')
-    setActiveHeroPhoto((current) => Math.max(current - 1, 0))
+    showHeroPhoto(Math.max(activeHeroPhotoRef.current - 1, 0), 'previous')
   }
 
   return (
@@ -101,7 +125,7 @@ export default function Home() {
 
               <Reveal className="lg:col-span-5" delay={0.1}>
                 <div
-                  className="home-hero-gallery group relative aspect-[4/3] touch-pan-y overflow-hidden rounded-2xl border border-gray-200 bg-gray-100 shadow-md"
+                  className="home-hero-gallery group relative aspect-[4/3] touch-pan-y overflow-hidden rounded-2xl border border-gray-200 bg-gray-300 shadow-md"
                   role="region"
                   aria-label="Fotografías de las marchas de Resiste Marika"
                   aria-roledescription="carrusel"
