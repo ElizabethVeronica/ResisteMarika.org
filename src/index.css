@@ -313,6 +313,7 @@
     width: 100%;
     max-width: none;
     margin: 0;
+    padding-inline: 1rem;
     padding-block: 0.5rem;
     background: rgb(250 249 246 / 0.96);
   }
