@@ -18,9 +18,6 @@ export default function Multimedia() {
   const [activeCategory, setActiveCategory] = useState<string>('Todas')
   const [selectedItem, setSelectedItem] = useState<MultimediaItem | null>(null)
   const [nearPageBottom, setNearPageBottom] = useState(false)
-  const [mobileNavVisible, setMobileNavVisible] = useState(
-    () => window.matchMedia('(min-width: 640px)').matches,
-  )
   const galleryRef = useRef<HTMLElement>(null)
   const location = useLocation()
 
@@ -44,18 +41,9 @@ export default function Multimedia() {
     const updateBottomVisibility = () => {
       const remainingPageHeight =
         document.documentElement.scrollHeight - window.scrollY - window.innerHeight
-      setNearPageBottom(remainingPageHeight <= 320)
-
       const isMobileViewport = window.matchMedia('(max-width: 639px)').matches
-      const headerHeight = Number.parseFloat(
-        getComputedStyle(document.documentElement).getPropertyValue('--site-header-height'),
-      ) || 0
-      const galleryTop = galleryRef.current?.getBoundingClientRect().top ?? Infinity
-      const shouldShowMobileNav =
-        !isMobileViewport || galleryTop <= headerHeight + 96
-      setMobileNavVisible((current) =>
-        current === shouldShowMobileNav ? current : shouldShowMobileNav,
-      )
+      setNearPageBottom(remainingPageHeight <= 320 && !isMobileViewport)
+
     }
 
     updateBottomVisibility()
@@ -103,9 +91,9 @@ export default function Multimedia() {
       <section ref={galleryRef} className="page-section pb-12 pt-12 sm:pb-16 sm:pt-16">
         <Container>
           <div
-            aria-hidden={nearPageBottom || selectedItem !== null || !mobileNavVisible}
-            className={`sticky-section-nav mobile-fixed-section-nav z-30 mb-4 transition-opacity duration-200 sm:z-[60] ${
-              nearPageBottom || selectedItem !== null || !mobileNavVisible
+            aria-hidden={nearPageBottom || selectedItem !== null}
+            className={`sticky-section-nav mobile-section-nav z-30 mb-4 transition-opacity duration-200 sm:z-[60] ${
+              nearPageBottom || selectedItem !== null
                 ? 'pointer-events-none opacity-0'
                 : 'opacity-100'
             }`}

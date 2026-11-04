@@ -26,13 +26,9 @@ const SECTION_LINKS = [
 ]
 
 export default function QuienesSomos() {
-  const heroRef = useRef<HTMLElement>(null)
   const sectionMenuRef = useRef<HTMLElement>(null)
   const [activeSection, setActiveSection] = useState('nosotros')
   const [nearPageBottom, setNearPageBottom] = useState(false)
-  const [mobileNavVisible, setMobileNavVisible] = useState(
-    () => window.matchMedia('(min-width: 640px)').matches,
-  )
 
   useEffect(() => {
     let updateFrame = 0
@@ -46,7 +42,8 @@ export default function QuienesSomos() {
 
         const remainingPageHeight =
           document.documentElement.scrollHeight - window.scrollY - window.innerHeight
-        const isNearPageBottom = remainingPageHeight <= 320
+        const isMobileViewport = window.matchMedia('(max-width: 639px)').matches
+        const isNearPageBottom = remainingPageHeight <= 320 && !isMobileViewport
         setNearPageBottom((current) =>
           current === isNearPageBottom ? current : isNearPageBottom,
         )
@@ -54,15 +51,10 @@ export default function QuienesSomos() {
         const headerHeight = Number.parseFloat(
           getComputedStyle(document.documentElement).getPropertyValue('--site-header-height'),
         ) || 0
-        const isMobileViewport = window.matchMedia('(max-width: 639px)').matches
-        const shouldShowMobileNav =
-          !isMobileViewport ||
-          (heroRef.current?.getBoundingClientRect().bottom ?? Infinity) <= headerHeight + 48
-        setMobileNavVisible((current) =>
-          current === shouldShowMobileNav ? current : shouldShowMobileNav,
-        )
 
-        const activeLine = sectionMenuRef.current.getBoundingClientRect().bottom + 12
+        const activeLine = isMobileViewport
+          ? headerHeight + sectionMenuRef.current.getBoundingClientRect().height + 12
+          : sectionMenuRef.current.getBoundingClientRect().bottom + 12
         const currentSection = [...SECTION_LINKS]
           .reverse()
           .find(({ id }) => {
@@ -93,7 +85,7 @@ export default function QuienesSomos() {
 
   return (
     <div className="page-art-backdrop bg-[#FAF9F6] text-gray-900">
-      <section ref={heroRef} className="page-hero">
+      <section className="page-hero">
         <img
           src={`${import.meta.env.BASE_URL}images/Presentacion Fanzine colaborativo Manifiesto Marika Vol1 y Vol2.webp`}
           alt=""
@@ -117,9 +109,9 @@ export default function QuienesSomos() {
         id="quienes-somos-section-nav"
         ref={sectionMenuRef}
         aria-label="Secciones de quiénes somos"
-        aria-hidden={nearPageBottom || !mobileNavVisible}
-        className={`sticky-section-nav mobile-fixed-section-nav z-30 mx-auto mt-4 mb-4 block w-full max-w-full px-4 transition-opacity duration-200 sm:z-[60] sm:mt-6 sm:w-fit sm:max-w-[calc(100%-2rem)] sm:px-0 ${
-          nearPageBottom || !mobileNavVisible ? 'pointer-events-none opacity-0' : 'opacity-100'
+        aria-hidden={nearPageBottom}
+        className={`sticky-section-nav mobile-section-nav z-30 mx-auto mt-4 mb-4 block w-full max-w-full px-4 transition-opacity duration-200 sm:z-[60] sm:mt-6 sm:w-fit sm:max-w-[calc(100%-2rem)] sm:px-0 ${
+          nearPageBottom ? 'pointer-events-none opacity-0' : 'opacity-100'
         }`}
       >
         <div className="mobile-scrollbar-hidden -mx-4 flex w-[calc(100%+2rem)] flex-nowrap justify-start gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:w-auto sm:flex-wrap sm:justify-center sm:gap-3 sm:overflow-visible sm:px-0 sm:pb-0">

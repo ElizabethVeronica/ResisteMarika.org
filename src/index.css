@@ -305,21 +305,8 @@
     backdrop-filter: none !important;
   }
 
-  .mobile-fixed-section-nav {
-    position: fixed;
-    top: calc(var(--site-header-height, 9.5rem) + 0.25rem);
-    right: 0;
-    left: 0;
-    width: 100%;
-    max-width: none;
-    margin: 0;
-    padding-inline: 1rem;
-    padding-block: 0.5rem;
-    background: rgb(250 249 246 / 0.96);
-  }
-
-  .dark .mobile-fixed-section-nav {
-    background: rgb(33 29 42 / 0.96);
+  .mobile-section-nav {
+    position: static;
   }
 }
 
